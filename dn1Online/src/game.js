@@ -146,6 +146,7 @@ GameScene.prototype.create = function() {
 	this.cameras.main.startFollow(this.hero)
 
 	// constrols
+	this.input.addPointer(5)
 	this.aButton = this.add.sprite(this.scale.canvas.width - 65, this.scale.canvas.height - 150, 'aButton')
 	this.aButton.setOrigin(0)
 	this.aButton.setInteractive()
