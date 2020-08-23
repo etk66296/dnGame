@@ -29,7 +29,7 @@ class Key extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class KeyPlate extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, keyData, hero, key_USE, gates) {
+  constructor (scene, x, y, keyData, hero, key_USE, touch_USE, gates) {
 		super(scene, x, y)
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
@@ -37,6 +37,7 @@ class KeyPlate extends Phaser.Physics.Arcade.Sprite {
 		this.name = keyData.name
 		this.matchingKeyName = keyData.properties.key
 		this.key_USE  = key_USE
+		this.touch_USE = touch_USE
 		this.keyUsed = false
 		this.gates = gates
 	}
@@ -47,7 +48,7 @@ class KeyPlate extends Phaser.Physics.Arcade.Sprite {
 		this.scene.physics.add.overlap(this, this.hero, () => {
 			if (!this.keyUsed) {
 				this.hero.inventory.forEach((inventoryItem) => {
-					if (inventoryItem === this.matchingKeyName && this.key_USE.isDown) {
+					if (inventoryItem === this.matchingKeyName && (this.key_USE.isDown || this.touch_USE.isDown)) {
 						this.gates.children.iterate((gate) => {
 							// the plates and keys are alo in the group =>
 							// it is better to make sure the current object is a gate
@@ -113,7 +114,7 @@ class Gate extends Phaser.Physics.Arcade.Sprite {
 }
 
 class KeysNGates extends Phaser.Physics.Arcade.Group {
-  constructor (scene, keysData, hero, pointsFlyers, key_USE, openGateSound) {
+  constructor (scene, keysData, hero, pointsFlyers, key_USE, touch_USE, openGateSound) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		keysData.forEach(keyData => {
@@ -124,7 +125,7 @@ class KeysNGates extends Phaser.Physics.Arcade.Group {
 				this.add(new Key(scene, keyData.x + 8, keyData.y + 8, keyData, hero, pointsFlyers))
 			}
 			if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
-				this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, this))
+				this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, touch_USE, this))
 			}
 		})
 	}

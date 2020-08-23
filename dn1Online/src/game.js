@@ -364,7 +364,7 @@ GameScene.prototype.initCrocos = function() {
 }
 
 GameScene.prototype.initLevelGate = function() {	
-	this.levelGateGroup = new LevelGate(this, this.levelGateObjLayerData, this.hero, this.key_USE)
+	this.levelGateGroup = new LevelGate(this, this.levelGateObjLayerData, this.hero, this.key_USE, this.touch_USE)
 	this.levelGateGroup.children.iterate((levelGateSegment) => {
 		levelGateSegment.setup()
 	})
@@ -456,7 +456,7 @@ GameScene.prototype.initGifts = function() {
 
 GameScene.prototype.initElevators = function() {
 	this.elevatorsObjLayerData.forEach((elevatorData) => {
-		this.elevators.push(new Elevator(this, elevatorData, this.hero, this.key_USE))
+		this.elevators.push(new Elevator(this, elevatorData, this.hero, this.key_USE, this.touch_USE))
 	})
 	// all elevator groups in one level are in an array
 	this.elevators.forEach(elevator => {
@@ -509,7 +509,7 @@ GameScene.prototype.initWasherBoss = function() {
 }
 
 GameScene.prototype.initKeysAndGates = function() {
-	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE, this.openGateSound)
+	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE,this.touch_USE, this.openGateSound)
 	this.keysNGatesGroup.children.iterate(keyItem => {
 		keyItem.setup()
 	})

@@ -30,11 +30,12 @@ class LevelGateSegment extends Phaser.Physics.Arcade.Sprite {
 }
 
 class LevelGate extends Phaser.Physics.Arcade.Group {
-  constructor (scene, levelGateData, hero, key_USE) {
+  constructor (scene, levelGateData, hero, key_USE, touch_USE) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		this.levelComplete = false
 		this.key_USE = key_USE
+		this.touch_USE = touch_USE
 		levelGateData.forEach((levelGateSegmentData) => {
 			this.add(new LevelGateSegment(scene, levelGateSegmentData.x + 8, levelGateSegmentData.y + 8, levelGateSegmentData, hero))
 		})
@@ -42,7 +43,7 @@ class LevelGate extends Phaser.Physics.Arcade.Group {
 	setup () {
 		this.scene.physics.add.overlap(this.hero, this, () => {
 			if (!this.levelComplete) {
-				if (this.key_USE.isDown) {
+				if (this.key_USE.isDown || this.touch_USE.isDown) {
 					this.levelComplete = true
 					this.children.iterate((doorSegment) => {
 						doorSegment.openGate()

@@ -70,7 +70,7 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 }
 
 class Elevator extends Phaser.Physics.Arcade.Group {
-  constructor (scene, elevatorData, hero, key_USE) {
+  constructor (scene, elevatorData, hero, key_USE, touch_USE) {
 		super(scene.physics.world, scene)
 		this.headModule = new ElevatorHead (scene, elevatorData.x + 8, elevatorData.y + 8, hero)
 		for (let i = 0; i < elevatorData.properties.numberOfSegments; i++) {
@@ -79,11 +79,12 @@ class Elevator extends Phaser.Physics.Arcade.Group {
 		this.headModule.setDepth(1)
 		this.add(this.headModule)
 		this.key_USE = key_USE
+		this.touch_USE = touch_USE
 	}
 	setup () {
 	}
 	enable () {
-		if (this.key_USE.isDown && this.headModule.body.touching.up) {
+		if ((this.key_USE.isDown || this.touch_USE.isDown) && this.headModule.body.touching.up) {
 			this.headModule.goUp = true
 		}
 	}
