@@ -153,10 +153,10 @@ GameScene.prototype.create = function() {
 	this.aButton.setDepth(101)
 	this.aButton.setScrollFactor(0,0)
 	this.aButton.on('pointerdown', (pointer) => {
-		this.touch_JUMP.isDown = true
+		this.touch_FIRE.isDown = true
 	})
 	this.aButton.on('pointerup', (pointer) => {
-		this.touch_JUMP.isDown = false
+		this.touch_FIRE.isDown = false
 	})
 	this.bButton = this.add.sprite(this.scale.canvas.width - 100, this.scale.canvas.height - 80, 'bButton').setOrigin(0)
 	this.bButton.setOrigin(0)
@@ -164,10 +164,12 @@ GameScene.prototype.create = function() {
 	this.bButton.setDepth(101)
 	this.bButton.setScrollFactor(0,0)
 	this.bButton.on('pointerdown', (pointer) => {
-		this.touch_FIRE.isDown = true
+		this.touch_JUMP.isDown = true
+		
 	})
 	this.bButton.on('pointerup', (pointer) => {
-		this.touch_FIRE.isDown = false
+		
+		this.touch_JUMP.isDown = false
 	})
 	this.leftButton = this.add.sprite(5, this.scale.canvas.height - 150, 'leftButton').setOrigin(0)
 	this.leftButton.setOrigin(0)
