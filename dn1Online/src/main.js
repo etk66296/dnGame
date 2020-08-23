@@ -3,8 +3,8 @@ function MemoryGame() {
 			type: Phaser.AUTO,
 			// type: Phaser.CANVAS,
 	    parent: 'phaser3Canvas',
-	    width: 501, // the odd values avoid bleeding on the render borders
-	    height: 281,
+	    width: 500, // the odd values avoid bleeding on the render borders
+	    height: 280,
 			backgroundColor: '#111111',
 			physics: {
 				default: "arcade",

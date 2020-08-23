@@ -63,6 +63,8 @@ function GameScene() {
 	this.key_JUMP = null
 	this.key_FIRE = null
 	this.key_USE = null
+	this.aButton = null
+	this.bButton = null
 
 	// sound opjects
 	this.heroStepSound = null
@@ -134,13 +136,18 @@ GameScene.prototype.create = function() {
 	
 	// setup a hero following phaser cam
 	this.cameras.main.startFollow(this.hero)
+
+	// constrols
+	this.aButton = this.add.sprite(this.scale.canvas.width - 65, this.scale.canvas.height - 150, 'aButton').setOrigin(0)
+	this.aButton.setDepth(101)
+	this.aButton.setScrollFactor(0,0)
+	this.bButton = this.add.sprite(this.scale.canvas.width - 100, this.scale.canvas.height - 80, 'bButton').setOrigin(0)
+	this.bButton.setDepth(101)
+	this.bButton.setScrollFactor(0,0)
 }
 
 GameScene.prototype.update = function (time, delta) {
-	// phaser you are awesome --> have a look at the low lined game update function
 	// hero movement -->
-	// this.headUpDsp.setPosition(this.cameras.)
-	// console.log(this.cameras.main._scrollX)
 	if (this.key_LEFT.isDown) {
 		if(this.hero.body.onFloor()) {
 			if (!this.heroStepSound.isPlaying) {

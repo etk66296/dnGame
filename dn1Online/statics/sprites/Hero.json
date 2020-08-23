@@ -73,7 +73,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"idleL_0000": {
-			"frame": {"x":0,"y":32,"w":32,"h":32},
+			"frame": {"x":0,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -81,7 +81,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"walkL_0000": {
-			"frame": {"x":32,"y":32,"w":32,"h":32},
+			"frame": {"x":32,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -89,7 +89,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"walkL_0001": {
-			"frame": {"x":64,"y":32,"w":32,"h":32},
+			"frame": {"x":64,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -97,7 +97,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"walkL_0002": {
-			"frame": {"x":96,"y":32,"w":32,"h":32},
+			"frame": {"x":96,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -105,7 +105,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"walkL_0003": {
-			"frame": {"x":128,"y":32,"w":32,"h":32},
+			"frame": {"x":128,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -113,7 +113,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"walkL_0004": {
-			"frame": {"x":160,"y":32,"w":32,"h":32},
+			"frame": {"x":160,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -121,7 +121,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"jumpL_0000": {
-			"frame": {"x":192,"y":32,"w":32,"h":32},
+			"frame": {"x":192,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -129,7 +129,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"painL_0000": {
-			"frame": {"x":224,"y":32,"w":32,"h":32},
+			"frame": {"x":224,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},
@@ -137,7 +137,7 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"painL_0001": {
-			"frame": {"x":256,"y":32,"w":32,"h":32},
+			"frame": {"x":256,"y":33,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":327,"h":217},

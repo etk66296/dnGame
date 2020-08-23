@@ -13,6 +13,14 @@ IntroScene.prototype.preload = function () {
 	this.load.image('logoScreen', 'statics/myLogo.png')
 	this.load.image('TilesNoTileBleeding', 'statics/sprites/TilesNoTileBleeding.png')
 	this.load.image('headUpDsp', 'statics/headUpDsp.png')
+	
+	// CONTROL BUTTONS
+	this.load.image('aButton', 'statics/buttons/a.png')
+	this.load.image('bButton', 'statics/buttons/b.png')
+	this.load.image('leftButton', 'statics/buttons/left.png')
+	this.load.image('rightButton', 'statics/buttons/right.png')
+	this.load.image('upButton', 'statics/buttons/up.png')
+
 	// MAPS
 	this.load.tilemapTiledJSON("level1map", "statics/maps/dn1MapLevel1.json")
 
@@ -58,7 +66,7 @@ IntroScene.prototype.preload = function () {
 }
 
 IntroScene.prototype.create = function() {
-	this.add.sprite(0, 0, 'introScreen').setOrigin(0)
+	this.add.sprite(-10, -10, 'introScreen').setOrigin(0)
 	// this.add.sprite(0, 0, 'headUpDsp').setOrigin(0)
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////
