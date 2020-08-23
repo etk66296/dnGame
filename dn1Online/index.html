@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>dn1</title>
+    <link rel="shortcut icon" href="statics/favicon.ico">
+    <style>
+      @font-face {
+        font-family: 'VT323-Regular';
+        src: url('statics/font/VT323-Regular.ttf');
+      }
+      html {
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 100%);
+        background-repeat: no-repeat;
+        background-size: auto;
+        min-height: 100%;
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body style="margin: 100px;">
+    <!-- 3rd -->
+    <script src="src/phaser.min.js"></script>
+    <script src="src/axios.min.js"></script>
+    <!-- game scripts -->
+    <script src="src/intro.js"></script>
+    <script src="src/logo.js"></script>
+    <script src="src/gameObjects/mines.js"></script>
+    <script src="src/gameObjects/bullets.js"></script>
+    <script src="src/gameObjects/enemyBullets.js"></script>
+    <script src="src/gameObjects/miniRobots.js"></script>
+    <script src="src/gameObjects/giantRobots.js"></script>
+    <script src="src/gameObjects/crocos.js"></script>
+    <script src="src/gameObjects/enemyCanon.js"></script>
+    <script src="src/gameObjects/pointFlyer.js"></script>
+    <script src="src/gameObjects/observerCams.js"></script>
+    <script src="src/gameObjects/dynamite.js"></script>
+    <script src="src/gameObjects/gifts.js"></script>
+    <script src="src/gameObjects/elevator.js"></script>
+    <script src="src/gameObjects/glowthrower.js"></script>
+    <script src="src/gameObjects/trap.js"></script>
+    <script src="src/gameObjects/keysNGates.js"></script>
+    <script src="src/gameObjects/animatedDeco.js"></script>
+    <script src="src/gameObjects/levelGate.js"></script>
+    <script src="src/gameObjects/washerBoss.js"></script>
+    <script src="src/game.js"></script>
+    <script src="src/main.js"></script>
+    <!-- when finally all scripts are loaded run the game -->
+    <script>new MemoryGame()</script>
+    <script>
+      window.onload = function() {
+      }
+    </script>
+    <!-- render div, phaser creates the render element internally -->
+    <header style="padding-top: 30px;">
+      <div style="float: right; margin-right: 100px;">
+        <div style="color: #FFF; font-size: 10px;">created with: </div>
+        <div style="margin-left: 10px"><img style="height: 12px;" src="statics/phaserLogo.png" /></div>
+      </div>
+    </header>
+    <main>
+      <div style="display: inline-block; padding: 20px;" class="centerInnterDiv" id="phaser3Canvas"></div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>

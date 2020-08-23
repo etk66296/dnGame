@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>memory</title>
+    <link rel="shortcut icon" href="statics/favicon.ico">
+    <style>
+      @font-face {
+        font-family: 'VT323-Regular';
+        src: url('statics/font/VT323-Regular.ttf');
+      }
+      html {
+        height: 100%;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: -webkit-linear-gradient( to left top, #004444, #002222);
+        background: -moz-linear-gradient( to left top, #004444, #002222);
+        background: -ms-linear-gradient( to left top, #004444, #002222);
+        background: -o-linear-gradient( to left top, #004444, #002222);
+        background: linear-gradient( to left top, #004444, #002222);
+        font-family: 'VT323-Regular';
+        font-size: 32px;
+        color: #FFFFFF;
+      }
+      #phaser3Canvas {
+        box-shadow: 10px 10px 8px;
+        background-color: #000000;
+        margin: 20px;
+      }
+      nav {
+        color: #AAAAAA;
+      }
+      .centerInnterDiv {
+        display: table;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+      .centerOuterDiv {
+        border: 1px solid #AAAAAA;
+        width: 90%;
+        padding-left: 10%;
+      }
+      .border {
+        border: 1px solid #AAAAAA;
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="src/phaser.min.js"></script>
+    <script src="src/axios.min.js"></script>
+    <script src="src/intro.js"></script>
+    <script src="src/inputPanel.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/menu.js"></script>
+    <script src="src/game.js"></script>
+    <script src="src/gameOver.js"></script>
+    <script>
+      window.onload = function() {
+        let requestScore = function() {
+          // axios.get('http://localhost:9999/score.json')
+	        axios.post('http://www.ogv-wendlingen.de/games/memory/score.json')
+  	        .then(response => {
+              // console.log(response)
+              document.getElementById("firstPlace").innerHTML = '1st: ' + response.data.score[0].name + ' ' + response.data.score[0].points + ' Punkte'
+              document.getElementById("secondPlace").innerHTML = '2nd: ' + response.data.score[1].name + ' ' + response.data.score[1].points + ' Punkte'
+              document.getElementById("thirdPlace").innerHTML = '3rd: ' + response.data.score[2].name + ' ' + response.data.score[2].points + ' Punkte'
+
+              let list = ''
+              let scoreIdx = 0
+              let listIdx = 0
+              response.data.score.forEach((element, elemIdx) => {
+                element.name = element.name.replace('<','')
+                element.name = element.name.replace('>','')
+                scoreIdx += 1
+                list += '<li>' + String(elemIdx + 1) + '. ' + element.name + ' ' + element.points + ' Punkte' + '</li>'
+                if (scoreIdx >= 34) {
+                  document.getElementById("scoreList" + String(listIdx)).innerHTML = list
+                  listIdx += 1
+                  scoreIdx = 0
+                  list = ''
+                }           
+              })
+              // set the rest to the last list
+              document.getElementById("scoreList" + String(listIdx)).innerHTML = list
+            })
+		        .catch(error => {
+    	        console.log(error)
+		        })
+        }
+        requestScore()
+        setInterval( requestScore, 5000)
+      }
+    </script>
+    <script>new MemoryGame()</script>
+    <header class="border" style="width: 100%;">
+      <nav>
+        <div style="margin: 10px; display: inline-block;">
+          <img src="statics/goldTrophy.png" />
+          <div style="float: right;" id="firstPlace">
+            -
+          </div>
+        </div>
+        <div style="margin: 10px; display: inline-block;">
+          <img src="statics/silverTrophy.png" />
+          <div style="float: right;" id="secondPlace">
+            -
+          </div>
+        </div>
+        <div style="margin: 10px; display: inline-block;">
+          <img src="statics/bronzeTrophy.png" />
+          <div style="float: right;" id="thirdPlace">
+            -
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="centerOuterDiv">
+        <div style="display: inline-block;" class="centerInnterDiv" id="phaser3Canvas"></div>
+        <div style="display: inline-block; overflow: hidden; height: 512px;">
+          <div>
+            <ul style="color: #AAAAAA; font-size: 12px;" id="scoreList0"></ul>
+          </div>
+        </div>
+        <div style="display: inline-block; overflow: hidden; height: 512px;">
+          <div>
+            <ul style="color: #AAAAAA; font-size: 12px;" id="scoreList1"></ul>
+          </div>
+        </div>
+        <div style="display: inline-block; overflow: hidden; height: 512px;">
+          <div>
+            <ul style="color: #AAAAAA; font-size: 12px;" id="scoreList2"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <img src="statics/phaserLogo.png" />
+    </footer>
+  </body>
+</html>
