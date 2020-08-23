@@ -63,8 +63,16 @@ function GameScene() {
 	this.key_JUMP = null
 	this.key_FIRE = null
 	this.key_USE = null
+	this.touch_RIGHT = {isDown: false}
+	this.touch_LEFT = {isDown: false}
+	this.touch_JUMP = {isDown: false}
+	this.touch_FIRE = {isDown: false}
+	this.touch_USE = {isDown: false}
 	this.aButton = null
 	this.bButton = null
+	this.leftButton = null
+	this.rightButton = null
+	this.upButton = null
 
 	// sound opjects
 	this.heroStepSound = null
@@ -138,17 +146,66 @@ GameScene.prototype.create = function() {
 	this.cameras.main.startFollow(this.hero)
 
 	// constrols
-	this.aButton = this.add.sprite(this.scale.canvas.width - 65, this.scale.canvas.height - 150, 'aButton').setOrigin(0)
+	this.aButton = this.add.sprite(this.scale.canvas.width - 65, this.scale.canvas.height - 150, 'aButton')
+	this.aButton.setOrigin(0)
+	this.aButton.setInteractive()
 	this.aButton.setDepth(101)
 	this.aButton.setScrollFactor(0,0)
+	this.aButton.on('pointerdown', (pointer) => {
+		this.touch_JUMP.isDown = true
+	})
+	this.aButton.on('pointerup', (pointer) => {
+		this.touch_JUMP.isDown = false
+	})
 	this.bButton = this.add.sprite(this.scale.canvas.width - 100, this.scale.canvas.height - 80, 'bButton').setOrigin(0)
+	this.bButton.setOrigin(0)
+	this.bButton.setInteractive()
 	this.bButton.setDepth(101)
 	this.bButton.setScrollFactor(0,0)
+	this.bButton.on('pointerdown', (pointer) => {
+		this.touch_FIRE.isDown = true
+	})
+	this.bButton.on('pointerup', (pointer) => {
+		this.touch_FIRE.isDown = false
+	})
+	this.leftButton = this.add.sprite(5, this.scale.canvas.height - 150, 'leftButton').setOrigin(0)
+	this.leftButton.setOrigin(0)
+	this.leftButton.setInteractive()
+	this.leftButton.setDepth(101)
+	this.leftButton.setScrollFactor(0,0)
+	this.leftButton.on('pointerdown', (pointer) => {
+		this.touch_LEFT.isDown = true
+	})
+	this.leftButton.on('pointerup', (pointer) => {
+		this.touch_LEFT.isDown = false
+	})
+	this.rightButton = this.add.sprite(40, this.scale.canvas.height - 80, 'rightButton').setOrigin(0)
+	this.rightButton.setOrigin(0)
+	this.rightButton.setInteractive()
+	this.rightButton.setDepth(101)
+	this.rightButton.setScrollFactor(0,0)
+	this.rightButton.on('pointerdown', (pointer) => {
+		this.touch_RIGHT.isDown = true
+	})
+	this.rightButton.on('pointerup', (pointer) => {
+		this.touch_RIGHT.isDown = false
+	})
+	this.upButton = this.add.sprite(40, this.scale.canvas.height - 250, 'upButton').setOrigin(0)
+	this.upButton.setOrigin(0)
+	this.upButton.setInteractive()
+	this.upButton.setDepth(101)
+	this.upButton.setScrollFactor(0,0)
+	this.upButton.on('pointerdown', (pointer) => {
+		this.touch_USE.isDown = true
+	})
+	this.upButton.on('pointerup', (pointer) => {
+		this.touch_USE.isDown = false
+	})
 }
 
 GameScene.prototype.update = function (time, delta) {
 	// hero movement -->
-	if (this.key_LEFT.isDown) {
+	if (this.key_LEFT.isDown || this.touch_LEFT.isDown) {
 		if(this.hero.body.onFloor()) {
 			if (!this.heroStepSound.isPlaying) {
 				this.heroStepSound.play()
@@ -168,7 +225,7 @@ GameScene.prototype.update = function (time, delta) {
 			}
 		}
 		this.lastDir = 'left'
-  } else if (this.key_RIGHT.isDown) {
+  } else if (this.key_RIGHT.isDown || this.touch_RIGHT.isDown) {
 		if(this.hero.body.onFloor()) {
 			if (!this.heroStepSound.isPlaying) {
 				this.heroStepSound.play()
@@ -204,7 +261,7 @@ GameScene.prototype.update = function (time, delta) {
 			}
 		}
 	}
-	if (this.key_JUMP.isDown && (this.hero.body.onFloor() || this.hero.body.touching.down)) {
+	if ((this.touch_JUMP.isDown || this.key_JUMP.isDown) && (this.hero.body.onFloor() || this.hero.body.touching.down)) {
 		this.hero.setVelocityY(-185)
 		if (!this.heroJumpSound.isPlaying) {
 			this.heroJumpSound.play()
@@ -212,7 +269,7 @@ GameScene.prototype.update = function (time, delta) {
 	}
 	// <-- hero movement
 	// fire -->
-	if (this.key_FIRE.isDown && this.gunCoolsDown <= 0) {
+	if ((this.touch_FIRE.isDown || this.key_FIRE.isDown) && this.gunCoolsDown <= 0) {
 		if (!this.heroFiresSound.isPlaying) {
 			this.heroFiresSound.play()
 		}
@@ -227,7 +284,7 @@ GameScene.prototype.update = function (time, delta) {
 	}
 	// <-- fire
 	// use -->
-	if (this.key_USE.isDown) {
+	if (this.key_USE.isDown || this.touch_USE.isDown) {
 		this.elevators.forEach((elevator) => {
 			elevator.enable()
 		})
