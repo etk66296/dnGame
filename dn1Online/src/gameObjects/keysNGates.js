@@ -70,13 +70,14 @@ class KeyPlate extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Gate extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, gateData, hero) {
+  constructor (scene, x, y, gateData, hero, openGateSound) {
 		super(scene, x, y, 'enemiesSpriteAtlas', gateData.name + '_0000')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
 		this.hero = hero
 		this.matchingGatePlate = gateData.properties.plate
 		this.gateName = gateData.name
+		this.openGateSound = openGateSound
 	}
 	setup () {
 		this.setImmovable(true)
@@ -100,6 +101,9 @@ class Gate extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	open (gateName) {
+		if (!this.openGateSound.isPlaying) {
+			this.openGateSound.play()
+		}
 		this.play(gateName)
 	}
 
@@ -109,12 +113,12 @@ class Gate extends Phaser.Physics.Arcade.Sprite {
 }
 
 class KeysNGates extends Phaser.Physics.Arcade.Group {
-  constructor (scene, keysData, hero, pointsFlyers, key_USE) {
+  constructor (scene, keysData, hero, pointsFlyers, key_USE, openGateSound) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		keysData.forEach(keyData => {
 			if (keyData.type === 'Gate') {
-				this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero))
+				this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, openGateSound))
 			}
 			if (keyData.type === 'Key') {
 				this.add(new Key(scene, keyData.x + 8, keyData.y + 8, keyData, hero, pointsFlyers))

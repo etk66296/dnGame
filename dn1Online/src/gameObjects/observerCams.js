@@ -34,12 +34,15 @@ class GameCam extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class GameCams extends Phaser.Physics.Arcade.Group {
-  constructor (scene, camsData, bullets, pointFlyers) {
+  constructor (scene, camsData, bullets, pointFlyers, explosionSound) {
 		super(scene.physics.world, scene)
 		camsData.forEach((camData) => {
 			this.add(new GameCam(scene, camData.x + 8, camData.y + 8))
 		})
 		scene.physics.add.collider(this, bullets, (cam, bullet) => {
+			if (!explosionSound.isPlaying) {
+				explosionSound.play()
+			}
 			bullet.body.checkCollision.none = true
 			cam.body.checkCollision.none = true
 			cam.setVelocityX(cam.body.velocity.x / 10)

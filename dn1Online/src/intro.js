@@ -21,6 +21,40 @@ IntroScene.prototype.preload = function () {
 	this.load.atlas('enemiesSpriteAtlas', 'statics/sprites/Enemies.png', 'statics/sprites/Enemies.json')
 	this.load.atlas('giftsSpriteAtlas', 'statics/sprites/Gifts.png', 'statics/sprites/Gifts.json')
 	this.load.atlas('decorationSpriteAtlas', 'statics/sprites/TilesNoTileBleeding.png', 'statics/sprites/Decoration.json')
+
+	// SOUND EFFECTS
+	this.load.audio('dukeStep', [
+		'statics/sounds/step.ogg',
+		'statics/sounds/step.mp3'
+	])
+	this.load.audio('dukeJump', [
+		'statics/sounds/jump.ogg',
+		'statics/sounds/jump.mp3'
+	])
+	this.load.audio('dukeFire', [
+		'statics/sounds/fire.ogg',
+		'statics/sounds/fire.mp3'
+	])
+	this.load.audio('explosion', [
+		'statics/sounds/explode.ogg',
+		'statics/sounds/explode.mp3'
+	])
+	this.load.audio('pickupGift', [
+		'statics/sounds/pickupGift.ogg',
+		'statics/sounds/pickupGift.mp3'
+	])
+	this.load.audio('floorFire', [
+		'statics/sounds/floorfire.ogg',
+		'statics/sounds/floorfire.mp3'
+	])
+	this.load.audio('pain', [
+		'statics/sounds/pain.ogg',
+		'statics/sounds/pain.mp3'
+	])
+	this.load.audio('openGate', [
+		'statics/sounds/openGate.ogg',
+		'statics/sounds/openGate.mp3'
+	])
 }
 
 IntroScene.prototype.create = function() {

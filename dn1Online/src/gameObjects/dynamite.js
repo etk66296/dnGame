@@ -60,8 +60,9 @@ class Floorfire extends Phaser.Physics.Arcade.Sprite {
 }
 
 class Dynamite extends Phaser.Physics.Arcade.Group {
-  constructor (scene) {
-    super(scene.physics.world, scene)
+  constructor (scene, floorfireSound) {
+		super(scene.physics.world, scene)
+		this.floorfireSound = floorfireSound
     this.createMultiple({
       frameQuantity: 30,
       key: 'floorfireGroup',
@@ -72,6 +73,9 @@ class Dynamite extends Phaser.Physics.Arcade.Group {
   }
 	detonate (x, y, backdraft) {
 		let countdown = 250
+		if (!this.floorfireSound.isPlaying) {
+			this.floorfireSound.play()
+		}
 		for (let i = 0; i < backdraft; i++) {
 			let floorfire = this.getFirstDead(false)
     	if (floorfire) {

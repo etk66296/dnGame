@@ -37,12 +37,15 @@ class Croco extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Crocos extends Phaser.Physics.Arcade.Group {
-  constructor (scene, crocosData, solidLayer, bullets) {
+  constructor (scene, crocosData, solidLayer, bullets, explosionSound) {
 		super(scene.physics.world, scene)
 		crocosData.forEach((crocoData) => {
 			this.add(new Croco(scene, crocoData.x + 8, crocoData.y + 8, crocoData.type))
 		})
 		scene.physics.add.overlap(this, bullets, (croco, bullet) => {
+			if (!explosionSound.isPlaying) {
+				explosionSound.play()
+			}
 			croco.body.checkCollision.none = true
 			bullet.body.checkCollision.none = true
 			bullet.setVelocityX(0)

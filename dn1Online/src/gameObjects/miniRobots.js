@@ -30,12 +30,15 @@ class Minirobot extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Minirobots extends Phaser.Physics.Arcade.Group {
-  constructor (scene, robotsData, solidLayer, bullets) {
+  constructor (scene, robotsData, solidLayer, bullets, explosionSound) {
 		super(scene.physics.world, scene)
 		robotsData.forEach((robotData) => {
 			this.add(new Minirobot(scene, robotData.x, robotData.y))
 		})
 		scene.physics.add.overlap(this, bullets, (minirobo, bullet) => {
+			if (!explosionSound.isPlaying) {
+				explosionSound.play()
+			}
 			bullet.body.checkCollision.none = true
 			bullet.setVelocityX(bullet.body.velocity.x / 5)
 			bullet.play('heroExplode')

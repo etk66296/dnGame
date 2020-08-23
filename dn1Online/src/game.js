@@ -63,6 +63,16 @@ function GameScene() {
 	this.key_JUMP = null
 	this.key_FIRE = null
 	this.key_USE = null
+
+	// sound opjects
+	this.heroStepSound = null
+	this.heroJumpSound = null
+	this.heroFiresSound = null
+	this.explosionSound = null
+	this.pickupGiftSound = null
+	this.floorfireSound = null
+	this.painSound = null
+	this.openGateSound = null
 }
 
 GameScene.prototype = Object.create(Phaser.Scene.prototype)
@@ -73,6 +83,19 @@ GameScene.prototype.preload = function () {
 }
 
 GameScene.prototype.create = function() {
+	// create the sound effect objects
+	this.heroStepSound = this.sound.add('dukeStep')
+	this.heroStepSound.rate = 2.0
+	this.heroStepSound.volume = 0.5
+	this.heroJumpSound = this.sound.add('dukeJump')
+	this.heroFiresSound = this.sound.add('dukeFire')
+	this.heroFiresSound.volume = 0.75
+	this.explosionSound = this.sound.add('explosion')
+	this.pickupGiftSound = this.sound.add('pickupGift')
+	this.floorfireSound = this.sound.add('floorFire')
+	this.painSound = this.sound.add('pain')
+	this.openGateSound = this.sound.add('openGate')
+
 	// init all game stuff
 	this.initMapData()
 	this.initControls()
@@ -110,8 +133,6 @@ GameScene.prototype.create = function() {
 	this.headUpDsp.setScrollFactor(0,0)
 	
 	// setup a hero following phaser cam
-	// console.log(this.cameras)
-	// this.cameras.main.setSize(320, 200)
 	this.cameras.main.startFollow(this.hero)
 }
 
@@ -122,6 +143,9 @@ GameScene.prototype.update = function (time, delta) {
 	// console.log(this.cameras.main._scrollX)
 	if (this.key_LEFT.isDown) {
 		if(this.hero.body.onFloor()) {
+			if (!this.heroStepSound.isPlaying) {
+				this.heroStepSound.play()
+			}
 			this.hero.setVelocityX(-140)
 			if (this.heroPain) {
 				this.hero.anims.play('heroPainLeft', true)
@@ -139,6 +163,9 @@ GameScene.prototype.update = function (time, delta) {
 		this.lastDir = 'left'
   } else if (this.key_RIGHT.isDown) {
 		if(this.hero.body.onFloor()) {
+			if (!this.heroStepSound.isPlaying) {
+				this.heroStepSound.play()
+			}
 			this.hero.setVelocityX(140)
 			if (this.heroPain) {
 				this.hero.anims.play('heroPainRight', true)
@@ -172,10 +199,16 @@ GameScene.prototype.update = function (time, delta) {
 	}
 	if (this.key_JUMP.isDown && (this.hero.body.onFloor() || this.hero.body.touching.down)) {
 		this.hero.setVelocityY(-185)
+		if (!this.heroJumpSound.isPlaying) {
+			this.heroJumpSound.play()
+		}
 	}
 	// <-- hero movement
 	// fire -->
 	if (this.key_FIRE.isDown && this.gunCoolsDown <= 0) {
+		if (!this.heroFiresSound.isPlaying) {
+			this.heroFiresSound.play()
+		}
 		this.gunCoolsDown = 1000 // if the gun was fired it must cool down before the next shoot
 		if(this.lastDir === 'left') {
 			this.bullets.fireBullet(this.hero.x - 8, this.hero.y, -1)
@@ -198,6 +231,9 @@ GameScene.prototype.update = function (time, delta) {
 		this.heroPainStopWatch += delta
 	}
 	if(this.heroPainStopWatch > this.heroPainTime) {
+		if (!this.painSound.isPlaying) {
+			this.painSound.play()
+		}
 		this.heroPain = false
 		this.heroPainStopWatch = 0
 	}
@@ -254,7 +290,7 @@ GameScene.prototype.initHeroBullets = function() {
 }
 
 GameScene.prototype.initCrocos = function() {
-	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer, this.bullets)
+	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer, this.bullets, this.explosionSound)
 	this.crocosGroup.children.iterate(function (croco) {
 		croco.setup()
 	})
@@ -283,7 +319,7 @@ GameScene.prototype.initMines = function() {
 }
 
 GameScene.prototype.initObserverCameras = function() {
-	this.gameCamsGroup = new GameCams(this, this.camsObjLayerData, this.bullets, this.pointFlyersGroup)
+	this.gameCamsGroup = new GameCams(this, this.camsObjLayerData, this.bullets, this.pointFlyersGroup, this.explosionSound)
 	this.gameCamsGroup.children.iterate((cam) => {
 		cam.setup()
 	})
@@ -297,7 +333,7 @@ GameScene.prototype.initGiantRobots = function() {
 }
 
 GameScene.prototype.initMiniRobots = function() {
-	this.minirobotsGroup = new Minirobots(this, this.minirobotsObjLayerData, this.solidLayer, this.bullets)
+	this.minirobotsGroup = new Minirobots(this, this.minirobotsObjLayerData, this.solidLayer, this.bullets, this.explosionSound)
 	this.minirobotsGroup.children.iterate(function (minirobo) {
 		minirobo.setup()
 	})
@@ -341,11 +377,11 @@ GameScene.prototype.initHero = function() {
 GameScene.prototype.initGifts = function() {
 	// depends on the hero bullets instance
 	this.pointFlyersGroup = new PointsFlyers(this)
-	this.dynamiteGroup = new Dynamite(this)
+	this.dynamiteGroup = new Dynamite(this, this.floorfireSound)
 	this.dynamiteGroup.children.iterate((floorfire) => {
 		floorfire.setup()
 	})
-	this.giftsGroup = new Gifts(this, this.giftsObjLayerData, this.solidLayer, this.pointFlyersGroup, this.bullets, this.dynamiteGroup)
+	this.giftsGroup = new Gifts(this, this.giftsObjLayerData, this.solidLayer, this.pointFlyersGroup, this.bullets, this.dynamiteGroup, this.pickupGiftSound, this.explosionSound)
 	this.giftsGroup.children.iterate(gift => {
 		gift.setup()
 	})
@@ -406,7 +442,7 @@ GameScene.prototype.initWasherBoss = function() {
 }
 
 GameScene.prototype.initKeysAndGates = function() {
-	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE)
+	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE, this.openGateSound)
 	this.keysNGatesGroup.children.iterate(keyItem => {
 		keyItem.setup()
 	})

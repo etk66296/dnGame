@@ -1,5 +1,5 @@
 class Gift extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, name, type, points, pointsFlyers, frame, heroBullets, floorfire, backdraft) {
+  constructor (scene, x, y, name, type, points, pointsFlyers, frame, heroBullets, floorfire, backdraft, pickupGiftSound, explosionSound) {
 		super(scene, x, y, 'giftsSpriteAtlas')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
@@ -14,6 +14,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		this.backdraft = backdraft
 		this.allowCollect = true 
 		this.hits = 0
+		this.pickupGiftSound = pickupGiftSound
+		this.explosionSound = explosionSound
 	}
 	setup () {
 		this.setGravityY(200)
@@ -22,6 +24,9 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 			this.allowCollect = false
 			this.setFrame(this.frame)
 			this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
+				if (!this.explosionSound.isPlaying) {
+					this.explosionSound.play()
+				}
 				if (this.hits > 0) {
 					bullet.body.checkCollision.none = true
 					bullet.setVelocityX(0)
@@ -162,6 +167,9 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 	}
 	collected () {
 		if (this.allowCollect) {
+			if (!this.pickupGiftSound.isPlaying) {
+				this.pickupGiftSound.play()
+			}
 			switch(this.name) {
 				case 'Flag':
 					this.body.checkCollision.none = true
@@ -272,7 +280,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Gifts extends Phaser.Physics.Arcade.Group {
-  constructor (scene, giftsData, solidLayer, pointFlyers, heroBullets, floorfire) {
+  constructor (scene, giftsData, solidLayer, pointFlyers, heroBullets, floorfire, pickupGiftSound, explosionSound) {
 		super(scene.physics.world, scene)
 		giftsData.forEach((giftData) => {
 			this.add(new Gift(scene,
@@ -285,7 +293,9 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 				giftData.properties.frame,
 				heroBullets,
 				floorfire,
-				giftData.properties.backdraft
+				giftData.properties.backdraft,
+				pickupGiftSound,
+				explosionSound
 			))
 		})
 		scene.physics.add.collider(this, solidLayer)
