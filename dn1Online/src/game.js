@@ -4,6 +4,9 @@ function GameScene() {
 	this.hero = null
 	this.cursors = null
 	this.lastDir = 'right'
+	this.heroHealthGroup = null
+	this.healthBlocksCurrent = 10
+	this.healthBlocksMax = 10
 	
 	// the string is used to check if the ogvw character gifts are collected in the correct order
 	this.collectedGiftsChar = ''
@@ -34,8 +37,8 @@ function GameScene() {
 	this.bullets = null
 	this.gunCoolsDown = 0
 	this.mines = null
-	this.heroPain = false
-	this.heroPainTime = 250
+	this.heroPainState = false
+	this.heroPainTime = 750
 	this.heroPainStopWatch = 0
 	this.gameCamsGroup = null
 	this.minirobotsGroup = null
@@ -129,6 +132,8 @@ GameScene.prototype.create = function() {
 	this.initTraps()
 	this.initWasherBoss()
 	this.initKeysAndGates()
+
+	this.initHealthBar()
 	
 	
 	// upon creating all game object instances let's add the collison polling
@@ -214,14 +219,14 @@ GameScene.prototype.update = function (time, delta) {
 				this.heroStepSound.play()
 			}
 			this.hero.setVelocityX(-140)
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainLeft', true)
 			} else {
 				this.hero.anims.play('heroWalkLeft', true)
 			}
 		} else {
 			this.hero.setVelocityX(-this.jumpSpeed)
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainLeft', true)
 			} else {
 				this.hero.anims.play('heroJumpLeft', true)
@@ -234,14 +239,14 @@ GameScene.prototype.update = function (time, delta) {
 				this.heroStepSound.play()
 			}
 			this.hero.setVelocityX(140)
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainRight', true)
 			} else {
 				this.hero.anims.play('heroWalkRight', true)
 			}
 		} else {
 			this.hero.setVelocityX(this.jumpSpeed)
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainRight', true)
 			} else {
 				this.hero.anims.play('heroJumpRight', true)
@@ -251,13 +256,13 @@ GameScene.prototype.update = function (time, delta) {
   } else {
 		this.hero.setVelocityX(0)
 		if(this.lastDir === 'left') {
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainLeft', true)
 			} else {
 				this.hero.anims.play('heroIdleLeft')
 			}
 		} else {
-			if (this.heroPain) {
+			if (this.heroPainState) {
 				this.hero.anims.play('heroPainRight', true)
 			} else {
 				this.hero.anims.play('heroIdleRight')
@@ -294,15 +299,16 @@ GameScene.prototype.update = function (time, delta) {
 	}
 	// <-- use
 	// pain time -->
-	if (this.heroPain) {
+	if (this.heroPainState) {
 		this.heroPainStopWatch += delta
 	}
 	if(this.heroPainStopWatch > this.heroPainTime) {
 		if (!this.painSound.isPlaying) {
 			this.painSound.play()
 		}
-		this.heroPain = false
+		this.heroPainState = false
 		this.heroPainStopWatch = 0
+		this.heroPain()
 	}
 	// <-- pain time
 }
@@ -431,7 +437,7 @@ GameScene.prototype.initBouncerGuards = function() {
 }
 
 GameScene.prototype.initHero = function() {
-	this.hero = this.physics.add.sprite(864, 64, 'heroSpriteAtlas').play('heroJumpRight')
+	this.hero = this.physics.add.sprite(885, 64, 'heroSpriteAtlas').play('heroJumpRight')
 	this.hero.setSize(10, 32, true)
 	this.hero.setGravityY(300)
 	this.hero.setBounce(0.0)
@@ -515,49 +521,64 @@ GameScene.prototype.initKeysAndGates = function() {
 	})
 }
 
+GameScene.prototype.initHealthBar = function() {
+	this.heroHealthGroup = this.add.group()
+	for (let i = 0; i < this.healthBlocksMax; i++) {
+		let rect = this.add.rectangle(this.scale.canvas.width - 95 +  i * 9, 14, 7, 22, 0x00ff00)
+		rect.setOrigin(0, 0)
+		rect.setDepth(102)
+		rect.setScrollFactor(0)
+		this.heroHealthGroup.add(rect)
+		// let rect = this.heroHealthGroup.add(new Phaser.GameObjects.Rectangle(200, 200, 148, 148, 0x6666ff))
+		// rect.setOrigin(0, 0)
+		// rect.setDepth(102)
+		// this.add.circle(400, 200, 80, 0x9966ff);
+	}
+}
+
 GameScene.prototype.initCollision = function() {
 	// this function depends on all init functions
 	// mini robots -->
 	this.physics.add.overlap(this.hero, this.minirobotsGroup,  () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- mini robots
 	// giant robots -->
 	this.physics.add.overlap(this.hero, this.giantRobots,  () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- giant robots
 	// crocos -->
 	this.physics.add.overlap(this.hero, this.crocosGroup,  () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- crocos
 	// enemy bullets -->
 	this.physics.add.overlap(this.hero, this.enemyBullets, () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- enemy bullets
 	// wheel canon -->
 	this.physics.add.overlap(this.hero, this.wheelcanonsGroup, () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- wheel canon
 	// mines -->
 	this.physics.add.overlap(this.mines, this.hero, () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- mines
 	// spikes -->
 	this.physics.add.overlap(this.hero, this.decorationLayer,  (hero, deco) => {
 		if (deco.properties.spike) {
-			this.heroPain = true
+			this.heroPainState = true
 		}
 	})
 	// <-- spikes
 	// glow thrower -->
 	this.glowThrowers.forEach(glowThrower => {
 		this.physics.add.overlap(this.hero, glowThrower,  (hero, deco) => {
-			this.heroPain = true
+			this.heroPainState = true
 		})
 	})
 	// <-- glowthrower
@@ -566,7 +587,16 @@ GameScene.prototype.initCollision = function() {
 		gift.collected()
 	})
 	this.physics.add.overlap(this.hero, this.dynamiteGroup,  () => {
-		this.heroPain = true
+		this.heroPainState = true
 	})
 	// <-- gifts
+}
+
+GameScene.prototype.heroPain = function() {
+	this.healthBlocksCurrent -= 1
+	this.heroHealthGroup.children.iterate((healthBlock, index) => {
+		if (index >= this.healthBlocksCurrent) {
+			healthBlock.setVisible(false)
+		}
+	})
 }
