@@ -64,8 +64,11 @@ class Trap extends Phaser.Physics.Arcade.Group {
 		trapSegmentsData.forEach((trapSegmentData, index) => {
 			this.add(new TrapSegment(scene, trapSegmentData.x + 8, trapSegmentData.y + 8, index, guards))
 		})
+		
 		guards.forEach(guard => {
-			guard.body.checkCollision.none = true
+			if (guard.body !== undefined) {
+				guard.body.checkCollision.none = true
+			}
 		})
 		this.scene.physics.add.collider(hero, this, () => {
 			// set onFloor true

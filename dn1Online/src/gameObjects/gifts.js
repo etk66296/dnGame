@@ -1,5 +1,19 @@
 class Gift extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, name, type, points, pointsFlyers, frame, heroBullets, floorfire, backdraft, pickupGiftSound, explosionSound) {
+	constructor (scene,
+		x,
+		y,
+		name,
+		type,
+		points,
+		pointsFlyers,
+		frame,
+		heroBullets,
+		floorfire,
+		backdraft,
+		pickupGiftSound,
+		explosionSound,
+		healthBlocks
+	) {
 		super(scene, x, y, 'giftsSpriteAtlas')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
@@ -16,6 +30,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		this.hits = 0
 		this.pickupGiftSound = pickupGiftSound
 		this.explosionSound = explosionSound
+		this.healthBlocks = healthBlocks
 	}
 	setup () {
 		this.setGravityY(200)
@@ -144,23 +159,23 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					break
 				case 'ColaTin':
 					this.setFrame('ColaTin_0000')
-					this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
+					this.scene.physics.add.overlap(this, this.heroBullets, (gift, bullet) => {
 						bullet.body.checkCollision.none = true
 						bullet.setVelocityX(0)
 						bullet.play('heroExplode')
 						this.setGravityY(-100)
 						this.play('ColaTin')
 						this.body.checkCollision.up = false
-				}, null, this)
+				})
 					break
 				case 'ChopOfMeat':
 					this.setFrame('SingleChopOfMeat')
-					this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
+					this.scene.physics.add.overlap(this, this.heroBullets, (gift, bullet) => {
 						bullet.body.checkCollision.none = true
 						bullet.setVelocityX(0)
 						bullet.play('heroExplode')
 						this.setFrame('DoubleChopOfMeat')
-					}, null, this)
+					})
 					break
 			}
 		}
@@ -252,6 +267,9 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.setVisible(false)
 					if (this.body.onFloor()) {
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+						if (this.healthBlocks.current< this.healthBlocks.max) {
+							this.healthBlocks.current += 1
+						}
 					} else {
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points) + '0')
 					}
@@ -264,8 +282,14 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.setVisible(false)
 					if (this.frame.name === 'SingleChopOfMeat') {
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_500')
+						if (this.healthBlocks.current< this.healthBlocks.max) {
+							this.healthBlocks.current += 1
+						}
 					} else {
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+						if (this.healthBlocks.current< this.healthBlocks.max) {
+							this.healthBlocks.current += 2
+						}
 					}
 					this.body.reset(1000, -100)
 				break
@@ -280,7 +304,16 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Gifts extends Phaser.Physics.Arcade.Group {
-  constructor (scene, giftsData, solidLayer, pointFlyers, heroBullets, floorfire, pickupGiftSound, explosionSound) {
+	constructor (scene,
+		giftsData,
+		solidLayer,
+		pointFlyers,
+		heroBullets,
+		floorfire,
+		pickupGiftSound,
+		explosionSound,
+		healthBlocks
+	) {
 		super(scene.physics.world, scene)
 		giftsData.forEach((giftData) => {
 			this.add(new Gift(scene,
@@ -295,7 +328,8 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 				floorfire,
 				giftData.properties.backdraft,
 				pickupGiftSound,
-				explosionSound
+				explosionSound,
+				healthBlocks
 			))
 		})
 		scene.physics.add.collider(this, solidLayer)

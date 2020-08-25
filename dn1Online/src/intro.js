@@ -563,7 +563,7 @@ IntroScene.prototype.create = function() {
 IntroScene.prototype.update = function (time, delta) {
 	if (this.elapsedIntroTime > this.introDelay) {
 		this.scene.stop('IntroScene')
-		this.scene.start('LogoScene')
+		this.scene.start('LogoScene',  { doRestart: false })
 	}
 	this.elapsedIntroTime += delta
 }

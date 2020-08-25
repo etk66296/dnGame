@@ -5,8 +5,8 @@ function GameScene() {
 	this.cursors = null
 	this.lastDir = 'right'
 	this.heroHealthGroup = null
-	this.healthBlocksCurrent = 10
-	this.healthBlocksMax = 10
+	this.healthBlocks = { current: 10, max: 10 }
+	this.heroScale = 1.0
 	
 	// the string is used to check if the ogvw character gifts are collected in the correct order
 	this.collectedGiftsChar = ''
@@ -108,6 +108,7 @@ GameScene.prototype.create = function() {
 	this.floorfireSound = this.sound.add('floorFire')
 	this.painSound = this.sound.add('pain')
 	this.openGateSound = this.sound.add('openGate')
+	this.healthBlocks = { current: 10, max: 10 }
 
 	// init all game stuff
 	this.initMapData()
@@ -308,7 +309,18 @@ GameScene.prototype.update = function (time, delta) {
 		}
 		this.heroPainState = false
 		this.heroPainStopWatch = 0
-		this.heroPain()
+		this.healthBlocks.current -= 1
+	}
+	this.updateHealthBlock()
+	if (this.healthBlocks.current <= 0) {
+		this.healthBlocks.current = 0
+		this.heroScale -= 0.01
+		this.hero.setScale(this.heroScale)
+		if(this.heroScale <= 0) {
+			// change to game over scene
+			// this.scene.stop('GameScene')
+			this.scene.start('LogoScene', { doRestart: true });
+		}
 	}
 	// <-- pain time
 }
@@ -454,7 +466,15 @@ GameScene.prototype.initGifts = function() {
 	this.dynamiteGroup.children.iterate((floorfire) => {
 		floorfire.setup()
 	})
-	this.giftsGroup = new Gifts(this, this.giftsObjLayerData, this.solidLayer, this.pointFlyersGroup, this.bullets, this.dynamiteGroup, this.pickupGiftSound, this.explosionSound)
+	this.giftsGroup = new Gifts(this, this.giftsObjLayerData,
+		this.solidLayer,
+		this.pointFlyersGroup,
+		this.bullets,
+		this.dynamiteGroup,
+		this.pickupGiftSound,
+		this.explosionSound,
+		this.healthBlocks
+	)
 	this.giftsGroup.children.iterate(gift => {
 		gift.setup()
 	})
@@ -523,7 +543,7 @@ GameScene.prototype.initKeysAndGates = function() {
 
 GameScene.prototype.initHealthBar = function() {
 	this.heroHealthGroup = this.add.group()
-	for (let i = 0; i < this.healthBlocksMax; i++) {
+	for (let i = 0; i < this.healthBlocks.max; i++) {
 		let rect = this.add.rectangle(this.scale.canvas.width - 95 +  i * 9, 14, 7, 22, 0x00ff00)
 		rect.setOrigin(0, 0)
 		rect.setDepth(102)
@@ -592,11 +612,12 @@ GameScene.prototype.initCollision = function() {
 	// <-- gifts
 }
 
-GameScene.prototype.heroPain = function() {
-	this.healthBlocksCurrent -= 1
+GameScene.prototype.updateHealthBlock = function() {
 	this.heroHealthGroup.children.iterate((healthBlock, index) => {
-		if (index >= this.healthBlocksCurrent) {
+		if (index >= this.healthBlocks.current) {
 			healthBlock.setVisible(false)
+		} else {
+			healthBlock.setVisible(true)
 		}
 	})
 }

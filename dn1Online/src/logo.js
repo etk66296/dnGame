@@ -7,6 +7,10 @@ function LogoScene() {
 LogoScene.prototype = Object.create(Phaser.Scene.prototype)
 LogoScene.prototype.constructor = LogoScene
 
+LogoScene.prototype.init = function(data) {
+	// console.log(data.points)
+	this.doRestart = data.doRestart
+}
 
 LogoScene.prototype.preload = function () {
 
@@ -19,7 +23,11 @@ LogoScene.prototype.create = function() {
 LogoScene.prototype.update = function (time, delta) {
 	if (this.elapsedLogoTime > this.logoDelay) {
 		this.scene.stop('LogoScene')
-		this.scene.start('GameScene')
+		if (this.doRestart) {
+			this.scene.restart('GameScene')
+		} else {
+			this.scene.start('GameScene')
+		}
 	}
 	this.elapsedLogoTime += delta
 }
