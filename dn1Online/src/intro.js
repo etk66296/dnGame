@@ -9,59 +9,61 @@ IntroScene.prototype.constructor = IntroScene
 
 
 IntroScene.prototype.preload = function () {
-	this.load.image('introScreen', 'statics/introScreen.png')
-	this.load.image('logoScreen', 'statics/myLogo.png')
-	this.load.image('TilesNoTileBleeding', 'statics/sprites/TilesNoTileBleeding.png')
-	this.load.image('headUpDsp', 'statics/headUpDsp.png')
+	this.load.image('introScreen', 'assets/introScreen.png')
+	this.load.image('logoScreen', 'assets/myLogo.png')
+	this.load.image('TilesNoTileBleeding', 'assets/sprites/TilesNoTileBleeding.png')
+	this.load.image('headUpDsp', 'assets/headUpDsp.png')
 	
 	// CONTROL BUTTONS
-	this.load.image('aButton', 'statics/buttons/a.png')
-	this.load.image('bButton', 'statics/buttons/b.png')
-	this.load.image('leftButton', 'statics/buttons/left.png')
-	this.load.image('rightButton', 'statics/buttons/right.png')
-	this.load.image('upButton', 'statics/buttons/up.png')
+	this.load.image('aButton', 'assets/buttons/a.png')
+	this.load.image('bButton', 'assets/buttons/b.png')
+	this.load.image('leftButton', 'assets/buttons/left.png')
+	this.load.image('rightButton', 'assets/buttons/right.png')
+	this.load.image('upButton', 'assets/buttons/up.png')
+	this.load.image('buttonPressed', 'assets/buttons/pressed.png')
+
 
 	// MAPS
-	this.load.tilemapTiledJSON("level1map", "statics/maps/dn1MapLevel1.json")
+	this.load.tilemapTiledJSON("level1map", "assets/maps/dn1MapLevel1.json")
 
 	// SPRITESHEETS
-	this.load.atlas('heroSpriteAtlas', 'statics/sprites/Hero.png', 'statics/sprites/Hero.json')
-	this.load.atlas('enemiesSpriteAtlas', 'statics/sprites/Enemies.png', 'statics/sprites/Enemies.json')
-	this.load.atlas('giftsSpriteAtlas', 'statics/sprites/Gifts.png', 'statics/sprites/Gifts.json')
-	this.load.atlas('decorationSpriteAtlas', 'statics/sprites/TilesNoTileBleeding.png', 'statics/sprites/Decoration.json')
+	this.load.atlas('heroSpriteAtlas', 'assets/sprites/Hero.png', 'assets/sprites/Hero.json')
+	this.load.atlas('enemiesSpriteAtlas', 'assets/sprites/Enemies.png', 'assets/sprites/Enemies.json')
+	this.load.atlas('giftsSpriteAtlas', 'assets/sprites/Gifts.png', 'assets/sprites/Gifts.json')
+	this.load.atlas('decorationSpriteAtlas', 'assets/sprites/TilesNoTileBleeding.png', 'assets/sprites/Decoration.json')
 
 	// SOUND EFFECTS
 	this.load.audio('dukeStep', [
-		'statics/sounds/step.ogg',
-		'statics/sounds/step.mp3'
+		'assets/sounds/step.ogg',
+		'assets/sounds/step.mp3'
 	])
 	this.load.audio('dukeJump', [
-		'statics/sounds/jump.ogg',
-		'statics/sounds/jump.mp3'
+		'assets/sounds/jump.ogg',
+		'assets/sounds/jump.mp3'
 	])
 	this.load.audio('dukeFire', [
-		'statics/sounds/fire.ogg',
-		'statics/sounds/fire.mp3'
+		'assets/sounds/fire.ogg',
+		'assets/sounds/fire.mp3'
 	])
 	this.load.audio('explosion', [
-		'statics/sounds/explode.ogg',
-		'statics/sounds/explode.mp3'
+		'assets/sounds/explode.ogg',
+		'assets/sounds/explode.mp3'
 	])
 	this.load.audio('pickupGift', [
-		'statics/sounds/pickupGift.ogg',
-		'statics/sounds/pickupGift.mp3'
+		'assets/sounds/pickupGift.ogg',
+		'assets/sounds/pickupGift.mp3'
 	])
 	this.load.audio('floorFire', [
-		'statics/sounds/floorfire.ogg',
-		'statics/sounds/floorfire.mp3'
+		'assets/sounds/floorfire.ogg',
+		'assets/sounds/floorfire.mp3'
 	])
 	this.load.audio('pain', [
-		'statics/sounds/pain.ogg',
-		'statics/sounds/pain.mp3'
+		'assets/sounds/pain.ogg',
+		'assets/sounds/pain.mp3'
 	])
 	this.load.audio('openGate', [
-		'statics/sounds/openGate.ogg',
-		'statics/sounds/openGate.mp3'
+		'assets/sounds/openGate.ogg',
+		'assets/sounds/openGate.mp3'
 	])
 }
 

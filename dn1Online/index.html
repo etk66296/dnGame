@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>dn1</title>
-    <link rel="shortcut icon" href="statics/favicon.ico">
+    <link rel="shortcut icon" href="assets/favicon.ico">
     <style>
       @font-face {
         font-family: 'VT323-Regular';
-        src: url('statics/font/VT323-Regular.ttf');
+        src: url('assets/font/VT323-Regular.ttf');
       }
       html {
         background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 100%);
@@ -22,7 +22,7 @@
   </head>
   <body style="margin: 100px;">
     <!-- 3rd -->
-    <script src="src/phaser.min.js"></script>
+    <script src="src/phaser.min3.24.1.js"></script>
     <script src="src/axios.min.js"></script>
     <!-- game scripts -->
     <script src="src/intro.js"></script>
@@ -54,12 +54,6 @@
       }
     </script>
     <!-- render div, phaser creates the render element internally -->
-    <header style="padding-top: 30px;">
-      <div style="float: right; margin-right: 100px;">
-        <div style="color: #FFF; font-size: 10px;">created with: </div>
-        <div style="margin-left: 10px"><img style="height: 12px;" src="statics/phaserLogo.png" /></div>
-      </div>
-    </header>
     <main>
       <div style="display: inline-block; padding: 20px;" class="centerInnterDiv" id="phaser3Canvas"></div>
     </main>

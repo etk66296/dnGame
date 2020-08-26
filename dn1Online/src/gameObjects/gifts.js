@@ -124,7 +124,6 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 								break
 						case 'Dynamite':
 							this.pointCounterDsp.amount += 10
-							console.log(this.mainPoints)
 							this.floorfire.detonate(this.x, this.y, this.backdraft)
 							this.collected()
 							break

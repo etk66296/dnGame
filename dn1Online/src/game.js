@@ -73,10 +73,15 @@ function GameScene() {
 	this.touch_FIRE = {isDown: false}
 	this.touch_USE = {isDown: false}
 	this.aButton = null
+	this.aButtonPressed = null
 	this.bButton = null
+	this.bButtonPressed = null
 	this.leftButton = null
+	this.leftButtonPressed = null
 	this.rightButton = null
+	this.rightButtonPressed = null
 	this.upButton = null
+	this.upButtonPressed = null
 
 	// sound opjects
 	this.heroStepSound = null
@@ -157,59 +162,99 @@ GameScene.prototype.create = function() {
 	this.aButton = this.add.sprite(this.scale.canvas.width - 65, this.scale.canvas.height - 150, 'aButton')
 	this.aButton.setOrigin(0)
 	this.aButton.setInteractive()
-	this.aButton.setDepth(101)
+	this.aButton.setDepth(102)
 	this.aButton.setScrollFactor(0,0)
+	this.aButtonPressed = this.add.sprite(this.scale.canvas.width - 70, this.scale.canvas.height - 155, 'buttonPressed')
+	this.aButtonPressed.setOrigin(0)
+	this.aButtonPressed.setInteractive()
+	this.aButtonPressed.setDepth(101)
+	this.aButtonPressed.setScrollFactor(0,0)
+	this.aButtonPressed.setVisible(false)
 	this.aButton.on('pointerdown', (pointer) => {
 		this.touch_FIRE.isDown = true
+		this.aButtonPressed.setVisible(true)
 	})
 	this.aButton.on('pointerup', (pointer) => {
 		this.touch_FIRE.isDown = false
+		this.aButtonPressed.setVisible(false)
 	})
+	
 	this.bButton = this.add.sprite(this.scale.canvas.width - 100, this.scale.canvas.height - 80, 'bButton').setOrigin(0)
 	this.bButton.setOrigin(0)
 	this.bButton.setInteractive()
-	this.bButton.setDepth(101)
+	this.bButton.setDepth(102)
 	this.bButton.setScrollFactor(0,0)
+	this.bButtonPressed = this.add.sprite(this.scale.canvas.width - 105, this.scale.canvas.height - 85, 'buttonPressed')
+	this.bButtonPressed.setOrigin(0)
+	this.bButtonPressed.setInteractive()
+	this.bButtonPressed.setDepth(101)
+	this.bButtonPressed.setScrollFactor(0,0)
+	this.bButtonPressed.setVisible(false)
 	this.bButton.on('pointerdown', (pointer) => {
 		this.touch_JUMP.isDown = true
+		this.bButtonPressed.setVisible(true)
 		
 	})
 	this.bButton.on('pointerup', (pointer) => {
-		
 		this.touch_JUMP.isDown = false
+		this.bButtonPressed.setVisible(false)
 	})
 	this.leftButton = this.add.sprite(5, this.scale.canvas.height - 150, 'leftButton').setOrigin(0)
 	this.leftButton.setOrigin(0)
 	this.leftButton.setInteractive()
-	this.leftButton.setDepth(101)
+	this.leftButton.setDepth(102)
 	this.leftButton.setScrollFactor(0,0)
+	this.leftButtonPressed = this.add.sprite(0, this.scale.canvas.height - 155, 'buttonPressed')
+	this.leftButtonPressed.setOrigin(0)
+	this.leftButtonPressed.setInteractive()
+	this.leftButtonPressed.setDepth(101)
+	this.leftButtonPressed.setScrollFactor(0,0)
+	this.leftButtonPressed.setVisible(false)
 	this.leftButton.on('pointerdown', (pointer) => {
 		this.touch_LEFT.isDown = true
+		this.leftButtonPressed.setVisible(true)
 	})
 	this.leftButton.on('pointerup', (pointer) => {
 		this.touch_LEFT.isDown = false
+		this.leftButtonPressed.setVisible(false)
 	})
 	this.rightButton = this.add.sprite(40, this.scale.canvas.height - 80, 'rightButton').setOrigin(0)
 	this.rightButton.setOrigin(0)
 	this.rightButton.setInteractive()
-	this.rightButton.setDepth(101)
+	this.rightButton.setDepth(102)
 	this.rightButton.setScrollFactor(0,0)
+	this.rightButtonPressed = this.add.sprite(35, this.scale.canvas.height - 85, 'buttonPressed')
+	this.rightButtonPressed.setOrigin(0)
+	this.rightButtonPressed.setInteractive()
+	this.rightButtonPressed.setDepth(101)
+	this.rightButtonPressed.setScrollFactor(0,0)
+	this.rightButtonPressed.setVisible(false)
 	this.rightButton.on('pointerdown', (pointer) => {
 		this.touch_RIGHT.isDown = true
+		this.rightButtonPressed.setVisible(true)
 	})
 	this.rightButton.on('pointerup', (pointer) => {
 		this.touch_RIGHT.isDown = false
+		this.rightButtonPressed.setVisible(false)
 	})
 	this.upButton = this.add.sprite(40, this.scale.canvas.height - 250, 'upButton').setOrigin(0)
 	this.upButton.setOrigin(0)
 	this.upButton.setInteractive()
-	this.upButton.setDepth(101)
+	this.upButton.setDepth(102)
 	this.upButton.setScrollFactor(0,0)
+	this.upButtonPressed = this.add.sprite(35, this.scale.canvas.height - 255, 'buttonPressed')
+	this.upButtonPressed.setOrigin(0)
+	this.upButtonPressed.setInteractive()
+	this.upButtonPressed.setDepth(101)
+	this.upButtonPressed.setScrollFactor(0,0)
+	this.upButtonPressed.setVisible(false)
 	this.upButton.on('pointerdown', (pointer) => {
 		this.touch_USE.isDown = true
+		this.upButtonPressed.setVisible(true)
 	})
 	this.upButton.on('pointerup', (pointer) => {
 		this.touch_USE.isDown = false
+		this.upButtonPressed.setVisible(false)
 	})
 	// score text -->
 	this.pointCounterDsp.amount = 0
@@ -218,8 +263,8 @@ GameScene.prototype.create = function() {
 	this.pointCounterDsp.scoreText.setStyle({
     // fontSize: '64px',
     fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
-    color: '#ff8a0a',
-		align: 'right',
+    // color: '#ff8a0a',
+		// align: 'right',
     // backgroundColor: '#ff00ff'
 	});
 	this.pointCounterDsp.scoreText.setDepth(102)
