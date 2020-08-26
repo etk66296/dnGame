@@ -4,7 +4,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		y,
 		name,
 		type,
-		points,
+		giftPoints,
 		pointsFlyers,
 		frame,
 		heroBullets,
@@ -12,7 +12,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		backdraft,
 		pickupGiftSound,
 		explosionSound,
-		healthBlocks
+		healthBlocks,
+		pointCounterDsp
 	) {
 		super(scene, x, y, 'giftsSpriteAtlas')
 		scene.add.existing(this)
@@ -20,7 +21,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		this.name = name
 		this.type = type
 		this.boxAnimation = frame + 'Explode'
-		this.points = points
+		this.giftPoints = giftPoints
 		this.pointsFlyers = pointsFlyers
 		this.frame = frame
 		this.heroBullets = heroBullets
@@ -31,6 +32,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		this.pickupGiftSound = pickupGiftSound
 		this.explosionSound = explosionSound
 		this.healthBlocks = healthBlocks
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup () {
 		this.setGravityY(200)
@@ -59,28 +61,36 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					switch(this.name) {
 						case 'Flag':
 							this.play('Flag')
+							this.pointCounterDsp.amount += 10
 							break
 						case 'Football':
 							this.setFrame('Football')
+							this.pointCounterDsp.amount += 10
 							break
 						case 'Radio':
 							this.setFrame('Radio')
+							this.pointCounterDsp.amount += 10
 							break
 						case 'Joystick':
 							this.setFrame('Joystick')
+							this.pointCounterDsp.amount += 10
 							break
 						case 'FloppyDisk':
 							this.setFrame('FloppyDisk')
+							this.pointCounterDsp.amount += 10
 							break
 						case 'FullPowerUp':
 								this.play('FullPowerUp')
+								this.pointCounterDsp.amount += 10
 							break
 						case 'GiftCharacter':
 								this.setFrame(this.frame)
+								this.pointCounterDsp.amount += 10
 							break
 						case 'Balloon':
 							this.setGravityY(-20)
 							this.play('Balloon')
+							this.pointCounterDsp.amount += 10
 							this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
 									bullet.body.checkCollision.none = true
 									bullet.setVelocityX(0)
@@ -92,6 +102,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 							break
 						case 'ColaTin':
 							this.setFrame('ColaTin_0000')
+							this.pointCounterDsp.amount += 10
 							this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
 								bullet.body.checkCollision.none = true
 								bullet.setVelocityX(0)
@@ -103,6 +114,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 							break
 						case 'ChopOfMeat':
 								this.setFrame('SingleChopOfMeat')
+								this.pointCounterDsp.amount += 10
 								this.scene.physics.add.overlap(this, this.heroBullets, function(gift, bullet) {
 									bullet.body.checkCollision.none = true
 									bullet.setVelocityX(0)
@@ -111,10 +123,13 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 							}, null, this)
 								break
 						case 'Dynamite':
+							this.pointCounterDsp.amount += 10
+							console.log(this.mainPoints)
 							this.floorfire.detonate(this.x, this.y, this.backdraft)
 							this.collected()
 							break
 						case 'Empty':
+								this.pointCounterDsp.amount += 10
 								this.collected()
 								break
 					}
@@ -191,7 +206,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'Football':
@@ -199,7 +215,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'Radio':
@@ -207,7 +224,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'Joystick':
@@ -215,7 +233,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'FloppyDisk':
@@ -223,7 +242,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'GiftCharacter':
@@ -232,14 +252,21 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					if (this.scene.collectedGiftsChar === 'OGVW') {
 						console.log('super power')
+						this.pointCounterDsp.amount += 100
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_100')
+						this.pointCounterDsp.amount += 1000
 						this.pointsFlyers.showUp(this.x + 16, this.y, 'Points_1000')
+						this.pointCounterDsp.amount += 5000
 						this.pointsFlyers.showUp(this.x + 32, this.y, 'Points_5000')
+						this.pointCounterDsp.amount += 10000
 						this.pointsFlyers.showUp(this.x + 48, this.y, 'Points_10000')
+						this.pointCounterDsp.amount += 10000
 						this.pointsFlyers.showUp(this.x + 64, this.y, 'Points_10000')
+						this.pointCounterDsp.amount += 10000
 						this.pointsFlyers.showUp(this.x + 80, this.y, 'Points_10000')
 					}
 					this.body.reset(1000, -100)
@@ -249,7 +276,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'FullPowerUp':
@@ -257,7 +285,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.setAllowGravity(false)
 					this.setActive(false)
 					this.setVisible(false)
-					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+					this.pointCounterDsp.amount += this.giftPoints
+					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					this.body.reset(1000, -100)
 				break
 				case 'ColaTin':
@@ -266,12 +295,14 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.setActive(false)
 					this.setVisible(false)
 					if (this.body.onFloor()) {
-						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+						this.pointCounterDsp.amount += this.giftPoints
+						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 						if (this.healthBlocks.current< this.healthBlocks.max) {
 							this.healthBlocks.current += 1
 						}
 					} else {
-						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points) + '0')
+						this.pointCounterDsp.amount += 1000
+						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints) + '0')
 					}
 					this.body.reset(1000, -100)
 				break
@@ -281,12 +312,14 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.setActive(false)
 					this.setVisible(false)
 					if (this.frame.name === 'SingleChopOfMeat') {
+						this.pointCounterDsp.amount += 500
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_500')
 						if (this.healthBlocks.current< this.healthBlocks.max) {
 							this.healthBlocks.current += 1
 						}
 					} else {
-						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.points))
+						this.pointCounterDsp.amount += this.giftPoints
+						this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 						if (this.healthBlocks.current< this.healthBlocks.max) {
 							this.healthBlocks.current += 2
 						}
@@ -312,7 +345,8 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 		floorfire,
 		pickupGiftSound,
 		explosionSound,
-		healthBlocks
+		healthBlocks,
+		pointCounterDsp
 	) {
 		super(scene.physics.world, scene)
 		giftsData.forEach((giftData) => {
@@ -329,7 +363,8 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 				giftData.properties.backdraft,
 				pickupGiftSound,
 				explosionSound,
-				healthBlocks
+				healthBlocks,
+				pointCounterDsp
 			))
 		})
 		scene.physics.add.collider(this, solidLayer)

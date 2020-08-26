@@ -1067,6 +1067,16 @@
                  "height":32,
                  "id":299,
                  "name":"GIantrobo",
+                 "properties":
+                    {
+                     "xMax":1400,
+                     "xMin":1000
+                    },
+                 "propertytypes":
+                    {
+                     "xMax":"int",
+                     "xMin":"int"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -4352,7 +4362,7 @@
          "y":0
         }, 
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/maps\/dn1-e1l01.png",
+         "image":"..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/maps\/dn1-e1l01.png",
          "name":"Level1",
          "offsetx":-16,
          "offsety":0,
@@ -4371,7 +4381,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/sprites\/TilesNoTileBleeding.png",
+         "image":"..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/sprites\/TilesNoTileBleeding.png",
          "imageheight":308,
          "imagewidth":578,
          "margin":2,

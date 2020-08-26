@@ -26,12 +26,14 @@ class TrapSegment extends Phaser.Physics.Arcade.Sprite {
 			this.setVisible(false)
 			this.setPosition(-200, -200)
 			this.guards.forEach(guard => {
-				guard.body.checkCollision = {
-					none: false,
-					left: true,
-					right: true,
-					down: true,
-					up: true
+				if (guard.body !== undefined) {
+					guard.body.checkCollision = {
+						none: false,
+						left: true,
+						right: true,
+						down: true,
+						up: true
+					}
 				}
 			})
 		})

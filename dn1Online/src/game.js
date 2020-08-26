@@ -7,7 +7,8 @@ function GameScene() {
 	this.heroHealthGroup = null
 	this.healthBlocks = { current: 10, max: 10 }
 	this.heroScale = 1.0
-	
+	this.pointCounterDsp = { scoreText: null, amount: 0}
+
 	// the string is used to check if the ogvw character gifts are collected in the correct order
 	this.collectedGiftsChar = ''
 
@@ -210,6 +211,20 @@ GameScene.prototype.create = function() {
 	this.upButton.on('pointerup', (pointer) => {
 		this.touch_USE.isDown = false
 	})
+	// score text -->
+	this.pointCounterDsp.amount = 0
+	// this.scoreText = this.add.text(this.scale.canvas.width - 95, 50, String(this.mainPoints), { fontSize: 28, color: '#123456' })
+	this.pointCounterDsp.scoreText = this.add.text(this.scale.canvas.width - 95, 55, String(this.pointCounterDsp.amount))
+	this.pointCounterDsp.scoreText.setStyle({
+    // fontSize: '64px',
+    fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
+    color: '#ff8a0a',
+		align: 'right',
+    // backgroundColor: '#ff00ff'
+	});
+	this.pointCounterDsp.scoreText.setDepth(102)
+	this.pointCounterDsp.scoreText.setScrollFactor(0)
+	// <-- score text
 }
 
 GameScene.prototype.update = function (time, delta) {
@@ -323,6 +338,9 @@ GameScene.prototype.update = function (time, delta) {
 		}
 	}
 	// <-- pain time
+	// points -->
+	this.pointCounterDsp.scoreText.setText(String(this.pointCounterDsp.amount))
+	// <-- points
 }
 
 GameScene.prototype.initControls = function() {	
@@ -473,7 +491,8 @@ GameScene.prototype.initGifts = function() {
 		this.dynamiteGroup,
 		this.pickupGiftSound,
 		this.explosionSound,
-		this.healthBlocks
+		this.healthBlocks,
+		this.pointCounterDsp
 	)
 	this.giftsGroup.children.iterate(gift => {
 		gift.setup()
