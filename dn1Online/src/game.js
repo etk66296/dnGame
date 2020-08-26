@@ -330,7 +330,8 @@ GameScene.prototype.update = function (time, delta) {
 			}
 		}
 	}
-	if ((this.touch_JUMP.isDown || this.key_JUMP.isDown) && (this.hero.body.onFloor() || this.hero.body.touching.down)) {
+	// if ((this.touch_JUMP.isDown || this.key_JUMP.isDown) && (this.hero.body.onFloor() || this.hero.body.touching.down)) {
+	if ((this.touch_JUMP.isDown || this.key_JUMP.isDown) && this.hero.body.onFloor()) {
 		this.hero.setVelocityY(-185)
 		if (!this.heroJumpSound.isPlaying) {
 			this.heroJumpSound.play()

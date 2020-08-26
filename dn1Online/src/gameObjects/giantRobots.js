@@ -16,6 +16,7 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 		this.isDestroyed = false
 		this.xMax = roboData.properties.xMax
 		this.xMin = roboData.properties.xMin
+		this.lastPos = {x: 0, y: 0}
 	}
 	setup() {
 		this.setActive(true)
@@ -55,9 +56,10 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 			if (this.elapsedTimeAfterLastJump > this.jumpDeltaTime) {
 				this.jumpDeltaTime = Phaser.Math.Between(2000, 4000)
 				this.elapsedTimeAfterLastJump = 0
-				if (this.lastDir === -1) {
-
+				if (this.lastPos.x === this.x) {
+					this.lastDir *= -1
 				}
+				this.lastPos.x = this.x
 				this.setVelocityY(-200)
 				this.setVelocityX(50 * this.lastDir)
 			}
