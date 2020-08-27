@@ -280,6 +280,7 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.body.reset(1000, -100)
 				break
 				case 'FullPowerUp':
+					this.healthBlocks.current = this.healthBlocks.max
 					this.body.checkCollision.none = true
 					this.body.setAllowGravity(false)
 					this.setActive(false)

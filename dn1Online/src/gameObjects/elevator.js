@@ -44,7 +44,9 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 			right: false,
 			up: true
 		}
-		this.scene.physics.add.collider(this.hero, this)
+		this.scene.physics.add.collider(this.hero, this, () => {
+			this.hero.body.blocked.down = true
+		})
 	}
 
 	preUpdate (time, delta) {
