@@ -22,10 +22,10 @@ try:
 except:
     print '/var/www/html/src not found'
 try:
-    print 'delete folder /var/www/html/statics'
-    shutil.rmtree('/var/www/html/statics')
+    print 'delete folder /var/www/html/assets'
+    shutil.rmtree('/var/www/html/assets')
 except:
-    print '/var/www/html/statics not found'
+    print '/var/www/html/assets not found'
 print 'copyFiles'
 def copytree(src, dst, symlinks=False, ignore=None):
     for item in os.listdir(src):
