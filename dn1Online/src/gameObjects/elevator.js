@@ -32,6 +32,8 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		this.goUp = false
 		this.backToOrigin = false
 		this.originY = y
+		this.currentVelocity = 0
+		this.acceleration = 3
 	}
 	setup () {
 		this.setImmovable(true)
@@ -54,17 +56,25 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		if (this.body.touching.up) {
 			// this.hero.body.blocked.down = true
 			if(this.goUp) {
-				this.setVelocityY(-150)
+				this.currentVelocity -= this.acceleration
+				this.setVelocityY(this.currentVelocity)
 				this.goUp = false
 			} else {
-				this.hero.setVelocityY(0) // the elevetor is not a catapult
-				this.setVelocityY(0)
+				// this.hero.setVelocityY(0) // the elevetor is not a catapult
+				if (this.currentVelocity < -1 * this.acceleration || this.currentVelocity > this.acceleration) {
+					this.currentVelocity += this.acceleration
+					this.setVelocityY(this.currentVelocity)
+				} else {
+					this.currentVelocity = 0
+					this.setVelocityY(this.currentVelocity)
+				}
 			}
 		} else { // back to elevator origin
 			if (this.y < this.originY) {
 				this.setVelocityY(150)
 			} else {
 				this.y = this.originY
+				this.currentVelocity = 0
 				this.setVelocityY(0)
 			}
 		}
