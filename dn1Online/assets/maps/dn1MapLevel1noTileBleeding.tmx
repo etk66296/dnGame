@@ -846,7 +846,7 @@
     <property name="points" type="int" value="100"/>
    </properties>
   </object>
-  <object id="319" name="Flag" type="packed" x="624" y="288" width="16" height="16">
+  <object id="319" name="Flag" type="packed" x="608" y="288" width="16" height="16">
    <properties>
     <property name="frame" value="BlueBox"/>
     <property name="points" type="int" value="500"/>

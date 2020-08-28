@@ -1,8 +1,9 @@
 class GameCam extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y) {
+  constructor (scene, x, y, pointCounterDsp) {
 		super(scene, x, y, 'enemiesSpriteAtlas', 'camera_M')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup() {
 		this.on('animationcomplete', () => {
@@ -28,16 +29,17 @@ class GameCam extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 	setDestroyed () {
+		this.pointCounterDsp.amount += 13
 		this.body.reset(-100, -100)
 		this.setActive(false)
 		this.setVisible(false)
 	}
 }
 class GameCams extends Phaser.Physics.Arcade.Group {
-  constructor (scene, camsData, bullets, pointFlyers, explosionSound) {
+  constructor (scene, camsData, bullets, pointFlyers, explosionSound, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		camsData.forEach((camData) => {
-			this.add(new GameCam(scene, camData.x + 8, camData.y + 8))
+			this.add(new GameCam(scene, camData.x + 8, camData.y + 8, pointCounterDsp))
 		})
 		scene.physics.add.collider(this, bullets, (cam, bullet) => {
 			if (!explosionSound.isPlaying) {

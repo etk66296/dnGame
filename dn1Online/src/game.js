@@ -265,11 +265,11 @@ GameScene.prototype.create = function() {
 	// score text -->
 	this.pointCounterDsp.amount = 0
 	// this.scoreText = this.add.text(this.scale.canvas.width - 95, 50, String(this.mainPoints), { fontSize: 28, color: '#123456' })
-	this.pointCounterDsp.scoreText = this.add.text(this.scale.canvas.width - 95, 55, String(this.pointCounterDsp.amount))
+	this.pointCounterDsp.scoreText = this.add.text(this.scale.canvas.width - 95, 50, String(this.pointCounterDsp.amount))
 	this.pointCounterDsp.scoreText.setStyle({
-    // fontSize: '64px',
+    fontSize: '20px',
     fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
-    // color: '#ff8a0a',
+    color: '#ff8a0a',
 		// align: 'right',
     // backgroundColor: '#ff00ff'
 	})
@@ -277,11 +277,11 @@ GameScene.prototype.create = function() {
 	this.pointCounterDsp.scoreText.setScrollFactor(0)
 	// <-- score text
 	// gun multiplicator -->
-	this.gunMulti.gunMultiText = this.add.text(this.scale.canvas.width - 25, 95, String(this.gunMulti.amount))
-	this.pointCounterDsp.scoreText.setStyle({
-    // fontSize: '64px',
+	this.gunMulti.gunMultiText = this.add.text(this.scale.canvas.width - 22, 88, String(this.gunMulti.amount))
+	this.gunMulti.gunMultiText.setStyle({
+    fontSize: '24px',
     fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
-    // color: '#ff8a0a',
+    color: '#dddddd',
 		// align: 'right',
     // backgroundColor: '#ff00ff'
 	})
@@ -363,9 +363,9 @@ GameScene.prototype.update = function (time, delta) {
 		}
 		this.gunCoolsDown = 1000 // if the gun was fired it must cool down before the next shoot
 		if(this.lastDir === 'left') {
-			this.bullets.fireBullet(this.hero.x - 8, this.hero.y, -1)
+			this.bullets.fireBullet(this.hero.x, this.hero.y, -1)
 		} else {
-			this.bullets.fireBullet(this.hero.x + 8, this.hero.y, 1)
+			this.bullets.fireBullet(this.hero.x, this.hero.y, 1)
 		}
 	} else {
 		this.gunCoolsDown -= delta
@@ -458,7 +458,7 @@ GameScene.prototype.initHeroBullets = function() {
 }
 
 GameScene.prototype.initCrocos = function() {
-	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer, this.bullets, this.explosionSound)
+	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer, this.bullets, this.explosionSound, this.pointCounterDsp)
 	this.crocosGroup.children.iterate(function (croco) {
 		croco.setup()
 	})
@@ -487,28 +487,28 @@ GameScene.prototype.initMines = function() {
 }
 
 GameScene.prototype.initObserverCameras = function() {
-	this.gameCamsGroup = new GameCams(this, this.camsObjLayerData, this.bullets, this.pointFlyersGroup, this.explosionSound)
+	this.gameCamsGroup = new GameCams(this, this.camsObjLayerData, this.bullets, this.pointFlyersGroup, this.explosionSound, this.pointCounterDsp)
 	this.gameCamsGroup.children.iterate((cam) => {
 		cam.setup()
 	})
 }
 
 GameScene.prototype.initGiantRobots = function() {
-	this.giantRobots = new Giantrobots(this, this.giantrobotsObjLayerData, this.solidLayer, this.enemyBullets, this.hero, this.bullets)
+	this.giantRobots = new Giantrobots(this, this.giantrobotsObjLayerData, this.solidLayer, this.enemyBullets, this.hero, this.bullets, this.pointCounterDsp)
 	this.giantRobots.children.iterate(function (giantrobo) {
 		giantrobo.setup()
 	})
 }
 
 GameScene.prototype.initMiniRobots = function() {
-	this.minirobotsGroup = new Minirobots(this, this.minirobotsObjLayerData, this.solidLayer, this.bullets, this.explosionSound)
+	this.minirobotsGroup = new Minirobots(this, this.minirobotsObjLayerData, this.solidLayer, this.bullets, this.explosionSound, this.pointCounterDsp)
 	this.minirobotsGroup.children.iterate(function (minirobo) {
 		minirobo.setup()
 	})
 }
 
 GameScene.prototype.initWheelCanons = function() {
-	this.wheelcanonsGroup = new Wheelcanons(this, this.wheelcanonObjLayerData, this.solidLayer, this.enemyBullets, this.bullets)
+	this.wheelcanonsGroup = new Wheelcanons(this, this.wheelcanonObjLayerData, this.solidLayer, this.enemyBullets, this.bullets, this.pointCounterDsp)
 	this.wheelcanonsGroup.children.iterate(function (wheelcanon) {
 		wheelcanon.setup()
 	})
@@ -532,8 +532,9 @@ GameScene.prototype.initBouncerGuards = function() {
 }
 
 GameScene.prototype.initHero = function() {
-	this.hero = this.physics.add.sprite(1800, 900, 'heroSpriteAtlas').play('heroJumpRight')
-	this.hero.setSize(10, 32, true)
+	this.hero = this.physics.add.sprite(900, 160, 'heroSpriteAtlas').play('heroJumpRight')
+	this.hero.body.setSize(10, 32, true)
+	this.hero.body.setOffset(11, 0)
 	this.hero.setGravityY(300)
 	this.hero.setBounce(0.0)
 	this.hero.useElevator = false
@@ -647,14 +648,14 @@ GameScene.prototype.initTraps = function() {
 }
 
 GameScene.prototype.initWasherBoss = function() {
-	this.finalBossGroup = new WasherBoss(this, this.washerBossObjLayerData, this.hero, this.bullets)
+	this.finalBossGroup = new WasherBoss(this, this.washerBossObjLayerData, this.hero, this.bullets, this.pointCounterDsp)
 	this.finalBossGroup.children.iterate(bossSegment => {
 		bossSegment.setup()
 	})
 }
 
 GameScene.prototype.initShootableBricks = function() {
-	this.shootableBricksGroup = new ShootableBrick(this, this.shootableBricksObjLayerData, this.hero, this.bullets)
+	this.shootableBricksGroup = new ShootableBrick(this, this.shootableBricksObjLayerData, this.hero, this.bullets, this.pointCounterDsp)
 	this.shootableBricksGroup.children.iterate(brick => {
 		brick.setup()
 	})
@@ -662,7 +663,7 @@ GameScene.prototype.initShootableBricks = function() {
 
 
 GameScene.prototype.initKeysAndGates = function() {
-	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE,this.touch_USE, this.openGateSound)
+	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE,this.touch_USE, this.openGateSound, this.pointCounterDsp)
 	this.keysNGatesGroup.children.iterate(keyItem => {
 		keyItem.setup()
 	})

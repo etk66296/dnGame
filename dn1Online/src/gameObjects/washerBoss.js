@@ -1,9 +1,10 @@
 class WasherBossSegment extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, whaserBossData, hero) {
+  constructor (scene, whaserBossData, pointCounterDsp) {
 		super(scene, whaserBossData.x + 8, whaserBossData.y + 8, 'enemiesSpriteAtlas', 'WasherBoss_0000')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
 		this.destroyedPos = this.y + 120
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup () {
 		this.setImmovable(true)
@@ -20,6 +21,7 @@ class WasherBossSegment extends Phaser.Physics.Arcade.Sprite {
 	}
 	setDestroyed () {
 		// this.setActive(false)
+		this.pointCounterDsp.amount += 9999
 		this.setImmovable(false)
 		this.setGravityX(Phaser.Math.Between(-10, 20))
 		this.setGravityY(Phaser.Math.Between(80, 120))
@@ -27,11 +29,11 @@ class WasherBossSegment extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class WasherBoss extends Phaser.Physics.Arcade.Group {
-  constructor (scene, washerBossData, hero, heroBullets) {
+  constructor (scene, washerBossData, hero, heroBullets, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		this.heroHits = 8
 		washerBossData.forEach((wcdata) => {
-			this.add(new WasherBossSegment(scene, wcdata, hero))
+			this.add(new WasherBossSegment(scene, wcdata, pointCounterDsp))
 		})
 		this.scene.physics.add.collider(hero, this, () => {
 			scene.heroPain = true

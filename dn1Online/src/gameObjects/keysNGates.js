@@ -1,5 +1,5 @@
 class Key extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, keyData, hero, pointsFlyers) {
+  constructor (scene, x, y, keyData, hero, pointsFlyers, pointCounterDsp) {
 		super(scene, x, y, 'giftsSpriteAtlas', keyData.name)
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
@@ -7,6 +7,7 @@ class Key extends Phaser.Physics.Arcade.Sprite {
 		this.name = keyData.name
 		this.collected = false
 		this.pointsFlyers = pointsFlyers
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup () {
 		this.setImmovable(true)
@@ -14,6 +15,7 @@ class Key extends Phaser.Physics.Arcade.Sprite {
 		this.setVisible(true)
 		this.scene.physics.add.overlap(this, this.hero, (key, hero) => {
 			if (!this.collected) {
+				this.pointCounterDsp.amount += 1000
 				hero.inventory.push(this.name)
 				this.collected = true
 				this.setActive(true)
@@ -26,7 +28,6 @@ class Key extends Phaser.Physics.Arcade.Sprite {
 					hero.equipmentDsp.positions[hero.equipmentDsp.nextPosIndex].y
 				)
 				hero.equipmentDsp.nextPosIndex += 1
-				console.log(this)
 			}
 		})
 	}
@@ -120,7 +121,7 @@ class Gate extends Phaser.Physics.Arcade.Sprite {
 }
 
 class KeysNGates extends Phaser.Physics.Arcade.Group {
-  constructor (scene, keysData, hero, pointsFlyers, key_USE, touch_USE, openGateSound) {
+  constructor (scene, keysData, hero, pointsFlyers, key_USE, touch_USE, openGateSound, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		keysData.forEach(keyData => {
@@ -128,7 +129,7 @@ class KeysNGates extends Phaser.Physics.Arcade.Group {
 				this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, openGateSound))
 			}
 			if (keyData.type === 'Key') {
-				this.add(new Key(scene, keyData.x + 8, keyData.y + 8, keyData, hero, pointsFlyers))
+				this.add(new Key(scene, keyData.x + 8, keyData.y + 8, keyData, hero, pointsFlyers, pointCounterDsp))
 			}
 			if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
 				this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, touch_USE, this))

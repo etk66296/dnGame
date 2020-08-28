@@ -1,8 +1,9 @@
 class Croco extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, type) {
+  constructor (scene, x, y, type, pointCounterDsp) {
 		super(scene, x, y, 'enemiesSpriteAtlas')
 		scene.add.existing(this)
 		this.type = type // rightcrawler | leftcrawler
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup() {
 		this.play('crocoR')
@@ -31,16 +32,17 @@ class Croco extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 	setDestroyed () {
+		this.pointCounterDsp.amount += 61
 		this.body.reset(-100, -100)
 		this.setActive(false)
 		this.setVisible(false)
 	}
 }
 class Crocos extends Phaser.Physics.Arcade.Group {
-  constructor (scene, crocosData, solidLayer, bullets, explosionSound) {
+  constructor (scene, crocosData, solidLayer, bullets, explosionSound, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		crocosData.forEach((crocoData) => {
-			this.add(new Croco(scene, crocoData.x + 8, crocoData.y + 8, crocoData.type))
+			this.add(new Croco(scene, crocoData.x + 8, crocoData.y + 8, crocoData.type, pointCounterDsp))
 		})
 		scene.physics.add.overlap(this, bullets, (croco, bullet) => {
 			if (!explosionSound.isPlaying) {

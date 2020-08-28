@@ -33,6 +33,8 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 		this.explosionSound = explosionSound
 		this.healthBlocks = healthBlocks
 		this.pointCounterDsp = pointCounterDsp
+		this.setSize(16, 17, true)
+		this.setOffset(0, -1)
 	}
 	setup () {
 		this.setGravityY(200)
@@ -254,7 +256,6 @@ class Gift extends Phaser.Physics.Arcade.Sprite {
 					this.pointCounterDsp.amount += this.giftPoints
 					this.pointsFlyers.showUp(this.x, this.y, 'Points_' + String(this.giftPoints))
 					if (this.scene.collectedGiftsChar === 'OGVW') {
-						console.log('super power')
 						this.pointCounterDsp.amount += 100
 						this.pointsFlyers.showUp(this.x, this.y, 'Points_100')
 						this.pointCounterDsp.amount += 1000

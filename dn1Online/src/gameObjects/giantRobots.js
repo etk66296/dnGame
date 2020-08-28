@@ -1,7 +1,7 @@
 // depends on intro scene, which is loading the enemiesSpriteAtlas sprite sheet
 // minirobots -->
 class Giantrobot extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, roboData, enemyBullets, hero) {
+  constructor (scene, roboData, enemyBullets, hero, pointCounterDsp) {
 		super(scene, roboData.x, roboData.y, 'enemiesSpriteAtlas', 'giantRobotL')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
@@ -16,6 +16,7 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 		this.isDestroyed = false
 		this.xMax = roboData.properties.xMax
 		this.xMin = roboData.properties.xMin
+		this.pointCounterDsp = pointCounterDsp
 		// this.lastPos = {x: 0, y: 0}
 	}
 	setup() {
@@ -71,6 +72,7 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 	setDestroyed() {
+		this.pointCounterDsp.amount += 524
 		this.body.checkCollision = { none: false, up: false, down: true, left: false, right: false }
 		this.setPosition(-100, -100)
 		this.setActive(false)
@@ -87,10 +89,10 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Giantrobots extends Phaser.Physics.Arcade.Group {
-  constructor (scene, giantRobotsData, solidLayer, enemyBullets, hero, bullets) {
+  constructor (scene, giantRobotsData, solidLayer, enemyBullets, hero, bullets, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		giantRobotsData.forEach((robotData) => {
-			this.add(new Giantrobot(scene, robotData, enemyBullets, hero))
+			this.add(new Giantrobot(scene, robotData, enemyBullets, hero, pointCounterDsp))
 		})
 		scene.physics.add.overlap(this, bullets, (robo, bullet) => {
 			bullet.body.checkCollision.none = true

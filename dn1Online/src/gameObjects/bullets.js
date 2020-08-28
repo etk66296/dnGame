@@ -3,7 +3,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x, y, 'heroSpriteAtlas', 'bullet')
 	}
 	setup () {
-		this.setSize(2, 8, true)
+		this.setSize(1, 1, true)
+		this.setOffset(0, 1)
 		this.body.checkCollision.none = true
 		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === 'heroExplode') {
@@ -22,7 +23,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 			right: true,
 			up: false
 		}
-		this.body.reset(x, y)
+		this.body.reset(x, y + 2)
 		this.setActive(true)
 		this.setVisible(true)
 		this.setVelocityX(300 * dir)

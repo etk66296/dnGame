@@ -2,15 +2,18 @@
 // the canaon needs an enemy canon better known as enemyBullet object
 // wheelcanon -->
 class Wheelcanon extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, enemyCanon) {
+  constructor (scene, x, y, enemyCanon, pointCounterDsp) {
 		super(scene, x, y, 'enemiesSpriteAtlas')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
 		this.enemyBullets = enemyCanon
 		this.fireDeltaTime = 3000
 		this.elapsedTimeAfterLastShot = 0
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup () {
+		this.setSize(16, 17)
+		this.setOffset(8, -1)
 		this.lastDir = 1
 		this.definedVelocity  = 80
 		this.heroHits = 2
@@ -39,16 +42,17 @@ class Wheelcanon extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 	setDestroyed () {
+		this.pointCounterDsp.amount += 863
 		this.body.reset(-100, -100)
 		this.setActive(false)
 		this.setVisible(false)
 	}
 }
 class Wheelcanons extends Phaser.Physics.Arcade.Group {
-  constructor (scene, wheelcanonData, solidLayer, canon, bullets) {
+  constructor (scene, wheelcanonData, solidLayer, canon, bullets, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		wheelcanonData.forEach((wcdata) => {
-			this.add(new Wheelcanon(scene, wcdata.x + 8, wcdata.y + 8, canon))
+			this.add(new Wheelcanon(scene, wcdata.x + 8, wcdata.y + 8, canon, pointCounterDsp))
 		})
 		scene.physics.add.overlap(this, bullets, (wheelcanon, bullet) => {
 			bullet.body.checkCollision.none = true

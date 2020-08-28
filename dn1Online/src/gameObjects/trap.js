@@ -47,7 +47,6 @@ class TrapSegment extends Phaser.Physics.Arcade.Sprite {
 			this.setGravityY(150)
 			if (!this.anims.isPlaying) {
 				if (this.isLeftTrapSegment) {
-					console.log("play left")
 					this.play('FallingTrapSegmentL')
 				} else {
 					this.play('FallingTrapSegmentR')

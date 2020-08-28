@@ -1,11 +1,13 @@
 class Minirobot extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y) {
+  constructor (scene, x, y, pointCounterDsp) {
 		super(scene, x + 8, y + 10, 'enemiesSpriteAtlas')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
+		this.pointCounterDsp = pointCounterDsp
 	}
 	setup() {
 		this.play('minirobotAlive')
+		this.setSize(16, 20)
 		this.lastDir = -1
 		this.definedVelocity = 50
 		this.heroHits = 1
@@ -24,16 +26,17 @@ class Minirobot extends Phaser.Physics.Arcade.Sprite {
 		}
 	}
 	setDestroyed () {
+		this.pointCounterDsp.amount += 43
 		this.body.reset(-100, -100)
 		this.setActive(false)
 		this.setVisible(false)
 	}
 }
 class Minirobots extends Phaser.Physics.Arcade.Group {
-  constructor (scene, robotsData, solidLayer, bullets, explosionSound) {
+  constructor (scene, robotsData, solidLayer, bullets, explosionSound, pointCounterDsp) {
 		super(scene.physics.world, scene)
 		robotsData.forEach((robotData) => {
-			this.add(new Minirobot(scene, robotData.x, robotData.y))
+			this.add(new Minirobot(scene, robotData.x, robotData.y, pointCounterDsp))
 		})
 		scene.physics.add.overlap(this, bullets, (minirobo, bullet) => {
 			if (!explosionSound.isPlaying) {
