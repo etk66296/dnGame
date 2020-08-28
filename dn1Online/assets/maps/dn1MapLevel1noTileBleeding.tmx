@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="439">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="442">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
-  <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
+  <image source="../../../../ogv_adv_web_dev/games/dn1Online/statics/sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="476">
    <properties>
     <property name="spike" type="bool" value="true"/>
@@ -279,7 +279,16 @@
   <object id="438" name="Minirobot" x="1040" y="396" width="16" height="20"/>
  </objectgroup>
  <objectgroup name="Giantrobots">
-  <object id="299" name="GIantrobo" x="1136" y="1056" width="32" height="32"/>
+  <object id="299" name="GIantrobo" x="1104" y="1008" width="32" height="32">
+   <properties>
+    <property name="xMax" type="int" value="1160"/>
+    <property name="xMin" type="int" value="930"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="ShootableBricks">
+  <object id="439" name="brick" x="1840" y="880" width="16" height="16"/>
+  <object id="441" name="brick" x="1840" y="896" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Crocos">
   <object id="120" name="Crocos" type="rightcrawler" x="832" y="688" width="16" height="16"/>
@@ -1022,6 +1031,6 @@
   <object id="436" name="WasherBoss" x="1264" y="544" width="16" height="16"/>
  </objectgroup>
  <imagelayer name="Level1" opacity="0.2" offsetx="-16" offsety="0">
-  <image source="dn1-e1l01.png" width="2048" height="1440"/>
+  <image source="../../../../ogv_adv_web_dev/games/dn1Online/statics/maps/dn1-e1l01.png" width="2048" height="1440"/>
  </imagelayer>
 </map>

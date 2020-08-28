@@ -56,6 +56,9 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		if (this.body.touching.up) {
 			// this.hero.body.blocked.down = true
 			if(this.goUp) {
+				if (this.currentVelocity < -80) {
+					this.currentVelocity = -80
+				}
 				this.currentVelocity -= this.acceleration
 				this.setVelocityY(this.currentVelocity)
 				this.goUp = false

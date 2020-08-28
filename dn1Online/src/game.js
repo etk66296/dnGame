@@ -32,6 +32,7 @@ function GameScene() {
 	this.animatedDecoObjLayerData = null
 	this.levelGateObjLayerData = null
 	this.washerBossObjLayerData = null
+	this.shootableBricksObjLayerData = null
 
 	// parameters
 	this.jumpSpeed = 85
@@ -61,6 +62,7 @@ function GameScene() {
 	this.levelGateGroup = null
 	this.finalBossGroup = null
 	this.headUpDsp = null
+	this.shootableBricksGroup = null
 
 	// controls
 	this.key_RIGHT = null
@@ -140,6 +142,7 @@ GameScene.prototype.create = function() {
 	this.initTraps()
 	this.initWasherBoss()
 	this.initKeysAndGates()
+	this.initShootableBricks()
 
 	this.initHealthBar()
 	
@@ -437,6 +440,7 @@ GameScene.prototype.initMapData = function() {
 	this.animatedDecoObjLayerData = this.map.objects[this.map.objects.findIndex(x => x.name === "AnimatedDecoration")].objects
 	this.levelGateObjLayerData = this.map.objects[this.map.objects.findIndex(x => x.name === "LevelGate")].objects
 	this.washerBossObjLayerData = this.map.objects[this.map.objects.findIndex(x => x.name === "WasherBoss")].objects
+	this.shootableBricksObjLayerData = this.map.objects[this.map.objects.findIndex(x => x.name === "ShootableBricks")].objects
 }
 
 GameScene.prototype.initAnimatedDeco = function() {	
@@ -528,7 +532,7 @@ GameScene.prototype.initBouncerGuards = function() {
 }
 
 GameScene.prototype.initHero = function() {
-	this.hero = this.physics.add.sprite(885, 64, 'heroSpriteAtlas').play('heroJumpRight')
+	this.hero = this.physics.add.sprite(1800, 900, 'heroSpriteAtlas').play('heroJumpRight')
 	this.hero.setSize(10, 32, true)
 	this.hero.setGravityY(300)
 	this.hero.setBounce(0.0)
@@ -593,6 +597,7 @@ GameScene.prototype.initGifts = function() {
 }
 
 GameScene.prototype.initElevators = function() {
+	this.elevators = []
 	this.elevatorsObjLayerData.forEach((elevatorData) => {
 		this.elevators.push(new Elevator(this, elevatorData, this.hero, this.key_USE, this.touch_USE))
 	})
@@ -606,6 +611,7 @@ GameScene.prototype.initElevators = function() {
 }
 
 GameScene.prototype.initGlowThrower = function() {
+	this.glowThrowers = []
 	// glow thrower groups are organized in an array
 	this.glowthrowersObjLayerData.forEach((glowThrowerData) => {
 		this.glowThrowers.push(new GlowThrower(this, glowThrowerData))
@@ -619,6 +625,7 @@ GameScene.prototype.initGlowThrower = function() {
 
 
 GameScene.prototype.initTraps = function() {
+	this.traps = []
 	// check how many traps are in the level
 	// each trapsegment of the same trap has the same id
 	let trapsData = {}
@@ -645,6 +652,14 @@ GameScene.prototype.initWasherBoss = function() {
 		bossSegment.setup()
 	})
 }
+
+GameScene.prototype.initShootableBricks = function() {
+	this.shootableBricksGroup = new ShootableBrick(this, this.shootableBricksObjLayerData, this.hero, this.bullets)
+	this.shootableBricksGroup.children.iterate(brick => {
+		brick.setup()
+	})
+}
+
 
 GameScene.prototype.initKeysAndGates = function() {
 	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE,this.touch_USE, this.openGateSound)

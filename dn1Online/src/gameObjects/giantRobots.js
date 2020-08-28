@@ -16,7 +16,7 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 		this.isDestroyed = false
 		this.xMax = roboData.properties.xMax
 		this.xMin = roboData.properties.xMin
-		this.lastPos = {x: 0, y: 0}
+		// this.lastPos = {x: 0, y: 0}
 	}
 	setup() {
 		this.setActive(true)
@@ -29,22 +29,31 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 		if(!this.isDestroyed) {
-			if (this.body.onFloor()) {
-				this.setVelocityX(0)
-				if (this.hero.x > this.x && this.x < this.xMax) {
-					this.lastDir = 1
-					this.setFrame('giantRobotR')
+			if (this.x < this.xMax && this.x > this.xMin) {
+				if (this.body.onFloor()) {
+					this.setVelocityX(0)
+					if (this.hero.x > this.x) {
+						this.lastDir = 1
+						this.setFrame('giantRobotR')
+					} else {
+						if (this.x > this.xMin) {
+							this.lastDir = -1
+							this.setFrame('giantRobotL')
+						}
+					}
 				} else {
-					if (this.x > this.xMin) {
-						this.lastDir = -1
-						this.setFrame('giantRobotL')
+					if (this.lastDir === 1) {
+						this.setFrame('giantRobotJumpR')
+					} else {
+						this.setFrame('giantRobotJumpL')
 					}
 				}
 			} else {
-				if (this.lastDir === 1) {
-					this.setFrame('giantRobotJumpR')
+				this.lastDir *= -1
+				if (this.x < this.xMin) {
+					this.x = this.xMin + 10
 				} else {
-					this.setFrame('giantRobotJumpL')
+					this.x = this.xMax - 10
 				}
 			}
 			this.elapsedTimeAfterLastShot += delta
@@ -56,10 +65,6 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 			if (this.elapsedTimeAfterLastJump > this.jumpDeltaTime) {
 				this.jumpDeltaTime = Phaser.Math.Between(2000, 4000)
 				this.elapsedTimeAfterLastJump = 0
-				if (this.lastPos.x === this.x) {
-					this.lastDir *= -1
-				}
-				this.lastPos.x = this.x
 				this.setVelocityY(-200)
 				this.setVelocityX(50 * this.lastDir)
 			}

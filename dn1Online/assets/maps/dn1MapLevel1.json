@@ -1069,8 +1069,8 @@
                  "name":"GIantrobo",
                  "properties":
                     {
-                     "xMax":1400,
-                     "xMin":1000
+                     "xMax":1160,
+                     "xMin":930
                     },
                  "propertytypes":
                     {
@@ -1081,8 +1081,40 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":1136,
-                 "y":1056
+                 "x":1104,
+                 "y":1008
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"ShootableBricks",
+         "objects":[
+                {
+                 "height":16,
+                 "id":439,
+                 "name":"brick",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1840,
+                 "y":880
+                }, 
+                {
+                 "height":16,
+                 "id":441,
+                 "name":"brick",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1840,
+                 "y":896
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4362,7 +4394,7 @@
          "y":0
         }, 
         {
-         "image":"..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/maps\/dn1-e1l01.png",
+         "image":"..\/..\/..\/..\/ogv_adv_web_dev\/games\/dn1Online\/statics\/maps\/dn1-e1l01.png",
          "name":"Level1",
          "offsetx":-16,
          "offsety":0,
@@ -4372,7 +4404,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":439,
+ "nextobjectid":442,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
@@ -4381,7 +4413,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/..\/..\/Schreibtisch\/Dokumente\/git\/ogv_adv_web_dev\/games\/dn1Online\/statics\/sprites\/TilesNoTileBleeding.png",
+         "image":"..\/..\/..\/..\/ogv_adv_web_dev\/games\/dn1Online\/statics\/sprites\/TilesNoTileBleeding.png",
          "imageheight":308,
          "imagewidth":578,
          "margin":2,
