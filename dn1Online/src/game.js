@@ -8,6 +8,7 @@ function GameScene() {
 	this.healthBlocks = { current: 10, max: 10 }
 	this.heroScale = 1.0
 	this.pointCounterDsp = { scoreText: null, amount: 0}
+	this.gunMulti = { gunMultiText: null, amount: 1 }
 
 	// the string is used to check if the ogvw character gifts are collected in the correct order
 	this.collectedGiftsChar = ''
@@ -268,10 +269,22 @@ GameScene.prototype.create = function() {
     // color: '#ff8a0a',
 		// align: 'right',
     // backgroundColor: '#ff00ff'
-	});
+	})
 	this.pointCounterDsp.scoreText.setDepth(102)
 	this.pointCounterDsp.scoreText.setScrollFactor(0)
 	// <-- score text
+	// gun multiplicator -->
+	this.gunMulti.gunMultiText = this.add.text(this.scale.canvas.width - 25, 95, String(this.gunMulti.amount))
+	this.pointCounterDsp.scoreText.setStyle({
+    // fontSize: '64px',
+    fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
+    // color: '#ff8a0a',
+		// align: 'right',
+    // backgroundColor: '#ff00ff'
+	})
+	this.gunMulti.gunMultiText.setDepth(102)
+	this.gunMulti.gunMultiText.setScrollFactor(0)
+	// <-- gun multiplicator
 }
 
 GameScene.prototype.update = function (time, delta) {
@@ -523,6 +536,38 @@ GameScene.prototype.initHero = function() {
 	this.physics.add.collider(this.hero, this.solidLayer)
 	this.hero.isUsingElevator = false
 	this.hero.inventory = []
+	this.hero.equipmentDsp = { nextPosIndex: 0, positions: [
+		{ x: 16, y: 16 },
+		{ x: 16 + 18, y: 16 },
+		{ x: 16 + 18 * 2, y: 16 },
+		{ x: 16 + 18 * 3, y: 16 },
+		{ x: 16 + 18 * 4, y: 16 },
+		{ x: 16, y: 16 + 18 },
+		{ x: 16 + 18, y: 16 + 18 },
+		{ x: 16 + 18 * 2, y: 16 + 18 },
+		{ x: 16 + 18 * 3, y: 16 + 18 },
+		{ x: 16 + 18 * 4, y: 16 + 18 },
+		{ x: 16, y: 16 + 18 * 2 },
+		{ x: 16 + 18, y: 16 + 18 * 2 },
+		{ x: 16 + 18 * 2, y: 16 + 18 * 2 },
+		{ x: 16 + 18 * 3, y: 16 + 18 * 2 },
+		{ x: 16 + 18 * 4, y: 16 + 18 * 2 },
+		{ x: 16, y: 16 + 18 * 3 },
+		{ x: 16 + 18, y: 16 + 18 * 3 },
+		{ x: 16 + 18 * 2, y: 16 + 18 * 3 },
+		{ x: 16 + 18 * 3, y: 16 + 18 * 3 },
+		{ x: 16 + 18 * 4, y: 16 + 18 * 3 },
+		{ x: 16, y: 16 + 18 * 4 },
+		{ x: 16 + 18, y: 16 + 18 * 4 },
+		{ x: 16 + 18 * 2, y: 16 + 18 * 4 },
+		{ x: 16 + 18 * 3, y: 16 + 18 * 4 },
+		{ x: 16 + 18 * 4, y: 16 + 18 * 4 },
+		{ x: 16, y: 16 + 18 * 5 },
+		{ x: 16 + 18, y: 16 + 18 * 5 },
+		{ x: 16 + 18 * 2, y: 16 + 18 * 5 },
+		{ x: 16 + 18 * 3, y: 16 + 18 * 5 },
+		{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
+	]}
 }
 
 GameScene.prototype.initGifts = function() {

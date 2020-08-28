@@ -16,14 +16,20 @@ class Key extends Phaser.Physics.Arcade.Sprite {
 			if (!this.collected) {
 				hero.inventory.push(this.name)
 				this.collected = true
-				this.setActive(false)
-				this.setVisible(false)
+				this.setActive(true)
+				this.setVisible(true)
 				this.pointsFlyers.showUp(this.x, this.y, 'Points_1000')
-				this.setPosition(-123, -123)
+				this.setDepth(102)
+				this.setScrollFactor(0)
+				this.setPosition(
+					hero.equipmentDsp.positions[hero.equipmentDsp.nextPosIndex].x,
+					hero.equipmentDsp.positions[hero.equipmentDsp.nextPosIndex].y
+				)
+				hero.equipmentDsp.nextPosIndex += 1
+				console.log(this)
 			}
 		})
 	}
-
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 	}
