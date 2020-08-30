@@ -95,6 +95,7 @@ function GameScene() {
 	this.floorfireSound = null
 	this.painSound = null
 	this.openGateSound = null
+	this.whaserBossNoise = null
 }
 
 GameScene.prototype = Object.create(Phaser.Scene.prototype)
@@ -117,6 +118,9 @@ GameScene.prototype.create = function() {
 	this.floorfireSound = this.sound.add('floorFire')
 	this.painSound = this.sound.add('pain')
 	this.openGateSound = this.sound.add('openGate')
+	this.whaserBossNoise = this.sound.add('washerNoise')
+
+	
 	this.healthBlocks = { current: 10, max: 10 }
 
 	// init all game stuff
@@ -532,7 +536,7 @@ GameScene.prototype.initBouncerGuards = function() {
 }
 
 GameScene.prototype.initHero = function() {
-	this.hero = this.physics.add.sprite(900, 160, 'heroSpriteAtlas').play('heroJumpRight')
+	this.hero = this.physics.add.sprite(900, 100, 'heroSpriteAtlas').play('heroJumpRight')
 	this.hero.body.setSize(10, 32, true)
 	this.hero.body.setOffset(11, 0)
 	this.hero.setGravityY(300)
@@ -648,7 +652,7 @@ GameScene.prototype.initTraps = function() {
 }
 
 GameScene.prototype.initWasherBoss = function() {
-	this.finalBossGroup = new WasherBoss(this, this.washerBossObjLayerData, this.hero, this.bullets, this.pointCounterDsp)
+	this.finalBossGroup = new WasherBoss(this, this.washerBossObjLayerData, this.hero, this.bullets, this.pointCounterDsp, this.whaserBossNoise)
 	this.finalBossGroup.children.iterate(bossSegment => {
 		bossSegment.setup()
 	})

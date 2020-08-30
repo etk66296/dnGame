@@ -65,6 +65,10 @@ IntroScene.prototype.preload = function () {
 		'assets/sounds/openGate.ogg',
 		'assets/sounds/openGate.mp3'
 	])
+	this.load.audio('washerNoise', [
+		'assets/sounds/washerBossNoise.ogg',
+		'assets/sounds/washerBossNoise.mp3'
+	])
 }
 
 IntroScene.prototype.create = function() {
