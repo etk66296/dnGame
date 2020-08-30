@@ -106,6 +106,11 @@ GameScene.prototype.preload = function () {
 }
 
 GameScene.prototype.create = function() {
+	// background
+	this.add.sprite(-100, 0, 'skyline1').setOrigin(0).setScrollFactor(0.2).setDepth(-1)
+	this.add.sprite(-100, 0, 'skyline2').setOrigin(0).setScrollFactor(0.1).setDepth(-2)
+	this.add.sprite(-10, -50, 'bgSunrise').setOrigin(0).setScrollFactor(0).setDepth(-3)
+
 	// create the sound effect objects
 	this.heroStepSound = this.sound.add('dukeStep')
 	this.heroStepSound.rate = 2.0

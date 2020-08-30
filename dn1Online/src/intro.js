@@ -13,6 +13,9 @@ IntroScene.prototype.preload = function () {
 	this.load.image('logoScreen', 'assets/myLogo.png')
 	this.load.image('TilesNoTileBleeding', 'assets/sprites/TilesNoTileBleeding.png')
 	this.load.image('headUpDsp', 'assets/headUpDsp.png')
+	this.load.image('bgSunrise', 'assets/sprites/bgs/sunrise.png')
+	this.load.image('skyline2', 'assets/sprites/bgs/skyline2.png')
+	this.load.image('skyline1', 'assets/sprites/bgs/skyline1.png')
 	
 	// CONTROL BUTTONS
 	this.load.image('aButton', 'assets/buttons/a.png')
