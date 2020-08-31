@@ -427,7 +427,7 @@ Level1Scene.prototype.initControls = function() {
 
 Level1Scene.prototype.initMapData = function() {	
 	// map
-	this.add.sprite(-1, -1, 'level1Background').setOrigin(0)
+	// this.add.sprite(-1, -1, 'level1Background').setOrigin(0)
 	this.map = this.make.tilemap({ key: "level1map" })
 	const tileset = this.map.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
 	this.solidLayer = this.map.createStaticLayer("Solid", tileset) //, 0, 0)

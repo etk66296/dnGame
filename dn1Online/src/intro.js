@@ -27,6 +27,7 @@ IntroScene.prototype.preload = function () {
 
 
 	// MAPS
+	this.load.tilemapTiledJSON("level0map", "assets/maps/dn1MapTutorial.json")
 	this.load.tilemapTiledJSON("level1map", "assets/maps/dn1MapLevel1.json")
 
 	// SPRITESHEETS
@@ -572,7 +573,8 @@ IntroScene.prototype.create = function() {
 IntroScene.prototype.update = function (time, delta) {
 	if (this.elapsedIntroTime > this.introDelay) {
 		this.scene.stop('IntroScene')
-		this.scene.start('LogoScene',  { doRestart: false })
+		// this.scene.start('LogoScene',  { doRestart: false })
+		this.scene.start('Level0Scene')
 	}
 	this.elapsedIntroTime += delta
 }
