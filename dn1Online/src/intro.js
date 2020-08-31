@@ -18,12 +18,7 @@ IntroScene.prototype.preload = function () {
 	this.load.image('skyline1', 'assets/sprites/bgs/skyline1.png')
 	
 	// CONTROL BUTTONS
-	this.load.image('aButton', 'assets/buttons/a.png')
-	this.load.image('bButton', 'assets/buttons/b.png')
-	this.load.image('leftButton', 'assets/buttons/left.png')
-	this.load.image('rightButton', 'assets/buttons/right.png')
-	this.load.image('upButton', 'assets/buttons/up.png')
-	this.load.image('buttonPressed', 'assets/buttons/pressed.png')
+	this.load.atlas('controlButtonsAtlas', 'assets/buttons/buttons.png', 'assets/buttons/buttons.json')
 
 
 	// MAPS
