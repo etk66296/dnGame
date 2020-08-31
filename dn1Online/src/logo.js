@@ -24,9 +24,9 @@ LogoScene.prototype.update = function (time, delta) {
 	if (this.elapsedLogoTime > this.logoDelay) {
 		this.scene.stop('LogoScene')
 		if (this.doRestart) {
-			this.scene.restart('GameScene')
+			this.scene.restart('Level1Scene')
 		} else {
-			this.scene.start('GameScene')
+			this.scene.start('Level1Scene')
 		}
 	}
 	this.elapsedLogoTime += delta

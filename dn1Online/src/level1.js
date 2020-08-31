@@ -1,5 +1,5 @@
-function GameScene() {
-	Phaser.Scene.call(this, 'GameScene')
+function Level1Scene() {
+	Phaser.Scene.call(this, 'Level1Scene')
 	this.controls = null
 	this.hero = null
 	this.cursors = null
@@ -98,14 +98,14 @@ function GameScene() {
 	this.whaserBossNoise = null
 }
 
-GameScene.prototype = Object.create(Phaser.Scene.prototype)
-GameScene.prototype.constructor = GameScene
+Level1Scene.prototype = Object.create(Phaser.Scene.prototype)
+Level1Scene.prototype.constructor = Level1Scene
 
-GameScene.prototype.preload = function () {
+Level1Scene.prototype.preload = function () {
 	// all preloads are done in the intro scene
 }
 
-GameScene.prototype.create = function() {
+Level1Scene.prototype.create = function() {
 	// background
 	this.add.sprite(-100, 0, 'skyline1').setOrigin(0).setScrollFactor(0.2).setDepth(-1)
 	this.add.sprite(-100, 0, 'skyline2').setOrigin(0).setScrollFactor(0.1).setDepth(-2)
@@ -299,7 +299,7 @@ GameScene.prototype.create = function() {
 	// <-- gun multiplicator
 }
 
-GameScene.prototype.update = function (time, delta) {
+Level1Scene.prototype.update = function (time, delta) {
 	// hero movement -->
 	if (this.key_LEFT.isDown || this.touch_LEFT.isDown) {
 		if(this.hero.body.onFloor()) {
@@ -406,7 +406,7 @@ GameScene.prototype.update = function (time, delta) {
 		this.hero.setScale(this.heroScale)
 		if(this.heroScale <= 0) {
 			// change to game over scene
-			// this.scene.stop('GameScene')
+			// this.scene.stop('Level1Scene')
 			this.scene.start('LogoScene', { doRestart: true });
 		}
 	}
@@ -416,7 +416,7 @@ GameScene.prototype.update = function (time, delta) {
 	// <-- points
 }
 
-GameScene.prototype.initControls = function() {	
+Level1Scene.prototype.initControls = function() {	
 	// constrols
 	this.key_RIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
 	this.key_LEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)
@@ -425,7 +425,7 @@ GameScene.prototype.initControls = function() {
 	this.key_USE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
 }
 
-GameScene.prototype.initMapData = function() {	
+Level1Scene.prototype.initMapData = function() {	
 	// map
 	this.add.sprite(-1, -1, 'level1Background').setOrigin(0)
 	this.map = this.make.tilemap({ key: "level1map" })
@@ -452,28 +452,28 @@ GameScene.prototype.initMapData = function() {
 	this.shootableBricksObjLayerData = this.map.objects[this.map.objects.findIndex(x => x.name === "ShootableBricks")].objects
 }
 
-GameScene.prototype.initAnimatedDeco = function() {	
+Level1Scene.prototype.initAnimatedDeco = function() {	
 	this.animtedDecoGroup = new AnimatedDeco(this, this.animatedDecoObjLayerData)
 	this.animtedDecoGroup.children.iterate((decoSegment) => {
 		decoSegment.setup()
 	})
 }
 
-GameScene.prototype.initHeroBullets = function() {	
+Level1Scene.prototype.initHeroBullets = function() {	
 	this.bullets = new Bullets(this, this.solidLayer)
 	this.bullets.children.iterate((bullet) => {
 		bullet.setup()
 	})
 }
 
-GameScene.prototype.initCrocos = function() {
+Level1Scene.prototype.initCrocos = function() {
 	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer, this.bullets, this.explosionSound, this.pointCounterDsp)
 	this.crocosGroup.children.iterate(function (croco) {
 		croco.setup()
 	})
 }
 
-GameScene.prototype.initLevelGate = function() {	
+Level1Scene.prototype.initLevelGate = function() {	
 	this.levelGateGroup = new LevelGate(this, this.levelGateObjLayerData, this.hero, this.key_USE, this.touch_USE)
 	this.levelGateGroup.children.iterate((levelGateSegment) => {
 		levelGateSegment.setup()
@@ -481,49 +481,49 @@ GameScene.prototype.initLevelGate = function() {
 	this.levelGateGroup.setup()
 }
 
-GameScene.prototype.initEnemyBullets = function() {
+Level1Scene.prototype.initEnemyBullets = function() {
 	this.enemyBullets = new EnemyBullets(this, this.solidLayer)
 	this.enemyBullets.children.iterate((bullet) => {
 		bullet.setup()
 	})
 }
 
-GameScene.prototype.initMines = function() {
+Level1Scene.prototype.initMines = function() {
 	this.mines = new Mines(this, this.minesObjLayerData, this.solidLayer, this.bullets)
 	this.mines.children.iterate(function(mine) {
 		mine.setup()
 	})
 }
 
-GameScene.prototype.initObserverCameras = function() {
+Level1Scene.prototype.initObserverCameras = function() {
 	this.gameCamsGroup = new GameCams(this, this.camsObjLayerData, this.bullets, this.pointFlyersGroup, this.explosionSound, this.pointCounterDsp)
 	this.gameCamsGroup.children.iterate((cam) => {
 		cam.setup()
 	})
 }
 
-GameScene.prototype.initGiantRobots = function() {
+Level1Scene.prototype.initGiantRobots = function() {
 	this.giantRobots = new Giantrobots(this, this.giantrobotsObjLayerData, this.solidLayer, this.enemyBullets, this.hero, this.bullets, this.pointCounterDsp)
 	this.giantRobots.children.iterate(function (giantrobo) {
 		giantrobo.setup()
 	})
 }
 
-GameScene.prototype.initMiniRobots = function() {
+Level1Scene.prototype.initMiniRobots = function() {
 	this.minirobotsGroup = new Minirobots(this, this.minirobotsObjLayerData, this.solidLayer, this.bullets, this.explosionSound, this.pointCounterDsp)
 	this.minirobotsGroup.children.iterate(function (minirobo) {
 		minirobo.setup()
 	})
 }
 
-GameScene.prototype.initWheelCanons = function() {
+Level1Scene.prototype.initWheelCanons = function() {
 	this.wheelcanonsGroup = new Wheelcanons(this, this.wheelcanonObjLayerData, this.solidLayer, this.enemyBullets, this.bullets, this.pointCounterDsp)
 	this.wheelcanonsGroup.children.iterate(function (wheelcanon) {
 		wheelcanon.setup()
 	})
 }
 
-GameScene.prototype.initBouncerGuards = function() {
+Level1Scene.prototype.initBouncerGuards = function() {
 	this.guardsObjLayerData.forEach((guard) => {
 		var r1 = this.add.rectangle(guard.x + 8, guard.y + 8, guard.width, guard.height)
 		this.physics.add.existing(r1)
@@ -540,7 +540,7 @@ GameScene.prototype.initBouncerGuards = function() {
 	})
 }
 
-GameScene.prototype.initHero = function() {
+Level1Scene.prototype.initHero = function() {
 	this.hero = this.physics.add.sprite(900, 100, 'heroSpriteAtlas').play('heroJumpRight')
 	this.hero.body.setSize(10, 32, true)
 	this.hero.body.setOffset(11, 0)
@@ -584,7 +584,7 @@ GameScene.prototype.initHero = function() {
 	]}
 }
 
-GameScene.prototype.initGifts = function() {
+Level1Scene.prototype.initGifts = function() {
 	// depends on the hero bullets instance
 	this.pointFlyersGroup = new PointsFlyers(this)
 	this.dynamiteGroup = new Dynamite(this, this.floorfireSound)
@@ -606,7 +606,7 @@ GameScene.prototype.initGifts = function() {
 	})
 }
 
-GameScene.prototype.initElevators = function() {
+Level1Scene.prototype.initElevators = function() {
 	this.elevators = []
 	this.elevatorsObjLayerData.forEach((elevatorData) => {
 		this.elevators.push(new Elevator(this, elevatorData, this.hero, this.key_USE, this.touch_USE))
@@ -620,7 +620,7 @@ GameScene.prototype.initElevators = function() {
 	})
 }
 
-GameScene.prototype.initGlowThrower = function() {
+Level1Scene.prototype.initGlowThrower = function() {
 	this.glowThrowers = []
 	// glow thrower groups are organized in an array
 	this.glowthrowersObjLayerData.forEach((glowThrowerData) => {
@@ -634,7 +634,7 @@ GameScene.prototype.initGlowThrower = function() {
 }
 
 
-GameScene.prototype.initTraps = function() {
+Level1Scene.prototype.initTraps = function() {
 	this.traps = []
 	// check how many traps are in the level
 	// each trapsegment of the same trap has the same id
@@ -656,14 +656,14 @@ GameScene.prototype.initTraps = function() {
 	})
 }
 
-GameScene.prototype.initWasherBoss = function() {
+Level1Scene.prototype.initWasherBoss = function() {
 	this.finalBossGroup = new WasherBoss(this, this.washerBossObjLayerData, this.hero, this.bullets, this.pointCounterDsp, this.whaserBossNoise)
 	this.finalBossGroup.children.iterate(bossSegment => {
 		bossSegment.setup()
 	})
 }
 
-GameScene.prototype.initShootableBricks = function() {
+Level1Scene.prototype.initShootableBricks = function() {
 	this.shootableBricksGroup = new ShootableBrick(this, this.shootableBricksObjLayerData, this.hero, this.bullets, this.pointCounterDsp)
 	this.shootableBricksGroup.children.iterate(brick => {
 		brick.setup()
@@ -671,14 +671,14 @@ GameScene.prototype.initShootableBricks = function() {
 }
 
 
-GameScene.prototype.initKeysAndGates = function() {
+Level1Scene.prototype.initKeysAndGates = function() {
 	this.keysNGatesGroup = new KeysNGates(this, this.keysAndGatesObjLayerData, this.hero, this.pointFlyersGroup, this.key_USE,this.touch_USE, this.openGateSound, this.pointCounterDsp)
 	this.keysNGatesGroup.children.iterate(keyItem => {
 		keyItem.setup()
 	})
 }
 
-GameScene.prototype.initHealthBar = function() {
+Level1Scene.prototype.initHealthBar = function() {
 	this.heroHealthGroup = this.add.group()
 	for (let i = 0; i < this.healthBlocks.max; i++) {
 		let rect = this.add.rectangle(this.scale.canvas.width - 95 +  i * 9, 14, 7, 22, 0x00ff00)
@@ -693,7 +693,7 @@ GameScene.prototype.initHealthBar = function() {
 	}
 }
 
-GameScene.prototype.initCollision = function() {
+Level1Scene.prototype.initCollision = function() {
 	// this function depends on all init functions
 	// mini robots -->
 	this.physics.add.overlap(this.hero, this.minirobotsGroup,  () => {
@@ -749,7 +749,7 @@ GameScene.prototype.initCollision = function() {
 	// <-- gifts
 }
 
-GameScene.prototype.updateHealthBlock = function() {
+Level1Scene.prototype.updateHealthBlock = function() {
 	this.heroHealthGroup.children.iterate((healthBlock, index) => {
 		if (index >= this.healthBlocks.current) {
 			healthBlock.setVisible(false)
