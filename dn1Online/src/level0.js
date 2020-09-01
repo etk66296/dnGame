@@ -49,8 +49,10 @@ Level0Scene.prototype.create = function() {
 	this.hero.setup()
 	// crocos
 	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer)
-	this.crocosGroup.children.iterate(function (croco) {
+	this.crocosGroup.children.iterate((croco) => {
 		croco.setup()
+		croco.registerAsPainful(this.hero)
+		croco.registerAsShootable(this.hero)
 	})
 
 	// bouncer

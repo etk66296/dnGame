@@ -1,8 +1,6 @@
-class Croco extends Phaser.Physics.Arcade.Sprite {
+class Croco extends EnemyObj {
   constructor (scene, x, y, type, pointCounterDsp) {
 		super(scene, x, y, 'enemiesSpriteAtlas')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
 		this.type = type // rightcrawler | leftcrawler
 		this.pointCounterDsp = pointCounterDsp
 	}

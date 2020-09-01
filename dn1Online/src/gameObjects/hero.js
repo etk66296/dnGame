@@ -1,12 +1,12 @@
-class Hero extends Phaser.Physics.Arcade.Sprite {
+class Hero extends PhysicsObj {
   constructor (scene, x, y, solidLayer, gameControls, gun) {
 		super(scene, x, y, 'heroSpriteAtlas', 'idleR_0000')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
+		// scene.add.existing(this)
+		// scene.physics.add.existing(this)
 		this.solidLayer = solidLayer
 		this.equipment = null
 		this.gameControls = gameControls
-		this.lastDir = ''
+		this.lastDir = 0
 		this.jumpSpeed = 0
 		this.painState = false
 		this.gun = gun
@@ -14,7 +14,7 @@ class Hero extends Phaser.Physics.Arcade.Sprite {
 	}
 	setup() {
 		this.jumpSpeed = 85
-		this.lastDir = 'right'
+		this.lastDir = 1
 		this.setName('hero')
 		this.body.setSize(12, 32, true)
 		this.body.setOffset(9, 0)
@@ -74,7 +74,7 @@ class Hero extends Phaser.Physics.Arcade.Sprite {
 					this.anims.play('heroJumpLeft', true)
 				}
 			}
-			this.lastDir = 'left'
+			this.lastDir = -1
 		}  else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
 			if(this.body.onFloor()) {
 				this.setVelocityX(140)
@@ -91,10 +91,10 @@ class Hero extends Phaser.Physics.Arcade.Sprite {
 					this.anims.play('heroJumpRight', true)
 				}
 			}
-			this.lastDir = 'right'
+			this.lastDir = 1
 		} else {
 			this.setVelocityX(0)
-			if(this.lastDir === 'left') {
+			if(this.lastDir === -1) {
 				if (this.painState) {
 					this.anims.play('heroPainLeft', true)
 				} else {
@@ -114,7 +114,7 @@ class Hero extends Phaser.Physics.Arcade.Sprite {
 		// <-- hero movement
 		// fire gun -->
 		if (this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) {
-			this.gun.fireBullet()
+			this.gun.fireBullet(this.x, this.y, this.lastDir)
 			// console.log(this.gun)
 		}
 	// <-- fire
