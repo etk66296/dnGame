@@ -1,6 +1,8 @@
 class Bullet extends Phaser.Physics.Arcade.Sprite {
   constructor (scene, x, y) {
 		super(scene, x, y, 'heroSpriteAtlas', 'bullet')
+		scene.add.existing(this)
+		scene.physics.add.existing(this)
 	}
 	setup () {
 		this.setSize(1, 1, true)
@@ -16,22 +18,23 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 		})
 	}
   fire (x, y, dir) {
-		this.body.checkCollision = {
-			down: false,
-			left: true,
-			none: false,
-			right: true,
-			up: false
-		}
-		this.body.reset(x, y + 2)
-		this.setActive(true)
-		this.setVisible(true)
-		this.setVelocityX(300 * dir)
-		this.setFrame('bullet')
+		// this.body.checkCollision = {
+		// 	down: false,
+		// 	left: true,
+		// 	none: false,
+		// 	right: true,
+		// 	up: false
+		// }
+		// this.body.reset(x, y + 2)
+		// this.setActive(true)
+		// this.setVisible(true)
+		// this.setVelocityX(300 * dir)
+		// this.setFrame('bullet')
+		// this.allowShoot = false
 	}
 }
 
-class Bullets extends Phaser.Physics.Arcade.Group {
+class HeroGun extends Phaser.Physics.Arcade.Group {
   constructor (scene, solidLayer) {
     super(scene.physics.world, scene)
     this.createMultiple({
@@ -41,15 +44,18 @@ class Bullets extends Phaser.Physics.Arcade.Group {
       visible: false,
       classType: Bullet
 		})
+		this.gunCoolingDownTime = 1000
+		this.gunCo0lingDownCurrent = 0
+		this.allowShoot = true
 		scene.physics.add.collider(solidLayer, this, bullet => {
 			bullet.body.checkCollision.none = true
 			bullet.play('heroExplode')
 		})
-  }
+	}
 	fireBullet (x, y, dir) {
 		let bullet = this.getFirstDead(false)
     if (bullet) {
-      bullet.fire(x, y, dir)
+     	bullet.fire(x, y, dir)
 		}
   }
 }

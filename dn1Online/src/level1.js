@@ -460,7 +460,7 @@ Level1Scene.prototype.initAnimatedDeco = function() {
 }
 
 Level1Scene.prototype.initHeroBullets = function() {	
-	this.bullets = new Bullets(this, this.solidLayer)
+	this.bullets = new HeroGun(this, this.solidLayer)
 	this.bullets.children.iterate((bullet) => {
 		bullet.setup()
 	})
