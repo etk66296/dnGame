@@ -37,6 +37,49 @@
                  "width":16,
                  "x":192,
                  "y":1376
+                }, 
+                {
+                 "height":16,
+                 "id":6,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":1408
+                }, 
+                {
+                 "height":16,
+                 "id":7,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":352,
+                 "y":1408
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"Minirobots",
+         "objects":[
+                {
+                 "height":20,
+                 "id":8,
+                 "name":"Minirobot",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":1404
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -76,7 +119,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":6,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

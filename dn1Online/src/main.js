@@ -14,7 +14,7 @@ function MemoryGame() {
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, Level0Scene, LogoScene, Level1Scene],
+			scene: [IntroScene, Level0Scene, InfoTextScene, LogoScene, Level1Scene],
 			audio: {
         disableWebAudio: true
     	}

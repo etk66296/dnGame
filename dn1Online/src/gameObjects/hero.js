@@ -127,5 +127,12 @@ class Hero extends PhysicsObj {
 			})
 		}
 		// <-- reset pain
+		// trigger info if hero reach defined rect -->
+		if (this.x > 200) {
+			console.log(this.scene)
+			this.scene.scene.manager.pause('Level0Scene')
+			this.scene.scene.manager.start('InfoTextScene')
+		}
+		// <-- trigger info if hero reach defined rect
 	}
 }
