@@ -4,15 +4,12 @@ class Hero extends PhysicsObj {
 		// scene.add.existing(this)
 		// scene.physics.add.existing(this)
 		this.solidLayer = solidLayer
-		this.equipment = null
 		this.gameControls = gameControls
-		this.lastDir = 0
 		this.jumpSpeed = 0
+		this.painTime = 1000
 		this.painState = false
+		this.painEvent = null
 		this.gun = gun
-		return this
-	}
-	setup() {
 		this.jumpSpeed = 85
 		this.lastDir = 1
 		this.setName('hero')
@@ -53,6 +50,7 @@ class Hero extends PhysicsObj {
 			{ x: 16 + 18 * 3, y: 16 + 18 * 5 },
 			{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
 		]}
+		return this
 	}
 
 	preUpdate (time, delta) {
@@ -117,6 +115,17 @@ class Hero extends PhysicsObj {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
 			// console.log(this.gun)
 		}
-	// <-- fire
+		// <-- fire
+		// reset pain -->
+		if (this.painState) {
+			this.painEvent = this.scene.time.addEvent({
+				delay:this.painTime ,
+				callback: () => {
+					this.painState = false
+					this.painEvent.remove(false)
+				}
+			})
+		}
+		// <-- reset pain
 	}
 }

@@ -40,19 +40,14 @@ Level0Scene.prototype.create = function() {
 	this.gameControls.setup()
 
 	// moveable objects
-	// hero gun
+	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.heroGun.children.iterate((bullet) => {
-		bullet.setup()
-	})
-	this.hero = new Hero(this, 30, 20, this.solidLayer, this.gameControls, this.heroGun)
-	this.hero.setup()
+	this.hero = new Hero(this, 40, 1000, this.solidLayer, this.gameControls, this.heroGun)
 	// crocos
-	this.crocosGroup = new Crocos(this, this.crocosObjLayerData, this.solidLayer)
+	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
-		croco.setup()
-		croco.registerAsPainful(this.hero)
-		croco.registerAsShootable(this.hero)
+		croco.registerAsPainful()
+		croco.registerAsShootable()
 	})
 
 	// bouncer

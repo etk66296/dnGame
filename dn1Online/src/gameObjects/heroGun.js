@@ -3,10 +3,8 @@ class Bullet extends PhysicsObj {
 		super(scene, x, y, 'heroSpriteAtlas', 'bullet')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
-	}
-	setup () {
 		this.setSize(1, 1, true)
-		this.setOffset(0, 1)
+		this.setOffset(8, 1)
 		this.body.checkCollision.none = true
 		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === 'heroExplode') {
@@ -30,6 +28,11 @@ class Bullet extends PhysicsObj {
 		this.setVelocityX(300 * dir)
 		this.setFrame('bullet')
 	}
+	explode () {
+		this.setVelocityX(0)
+		this.body.checkCollision.none = true
+		this.play('heroExplode')
+	}
 }
 
 class HeroGun extends Phaser.Physics.Arcade.Group {
@@ -50,12 +53,6 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
 			bullet.play('heroExplode')
 		})
 	}
-	registerEnemy (enemy) {
-		this.scene.physics.add.collider(enemy, this, bullet => {
-			bullet.body.checkCollision.none = true
-			bullet.play('heroExplode')
-		})
-	}
 	fireBullet (x, y, dir) {
 		if (this.gunIsReady) {
 			this.gunIsReady = false
@@ -68,9 +65,7 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
 				callback: () => {
 					this.gunIsReady = true
 					this.cooledDownEvent.remove(false)
-				},
-				callbackScope: this,
-				loop: true
+				}
 			})
 		}
   }

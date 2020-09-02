@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="6">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="9">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../../../../ogv_adv_web_dev/games/dn1Online/statics/sprites/TilesNoTileBleeding.png" width="578" height="308"/>
  </tileset>
@@ -11,6 +11,11 @@
  <objectgroup name="Guards">
   <object id="4" name="Guard" x="144" y="1376" width="16" height="16"/>
   <object id="5" name="Guard" x="192" y="1376" width="16" height="16"/>
+  <object id="6" name="Guard" x="256" y="1408" width="16" height="16"/>
+  <object id="7" name="Guard" x="352" y="1408" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Minirobots">
+  <object id="8" name="Minirobot" x="304" y="1404" width="16" height="20"/>
  </objectgroup>
  <objectgroup name="Crocos">
   <object id="1" name="Crocos" type="rightcrawler" x="192" y="1392" width="16" height="16"/>
