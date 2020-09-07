@@ -50,6 +50,7 @@ class Hero extends PhysicsObj {
 			{ x: 16 + 18 * 3, y: 16 + 18 * 5 },
 			{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
 		]}
+		this.tutorialMode = true
 		return this
 	}
 
@@ -128,18 +129,33 @@ class Hero extends PhysicsObj {
 		}
 		// <-- reset pain
 		// trigger info if hero reach defined rect -->
-		if (this.x > 50) {
-			console.log(this.scene)
-			this.scene.scene.manager.pause('Level0Scene')
-			this.scene.scene.manager.start('InfoTextScene', {text: [
-				'Die Krokocrawler an der Kiste',
-				'wollen dich aufhalten.',
-				'',
-				'Terminiere sie mit deiner Blasterkanone.',
-				'Die Blasterkanone reagiert auf den',
-				'"Y" - Knopf deiner Tastatur',
-				'oder den Tastknopf "B" auf am HUD.'
-			]})
+		if(this.tutorialMode) {
+			if (this.x >= 50 && this.x < 55 && this.y > 1375) {
+				this.gameControls.release()
+				this.scene.scene.manager.pause('Level0Scene')
+				this.scene.scene.manager.start('InfoTextScene', {text: [
+					'Die Krokocrawler an der Kiste',
+					'wollen dich aufhalten.',
+					'',
+					'Terminiere sie mit deiner Blasterkanone.',
+					'Die Blasterkanone reagiert auf den',
+					'"Y" - Knopf deiner Tastatur',
+					'oder den Tastknopf "B" auf am HUD.'
+				]})
+				this.setPosition(this.x + 5, this.y)
+			}
+			if (this.x >= 290 && this.x < 295 && this.y > 1375) {
+				this.gameControls.release()
+				this.scene.scene.manager.pause('Level0Scene')
+				this.scene.scene.manager.start('InfoTextScene', {text: [
+					'Miniroboter können schleichen',
+					'durch die Gegend.',
+					'',
+					'Es wird Zeit diesen hier',
+					'weg zu pusten'
+				]})
+				this.setPosition(this.x + 5, this.y)
+			}
 		}
 		// <-- trigger info if hero reach defined rect
 	}

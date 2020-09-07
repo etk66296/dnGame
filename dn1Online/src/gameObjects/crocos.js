@@ -23,7 +23,7 @@ class Croco extends EnemyObj {
 	}
 }
 class Crocos extends Phaser.Physics.Arcade.Group {
-  constructor (scene,hero, crocosData, solidLayer) {
+  constructor (scene, hero, crocosData, solidLayer) {
 		super(scene.physics.world, scene)
 		crocosData.forEach((crocoData) => {
 			this.add(new Croco(scene, hero, crocoData.x + 8, crocoData.y + 8, crocoData.type))

@@ -2,7 +2,8 @@ function InfoTextScene() {
 	Phaser.Scene.call(this, 'InfoTextScene')
 	this.innerText = ''
 	this.textObj = null
-	this.boxPos = {x: 60, y: 40}
+	this.bgImage = null
+	this.boxPos = { x: 60, y: 40 }
 }
 
 InfoTextScene.prototype = Object.create(Phaser.Scene.prototype)
@@ -17,10 +18,26 @@ InfoTextScene.prototype.preload = function () {
 }
 
 InfoTextScene.prototype.create = function() {
-	this.add.image(this.boxPos.x, this.boxPos.y, 'textbox').setScrollFactor(0,0).setOrigin(0, 0)
+	this.key_ENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
+
+	this.bgImage = this.add.image(this.boxPos.x, this.boxPos.y, 'textbox')
+	this.bgImage.setScrollFactor(0,0)
+	this.bgImage.setOrigin(0, 0)
+	this.bgImage.setInteractive()
+	this.bgImage.on('pointerdown', () => {
+		this.scene.manager.stop('InfoTextScene')
+		this.scene.manager.resume('Level0Scene')
+	})
 	this.textObj = this.add.text(this.boxPos.x + 20, this.boxPos.y + 20, 'Static Text Object', { fontFamily: 'Arial', fontSize: 16, color: '#FFFFFF' })
 	this.textObj.setFontStyle('bold')
 	this.textObj.setOrigin(0, 0)
 	this.textObj.setScrollFactor(0,0)
 	this.textObj.setText(this.innerText)
+}
+
+InfoTextScene.prototype.update = function() {
+	if (this.key_ENTER.isDown) {
+		this.scene.manager.stop('InfoTextScene')
+		this.scene.manager.resume('Level0Scene')
+	}
 }

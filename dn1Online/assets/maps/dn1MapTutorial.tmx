@@ -11,11 +11,11 @@
  <objectgroup name="Guards">
   <object id="4" name="Guard" x="144" y="1376" width="16" height="16"/>
   <object id="5" name="Guard" x="192" y="1376" width="16" height="16"/>
-  <object id="6" name="Guard" x="256" y="1408" width="16" height="16"/>
-  <object id="7" name="Guard" x="352" y="1408" width="16" height="16"/>
+  <object id="6" name="Guard" x="384" y="1408" width="16" height="16"/>
+  <object id="7" name="Guard" x="464" y="1408" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Minirobots">
-  <object id="8" name="Minirobot" x="304" y="1404" width="16" height="20"/>
+  <object id="8" name="Minirobot" x="416" y="1404" width="16" height="20"/>
  </objectgroup>
  <objectgroup name="Crocos">
   <object id="1" name="Crocos" type="rightcrawler" x="192" y="1392" width="16" height="16"/>

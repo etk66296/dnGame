@@ -51,4 +51,16 @@ class Controls extends Phaser.GameObjects.Group {
 			button.setup()
 		})
 	}
+	release() {
+		this.touch_USE.isDown = false
+		this.touch_RIGHT.isDown = false
+		this.touch_LEFT.isDown = false
+		this.touch_JUMP.isDown = false
+		this.touch_FIRE.isDown = false
+		this.key_RIGHT.isDown = false
+		this.key_LEFT.isDown = false
+		this.key_JUMP.isDown = false
+		this.key_FIRE.isDown = false
+		this.key_USE.isDown = false
+	}
 }

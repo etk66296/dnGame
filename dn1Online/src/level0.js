@@ -10,6 +10,7 @@ function Level0Scene() {
 	this.solidLayer = null
 	this.bouncerGuardsObjLayerData = null
 	this.crocosObjLayerData = null
+	this.miniRobotsObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -49,9 +50,18 @@ Level0Scene.prototype.create = function() {
 		croco.registerAsPainful()
 		croco.registerAsShootable()
 	})
+	// mini robots
+	this.miniRobotsGroup = new Minirobots(this, this.hero, this.miniRobotsObjLayerData, this.solidLayer)
+	this.miniRobotsGroup.children.iterate((miniRobo) => {
+		miniRobo.registerAsPainful()
+		miniRobo.registerAsShootable()
+	})
 
 	// bouncer
-	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [this.crocosGroup]/*collider groups(mini robots, crocos, ...)*/)
+	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
+		this.crocosGroup,
+		this.miniRobotsGroup
+	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// camera
 	this.cameras.main.startFollow(this.hero)
@@ -71,6 +81,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.bouncerGuardsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Guards")].objects
 	// crocos
 	this.crocosObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Crocos")].objects
+	// mini robots
+	this.miniRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Minirobots")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	
