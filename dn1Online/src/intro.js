@@ -16,6 +16,8 @@ IntroScene.prototype.preload = function () {
 	this.load.image('bgSunrise', 'assets/sprites/bgs/sunrise.png')
 	this.load.image('skyline2', 'assets/sprites/bgs/skyline2.png')
 	this.load.image('skyline1', 'assets/sprites/bgs/skyline1.png')
+
+	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
 	
 	// CONTROL BUTTONS
 	this.load.atlas('controlButtonsAtlas', 'assets/buttons/buttons.png', 'assets/buttons/buttons.json')

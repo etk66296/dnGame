@@ -128,10 +128,18 @@ class Hero extends PhysicsObj {
 		}
 		// <-- reset pain
 		// trigger info if hero reach defined rect -->
-		if (this.x > 200) {
+		if (this.x > 50) {
 			console.log(this.scene)
 			this.scene.scene.manager.pause('Level0Scene')
-			this.scene.scene.manager.start('InfoTextScene')
+			this.scene.scene.manager.start('InfoTextScene', {text: [
+				'Die Krokocrawler an der Kiste',
+				'wollen dich aufhalten.',
+				'',
+				'Terminiere sie mit deiner Blasterkanone.',
+				'Die Blasterkanone reagiert auf den',
+				'"Y" - Knopf deiner Tastatur',
+				'oder den Tastknopf "B" auf am HUD.'
+			]})
 		}
 		// <-- trigger info if hero reach defined rect
 	}
