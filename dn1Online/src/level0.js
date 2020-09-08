@@ -8,6 +8,8 @@ function Level0Scene() {
 	
 	// world layers
 	this.solidLayer = null
+	this.decorationLayer = null
+	this.elevatorsObjLayerData = null
 	this.bouncerGuardsObjLayerData = null
 	this.crocosObjLayerData = null
 	this.miniRobotsObjLayerData = null
@@ -16,6 +18,7 @@ function Level0Scene() {
 	this.heroGun = null
 	this.hero = null
 	this.crocosGroup = null
+	this.elevators = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -43,7 +46,7 @@ Level0Scene.prototype.create = function() {
 	// moveable objects
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 30, 1390, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 690, 1390, this.solidLayer, this.gameControls, this.heroGun)
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
@@ -63,6 +66,12 @@ Level0Scene.prototype.create = function() {
 		this.miniRobotsGroup
 	]/*collider groups(mini robots, crocos, ...)*/)
 
+	// elevators
+	this.elevators = []
+	this.elevatorsObjLayerData.forEach((elevatorData) => {
+		this.elevators.push(new Elevator(this, elevatorData, this.hero))
+	})
+
 	// camera
 	this.cameras.main.startFollow(this.hero)
 }
@@ -76,6 +85,10 @@ Level0Scene.prototype.initWorld = function() {
 	this.tileset = this.worldMap.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
+	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
+
+	// elevators
+	this.elevatorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Elevators")].objects
 
 	// bouncer guards
 	this.bouncerGuardsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Guards")].objects

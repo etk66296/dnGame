@@ -5,14 +5,12 @@ class ElevatorSegment extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x, y, 'giftsSpriteAtlas', 'ElevatorSegment')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
-		this.headModule = headModule
-	}
-	setup () {
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(false)
-	}
+		this.headModule = headModule
 
+	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 		if((this.headModule.y - 2) < this.y) {
@@ -24,21 +22,22 @@ class ElevatorSegment extends Phaser.Physics.Arcade.Sprite {
 }
 
 class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, hero) {
+  constructor (scene, x, y, hero, maxHeight) {
 		super(scene, x, y, 'giftsSpriteAtlas', 'ElevatorHead')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
+		this.maxHeight = maxHeight
 		this.hero = hero
 		this.goUp = false
 		this.backToOrigin = false
 		this.originY = y
 		this.currentVelocity = 0
 		this.acceleration = 3
-	}
-	setup () {
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
+		// this.setBounce(0, 0)
+		this.set
 		this.body.checkCollision = {
 			down: false,
 			left: false,
@@ -50,58 +49,84 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 			this.hero.body.blocked.down = true
 		})
 	}
-
+	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (this.body.touching.up) {
-			// this.hero.body.blocked.down = true
-			if(this.goUp) {
-				if (this.currentVelocity < -80) {
-					this.currentVelocity = -80
-				}
-				this.currentVelocity -= this.acceleration
-				this.setVelocityY(this.currentVelocity)
-				this.goUp = false
-			} else {
-				// this.hero.setVelocityY(0) // the elevetor is not a catapult
-				if (this.currentVelocity < -1 * this.acceleration || this.currentVelocity > this.acceleration) {
+		this.setImmovable(true)
+		if(this.body.touching.up) {
+			if (this.hero.gameControls.key_USE.isDown || this.hero.gameControls.touch_USE.isDown) {
+				if (this.y > (this.originY - this.maxHeight + 24)) {
+					this.currentVelocity -= this.acceleration
+					if (this.currentVelocity < -80) {
+						this.currentVelocity = -80
+					}
+					this.setVelocityY(this.currentVelocity)
+				} else if (this.y > (this.originY - this.maxHeight) && this.currentVelocity < 0) {
 					this.currentVelocity += this.acceleration
 					this.setVelocityY(this.currentVelocity)
 				} else {
 					this.currentVelocity = 0
 					this.setVelocityY(this.currentVelocity)
 				}
-			}
-		} else { // back to elevator origin
-			if (this.y < this.originY) {
-				this.setVelocityY(150)
 			} else {
-				this.y = this.originY
+				this.currentVelocity += this.acceleration
+				if (this.currentVelocity > 0) {
+					this.currentVelocity = 0
+				}
+				this.setVelocityY(this.currentVelocity)
+			}
+		} else {
+			if (this.y < this.originY) {
+				this.currentVelocity += this.acceleration
+				if (this.currentVelocity < 80) {
+					this.currentVelocity = 80
+				}
+				this.setVelocityY(this.currentVelocity)
+			} else {
 				this.currentVelocity = 0
-				this.setVelocityY(0)
+				this.setVelocityY(this.currentVelocity)
+				this.y = this.originY
 			}
 		}
+		// if (this.maxHeight < (this.originY - this.y) && this.body.touching.up) {
+		// 	this.y = this.originY - this.y
+		// }
+		// if (this.hero.gameControls.key_USE.isDown ||
+		// 		this.hero.gameControls.touch_USE.isDown) {
+		// 	if (this.maxHeight > (this.originY - this.y)) { //  &&this.body.touching.up) 
+		// 		if(this.body.touching.up) {
+		// 			this.currentVelocity -= this.acceleration
+		// 			if (this.currentVelocity < -80) {
+		// 				this.currentVelocity = -80
+		// 			}
+		// 			this.setVelocityY(this.currentVelocity)
+		// 		}
+		// 	}
+		// }
+		// else {
+		// 	if (this.y < this.originY && this.currentVelocity > 0) {
+		// 		this.currentVelocity += this.acceleration
+		// 		this.setVelocityY(this.currentVelocity)
+		// 		// if (this.body.touching.up) {
+		// 		// 	this.currentVelocity = 0
+		// 		// 	this.setVelocityY(this.currentVelocity)
+		// 		// }
+		// 	}
+		// }
 	}
 }
 
 class Elevator extends Phaser.Physics.Arcade.Group {
-  constructor (scene, elevatorData, hero, key_USE, touch_USE) {
+  constructor (scene, elevatorData, hero) {
 		super(scene.physics.world, scene)
-		this.headModule = new ElevatorHead (scene, elevatorData.x + 8, elevatorData.y + 8, hero)
+		this.hero = hero
+		this.maxHeight = elevatorData.properties.numberOfSegments * 16
+		this.headModule = new ElevatorHead (scene, elevatorData.x + 8, elevatorData.y + 8, hero, this.maxHeight)
 		for (let i = 0; i < elevatorData.properties.numberOfSegments; i++) {
 			this.add(new ElevatorSegment(scene, elevatorData.x + 8, elevatorData.y + 8 - 16 * i, this.headModule))
 		}
 		this.headModule.setDepth(1)
 		this.add(this.headModule)
-		this.key_USE = key_USE
-		this.touch_USE = touch_USE
-	}
-	setup () {
-	}
-	enable () {
-		if ((this.key_USE.isDown || this.touch_USE.isDown) && this.headModule.body.touching.up) {
-			this.headModule.goUp = true
-		}
 	}
 }
 // <-- bullets

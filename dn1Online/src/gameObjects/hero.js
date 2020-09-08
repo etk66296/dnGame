@@ -48,7 +48,7 @@ class Hero extends PhysicsObj {
 			{ x: 16 + 18 * 3, y: 16 + 18 * 5 },
 			{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
 		]}
-		this.tutorialMode = true
+		this.tutorialMode = false
 		this.tutorialInfos = [true, true]
 
 		// health blocks
