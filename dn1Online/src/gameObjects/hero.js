@@ -6,11 +6,9 @@ class Hero extends PhysicsObj {
 		this.solidLayer = solidLayer
 		this.gameControls = gameControls
 		this.jumpSpeed = 0
-		this.painTime = 1000
-		this.painState = false
-		this.painEvent = null
 		this.gun = gun
 		this.jumpSpeed = 85
+		this.walkSpeed = 140
 		this.lastDir = 1
 		this.setName('hero')
 		this.body.setSize(12, 32, true)
@@ -51,86 +49,140 @@ class Hero extends PhysicsObj {
 			{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
 		]}
 		this.tutorialMode = true
+		this.tutorialInfos = [true, true]
+
+		// health blocks
+		this.painTime = 750
+		this.painState = false
+		this.painStopWatch = 0
+		// this.painEvent = null
+		this.healthBlocks = { current: 10, max: 10 }
+		this.heroHealthGroup = this.scene.add.group()
+		for (let i = 0; i < this.healthBlocks.max; i++) {
+			let rect = this.scene.add.rectangle(405 +  i * 9, 14, 7, 22, 0x00ff00)
+			rect.setOrigin(0, 0)
+			rect.setDepth(102)
+			rect.setScrollFactor(0)
+			this.heroHealthGroup.add(rect)
+		}
 		return this
 	}
 
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 		// hero movement -->
-		if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
-			if(this.body.onFloor()) {
-				this.setVelocityX(-140)
-				if (this.PainState) {
+		// move LEFT -->
+		if(this.body.onFloor()) {
+			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+				this.lastDir = -1
+				this.setVelocityX(this.walkSpeed * this.lastDir)
+				// walk left animations -->
+				if (this.painState) {
 					this.anims.play('heroPainLeft', true)
 				} else {
 					this.anims.play('heroWalkLeft', true)
 				}
-			} else {
-				this.setVelocityX(-this.jumpSpeed)
-				if (this.PainState) {
-					this.anims.play('heroPainLeft', true)
-				} else {
-					this.anims.play('heroJumpLeft', true)
-				}
-			}
-			this.lastDir = -1
-		}  else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
-			if(this.body.onFloor()) {
-				this.setVelocityX(140)
-				if (this.PainState) {
+				// <-- walk left animations
+			} // <-- move LEFT
+			// move RIGHT -->
+			else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+				this.lastDir = 1
+				this.setVelocityX(this.walkSpeed * this.lastDir)
+				// walk right animations -->
+				if (this.painState) {
 					this.anims.play('heroPainRight', true)
 				} else {
 					this.anims.play('heroWalkRight', true)
 				}
+				// <-- walk right animations
+			} //<-- move RIGHT
+			else { // STOP -->
+				this.setVelocityX(0)
+				if (this.lastDir === 1) { // RIGHT -->
+					if (this.painState) {
+						this.anims.play('heroPainRight', true)
+					} else {
+						this.anims.play('heroIdleRight', true)
+					} // <-- RIGHT
+				} else if (this.lastDir === -1) { // LEFT -->
+					if (this.painState) {
+						this.anims.play('heroPainLeft', true)
+					} else {
+						this.anims.play('heroIdleLeft', true)
+					} // <-- LEFT
+				}
+			} // <-- STOP
+			// JUMP -->
+			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+				this.setVelocityY(-185)
+			}
+			// <-- JUMP
+		} else { // hero in the air -->
+			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+				this.lastDir = -1
+				this.setVelocityX(this.jumpSpeed * this.lastDir)
+			} else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+				this.lastDir = 1
+				this.setVelocityX(this.jumpSpeed * this.lastDir)
 			} else {
-				this.setVelocityX(this.jumpSpeed)
-				if (this.PainState) {
+				this.setVelocityX(0)
+			}
+			if (this.lastDir === 1) { // JUMP RIGHT -->
+				if (this.painState) {
 					this.anims.play('heroPainRight', true)
 				} else {
 					this.anims.play('heroJumpRight', true)
-				}
-			}
-			this.lastDir = 1
-		} else {
-			this.setVelocityX(0)
-			if(this.lastDir === -1) {
+				} // <-- JUMP RIGHT
+			} else if (this.lastDir === -1) { // JUMP LEFT -->
 				if (this.painState) {
 					this.anims.play('heroPainLeft', true)
 				} else {
-					this.anims.play('heroIdleLeft')
-				}
-			} else {
-				if (this.painState) {
-					this.anims.play('heroPainRight', true)
-				} else {
-					this.anims.play('heroIdleRight')
-				}
+					this.anims.play('heroJumpLeft', true)
+				} // <-- JUMP LEFT
 			}
-		}
-		if ((this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) && this.body.onFloor()) {
-			this.setVelocityY(-185)
-		}
+		} // <-- hero in the air
+
 		// <-- hero movement
+
 		// fire gun -->
 		if (this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
 			// console.log(this.gun)
 		}
-		// <-- fire
+		// <-- fire gun
+
+
 		// reset pain -->
+		// if (this.painState) {
+		// 	this.painEvent = this.scene.time.addEvent({
+		// 		delay:this.painTime,
+		// 		callback: () => {
+		// 			if (this.painState) {
+		// 				this.healthBlocks.current -= 1
+		// 				this.painState = false
+		// 			}
+		// 			this.painEvent.remove(false)
+		// 		}
+		// 	})
+		// }
 		if (this.painState) {
-			this.painEvent = this.scene.time.addEvent({
-				delay:this.painTime ,
-				callback: () => {
-					this.painState = false
-					this.painEvent.remove(false)
-				}
-			})
+			this.painStopWatch += delta
 		}
+		if(this.painStopWatch > this.painTime) {
+			this.painState = false
+			this.painStopWatch = 0
+			this.healthBlocks.current -= 1
+		}
+		this.updateHealthBlock()
 		// <-- reset pain
+
+		//###########################################################################
+		//###########################################################################
+		//###########################################################################
+		// Tutorial TEXT
 		// trigger info if hero reach defined rect -->
 		if(this.tutorialMode) {
-			if (this.x >= 50 && this.x < 55 && this.y > 1375) {
+			if (this.x >= 50 && this.x < 55 && this.y > 1375 && this.tutorialInfos[0]) {
 				this.gameControls.release()
 				this.scene.scene.manager.pause('Level0Scene')
 				this.scene.scene.manager.start('InfoTextScene', {text: [
@@ -143,20 +195,44 @@ class Hero extends PhysicsObj {
 					'oder den Tastknopf "B" auf am HUD.'
 				]})
 				this.setPosition(this.x + 5, this.y)
+				this.tutorialInfos[0] = false
 			}
-			if (this.x >= 290 && this.x < 295 && this.y > 1375) {
+			if (this.x >= 290 && this.x < 295 && this.y > 1375 && this.tutorialInfos[1]) {
 				this.gameControls.release()
 				this.scene.scene.manager.pause('Level0Scene')
 				this.scene.scene.manager.start('InfoTextScene', {text: [
-					'Miniroboter können schleichen',
-					'durch die Gegend.',
+					'Miniroboter schleichen durch die Gegend.',
 					'',
-					'Es wird Zeit diesen hier',
-					'weg zu pusten'
+					'Es wird Zeit diesen hier weg zu pusten'
 				]})
 				this.setPosition(this.x + 5, this.y)
+				this.tutorialInfos[1] = false
 			}
 		}
 		// <-- trigger info if hero reach defined rect
+		//###########################################################################
+		//###########################################################################
+		//###########################################################################
+	}
+
+	updateHealthBlock = function() {
+		if (this.heroPainState) {
+			this.heroPainStopWatch += delta
+		}
+		if(this.heroPainStopWatch > this.heroPainTime) {
+			if (!this.painSound.isPlaying) {
+				this.painSound.play()
+			}
+			this.heroPainState = false
+			this.heroPainStopWatch = 0
+			this.healthBlocks.current -= 1
+		}
+		this.heroHealthGroup.children.iterate((healthBlock, index) => {
+			if (index >= this.healthBlocks.current) {
+				healthBlock.setVisible(false)
+			} else {
+				healthBlock.setVisible(true)
+			}
+		})
 	}
 }
