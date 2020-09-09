@@ -34,14 +34,16 @@
   <object id="3" name="Crocos" type="leftcrawler" x="144" y="1392" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Gifts">
-  <object id="10" name="Joystick" type="packed" x="1008" y="1184" width="16" height="16">
+  <object id="10" name="Joystick" type="packed" x="864" y="1184" width="16" height="16">
    <properties>
-    <property name="anim" value=""/>
-    <property name="frame" value="BlueBox"/>
+    <property name="anim" value="Joystick"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Joystick_0000"/>
     <property name="points" type="int" value="5000"/>
    </properties>
   </object>
-  <object id="11" name="ColaTin" type="packed" x="912" y="1184" width="16" height="16">
+  <object id="11" name="ColaTin" type="packed" x="1056" y="1184" width="16" height="16">
    <properties>
     <property name="anim" value=""/>
     <property name="frame" value="RedBox"/>

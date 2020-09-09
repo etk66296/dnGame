@@ -513,9 +513,29 @@ IntroScene.prototype.create = function() {
 		frameRate: 6
 	})
 	this.anims.create({
+		key: 'Joystick',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Joystick_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
 		key: 'Points500',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'Points500_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'Points5000',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points5000_',
 				end: 1,
 				zeroPad: 4
 			}),

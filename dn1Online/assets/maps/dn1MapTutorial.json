@@ -170,13 +170,17 @@
                  "name":"Joystick",
                  "properties":
                     {
-                     "anim":"",
-                     "frame":"BlueBox",
+                     "anim":"Joystick",
+                     "boxanim":"BlueBoxExplode",
+                     "boxframe":"BlueBox",
+                     "frame":"Joystick_0000",
                      "points":5000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
                      "frame":"string",
                      "points":"int"
                     },
@@ -184,7 +188,7 @@
                  "type":"packed",
                  "visible":true,
                  "width":16,
-                 "x":1008,
+                 "x":864,
                  "y":1184
                 }, 
                 {
@@ -207,7 +211,7 @@
                  "type":"packed",
                  "visible":true,
                  "width":16,
-                 "x":912,
+                 "x":1056,
                  "y":1184
                 }, 
                 {

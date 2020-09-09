@@ -120,8 +120,16 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Points_5000": {
+		"Points5000_0000": {
 			"frame": {"x":272,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"Points5000_0001": {
+			"frame": {"x":272,"y":56,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
@@ -344,7 +352,7 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Joystick": {
+		"Joystick_0000": {
 			"frame": {"x":146,"y":38,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
@@ -352,6 +360,15 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
+		"Joystick_0001": {
+			"frame": {"x":164,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		}
+		,
 		"FloppyDisk": {
 			"frame": {"x":56,"y":38,"w":16,"h":16},
 			"rotated": false,

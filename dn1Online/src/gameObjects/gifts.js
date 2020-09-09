@@ -1,16 +1,63 @@
+class GiftBox extends PhysicsObj {
+	constructor (scene, hero, x, y, gift) {
+		super(scene, x, y, 'giftsSpriteAtlas', gift.giftData.properties.boxframe)
+		this.body.setSize(16, 18, true)
+		// after the box explode remove the sprite
+		this.boxAnimCompleteEvent = this.on('animationcomplete', () => {
+			this.body.reset(-100, -100)
+			this.setActive(false)
+			this.setVisible(false)
+			scene.physics.world.removeCollider(this.boxAnimCompleteEvent)
+		})
+		// register boy as shootable
+		this.shootableEvent = this.scene.physics.add.overlap(this, hero.gun, (box, bullet) => {
+			bullet.explode()
+			this.body.checkCollision.none = true
+			this.play(gift.giftData.properties.boxanim)
+			// activate the box content
+			gift.setActive(true)
+			gift.body.checkCollision.none = false
+			scene.physics.world.removeCollider(this.shootableEvent)
+		})
+	}
+}
+
 class JustCollectGift extends GiftObj {
 	constructor (scene, hero, giftData) {
 		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
+		this.box = null
 		this.hero = hero
+		this.isCollected = false
+		this.alpha = 1.0
+		this.giftData = giftData
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			this.hero.addPoints(giftData.points)
 			// this.setActive(false)
 			this.play('Points' + String(giftData.properties.points))
 			this.setVelocityY(-10)
-			scene.physics.world.removeCollider(this.overlapHeroEvent);
+			scene.physics.world.removeCollider(this.overlapHeroEvent)
+			this.isCollected = true
 		})
 		if (giftData.properties.anim !== "") {
 			this.play(giftData.properties.anim)
+		}
+		// if packed => pack it
+		if (giftData.type === "packed") {
+			console.log(this)
+			this.setActive(false)
+			this.body.checkCollision.none = true
+			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
+		}
+	}
+	preUpdate (time, delta) {
+		super.preUpdate(time, delta)
+		if (this.isCollected) {
+			this.setAlpha(this.alpha)
+			this.alpha -= 0.0025
+			if(this.alpha <= 0.0) {
+				this.setActive(false)
+				this.setVisible(false)
+			}
 		}
 	}
 }
@@ -22,7 +69,6 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		giftsData.forEach((giftData) => {
-			console.log(giftData)
 			this.add(new JustCollectGift(scene, hero, giftData))
 		})
 		scene.physics.add.collider(this, solidLayer)
