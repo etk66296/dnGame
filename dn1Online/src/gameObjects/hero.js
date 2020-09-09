@@ -10,6 +10,7 @@ class Hero extends PhysicsObj {
 		this.jumpSpeed = 85
 		this.walkSpeed = 140
 		this.lastDir = 1
+		this.collectedPointes = 0
 		this.setName('hero')
 		this.body.setSize(12, 32, true)
 		this.body.setOffset(9, 0)
@@ -213,6 +214,10 @@ class Hero extends PhysicsObj {
 		//###########################################################################
 		//###########################################################################
 		//###########################################################################
+	}
+
+	addPoints(points) {
+		this.collectedPointes += points
 	}
 
 	updateHealthBlock = function() {

@@ -80,8 +80,16 @@
 			"sourceSize": {"w":16,"h":14},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Points_500": {
+		"Points500_0000": {
 			"frame": {"x":236,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"Points500_0001": {
+			"frame": {"x":236,"y":56,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
@@ -320,8 +328,16 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Radio": {
-			"frame": {"x":128,"y":38,"w":16,"h":16},
+		"Radio_0000": {
+			"frame": {"x":20,"y":236,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"Radio_0001": {
+			"frame": {"x":38,"y":236,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},

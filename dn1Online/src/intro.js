@@ -502,6 +502,26 @@ IntroScene.prototype.create = function() {
 		repeat: -1,
 		frameRate: 12
 	})
+	this.anims.create({
+		key: 'Radio',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Radio_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'Points500',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points500_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
 	// <--gifts
 	// decoration -->
 	this.anims.create({

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="10">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="13">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
  </tileset>
@@ -32,5 +32,28 @@
  <objectgroup name="Crocos">
   <object id="1" name="Crocos" type="rightcrawler" x="192" y="1392" width="16" height="16"/>
   <object id="3" name="Crocos" type="leftcrawler" x="144" y="1392" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Gifts">
+  <object id="10" name="Joystick" type="packed" x="1008" y="1184" width="16" height="16">
+   <properties>
+    <property name="anim" value=""/>
+    <property name="frame" value="BlueBox"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="11" name="ColaTin" type="packed" x="912" y="1184" width="16" height="16">
+   <properties>
+    <property name="anim" value=""/>
+    <property name="frame" value="RedBox"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="12" name="Radio" type="unpacked" x="816" y="1184" width="16" height="16">
+   <properties>
+    <property name="anim" value="Radio"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -9,6 +9,7 @@ function Level0Scene() {
 	// world layers
 	this.solidLayer = null
 	this.decorationLayer = null
+	this.giftsObjLayerData = null
 	this.elevatorsObjLayerData = null
 	this.bouncerGuardsObjLayerData = null
 	this.crocosObjLayerData = null
@@ -43,10 +44,13 @@ Level0Scene.prototype.create = function() {
 	this.gameControls = new Controls(this)
 	this.gameControls.setup()
 
-	// moveable objects
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
 	this.hero = new Hero(this, 690, 1390, this.solidLayer, this.gameControls, this.heroGun)
+
+	// gifts
+	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
+
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
@@ -87,6 +91,9 @@ Level0Scene.prototype.initWorld = function() {
 	this.solidLayer.setCollisionBetween(0, 11519)
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
 
+	// gifts
+	this.giftsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Gifts")].objects
+	
 	// elevators
 	this.elevatorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Elevators")].objects
 
