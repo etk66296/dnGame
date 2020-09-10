@@ -514,6 +514,28 @@ IntroScene.prototype.create = function() {
 		frameRate: 6
 	})
 	this.anims.create({
+		key: 'SingleChopOfMeat',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'SingleChopOfMeat_',
+				end: 3,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'DoubleChopOfMeat',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'DoubleChopOfMeat_',
+				end: 3,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
 		key: 'Radio',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'Radio_',
@@ -534,6 +556,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 6
 	})
 	this.anims.create({
+		key: 'Points100',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points100_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
 		key: 'Points500',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'Points500_',
@@ -543,6 +575,16 @@ IntroScene.prototype.create = function() {
 		repeat: -1,
 		frameRate: 6
 	})
+	this.anims.create({
+		key: 'Points1000',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points1000_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})	
 	this.anims.create({
 		key: 'Points5000',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {

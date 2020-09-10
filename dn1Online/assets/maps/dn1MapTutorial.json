@@ -225,8 +225,10 @@
                      "boxanim":"RedBoxExplode",
                      "boxframe":"RedBox",
                      "frame":"ColaTin_0000",
+                     "healthA":1,
+                     "healthB":0,
                      "pointsA":100,
-                     "pointsB":"1000"
+                     "pointsB":1000
                     },
                  "propertytypes":
                     {
@@ -235,43 +237,16 @@
                      "boxanim":"string",
                      "boxframe":"string",
                      "frame":"string",
+                     "healthA":"int",
+                     "healthB":"int",
                      "pointsA":"int",
-                     "pointsB":"string"
+                     "pointsB":"int"
                     },
                  "rotation":0,
                  "type":"packed",
                  "visible":true,
                  "width":16,
                  "x":928,
-                 "y":1184
-                }, 
-                {
-                 "height":16,
-                 "id":15,
-                 "name":"ChopOfMeat",
-                 "properties":
-                    {
-                     "animA":"SingleChopOfMeat",
-                     "boxanim":"DoubleChopOfMeat",
-                     "boxframe":"RedBox",
-                     "frame":"ChopOfMeat_0000",
-                     "pointsA":500,
-                     "pointsB":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "boxanim":"string",
-                     "boxframe":"string",
-                     "frame":"string",
-                     "pointsA":"int",
-                     "pointsB":"string"
-                    },
-                 "rotation":0,
-                 "type":"packed",
-                 "visible":true,
-                 "width":16,
-                 "x":976,
                  "y":1184
                 }, 
                 {
@@ -300,6 +275,41 @@
                  "width":16,
                  "x":1024,
                  "y":1184
+                }, 
+                {
+                 "height":16,
+                 "id":18,
+                 "name":"ChopOfMeat",
+                 "properties":
+                    {
+                     "animA":"SingleChopOfMeat",
+                     "animB":"DoubleChopOfMeat",
+                     "boxanim":"RedBoxExplode",
+                     "boxframe":"RedBox",
+                     "frame":"SingleChopOfMeat_0000",
+                     "healthA":1,
+                     "healthB":2,
+                     "pointsA":500,
+                     "pointsB":100
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "frame":"string",
+                     "healthA":"int",
+                     "healthB":"int",
+                     "pointsA":"int",
+                     "pointsB":"int"
+                    },
+                 "rotation":0,
+                 "type":"packed",
+                 "visible":true,
+                 "width":16,
+                 "x":960,
+                 "y":1184
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -307,7 +317,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":18,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

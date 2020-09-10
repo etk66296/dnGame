@@ -70,17 +70,27 @@ class HealthUpGift extends GiftObj {
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			// cola tin
-			if (this.name === 'ColaTin') {
-				if (this.giftState === 0) {
-					this.hero.addPoints(giftData.points)
-					// this.setActive(false)
-					this.play('Points' + String(giftData.properties.points))
-					this.setVelocityY(-10)
-					scene.physics.world.removeCollider(this.overlapHeroEvent)
-					this.isCollected = true
-				} else {
-
+			if (this.giftState === 0) {
+				this.hero.addHealth(giftData.properties.healthA)
+				this.hero.addPoints(giftData.pointsA)
+				this.play('Points' + String(giftData.properties.pointsA))
+				scene.physics.world.removeCollider(this.shootableGiftEvent)
+				this.isCollected = true
+				if (this.name === 'ColaTin') {
+					this.setVelocityY(-20)
 				}
+				if (this.name === 'ChopOfMeat') {
+					this.setVelocityY(-10) // point flyer
+				}
+				scene.physics.world.removeCollider(this.overlapHeroEvent)
+			} else {
+				this.hero.addHealth(giftData.properties.healthB)
+				this.hero.addPoints(giftData.pointsB)
+				this.play('Points' + String(giftData.properties.pointsB))
+				this.setVelocityY(-10)
+				this.isCollected = true
+				scene.physics.world.removeCollider(this.shootableGiftEvent)
+				scene.physics.world.removeCollider(this.overlapHeroEvent)
 			}
 		})
 
@@ -88,9 +98,9 @@ class HealthUpGift extends GiftObj {
 		this.shootableGiftEvent = this.scene.physics.add.overlap(this, this.hero.gun, (box, bullet) => {
 			bullet.explode()
 			this.play(this.giftData.properties.animB)
+			this.giftState = 1
 			if (this.name === 'ColaTin') {
 				this.setVelocityY(-20)
-				this.giftState = 1
 			}
 			scene.physics.world.removeCollider(this.shootableGiftEvent)
 		})
@@ -109,6 +119,14 @@ class HealthUpGift extends GiftObj {
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
+		if (this.isCollected) {
+			this.setAlpha(this.alpha)
+			this.alpha -= 0.0025
+			if(this.alpha <= 0.0) {
+				this.setActive(false)
+				this.setVisible(false)
+			}
+		}
 	}
 }
 
@@ -118,7 +136,6 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 		this.hero = hero
 		giftsData.forEach((giftData) => {
 			if (giftData.name === 'ColaTin' || giftData.name === 'ChopOfMeat') {
-				console.log(giftData.name)
 				this.add(new HealthUpGift(scene, hero, giftData))
 			} else if(giftData.name === 'Dynamite') {
 
