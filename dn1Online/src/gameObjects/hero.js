@@ -220,14 +220,18 @@ class Hero extends PhysicsObj {
 		this.collectedPointes += points
 	}
 
+	addHealth(amount) {
+		this.healthBlocks.current += amount
+		if (this.healthBlocks.current > this.healthBlocks.max) {
+			this.healthBlocks.current = this.healthBlocks.max
+		}
+	}
+
 	updateHealthBlock = function() {
 		if (this.heroPainState) {
 			this.heroPainStopWatch += delta
 		}
 		if(this.heroPainStopWatch > this.heroPainTime) {
-			if (!this.painSound.isPlaying) {
-				this.painSound.play()
-			}
 			this.heroPainState = false
 			this.heroPainStopWatch = 0
 			this.healthBlocks.current -= 1

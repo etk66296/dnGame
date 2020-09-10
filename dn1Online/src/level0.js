@@ -46,7 +46,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 690, 1390, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 860, 1150, this.solidLayer, this.gameControls, this.heroGun)
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)

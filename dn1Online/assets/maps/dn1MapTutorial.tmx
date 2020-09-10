@@ -57,6 +57,8 @@
     <property name="boxanim" value="RedBoxExplode"/>
     <property name="boxframe" value="RedBox"/>
     <property name="frame" value="ColaTin_0000"/>
+    <property name="healthA" value="1"/>
+    <property name="healthB" value="0"/>
     <property name="pointsA" type="int" value="100"/>
     <property name="pointsB" value="1000"/>
    </properties>
