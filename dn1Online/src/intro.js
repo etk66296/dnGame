@@ -493,14 +493,25 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({
+		key: 'RotatingColaTin',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'RotatingColaTin_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'ColaTin',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'ColaTin_',
 				end: 3,
 				zeroPad: 4
 			}),
+		yoyo: true,
 		repeat: -1,
-		frameRate: 12
+		frameRate: 6
 	})
 	this.anims.create({
 		key: 'Radio',

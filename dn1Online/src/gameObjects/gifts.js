@@ -62,14 +62,44 @@ class JustCollectGift extends GiftObj {
 	}
 }
 
-
+class HealthUpGift extends GiftObj {
+	constructor (scene, hero, giftData) {
+		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
+		this.box = null
+		this.hero = hero
+		this.isCollected = false
+		this.alpha = 1.0
+		this.giftData = giftData
+		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			
+		})
+		if (giftData.properties.animA !== "") {
+			this.play(giftData.properties.animA)
+		}
+		// if packed => pack it
+		if (giftData.type === "packed") {
+			this.setActive(false)
+			this.body.checkCollision.none = true
+			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
+		}
+	}
+	preUpdate (time, delta) {
+		super.preUpdate(time, delta)
+	}
+}
 
 class Gifts extends Phaser.Physics.Arcade.Group {
 	constructor (scene, hero, giftsData, solidLayer) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		giftsData.forEach((giftData) => {
-			this.add(new JustCollectGift(scene, hero, giftData))
+			if (giftData.name === 'ColaTin' || giftData.name === 'ChopOfMeat') {
+				this.add(new HealthUpGift(scene, hero, giftData))
+			} else if(giftData.name === 'Dynamite') {
+
+			} else {
+				this.add(new JustCollectGift(scene, hero, giftData))
+			}
 		})
 		scene.physics.add.collider(this, solidLayer)
 	}

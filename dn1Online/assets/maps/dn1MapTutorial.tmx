@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="13">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="18">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
  </tileset>
@@ -43,18 +43,41 @@
     <property name="points" type="int" value="5000"/>
    </properties>
   </object>
-  <object id="11" name="ColaTin" type="packed" x="1056" y="1184" width="16" height="16">
-   <properties>
-    <property name="anim" value=""/>
-    <property name="frame" value="RedBox"/>
-    <property name="points" type="int" value="100"/>
-   </properties>
-  </object>
   <object id="12" name="Radio" type="unpacked" x="816" y="1184" width="16" height="16">
    <properties>
     <property name="anim" value="Radio"/>
     <property name="frame" value="Radio_0000"/>
     <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="13" name="ColaTin" type="packed" x="928" y="1184" width="16" height="16">
+   <properties>
+    <property name="animA" value="ColaTin"/>
+    <property name="animB" value="RotatingColaTin"/>
+    <property name="boxanim" value="RedBoxExplode"/>
+    <property name="boxframe" value="RedBox"/>
+    <property name="frame" value="ColaTin_0000"/>
+    <property name="pointsA" type="int" value="100"/>
+    <property name="pointsB" value="1000"/>
+   </properties>
+  </object>
+  <object id="15" name="ChopOfMeat" type="packed" x="976" y="1184" width="16" height="16">
+   <properties>
+    <property name="animA" value="SingleChopOfMeat"/>
+    <property name="boxanim" value="DoubleChopOfMeat"/>
+    <property name="boxframe" value="RedBox"/>
+    <property name="frame" value="ChopOfMeat_0000"/>
+    <property name="pointsA" type="int" value="500"/>
+    <property name="pointsB" value="100"/>
+   </properties>
+  </object>
+  <object id="17" name="Dynamite" type="packed" x="1024" y="1184" width="16" height="16">
+   <properties>
+    <property name="anim" value="Dynamite"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value="Dynamite_0000"/>
+    <property name="points" type="int" value="100"/>
    </properties>
   </object>
  </objectgroup>
