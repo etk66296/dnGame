@@ -120,16 +120,16 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Points_10000": {
-			"frame": {"x":218,"y":39,"w":16,"h":15},
+		"Points2000_0000": {
+			"frame": {"x":254,"y":38,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":16,"h":15},
+			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"Points_2000": {
-			"frame": {"x":254,"y":38,"w":16,"h":16},
+		"Points2000_0001": {
+			"frame": {"x":254,"y":56,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
@@ -150,6 +150,22 @@
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
 			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"Points10000_0000": {
+			"frame": {"x":218,"y":39,"w":16,"h":15},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":15},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"Points10000_0001": {
+			"frame": {"x":218,"y":56,"w":16,"h":15},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":15},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"Flag_0000": {
@@ -383,10 +399,49 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
-		}
-		,
-		"FloppyDisk": {
-			"frame": {"x":56,"y":38,"w":16,"h":16},
+		},
+		"FloppyDisk_0000": {
+			"frame": {"x":74,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"FloppyDisk_0001": {
+			"frame": {"x":92,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"FloppyDisk_0002": {
+			"frame": {"x":110,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"FloppyDisk_0003": {
+			"frame": {"x":128,"y":38,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"SmallBalloon_0000": {
+			"frame": {"x":74,"y":20,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"SmallBalloon_0001": {
+			"frame": {"x":92,"y":20,"w":16,"h":16},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},

@@ -483,6 +483,27 @@ IntroScene.prototype.create = function() {
 		frameRate: 2
 	})
 	this.anims.create({
+		key: 'SmallBalloon',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'SmallBalloon_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 2
+	})
+	this.anims.create({
+		key: 'FloppyDisk',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'FloppyDisk_',
+				end: 3,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 5
+	})
+	this.anims.create({
 		key: 'FullPowerUp',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'FullPowerUp_',
@@ -584,11 +605,31 @@ IntroScene.prototype.create = function() {
 			}),
 		repeat: -1,
 		frameRate: 6
+	})
+	this.anims.create({
+		key: 'Points2000',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points2000_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
 	})	
 	this.anims.create({
 		key: 'Points5000',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'Points5000_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'Points10000',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Points10000_',
 				end: 1,
 				zeroPad: 4
 			}),

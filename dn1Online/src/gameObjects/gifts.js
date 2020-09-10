@@ -59,6 +59,40 @@ class JustCollectGift extends GiftObj {
 	}
 }
 
+class FragileGift extends GiftObj {
+	constructor (scene, hero, giftData) {
+		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
+		this.name = giftData.name
+		this.box = null
+		this.alpha = 1.0
+		this.giftData = giftData
+		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
+		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
+		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			if (this.giftState === 0) {
+			} else {
+			}
+		})
+		// the unpacked gitft is also shootable
+		this.shootableGiftEvent = this.scene.physics.add.overlap(this, this.hero.gun, (box, bullet) => {
+			bullet.explode()
+			scene.physics.world.removeCollider(this.shootableGiftEvent)
+			this.play(this.giftData.properties.animB)
+			this.setVelocityY(-20)
+		})
+		// set the start animation
+		if (giftData.properties.animA !== "") {
+			this.play(giftData.properties.animA)
+		}
+		// if packed => pack it
+		if (giftData.type === "packed") {
+			this.setActive(false)
+			this.body.checkCollision.none = true
+			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
+		}
+	}
+}
+
 class HealthUpGift extends GiftObj {
 	constructor (scene, hero, giftData) {
 		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
@@ -69,7 +103,6 @@ class HealthUpGift extends GiftObj {
 		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
-			// cola tin
 			if (this.giftState === 0) {
 				this.hero.addHealth(giftData.properties.healthA)
 				this.hero.addPoints(giftData.pointsA)
@@ -77,9 +110,9 @@ class HealthUpGift extends GiftObj {
 				scene.physics.world.removeCollider(this.shootableGiftEvent)
 				this.isCollected = true
 				if (this.name === 'ColaTin') {
-					this.setVelocityY(-20)
+					this.setVelocityY(-20) // the tin itself
 				}
-				if (this.name === 'ChopOfMeat') {
+				if (this.name === 'ChopOfMeat' || this.name === 'FullPowerUp') {
 					this.setVelocityY(-10) // point flyer
 				}
 				scene.physics.world.removeCollider(this.overlapHeroEvent)
@@ -135,10 +168,14 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		giftsData.forEach((giftData) => {
-			if (giftData.name === 'ColaTin' || giftData.name === 'ChopOfMeat') {
+			if (giftData.name === 'ColaTin' ||
+					giftData.name === 'ChopOfMeat' ||
+					giftData.name === 'FullPowerUp') {
 				this.add(new HealthUpGift(scene, hero, giftData))
 			} else if(giftData.name === 'Dynamite') {
 
+			} else if(giftData.name === 'Balloon') {
+				this.add(new FragileGift(scene, hero, giftData))
 			} else {
 				this.add(new JustCollectGift(scene, hero, giftData))
 			}
