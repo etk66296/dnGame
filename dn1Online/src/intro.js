@@ -473,6 +473,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 16
 	})
 	this.anims.create({
+		key: 'Football',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'Football_',
+				end: 12,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
 		key: 'Balloon',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'Balloon_',

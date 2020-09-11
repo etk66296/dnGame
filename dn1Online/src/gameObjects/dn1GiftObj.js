@@ -14,6 +14,15 @@ class GiftObj extends PhysicsObj {
 			bullet.explode()
 		})
 	}
-	setCollected () {
+	preUpdate (time, delta) {
+		super.preUpdate(time, delta)
+		if (this.isCollected) {
+			this.setAlpha(this.alpha)
+			this.alpha -= 0.0025
+			if(this.alpha <= 0.0) {
+				this.setActive(false)
+				this.setVisible(false)
+			}
+		}
 	}
 }
