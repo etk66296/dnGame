@@ -12,8 +12,8 @@ class Hero extends PhysicsObj {
 		this.lastDir = 1
 		this.collectedPointes = 0
 		this.setName('hero')
-		this.body.setSize(12, 32, true)
-		this.body.setOffset(9, 0)
+		this.body.setSize(12, 30, true)
+		this.body.setOffset(9, 2)
 		this.setGravityY(300)
 		this.setBounce(0.0)
 		this.scene.physics.add.collider(this, this.solidLayer)
@@ -148,7 +148,7 @@ class Hero extends PhysicsObj {
 		// fire gun -->
 		if (this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
-			// console.log(this.gun)
+			// console.log(this)
 		}
 		// <-- fire gun
 

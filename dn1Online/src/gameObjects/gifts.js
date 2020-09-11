@@ -29,7 +29,7 @@ class JustCollectGift extends GiftObj {
 		this.alpha = 1.0
 		this.giftData = giftData
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
-			this.hero.addPoints(giftData.points)
+			this.hero.addPoints(giftData.properties.points)
 			// this.setActive(false)
 			this.play('Points' + String(giftData.properties.points))
 			this.setVelocityY(-10)
@@ -70,15 +70,31 @@ class FragileGift extends GiftObj {
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			if (this.giftState === 0) {
+				this.hero.addPoints(giftData.properties.pointsA)
+				this.play('Points' + String(giftData.properties.pointsA))
 			} else {
+				this.hero.addPoints(giftData.properties.pointsB)
+				this.play('Points' + String(giftData.properties.pointsB))
 			}
+			this.setVelocityY(-10)
+			scene.physics.world.removeCollider(this.overlapHeroEvent)
+			scene.physics.world.removeCollider(this.shootableGiftEvent)
+			this.isCollected = true
 		})
 		// the unpacked gitft is also shootable
 		this.shootableGiftEvent = this.scene.physics.add.overlap(this, this.hero.gun, (box, bullet) => {
-			bullet.explode()
-			scene.physics.world.removeCollider(this.shootableGiftEvent)
-			this.play(this.giftData.properties.animB)
-			this.setVelocityY(-20)
+			bullet.explode()		
+			this.giftState += 1
+			if (this.giftState <= 1) {
+				this.play(this.giftData.properties.animB)
+				this.setVelocityY(-20)
+			} else {
+				// destroy it
+				this.setVisible(false)
+				this.setActive(false)
+				this.setPosition(-100, -100)
+				scene.physics.world.removeCollider(this.shootableGiftEvent)
+			}
 		})
 		// set the start animation
 		if (giftData.properties.animA !== "") {

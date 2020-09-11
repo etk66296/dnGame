@@ -3,6 +3,7 @@ class Bullet extends PhysicsObj {
 		super(scene, x, y, 'heroSpriteAtlas', 'bullet')
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
+		this.toggleFire = 2
 		this.setSize(1, 1, true)
 		this.setOffset(8, 1)
 		this.body.checkCollision.none = true
@@ -22,7 +23,8 @@ class Bullet extends PhysicsObj {
 			right: true,
 			up: false
 		}
-		this.body.reset(x, y + 2)
+		this.body.reset(x, y + this.toggleFire)
+		// this.toggleFire = this.toggleFire * -1
 		this.setActive(true)
 		this.setVisible(true)
 		this.setVelocityX(300 * dir)

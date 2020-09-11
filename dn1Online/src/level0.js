@@ -14,12 +14,14 @@ function Level0Scene() {
 	this.bouncerGuardsObjLayerData = null
 	this.crocosObjLayerData = null
 	this.miniRobotsObjLayerData = null
+	this.shootableBricksObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
 	this.hero = null
 	this.crocosGroup = null
 	this.elevators = null
+	this.shootableBricksGroup = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -50,6 +52,9 @@ Level0Scene.prototype.create = function() {
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
+
+	// shootable bricks
+	this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
 
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
@@ -90,6 +95,10 @@ Level0Scene.prototype.initWorld = function() {
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
+
+
+	// shootable bricks layer
+	this.shootableBricksObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ShootableBricks")].objects
 
 	// gifts
 	this.giftsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Gifts")].objects

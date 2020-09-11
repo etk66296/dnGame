@@ -286,7 +286,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="ShootableBricks" visible="0">
+ <objectgroup name="ShootableBricks">
   <object id="439" name="brick" x="1840" y="880" width="16" height="16"/>
   <object id="441" name="brick" x="1840" y="896" width="16" height="16"/>
  </objectgroup>
