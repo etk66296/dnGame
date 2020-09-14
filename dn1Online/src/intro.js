@@ -713,7 +713,7 @@ IntroScene.prototype.create = function() {
 				end: 18,
 				zeroPad: 4
 			}),
-		// delay: 1000,
+		// delay: Phaser.Math.Between(0, 2000),
 		repeat: 0,
 		frameRate: 24
 	})
