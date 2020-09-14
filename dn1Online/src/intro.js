@@ -705,6 +705,19 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	// <-- level gate
+	// enemies -->
+	this.anims.create({
+		key: 'SpikeBottomUp',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'SpikeBottomUp_',
+				end: 18,
+				zeroPad: 4
+			}),
+		// delay: 1000,
+		repeat: 0,
+		frameRate: 24
+	})
+	// <-- enemies
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// <-- ANIMATIONS

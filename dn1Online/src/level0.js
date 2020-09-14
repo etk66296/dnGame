@@ -15,6 +15,7 @@ function Level0Scene() {
 	this.crocosObjLayerData = null
 	this.miniRobotsObjLayerData = null
 	this.shootableBricksObjLayerData = null
+	this.spikesObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -52,6 +53,9 @@ Level0Scene.prototype.create = function() {
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
+
+	// spikes
+	this.spikesGroup = new Spikes(this, this.hero, this.spikesObjLayerData)
 
 	// shootable bricks
 	this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
@@ -95,6 +99,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
+	// spikes
+	this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects
 
 
 	// shootable bricks layer
