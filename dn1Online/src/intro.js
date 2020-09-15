@@ -168,7 +168,7 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({ 
-		key: 'dangleR',
+		key: 'heroDangleR',
 		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
 			prefix: 'dangleR_',
 			end: 3,
@@ -178,7 +178,18 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({ 
-		key: 'dangleUpR',
+		key: 'heroDangleIdleR',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleR_',
+			end: 0,
+			zeroPad: 4
+		}),
+		// yoyo: true,
+		repeat: 1,
+		frameRate: 12
+	})
+	this.anims.create({ 
+		key: 'heroDangleUpR',
 		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
 			prefix: 'dangleUpR_',
 			end: 2,
@@ -188,7 +199,7 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({ 
-		key: 'dangleL',
+		key: 'heroDangleL',
 		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
 			prefix: 'dangleL_',
 			end: 3,
@@ -198,7 +209,18 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({ 
-		key: 'dangleUpL',
+		key: 'heroDangleIdleL',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleL_',
+			end: 0,
+			zeroPad: 4
+		}),
+		// yoyo: true,
+		repeat: 1,
+		frameRate: 12
+	})
+	this.anims.create({ 
+		key: 'heroDangleUpL',
 		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
 			prefix: 'dangleUpL_',
 			end: 2,
@@ -623,6 +645,39 @@ IntroScene.prototype.create = function() {
 				end: 1,
 				zeroPad: 4
 			}),
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'MultiHand',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'MultiHand_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'DangleClaw',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'DangleClaw_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'HighJumpShoe',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'HighJumpShoe_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
 		repeat: -1,
 		frameRate: 6
 	})

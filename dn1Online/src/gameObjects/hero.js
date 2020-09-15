@@ -18,6 +18,7 @@ class Hero extends PhysicsObj {
 		this.setGravityY(300)
 		this.setBounce(0.0)
 		this.scene.physics.add.collider(this, this.solidLayer)
+		this.allowDangling = false
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
 			{ x: 16 + 18, y: 16 },
@@ -49,7 +50,8 @@ class Hero extends PhysicsObj {
 			{ x: 16 + 18 * 2, y: 16 + 18 * 5 },
 			{ x: 16 + 18 * 3, y: 16 + 18 * 5 },
 			{ x: 16 + 18 * 4, y: 16 + 18 * 5 }
-		]}
+		],
+		objects: []}
 		this.tutorialMode = false
 		this.tutorialInfos = [true, true]
 
@@ -120,8 +122,55 @@ class Hero extends PhysicsObj {
 			}
 			// <-- JUMP
 			// dangling -->
-		} else if (this.body.onCeiling()) {
-			console.log(this.dangleTiles)
+		} else if (this.body.onCeiling() && this.allowDangling) {
+			this.setGravityY(-300)
+			if (this.gameControls.key_USE.isDown) {
+				this.setGravityY(300)
+			}
+			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+				this.lastDir = -1
+				this.setVelocityX(this.walkSpeed * this.lastDir)
+				// walk left animations -->
+				if (this.painState) {
+					this.anims.play('heroPainLeft', true)
+				} else {
+					this.anims.play('heroDangleL', true)
+				}
+				// <-- walk left animations
+			} // <-- move LEFT
+			// move RIGHT -->
+			else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+				this.lastDir = 1
+				this.setVelocityX(this.walkSpeed * this.lastDir)
+				// walk right animations -->
+				if (this.painState) {
+					this.anims.play('heroPainRight', true)
+				} else {
+					this.anims.play('heroDangleR', true)
+				}
+				// <-- walk right animations
+			} //<-- move RIGHT
+			else { // STOP -->
+				this.setVelocityX(0)
+				if (this.lastDir === 1) { // RIGHT -->
+					if (this.painState) {
+						this.anims.play('heroPainRight', true)
+					} else {
+						this.anims.play('heroDangleIdleR', true)
+					} // <-- RIGHT
+				} else if (this.lastDir === -1) { // LEFT -->
+					if (this.painState) {
+						this.anims.play('heroPainLeft', true)
+					} else {
+						this.anims.play('heroDangleIdleL', true)
+					} // <-- LEFT
+				}
+			} // <-- STOP
+			// JUMP -->
+			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+				this.setVelocityY(-185)
+			}
+			// <-- JUMP
 			// <-- dangling
 		} else { // hero in the air -->
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
@@ -229,6 +278,19 @@ class Hero extends PhysicsObj {
 		this.healthBlocks.current += amount
 		if (this.healthBlocks.current > this.healthBlocks.max) {
 			this.healthBlocks.current = this.healthBlocks.max
+		}
+	}
+
+	appendEquipment(equipmentObj) {
+		equipmentObj.setScrollFactor(0,0)
+		this.equipment.objects.push(equipmentObj)
+		let currentIndex = this.equipment.nextPosIndex
+		equipmentObj.setPosition(this.equipment.positions[currentIndex].x, this.equipment.positions[currentIndex].y)
+		equipmentObj.setDepth(200)
+		equipmentObj.anims.pause()
+		this.equipment.nextPosIndex += 1
+		if (equipmentObj.name === 'DangleClaw') {
+			this.allowDangling = true
 		}
 	}
 

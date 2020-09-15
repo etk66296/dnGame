@@ -1111,6 +1111,78 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
+		},
+		"MultiHand_0000": {
+			"frame": {"x":110,"y":218,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"MultiHand_0001": {
+			"frame": {"x":110,"y":236,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"MultiHand_0002": {
+			"frame": {"x":110,"y":254,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"HighJumpShoe_0000": {
+			"frame": {"x":92,"y":218,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"HighJumpShoe_0001": {
+			"frame": {"x":92,"y":236,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"HighJumpShoe_0002": {
+			"frame": {"x":92,"y":254,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"DangleClaw_0000": {
+			"frame": {"x":128,"y":218,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"DangleClaw_0001": {
+			"frame": {"x":128,"y":236,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"DangleClaw_0002": {
+			"frame": {"x":128,"y":254,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
 		}
 	},
 	"meta": {

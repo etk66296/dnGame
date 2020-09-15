@@ -607,6 +607,75 @@
                  "width":16,
                  "x":1120,
                  "y":1184
+                }, 
+                {
+                 "height":16,
+                 "id":176,
+                 "name":"MultiHand",
+                 "properties":
+                    {
+                     "anim":"MultiHand",
+                     "frame":"MultiHand_0000",
+                     "points":1000
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":960,
+                 "y":1088
+                }, 
+                {
+                 "height":16,
+                 "id":177,
+                 "name":"DangleClaw",
+                 "properties":
+                    {
+                     "anim":"DangleClaw",
+                     "frame":"DangleClaw_0000",
+                     "points":1000
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":928,
+                 "y":1088
+                }, 
+                {
+                 "height":16,
+                 "id":178,
+                 "name":"HighJumpShoe",
+                 "properties":
+                    {
+                     "anim":"HighJumpShoe",
+                     "frame":"HighJumpShoe_0000",
+                     "points":1000
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":896,
+                 "y":1088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -700,7 +769,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":174,
+ "nextobjectid":179,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

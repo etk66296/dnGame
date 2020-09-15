@@ -48,6 +48,29 @@ class JustCollectGift extends GiftObj {
 	}
 }
 
+class SpecialGift extends GiftObj {
+	constructor (scene, hero, giftData) {
+		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
+		this.box = null
+		this.alpha = 1.0
+		this.giftData = giftData
+		this.name = giftData.name
+		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			this.hero.appendEquipment(this)
+			
+		})
+		if (giftData.properties.anim !== "") {
+			this.play(giftData.properties.anim)
+		}
+		// if packed => pack it
+		if (giftData.type === "packed") {
+			this.setActive(false)
+			this.body.checkCollision.none = true
+			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
+		}
+	}
+}
+
 class FragileGift extends GiftObj {
 	constructor (scene, hero, giftData) {
 		super(scene, hero, giftData.x + 8, giftData.y + 8, 'giftsSpriteAtlas', giftData.properties.frame)
@@ -55,7 +78,7 @@ class FragileGift extends GiftObj {
 		this.box = null
 		this.alpha = 1.0
 		this.giftData = giftData
-		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
+		this.body.setSize(16, 16, true) // thus, the gun is able to hit it while hero is touching the floor
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			if (this.giftState === 0) {
@@ -168,6 +191,10 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 				this.add(new HealthUpGift(scene, hero, giftData))
 			} else if(giftData.name === 'Dynamite') {
 
+			} else if(giftData.name === 'HighJumpShoe' ||
+								giftData.name === 'DangleClaw' ||
+								giftData.name === 'MultiHand') {
+				this.add(new SpecialGift(scene, hero, giftData))
 			} else if(giftData.name === 'Balloon') {
 				this.add(new FragileGift(scene, hero, giftData))
 			} else {
