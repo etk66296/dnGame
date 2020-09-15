@@ -167,6 +167,46 @@ IntroScene.prototype.create = function() {
 		repeat: 1,
 		frameRate: 12
 	})
+	this.anims.create({ 
+		key: 'dangleR',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleR_',
+			end: 3,
+			zeroPad: 4
+		}),
+		repeat: 1,
+		frameRate: 12
+	})
+	this.anims.create({ 
+		key: 'dangleUpR',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleUpR_',
+			end: 2,
+			zeroPad: 4
+		}),
+		repeat: 1,
+		frameRate: 12
+	})
+	this.anims.create({ 
+		key: 'dangleL',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleL_',
+			end: 3,
+			zeroPad: 4
+		}),
+		repeat: 1,
+		frameRate: 12
+	})
+	this.anims.create({ 
+		key: 'dangleUpL',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'dangleUpL_',
+			end: 2,
+			zeroPad: 4
+		}),
+		repeat: 1,
+		frameRate: 12
+	})
 	// <-- hero sprite sheet
 	// enemies sprite sheet -->
 	this.anims.create({

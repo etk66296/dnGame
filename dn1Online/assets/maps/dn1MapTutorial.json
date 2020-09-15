@@ -244,6 +244,27 @@
         }, 
         {
          "draworder":"topdown",
+         "name":"DangleTiles",
+         "objects":[
+                {
+                 "height":16,
+                 "id":110,
+                 "name":"DangleRail",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":688,
+                 "x":816,
+                 "y":992
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "name":"Minirobots",
          "objects":[
                 {
@@ -679,7 +700,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":109,
+ "nextobjectid":174,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

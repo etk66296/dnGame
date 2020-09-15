@@ -1,5 +1,5 @@
 class Hero extends PhysicsObj {
-  constructor (scene, x, y, solidLayer, gameControls, gun) {
+  constructor (scene, x, y, solidLayer, gameControls, gun, dangleTiles) {
 		super(scene, x, y, 'heroSpriteAtlas', 'idleR_0000')
 		// scene.add.existing(this)
 		// scene.physics.add.existing(this)
@@ -7,6 +7,7 @@ class Hero extends PhysicsObj {
 		this.gameControls = gameControls
 		this.jumpSpeed = 0
 		this.gun = gun
+		this.dangleTiles = dangleTiles
 		this.jumpSpeed = 85
 		this.walkSpeed = 140
 		this.lastDir = 1
@@ -118,6 +119,10 @@ class Hero extends PhysicsObj {
 				this.setVelocityY(-185)
 			}
 			// <-- JUMP
+			// dangling -->
+		} else if (this.body.onCeiling()) {
+			console.log(this.dangleTiles)
+			// <-- dangling
 		} else { // hero in the air -->
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
 				this.lastDir = -1
