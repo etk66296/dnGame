@@ -134,7 +134,7 @@ class Hero extends PhysicsObj {
 				this.y += 2
 				this.setGravityY(300)
 			}
-			if (this.gameControls.key_FIRE.isDown && this.body.velocity.x === 0) {
+			if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.body.velocity.x === 0) {
 				if (this.lastDir === 1) {
 					this.setFrame('dangleShootR_0000')
 				} else {
@@ -154,7 +154,7 @@ class Hero extends PhysicsObj {
 				}
 				// <-- dangle left animations
 				// jump up -->
-				if (this.gameControls.key_JUMP.isDown) {
+				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
 					this.body.checkCollision.up = false
 					if (this.painState) {
 						this.anims.play('heroPainLeft', true)
@@ -177,7 +177,7 @@ class Hero extends PhysicsObj {
 				}
 				// <-- dangle right animations
 				// jump up -->
-				if (this.gameControls.key_JUMP.isDown) {
+				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
 					this.body.checkCollision.up = false
 					if (this.painState) {
 						this.anims.play('heroPainRight', true)
