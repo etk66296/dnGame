@@ -129,7 +129,7 @@ class Hero extends PhysicsObj {
 			//////////////////////////////////////////////////////////////////////////////
 			// DANGLING -->
 		} else if (this.allowDangling && this.hasDangleClaws) {
-			if (this.gameControls.key_USE.isDown) { // fall down again
+			if (this.gameControls.touch_USE.isDown || this.gameControls.key_USE.isDown) { // fall down again
 				this.allowShooting = true
 				this.y += 2
 				this.setGravityY(300)
