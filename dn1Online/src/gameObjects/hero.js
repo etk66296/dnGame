@@ -1,5 +1,5 @@
 class Hero extends PhysicsObj {
-  constructor (scene, x, y, solidLayer, gameControls, gun, dangleTiles) {
+  constructor (scene, x, y, solidLayer, gameControls, gun) {
 		super(scene, x, y, 'heroSpriteAtlas', 'idleR_0000')
 		// scene.add.existing(this)
 		// scene.physics.add.existing(this)
@@ -7,7 +7,6 @@ class Hero extends PhysicsObj {
 		this.gameControls = gameControls
 		this.jumpSpeed = 0
 		this.gun = gun
-		this.dangleTiles = dangleTiles
 		this.jumpSpeed = 85
 		this.walkSpeed = 140
 		this.lastDir = 1
@@ -19,6 +18,8 @@ class Hero extends PhysicsObj {
 		this.setBounce(0.0)
 		this.scene.physics.add.collider(this, this.solidLayer)
 		this.allowDangling = false
+		this.allowShooting = true
+		this.hasDangleClaws = false
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
 			{ x: 16 + 18, y: 16 },
@@ -78,6 +79,9 @@ class Hero extends PhysicsObj {
 		// move LEFT -->
 		if(this.body.onFloor()) {
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+				if (!this.body.checkCollision.up) {
+					this.body.checkCollision.up = true // reset checking collision up
+				}
 				this.lastDir = -1
 				this.setVelocityX(this.walkSpeed * this.lastDir)
 				// walk left animations -->
@@ -121,58 +125,100 @@ class Hero extends PhysicsObj {
 				this.setVelocityY(-185)
 			}
 			// <-- JUMP
-			// dangling -->
-		} else if (this.body.onCeiling() && this.allowDangling) {
-			this.setGravityY(-300)
-			if (this.gameControls.key_USE.isDown) {
+			//////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////
+			// DANGLING -->
+		} else if (this.allowDangling && this.hasDangleClaws) {
+			if (this.gameControls.key_USE.isDown) { // fall down again
+				this.allowShooting = true
+				this.y += 2
 				this.setGravityY(300)
 			}
+			if (this.gameControls.key_FIRE.isDown && this.body.velocity.x === 0) {
+				if (this.lastDir === 1) {
+					this.setFrame('dangleShootR_0000')
+				} else {
+					this.setFrame('dangleShootL_0000')
+				}
+			}
+			// dangling LEFT -->
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+				this.allowShooting = false
 				this.lastDir = -1
 				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// walk left animations -->
+				// dangle left animations -->
 				if (this.painState) {
 					this.anims.play('heroPainLeft', true)
 				} else {
 					this.anims.play('heroDangleL', true)
 				}
-				// <-- walk left animations
-			} // <-- move LEFT
-			// move RIGHT -->
+				// <-- dangle left animations
+				// jump up -->
+				if (this.gameControls.key_JUMP.isDown) {
+					this.body.checkCollision.up = false
+					if (this.painState) {
+						this.anims.play('heroPainLeft', true)
+					} else {
+						this.anims.play('heroDangleUpL', true)
+					}
+				}
+				// <-- jump up
+			} // <-- dangle LEFT
+			// dangle RIGHT -->
 			else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+				this.allowShooting = false
 				this.lastDir = 1
 				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// walk right animations -->
+				// dangle right animations -->
 				if (this.painState) {
 					this.anims.play('heroPainRight', true)
 				} else {
 					this.anims.play('heroDangleR', true)
 				}
-				// <-- walk right animations
-			} //<-- move RIGHT
+				// <-- dangle right animations
+				// jump up -->
+				if (this.gameControls.key_JUMP.isDown) {
+					this.body.checkCollision.up = false
+					if (this.painState) {
+						this.anims.play('heroPainRight', true)
+					} else {
+						this.anims.play('heroDangleUpR', true)
+					}
+				}
+				// <-- jump up
+			} //<-- dangle RIGHT
 			else { // STOP -->
 				this.setVelocityX(0)
+				this.allowShooting = true
 				if (this.lastDir === 1) { // RIGHT -->
 					if (this.painState) {
 						this.anims.play('heroPainRight', true)
 					} else {
-						this.anims.play('heroDangleIdleR', true)
+						if (this.frame.name !== 'dangleShootR_0000') {
+							this.anims.play('heroDangleIdleR', true)
+						}
 					} // <-- RIGHT
 				} else if (this.lastDir === -1) { // LEFT -->
 					if (this.painState) {
 						this.anims.play('heroPainLeft', true)
 					} else {
-						this.anims.play('heroDangleIdleL', true)
+						if (this.frame.name !== 'dangleShootL_0000') {
+							this.anims.play('heroDangleIdleL', true)
+						}
 					} // <-- LEFT
 				}
 			} // <-- STOP
-			// JUMP -->
-			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-				this.setVelocityY(-185)
-			}
-			// <-- JUMP
 			// <-- dangling
+			//////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////
+		// JUMP -->
+		if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+			this.setVelocityY(-185)
+			this.allowShooting = true
+		}
+		// <-- JUMP
 		} else { // hero in the air -->
+			this.allowShooting = true
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
 				this.lastDir = -1
 				this.setVelocityX(this.jumpSpeed * this.lastDir)
@@ -186,13 +232,21 @@ class Hero extends PhysicsObj {
 				if (this.painState) {
 					this.anims.play('heroPainRight', true)
 				} else {
-					this.anims.play('heroJumpRight', true)
+					if (this.anims.currentAnim != null) {
+						if (this.anims.currentAnim.key !== 'heroDangleUpR') {
+							this.anims.play('heroJumpRight', true)
+						}
+					}
 				} // <-- JUMP RIGHT
 			} else if (this.lastDir === -1) { // JUMP LEFT -->
 				if (this.painState) {
 					this.anims.play('heroPainLeft', true)
 				} else {
-					this.anims.play('heroJumpLeft', true)
+					if (this.anims.currentAnim != null) {
+						if (this.anims.currentAnim.key !== 'heroDangleUpL') {
+							this.anims.play('heroJumpLeft', true)
+						}
+					}
 				} // <-- JUMP LEFT
 			}
 		} // <-- hero in the air
@@ -200,12 +254,14 @@ class Hero extends PhysicsObj {
 		// <-- hero movement
 
 		// fire gun -->
-		if (this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) {
+		if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.allowShooting) {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
 			// console.log(this)
 		}
 		// <-- fire gun
 
+		// reset values -->
+		// <-- reset values
 
 		// reset pain -->
 		// if (this.painState) {
@@ -290,7 +346,7 @@ class Hero extends PhysicsObj {
 		equipmentObj.anims.pause()
 		this.equipment.nextPosIndex += 1
 		if (equipmentObj.name === 'DangleClaw') {
-			this.allowDangling = true
+			this.hasDangleClaws = true
 		}
 	}
 

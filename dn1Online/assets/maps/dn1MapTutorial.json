@@ -247,7 +247,7 @@
          "name":"DangleTiles",
          "objects":[
                 {
-                 "height":16,
+                 "height":18,
                  "id":110,
                  "name":"DangleRail",
                  "rotation":0,
@@ -674,8 +674,8 @@
                  "type":"unpacked",
                  "visible":true,
                  "width":16,
-                 "x":896,
-                 "y":1088
+                 "x":992,
+                 "y":976
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -786,6 +786,23 @@
          "spacing":2,
          "tilecount":544,
          "tileheight":16,
+         "tiles":
+            {
+             "461":
+                {
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }
+            },
          "tilewidth":16
         }],
  "tilewidth":16,

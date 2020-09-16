@@ -2,6 +2,9 @@
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="179">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
+  <tile id="461">
+   <objectgroup draworder="index"/>
+  </tile>
  </tileset>
  <layer name="Solid" width="128" height="90">
   <data encoding="base64">
@@ -36,7 +39,7 @@
   <object id="7" name="Guard" x="464" y="1408" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="DangleTiles">
-  <object id="110" name="DangleRail" x="816" y="992" width="688" height="16"/>
+  <object id="110" name="DangleRail" x="816" y="992" width="688" height="18"/>
  </objectgroup>
  <objectgroup name="Minirobots">
   <object id="8" name="Minirobot" x="416" y="1404" width="16" height="20"/>
@@ -156,7 +159,7 @@
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="178" name="HighJumpShoe" type="unpacked" x="896" y="1088" width="16" height="16">
+  <object id="178" name="HighJumpShoe" type="unpacked" x="992" y="976" width="16" height="16">
    <properties>
     <property name="anim" value="HighJumpShoe"/>
     <property name="frame" value="HighJumpShoe_0000"/>

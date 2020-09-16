@@ -49,10 +49,11 @@ Level0Scene.prototype.create = function() {
 	this.gameControls.setup()
 
 	// create the hero and gun instances
-	this.dangleTiles = new DangleTiles(this, this.dangleTilesLayerData)
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 833, 1020, this.solidLayer, this.gameControls, this.heroGun, this.dangleTiles)
-	console.log(this.hero)
+	this.hero = new Hero(this, 1024, 1064, this.solidLayer, this.gameControls, this.heroGun)
+
+	// dangle tiles
+	this.dangleTiles = new DangleTiles(this, this.hero, this.dangleTilesLayerData)
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)

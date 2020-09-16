@@ -195,8 +195,8 @@ IntroScene.prototype.create = function() {
 			end: 2,
 			zeroPad: 4
 		}),
-		repeat: 1,
-		frameRate: 12
+		repeat: 0,
+		frameRate: 5
 	})
 	this.anims.create({ 
 		key: 'heroDangleL',
@@ -226,8 +226,8 @@ IntroScene.prototype.create = function() {
 			end: 2,
 			zeroPad: 4
 		}),
-		repeat: 1,
-		frameRate: 12
+		repeat: 0,
+		frameRate: 5
 	})
 	// <-- hero sprite sheet
 	// enemies sprite sheet -->
