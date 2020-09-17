@@ -319,7 +319,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 8
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'EplodeGiantRobotL',
@@ -329,7 +329,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'GlowThrowerStartR',
