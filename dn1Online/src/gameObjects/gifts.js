@@ -57,8 +57,7 @@ class SpecialGift extends GiftObj {
 		this.name = giftData.name
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			this.hero.appendEquipment(this)
-			scene.physics.world.removeCollider(this.overlapHeroEvent)
-			
+			scene.physics.world.removeCollider(this.overlapHeroEvent)			
 		})
 		if (giftData.properties.anim !== "") {
 			this.play(giftData.properties.anim)

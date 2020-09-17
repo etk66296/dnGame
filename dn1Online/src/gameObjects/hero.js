@@ -20,6 +20,7 @@ class Hero extends PhysicsObj {
 		this.allowDangling = false
 		this.allowShooting = true
 		this.hasDangleClaws = false
+		this.hasMultiHand = false
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
 			{ x: 16 + 18, y: 16 },
@@ -347,6 +348,8 @@ class Hero extends PhysicsObj {
 		this.equipment.nextPosIndex += 1
 		if (equipmentObj.name === 'DangleClaw') {
 			this.hasDangleClaws = true
+		} else if (equipmentObj.name === 'MultiHand') {
+			this.hasMultiHand = true
 		}
 	}
 

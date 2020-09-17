@@ -660,6 +660,28 @@ IntroScene.prototype.create = function() {
 		frameRate: 6
 	})
 	this.anims.create({
+		key: 'MultiHandPlate',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'MultiHandPlate_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({
+		key: 'MultiHandTile',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'MultiHandTile_',
+				end: 5,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'DangleClaw',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'DangleClaw_',

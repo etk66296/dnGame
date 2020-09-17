@@ -17,6 +17,7 @@ function Level0Scene() {
 	this.shootableBricksObjLayerData = null
 	this.spikesObjLayerData = null
 	this.dangleTilesLayerData = null
+	this.multiHandLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -24,6 +25,7 @@ function Level0Scene() {
 	this.crocosGroup = null
 	this.elevators = null
 	this.shootableBricksGroup = null
+	this.mutliHandAcess = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -50,10 +52,13 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1024, 1064, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1470, 950, this.solidLayer, this.gameControls, this.heroGun)
 
 	// dangle tiles
 	this.dangleTiles = new DangleTiles(this, this.hero, this.dangleTilesLayerData)
+	// dangle tiles
+	this.mutliHandAcess = new MultiHandPlateAndTiles(this, this.hero, this.multiHandLayerData)
+	console.log(this.mutliHandAcess)
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
@@ -106,6 +111,8 @@ Level0Scene.prototype.initWorld = function() {
 
 	// dangle tiles
 	this.dangleTilesLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DangleTiles")].objects
+	// multi hand
+	this.multiHandLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "MultiHandAccess")].objects
 
 	// spikes
 	this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects

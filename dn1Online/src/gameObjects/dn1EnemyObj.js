@@ -1,5 +1,5 @@
 class EnemyObj extends PhysicsObj {
-  constructor (scene, hero, x, y, spriteSheet, frame,) {
+  constructor (scene, hero, x, y, spriteSheet, frame) {
 		super(scene, x, y, spriteSheet, frame)
 		this.lifes = 1
 		this.hero = hero
