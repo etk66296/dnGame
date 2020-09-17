@@ -1,13 +1,13 @@
-class EnemyBullet extends Phaser.Physics.Arcade.Sprite {
+class EnemyBullet extends PhysicsObj {
   constructor (scene, x, y) {
 		super(scene, x, y, 'enemiesSpriteAtlas')
-	}
-	setup () {
 		this.setSize(2, 5, true)
 		this.body.checkCollision.none = true
 		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === 'explodeEnemy') {
-				this.setDestroyed()
+				this.body.reset(-100, -100)
+				this.setActive(false)
+				this.setVisible(false)
 			}
 		})
 	}
@@ -29,17 +29,12 @@ class EnemyBullet extends Phaser.Physics.Arcade.Sprite {
 			this.setFrame('enemyBulletR')
 		}
 	}
-	setDestroyed () {
-		this.body.checkCollision.none = true
-		this.body.reset(-100, -100)
-		this.setActive(false)
-		this.setVisible(false)
-	}
 }
 
 class EnemyBullets extends Phaser.Physics.Arcade.Group {
-  constructor (scene, solidLayer) {
-    super(scene.physics.world, scene)
+  constructor (scene, hero, solidLayer) {
+		super(scene.physics.world, scene)
+		this.hero = hero
     this.createMultiple({
       frameQuantity: 5,
       key: 'enemybullets',
@@ -49,6 +44,11 @@ class EnemyBullets extends Phaser.Physics.Arcade.Group {
 		})
 		scene.physics.add.collider(solidLayer, this, (bullet) => {
 			bullet.play('explodeEnemy')
+		})
+		scene.physics.add.collider(this.hero, this, (hero, bullet) => {
+			bullet.body.checkCollision.none = true
+			bullet.play('explodeEnemy')
+			this.hero.painState = true
 		})
   }
 	fireBullet (x, y, dir) {

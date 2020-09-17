@@ -1,5 +1,5 @@
 class MultiHandPlate extends PhysicsObj {
-	constructor(scene, hero, multiHandPlateData) {
+	constructor(scene, hero, multiHandPlateData, multiHandSystem) {
 			super(
 				scene,
 				multiHandPlateData.x + multiHandPlateData.width / 2,
@@ -13,27 +13,26 @@ class MultiHandPlate extends PhysicsObj {
 			this.body.immovable = true
 			this.hero = hero
 			this.play('MultiHandPlate')
-			this.setDepth(-1)
+			this.setDepth(0)
 			this.heroOverlapEvent = scene.physics.add.overlap(this, hero)
+			this.multiHandSystem = multiHandSystem
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 		if (!this.body.touching.none && this.hero.hasMultiHand) {
 			this.scene.physics.world.removeCollider(this.heroOverlapEvent)
-			console.log('on overlap')
-			
 		}
 		if (this.hero.hasMultiHand) {
 			if (this.hero.gameControls.key_USE.isDown || this.hero.gameControls.touch_USE.isDown) {
 				// enable all multihand tiles
 				this.setActive(false)
-				console.log('enable multi hand tiles')
+				this.multiHandSystem.tilesEnabled = true
 			}
 		}
 	}
 }
 class MultiHandTile extends PhysicsObj {
-	constructor(scene, hero, multiHandTileData) {
+	constructor(scene, hero, multiHandTileData, multiHandSystem) {
 			super(
 				scene,
 				multiHandTileData.x + multiHandTileData.width / 2,
@@ -44,24 +43,48 @@ class MultiHandTile extends PhysicsObj {
 			scene.add.existing(this)
 			scene.physics.add.existing(this)
 			this.setActive(true)
-			this.setVisible(true)
+			this.setVisible(false)
 			this.play(multiHandTileData.properties.anim)
+			this.tileIndex = multiHandTileData.properties.index
 			this.body.immovable = true
 			this.hero = hero
+			this.multiHandSystem = multiHandSystem
+			this.delayTime = 200
+			this.enabled = false
+			this.timeDelayEvent = null
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
+		// console.log(this.plate.plateSwitchedOn, !this.enabled)
+		if (this.multiHandSystem.tilesEnabled && !this.enabled) {
+			// start enable time
+			this.enabled = true
+			this.timeDelayEvent = this.scene.time.addEvent({
+				delay: this.tileIndex * this.delayTime,
+				callback: () => {
+					this.setVisible(true)
+					this.timeDelayEvent.remove(false)
+					this.scene.physics.add.collider(this, this.hero, () => {
+						this.hero.body.blocked.down = true
+					})
+				}
+			})
+		}
 	}
 }
 
 class MultiHandPlateAndTiles extends Phaser.GameObjects.Group {
   constructor (scene, hero, multiHandData) {
 		super(scene.physics.world, scene)
+		this.tilesEnabled = false
 		multiHandData.forEach((mhData) => {
 			if (mhData.type === 'plate') {
-				this.add(new MultiHandPlate(scene, hero, mhData))
-			} else {
-				this.add(new MultiHandTile(scene, hero, mhData))
+				this.add(new MultiHandPlate(scene, hero, mhData, this))
+			}
+		})
+		multiHandData.forEach((mhData) => {
+			if (mhData.type === 'tile') {
+				this.add(new MultiHandTile(scene, hero, mhData, this))
 			}
 		})
 		

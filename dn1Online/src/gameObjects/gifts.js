@@ -78,7 +78,7 @@ class FragileGift extends GiftObj {
 		this.box = null
 		this.alpha = 1.0
 		this.giftData = giftData
-		this.body.setSize(16, 16, true) // thus, the gun is able to hit it while hero is touching the floor
+		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			if (this.giftState === 0) {

@@ -16,6 +16,7 @@ class Hero extends PhysicsObj {
 		this.body.setOffset(9, 2)
 		this.setGravityY(300)
 		this.setBounce(0.0)
+		this.setDepth(1)
 		this.scene.physics.add.collider(this, this.solidLayer)
 		this.allowDangling = false
 		this.allowShooting = true

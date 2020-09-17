@@ -1,82 +1,47 @@
-// depends on intro scene, which is loading the enemiesSpriteAtlas sprite sheet
-// minirobots -->
-class Giantrobot extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, roboData, enemyBullets, hero, pointCounterDsp) {
-		super(scene, roboData.x, roboData.y, 'enemiesSpriteAtlas', 'giantRobotL')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
-		this.lastDir = -1
-		this.heroHits = 3
-		this.fireDeltaTime = 3000
-		this.jumpDeltaTime = Phaser.Math.Between(2000, 4000)
-		this.elapsedTimeAfterLastShot = 0
-		this.elapsedTimeAfterLastJump = 0
+class Giantrobot extends EnemyObj {
+  constructor (scene, hero, roboData, enemyBullets) {
+		super(
+			scene,
+			hero,
+			roboData.x + roboData.width / 2,
+			roboData.y + roboData.height / 2,
+			'enemiesSpriteAtlas',
+			'giantRobotL'
+		)
+		this.jumpDeltaTime = 0
+		this.timeToNextJump = 2000
+		this.fireDeltaTime = 0
+		this.timeToNextShot = 2000
 		this.enemyBullets = enemyBullets
-		this.hero = hero
-		this.isDestroyed = false
-		this.xMax = roboData.properties.xMax
-		this.xMin = roboData.properties.xMin
-		this.pointCounterDsp = pointCounterDsp
-		// this.lastPos = {x: 0, y: 0}
+		this.dir = -1
 	}
-	setup() {
-		this.setActive(true)
-		this.setVisible(true)
-		this.setGravityY(200)
-		this.on('animationcomplete', () => {
-			this.setDestroyed()
-		})
-	}
+	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if(!this.isDestroyed) {
-			if (this.x < this.xMax && this.x > this.xMin) {
-				if (this.body.onFloor()) {
-					this.setVelocityX(0)
-					if (this.hero.x > this.x) {
-						this.lastDir = 1
-						this.setFrame('giantRobotR')
-					} else {
-						if (this.x > this.xMin) {
-							this.lastDir = -1
-							this.setFrame('giantRobotL')
-						}
-					}
-				} else {
-					if (this.lastDir === 1) {
-						this.setFrame('giantRobotJumpR')
-					} else {
-						this.setFrame('giantRobotJumpL')
-					}
-				}
-			} else {
-				this.lastDir *= -1
-				if (this.x < this.xMin) {
-					this.x = this.xMin + 10
-				} else {
-					this.x = this.xMax - 10
-				}
-			}
-			this.elapsedTimeAfterLastShot += delta
-			this.elapsedTimeAfterLastJump += delta
-			if (this.elapsedTimeAfterLastShot > this.fireDeltaTime) {
-				this.elapsedTimeAfterLastShot = 0
-				this.enemyBullets.fireBullet(this.x + this.lastDir * 5, this.y - 5, this.lastDir)
-			}
-			if (this.elapsedTimeAfterLastJump > this.jumpDeltaTime) {
-				this.jumpDeltaTime = Phaser.Math.Between(2000, 4000)
-				this.elapsedTimeAfterLastJump = 0
-				this.setVelocityY(-200)
-				this.setVelocityX(50 * this.lastDir)
-			}
+		// jump -->
+		this.jumpDeltaTime += delta
+		if (this.timeToNextJump <= this.jumpDeltaTime) {
+			this.setVelocityY(-200)
+			this.timeToNextJump = Phaser.Math.Between(3000, 5000)
+			this.jumpDeltaTime = 0
 		}
-	}
-	setDestroyed() {
-		this.pointCounterDsp.amount += 524
-		this.body.checkCollision = { none: false, up: false, down: true, left: false, right: false }
-		this.setPosition(-100, -100)
-		this.setActive(false)
-		this.setVisible(false)
+		// <-- jump
+		// shot -->
+		this.fireDeltaTime += delta
+		if (this.timeToNextShot <= this.fireDeltaTime) {
+			this.timeToNextShot = Phaser.Math.Between(100, 3000)
+			this.fireDeltaTime = 0
+			this.enemyBullets.fireBullet(this.x, this.y, -1)
+		}
+		// <-- shot
+		// set the direction -->
+		// <-- set the direction
+
+		if (this.body.onFloor()) {
+			this.setFrame('giantRobotL')
+		} else {
+			this.setFrame('giantRobotJumpL')
+		}
 	}
 	
 	explode() {
@@ -89,23 +54,15 @@ class Giantrobot extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 class Giantrobots extends Phaser.Physics.Arcade.Group {
-  constructor (scene, giantRobotsData, solidLayer, enemyBullets, hero, bullets, pointCounterDsp) {
+  constructor (scene, hero, giantRobotsData, solidLayer, enemyBullets) {
 		super(scene.physics.world, scene)
 		giantRobotsData.forEach((robotData) => {
-			this.add(new Giantrobot(scene, robotData, enemyBullets, hero, pointCounterDsp))
+			this.add(new Giantrobot(scene, hero, robotData, enemyBullets))
 		})
-		scene.physics.add.overlap(this, bullets, (robo, bullet) => {
-			bullet.body.checkCollision.none = true
-			bullet.setVelocityX(bullet.body.velocity.x / 5)
-			bullet.play('heroExplode')
-			robo.heroHits -= 1
-			if (robo.heroHits <= 0) {
-				robo.setVelocityX(robo.body.velocity.x / 10)
-				robo.setVelocityY(-100)
-				robo.explode()
-			}
-		}, null, this)
 		scene.physics.add.collider(solidLayer, this)
+		this.children.iterate(robo => {
+			robo.setGravityY(200)
+		})
   }
 }
 // <-- minirobots

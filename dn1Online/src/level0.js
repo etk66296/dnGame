@@ -18,6 +18,7 @@ function Level0Scene() {
 	this.spikesObjLayerData = null
 	this.dangleTilesLayerData = null
 	this.multiHandLayerData = null
+	this.giantRobosLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -26,6 +27,8 @@ function Level0Scene() {
 	this.elevators = null
 	this.shootableBricksGroup = null
 	this.mutliHandAcess = null
+	this.enemyBullets = null
+	this.giantRobots = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -52,13 +55,16 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1470, 950, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1870, 1150, this.solidLayer, this.gameControls, this.heroGun)
 
 	// dangle tiles
 	this.dangleTiles = new DangleTiles(this, this.hero, this.dangleTilesLayerData)
 	// dangle tiles
 	this.mutliHandAcess = new MultiHandPlateAndTiles(this, this.hero, this.multiHandLayerData)
-	console.log(this.mutliHandAcess)
+	
+
+	// enemy bullets
+	this.enemyBullets = new EnemyBullets(this, this.hero, this.solidLayer)
 
 	// gifts
 	this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
@@ -81,7 +87,13 @@ Level0Scene.prototype.create = function() {
 		miniRobo.registerAsPainful()
 		miniRobo.registerAsShootable()
 	})
-
+	// giant roboty
+	this.giantRobots = new Giantrobots(this, this.hero, this.giantRobosLayerData, this.solidLayer, this.enemyBullets)
+	this.giantRobots.children.iterate(giantRobo => {
+		giantRobo.registerAsPainful()
+		giantRobo.registerAsShootable()
+	})
+	console.log(this.giantRobots)
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
@@ -133,6 +145,9 @@ Level0Scene.prototype.initWorld = function() {
 	this.crocosObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Crocos")].objects
 	// mini robots
 	this.miniRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Minirobots")].objects
+	// giant robos
+	this.giantRobosLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Giantrobots")].objects
+	
 }
 
 Level0Scene.prototype.initControls = function() {	
