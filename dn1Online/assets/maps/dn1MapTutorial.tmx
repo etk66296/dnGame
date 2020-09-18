@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="204">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="218">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -290,6 +290,57 @@
    <properties>
     <property name="anim" value="RedKey"/>
     <property name="frame" value="RedKey_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="211" name="RedKeyPlate" type="Plate" x="1248" y="1072" width="16" height="16">
+   <properties>
+    <property name="frameA" value="RedPlateLocked"/>
+    <property name="frameB" value="RedPlateOpened"/>
+    <property name="key" value="RedKey"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="212" name="RedGate" type="Gate" x="1200" y="1088" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="213" name="RedGate" type="Gate" x="1200" y="1072" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="214" name="RedGate" type="Gate" x="1200" y="1056" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="215" name="RedGate" type="Gate" x="1200" y="1040" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="216" name="RedGate" type="Gate" x="1200" y="1024" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="217" name="RedGate" type="Gate" x="1200" y="1008" width="16" height="16">
+   <properties>
+    <property name="anim" value="RedGate"/>
+    <property name="frame" value="RedGate_0000"/>
+    <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>

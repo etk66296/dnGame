@@ -22,6 +22,7 @@ class Hero extends PhysicsObj {
 		this.allowShooting = true
 		this.hasDangleClaws = false
 		this.hasMultiHand = false
+		this.hasRedKey = false
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
 			{ x: 16 + 18, y: 16 },
@@ -354,6 +355,8 @@ class Hero extends PhysicsObj {
 		} else if (equipmentObj.name === 'GunUpgrade') {
 			this.gameControls.upgradeGunPower()
 			this.gun.upgradeGunPower()
+		} else if ((equipmentObj.name === 'RedKey')) {
+			this.hasRedKey = true
 		}
 	}
 

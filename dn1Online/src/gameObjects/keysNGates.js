@@ -10,17 +10,15 @@ class Key extends PhysicsObj {
 		this.hero = hero
 		this.name = keyData.name
 		this.collected = false
+		this.keysNGatesType = keyData.type
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
-		console.log(keyData.properties.anim)
 		this.play(keyData.properties.anim)
 		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (key, hero) => {
 			if (!this.collected) {
-				// hero.inventory.push(this.name)
+				this.hero.appendEquipment(this)
 				this.collected = true
-				this.setActive(true)
-				this.setVisible(true)
 			}
 			scene.physics.world.removeCollider(this.heroOverlapEvent);
 		})
@@ -30,39 +28,32 @@ class Key extends PhysicsObj {
 	}
 }
 class KeyPlate extends PhysicsObj {
-  constructor (scene, x, y, keyData, hero, key_USE, touch_USE, gates) {
-		super(scene, x, y)
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
-		this.hero = hero
-		this.name = keyData.name
-		this.matchingKeyName = keyData.properties.key
-		this.key_USE  = key_USE
-		this.touch_USE = touch_USE
-		this.keyUsed = false
+  constructor (scene, hero, plateData, gates) {
+		super(
+			scene,
+			plateData.x + 8,
+			plateData.y + 8,
+			'giftsSpriteAtlas',
+			plateData.properties.frameA
+		)
 		this.gates = gates
-	}
-	setup () {
+		this.hero = hero
+		this.name = plateData.name
+		this.keyID = plateData.properties.keyID
+		this.keysNGatesType = plateData.type
 		this.setImmovable(true)
 		this.setActive(true)
-		this.setVisible(false)
-		this.scene.physics.add.overlap(this, this.hero, () => {
-			if (!this.keyUsed) {
-				this.hero.inventory.forEach((inventoryItem) => {
-					if (inventoryItem === this.matchingKeyName && (this.key_USE.isDown || this.touch_USE.isDown)) {
-						this.gates.children.iterate((gate) => {
-							// the plates and keys are alo in the group =>
-							// it is better to make sure the current object is a gate
-							if (gate['gateName'] !== undefined) {
-								if (gate.matchingGatePlate === this.name) {
-									gate.open(gate.gateName)
-								}
-							}
-						})
-						this.setActive(false)
-						this.keyUsed = true
+		this.setVisible(true)
+		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (plate, hero) => {
+			if ((this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) && this.hero.hasRedKey) {
+				this.gates.children.iterate(gate => {
+					if (gate.keysNGatesType === 'Gate') {
+						if (gate.keyID === this.keyID) {
+							gate.open()
+						}
 					}
 				})
+				scene.physics.world.removeCollider(this.heroOverlapEvent)
 			}
 		})
 	}
@@ -71,42 +62,36 @@ class KeyPlate extends PhysicsObj {
 		super.preUpdate(time, delta)
 	}
 }
+
+
+
 class Gate extends PhysicsObj {
-  constructor (scene, x, y, gateData, hero, openGateSound) {
-		super(scene, x, y, 'enemiesSpriteAtlas', gateData.name + '_0000')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
+  constructor (scene, hero, gateData) {
+		super(
+			scene,
+			gateData.x + 8,
+			gateData.y + 8,
+			'enemiesSpriteAtlas',
+			gateData.properties.frame
+		)
+		this.openAnim = gateData.properties.anim
 		this.hero = hero
-		this.matchingGatePlate = gateData.properties.plate
 		this.gateName = gateData.name
-		this.openGateSound = openGateSound
-	}
-	setup () {
-		this.setImmovable(true)
+		this.keyID = gateData.properties.keyID
+		this.keysNGatesType = gateData.type
 		this.setActive(true)
 		this.setVisible(true)
-		this.scene.physics.add.collider(this.hero, this, () => {
-			// block the hero
-			this.hero.body.blocked = {
-				none: false,
-				up: false,
-				down: false,
-				left: true,
-				right: true
-			}
-		})
-		this.on('animationcomplete', () => {
+		this.scene.physics.add.collider(this.hero, this)
+		this.openedEvent = this.on('animationcomplete', () => {
 			this.setActive(false)
 			this.setVisible(false)
 			this.setPosition(-200, -200)
+			scene.physics.world.removeCollider(this.openedEvent)
 		})
 	}
 
 	open (gateName) {
-		if (!this.openGateSound.isPlaying) {
-			this.openGateSound.play()
-		}
-		this.play(gateName)
+		this.play(this.openAnim)
 	}
 
 	preUpdate (time, delta) {
@@ -119,15 +104,18 @@ class KeysNGates extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		keysData.forEach(keyData => {
-			// if (keyData.type === 'Gate') {
-			// 	this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, openGateSound))
-			// }
+			if (keyData.type === 'Gate') {
+				this.add(new Gate(scene, hero, keyData))
+			}
 			if (keyData.type === 'Key') {
 				this.add(new Key(scene, hero, keyData))
 			}
-			// if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
-			// 	this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, touch_USE, this))
-			// }
+			if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
+				this.add(new KeyPlate(scene, hero, keyData, this))
+			}
+		})
+		this.children.iterate(keyPlateGate => {
+			keyPlateGate.setImmovable(true)
 		})
 	}
 }

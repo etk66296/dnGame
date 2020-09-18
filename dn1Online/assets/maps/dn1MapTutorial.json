@@ -1089,12 +1089,14 @@
                  "properties":
                     {
                      "anim":"RedKey",
-                     "frame":"RedKey_0000"
+                     "frame":"RedKey_0000",
+                     "keyID":1
                     },
                  "propertytypes":
                     {
                      "anim":"string",
-                     "frame":"string"
+                     "frame":"string",
+                     "keyID":"int"
                     },
                  "rotation":0,
                  "type":"Key",
@@ -1102,6 +1104,169 @@
                  "width":16,
                  "x":1312,
                  "y":1088
+                }, 
+                {
+                 "height":16,
+                 "id":211,
+                 "name":"RedKeyPlate",
+                 "properties":
+                    {
+                     "frameA":"RedPlateLocked",
+                     "frameB":"RedPlateOpened",
+                     "key":"RedKey",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "frameA":"string",
+                     "frameB":"string",
+                     "key":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Plate",
+                 "visible":true,
+                 "width":16,
+                 "x":1248,
+                 "y":1072
+                }, 
+                {
+                 "height":16,
+                 "id":212,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1088
+                }, 
+                {
+                 "height":16,
+                 "id":213,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1072
+                }, 
+                {
+                 "height":16,
+                 "id":214,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1056
+                }, 
+                {
+                 "height":16,
+                 "id":215,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1040
+                }, 
+                {
+                 "height":16,
+                 "id":216,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1024
+                }, 
+                {
+                 "height":16,
+                 "id":217,
+                 "name":"RedGate",
+                 "properties":
+                    {
+                     "anim":"RedGate",
+                     "frame":"RedGate_0000",
+                     "keyID":1
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "keyID":"int"
+                    },
+                 "rotation":0,
+                 "type":"Gate",
+                 "visible":true,
+                 "width":16,
+                 "x":1200,
+                 "y":1008
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1216,7 +1381,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":204,
+ "nextobjectid":218,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
