@@ -41,7 +41,7 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
   constructor (scene, solidLayer) {
 		super(scene.physics.world, scene)
     this.createMultiple({
-      frameQuantity: 5,
+      frameQuantity: 20,
       key: 'bullets',
       active: false,
       visible: false,
@@ -70,5 +70,8 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
 				}
 			})
 		}
-  }
+	}
+	upgradeGunPower() {
+		this.collingDownTime -= 200
+	}
 }

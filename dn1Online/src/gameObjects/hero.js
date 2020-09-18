@@ -351,6 +351,9 @@ class Hero extends PhysicsObj {
 			this.hasDangleClaws = true
 		} else if (equipmentObj.name === 'MultiHand') {
 			this.hasMultiHand = true
+		} else if (equipmentObj.name === 'GunUpgrade') {
+			this.gameControls.upgradeGunPower()
+			this.gun.upgradeGunPower()
 		}
 	}
 

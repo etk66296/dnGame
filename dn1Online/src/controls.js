@@ -43,6 +43,19 @@ class Controls extends Phaser.GameObjects.Group {
 		this.add(new TouchButton(scene, 430, 240, 'AButton', this.touch_JUMP))
 		this.add(new TouchButton(scene, 465, 180, 'BButton', this.touch_FIRE))
 
+		this.gunPowerAmount = 1
+		this.gunPowerTxtObj = scene.add.text(
+			480,
+			95,
+			String(this.gunPowerAmount),
+			{
+				fontFamily: 'Arial',
+				fontSize: 16, color: '#FFFFFF'
+			}
+		)
+		this.gunPowerTxtObj.setScrollFactor(0, 0)
+		this.gunPowerTxtObj.setDepth(102)
+
 		return this
 	}
 	setup() {
@@ -62,5 +75,9 @@ class Controls extends Phaser.GameObjects.Group {
 		this.key_JUMP.isDown = false
 		this.key_FIRE.isDown = false
 		this.key_USE.isDown = false
+	}
+	upgradeGunPower() {
+		this.gunPowerAmount += 1
+		this.gunPowerTxtObj.setText(String(this.gunPowerAmount))
 	}
 }

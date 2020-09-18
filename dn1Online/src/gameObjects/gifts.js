@@ -193,7 +193,8 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 
 			} else if(giftData.name === 'HighJumpShoe' ||
 								giftData.name === 'DangleClaw' ||
-								giftData.name === 'MultiHand') {
+								giftData.name === 'MultiHand' ||
+								giftData.name === 'GunUpgrade') {
 				this.add(new SpecialGift(scene, hero, giftData))
 			} else if(giftData.name === 'Balloon') {
 				this.add(new FragileGift(scene, hero, giftData))

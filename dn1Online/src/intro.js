@@ -422,6 +422,17 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({
+		key: 'RedKey',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'RedKey_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'RedGate',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'RedGate_',
@@ -658,6 +669,17 @@ IntroScene.prototype.create = function() {
 		yoyo: true,
 		repeat: -1,
 		frameRate: 6
+	})
+	this.anims.create({
+		key: 'GunUpgrade',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'GunUpgrade_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 8
 	})
 	this.anims.create({
 		key: 'MultiHandPlate',

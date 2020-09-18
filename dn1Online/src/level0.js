@@ -19,6 +19,7 @@ function Level0Scene() {
 	this.dangleTilesLayerData = null
 	this.multiHandLayerData = null
 	this.giantRobosLayerData = null
+	this.keysAndGatesObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -29,6 +30,7 @@ function Level0Scene() {
 	this.mutliHandAcess = null
 	this.enemyBullets = null
 	this.giantRobots = null
+	this.keysNGatesGroup = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -55,13 +57,14 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1870, 1150, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1450, 1070, this.solidLayer, this.gameControls, this.heroGun)
 
 	// dangle tiles
 	this.dangleTiles = new DangleTiles(this, this.hero, this.dangleTilesLayerData)
 	// dangle tiles
 	this.mutliHandAcess = new MultiHandPlateAndTiles(this, this.hero, this.multiHandLayerData)
-	
+	// key and gates
+	this.keysNGatesGroup = new KeysNGates(this, this.hero, this.keysAndGatesObjLayerData)
 
 	// enemy bullets
 	this.enemyBullets = new EnemyBullets(this, this.hero, this.solidLayer)
@@ -129,6 +132,8 @@ Level0Scene.prototype.initWorld = function() {
 	// spikes
 	this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects
 
+	// keys and gates
+	this.keysAndGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KeysAndGates")].objects
 
 	// shootable bricks layer
 	this.shootableBricksObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ShootableBricks")].objects

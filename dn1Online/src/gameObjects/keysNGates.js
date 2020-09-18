@@ -1,41 +1,35 @@
-class Key extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, keyData, hero, pointsFlyers, pointCounterDsp) {
-		super(scene, x, y, 'giftsSpriteAtlas', keyData.name)
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
+class Key extends PhysicsObj {
+  constructor (scene, hero, keyData) {
+		super(
+			scene,
+			keyData.x + 8,
+			keyData.y + 8,
+			'giftsSpriteAtlas',
+			keyData.properties.frame
+		)
 		this.hero = hero
 		this.name = keyData.name
 		this.collected = false
-		this.pointsFlyers = pointsFlyers
-		this.pointCounterDsp = pointCounterDsp
-	}
-	setup () {
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
-		this.scene.physics.add.overlap(this, this.hero, (key, hero) => {
+		console.log(keyData.properties.anim)
+		this.play(keyData.properties.anim)
+		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (key, hero) => {
 			if (!this.collected) {
-				this.pointCounterDsp.amount += 1000
-				hero.inventory.push(this.name)
+				// hero.inventory.push(this.name)
 				this.collected = true
 				this.setActive(true)
 				this.setVisible(true)
-				this.pointsFlyers.showUp(this.x, this.y, 'Points_1000')
-				this.setDepth(102)
-				this.setScrollFactor(0)
-				this.setPosition(
-					hero.equipmentDsp.positions[hero.equipmentDsp.nextPosIndex].x,
-					hero.equipmentDsp.positions[hero.equipmentDsp.nextPosIndex].y
-				)
-				hero.equipmentDsp.nextPosIndex += 1
 			}
+			scene.physics.world.removeCollider(this.heroOverlapEvent);
 		})
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
 	}
 }
-class KeyPlate extends Phaser.Physics.Arcade.Sprite {
+class KeyPlate extends PhysicsObj {
   constructor (scene, x, y, keyData, hero, key_USE, touch_USE, gates) {
 		super(scene, x, y)
 		scene.add.existing(this)
@@ -77,7 +71,7 @@ class KeyPlate extends Phaser.Physics.Arcade.Sprite {
 		super.preUpdate(time, delta)
 	}
 }
-class Gate extends Phaser.Physics.Arcade.Sprite {
+class Gate extends PhysicsObj {
   constructor (scene, x, y, gateData, hero, openGateSound) {
 		super(scene, x, y, 'enemiesSpriteAtlas', gateData.name + '_0000')
 		scene.add.existing(this)
@@ -121,21 +115,19 @@ class Gate extends Phaser.Physics.Arcade.Sprite {
 }
 
 class KeysNGates extends Phaser.Physics.Arcade.Group {
-  constructor (scene, keysData, hero, pointsFlyers, key_USE, touch_USE, openGateSound, pointCounterDsp) {
+  constructor (scene, hero, keysData) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		keysData.forEach(keyData => {
-			if (keyData.type === 'Gate') {
-				this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, openGateSound))
-			}
+			// if (keyData.type === 'Gate') {
+			// 	this.add(new Gate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, openGateSound))
+			// }
 			if (keyData.type === 'Key') {
-				this.add(new Key(scene, keyData.x + 8, keyData.y + 8, keyData, hero, pointsFlyers, pointCounterDsp))
+				this.add(new Key(scene, hero, keyData))
 			}
-			if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
-				this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, touch_USE, this))
-			}
+			// if (keyData.type === 'Plate') { // with the reference to this group the plates can trigger the gates
+			// 	this.add(new KeyPlate(scene, keyData.x + 8, keyData.y + 8, keyData, hero, key_USE, touch_USE, this))
+			// }
 		})
-	}
-	setup () {
 	}
 }
