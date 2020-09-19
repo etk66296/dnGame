@@ -41,11 +41,13 @@ class KeyPlate extends PhysicsObj {
 		this.name = plateData.name
 		this.keyID = plateData.properties.keyID
 		this.keysNGatesType = plateData.type
+		this.doorOpenedFrame = plateData.properties.frameB
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
 		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (plate, hero) => {
 			if ((this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) && this.hero.hasRedKey) {
+				this.setFrame(this.doorOpenedFrame)
 				this.gates.children.iterate(gate => {
 					if (gate.keysNGatesType === 'Gate') {
 						if (gate.keyID === this.keyID) {

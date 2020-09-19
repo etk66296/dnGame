@@ -14,21 +14,21 @@ class MultiHandPlate extends PhysicsObj {
 			this.hero = hero
 			this.play('MultiHandPlate')
 			this.setDepth(0)
-			this.heroOverlapEvent = scene.physics.add.overlap(this, hero)
+			this.heroOverlapEvent = scene.physics.add.overlap(this, hero, () => {
+				if (this.hero.hasMultiHand) {
+					if (this.hero.gameControls.key_USE.isDown ||
+							this.hero.gameControls.touch_USE.isDown) {
+						// enable all multihand tiles
+						this.setActive(false)
+						this.multiHandSystem.tilesEnabled = true
+						this.scene.physics.world.removeCollider(this.heroOverlapEvent)
+					}
+				}
+			})
 			this.multiHandSystem = multiHandSystem
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (!this.body.touching.none && this.hero.hasMultiHand) {
-			this.scene.physics.world.removeCollider(this.heroOverlapEvent)
-		}
-		if (this.hero.hasMultiHand) {
-			if (this.hero.gameControls.key_USE.isDown || this.hero.gameControls.touch_USE.isDown) {
-				// enable all multihand tiles
-				this.setActive(false)
-				this.multiHandSystem.tilesEnabled = true
-			}
-		}
 	}
 }
 class MultiHandTile extends PhysicsObj {

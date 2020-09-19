@@ -440,7 +440,18 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 16
+	})
+	this.anims.create({
+		key: 'BlueKey',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'BlueKey_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'BlueGate',
@@ -450,7 +461,18 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 16
+	})
+	this.anims.create({
+		key: 'GreenKey',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'GreenKey_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'GreenGate',
@@ -460,7 +482,18 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 16
+	})
+	this.anims.create({
+		key: 'PurpleKey',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'PurpleKey_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'PurpleGate',
@@ -470,7 +503,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 16
 	})
 	this.anims.create({
 		key: 'YellowGate',
