@@ -22,6 +22,7 @@ class Hero extends PhysicsObj {
 		this.allowShooting = true
 		this.hasDangleClaws = false
 		this.hasMultiHand = false
+		this.movementAllowed = true
 		this.collectedKeyIds = []
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
@@ -78,182 +79,183 @@ class Hero extends PhysicsObj {
 
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		// hero movement -->
-		// move LEFT -->
-		if(this.body.onFloor()) {
-			if (!this.body.checkCollision.up) {
-				this.body.checkCollision.up = true // reset checking collision up
-			}
-			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
-				this.lastDir = -1
-				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// walk left animations -->
-				if (this.painState) {
-					this.anims.play('heroPainLeft', true)
-				} else {
-					this.anims.play('heroWalkLeft', true)
+		if (this.movementAllowed) {
+			// hero movement -->
+			// move LEFT -->
+			if(this.body.onFloor()) {
+				if (!this.body.checkCollision.up) {
+					this.body.checkCollision.up = true // reset checking collision up
 				}
-				// <-- walk left animations
-			} // <-- move LEFT
-			// move RIGHT -->
-			else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
-				this.lastDir = 1
-				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// walk right animations -->
-				if (this.painState) {
-					this.anims.play('heroPainRight', true)
-				} else {
-					this.anims.play('heroWalkRight', true)
-				}
-				// <-- walk right animations
-			} //<-- move RIGHT
-			else { // STOP -->
-				this.setVelocityX(0)
-				if (this.lastDir === 1) { // RIGHT -->
+				if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+					this.lastDir = -1
+					this.setVelocityX(this.walkSpeed * this.lastDir)
+					// walk left animations -->
+					if (this.painState) {
+						this.anims.play('heroPainLeft', true)
+					} else {
+						this.anims.play('heroWalkLeft', true)
+					}
+					// <-- walk left animations
+				} // <-- move LEFT
+				// move RIGHT -->
+				else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+					this.lastDir = 1
+					this.setVelocityX(this.walkSpeed * this.lastDir)
+					// walk right animations -->
 					if (this.painState) {
 						this.anims.play('heroPainRight', true)
 					} else {
-						this.anims.play('heroIdleRight', true)
-					} // <-- RIGHT
-				} else if (this.lastDir === -1) { // LEFT -->
-					if (this.painState) {
-						this.anims.play('heroPainLeft', true)
-					} else {
-						this.anims.play('heroIdleLeft', true)
-					} // <-- LEFT
-				}
-			} // <-- STOP
-			// JUMP -->
-			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-				this.setVelocityY(-185)
-			}
-			// <-- JUMP
-			//////////////////////////////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////////////////////////////
-			// DANGLING -->
-		} else if (this.allowDangling && this.hasDangleClaws) {
-			if (this.gameControls.touch_USE.isDown || this.gameControls.key_USE.isDown) { // fall down again
-				this.allowShooting = true
-				this.y += 2
-				this.setGravityY(300)
-			}
-			if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.body.velocity.x === 0) {
-				if (this.lastDir === 1) {
-					this.setFrame('dangleShootR_0000')
-				} else {
-					this.setFrame('dangleShootL_0000')
-				}
-			}
-			// dangling LEFT -->
-			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
-				this.allowShooting = false
-				this.lastDir = -1
-				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// dangle left animations -->
-				if (this.painState) {
-					this.anims.play('heroPainLeft', true)
-				} else {
-					this.anims.play('heroDangleL', true)
-				}
-				// <-- dangle left animations
-				// jump up -->
+						this.anims.play('heroWalkRight', true)
+					}
+					// <-- walk right animations
+				} //<-- move RIGHT
+				else { // STOP -->
+					this.setVelocityX(0)
+					if (this.lastDir === 1) { // RIGHT -->
+						if (this.painState) {
+							this.anims.play('heroPainRight', true)
+						} else {
+							this.anims.play('heroIdleRight', true)
+						} // <-- RIGHT
+					} else if (this.lastDir === -1) { // LEFT -->
+						if (this.painState) {
+							this.anims.play('heroPainLeft', true)
+						} else {
+							this.anims.play('heroIdleLeft', true)
+						} // <-- LEFT
+					}
+				} // <-- STOP
+				// JUMP -->
 				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-					this.body.checkCollision.up = false
-					if (this.painState) {
-						this.anims.play('heroPainLeft', true)
+					this.setVelocityY(-185)
+				}
+				// <-- JUMP
+				//////////////////////////////////////////////////////////////////////////////
+				//////////////////////////////////////////////////////////////////////////////
+				// DANGLING -->
+			} else if (this.allowDangling && this.hasDangleClaws) {
+				if (this.gameControls.touch_USE.isDown || this.gameControls.key_USE.isDown) { // fall down again
+					this.allowShooting = true
+					this.y += 2
+					this.setGravityY(300)
+				}
+				if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.body.velocity.x === 0) {
+					if (this.lastDir === 1) {
+						this.setFrame('dangleShootR_0000')
 					} else {
-						this.anims.play('heroDangleUpL', true)
+						this.setFrame('dangleShootL_0000')
 					}
 				}
-				// <-- jump up
-			} // <-- dangle LEFT
-			// dangle RIGHT -->
-			else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
-				this.allowShooting = false
-				this.lastDir = 1
-				this.setVelocityX(this.walkSpeed * this.lastDir)
-				// dangle right animations -->
-				if (this.painState) {
-					this.anims.play('heroPainRight', true)
-				} else {
-					this.anims.play('heroDangleR', true)
-				}
-				// <-- dangle right animations
-				// jump up -->
-				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-					this.body.checkCollision.up = false
-					if (this.painState) {
-						this.anims.play('heroPainRight', true)
-					} else {
-						this.anims.play('heroDangleUpR', true)
-					}
-				}
-				// <-- jump up
-			} //<-- dangle RIGHT
-			else { // STOP -->
-				this.setVelocityX(0)
-				this.allowShooting = true
-				if (this.lastDir === 1) { // RIGHT -->
-					if (this.painState) {
-						this.anims.play('heroPainRight', true)
-					} else {
-						if (this.frame.name !== 'dangleShootR_0000') {
-							this.anims.play('heroDangleIdleR', true)
-						}
-					} // <-- RIGHT
-				} else if (this.lastDir === -1) { // LEFT -->
+				// dangling LEFT -->
+				if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+					this.allowShooting = false
+					this.lastDir = -1
+					this.setVelocityX(this.walkSpeed * this.lastDir)
+					// dangle left animations -->
 					if (this.painState) {
 						this.anims.play('heroPainLeft', true)
 					} else {
-						if (this.frame.name !== 'dangleShootL_0000') {
-							this.anims.play('heroDangleIdleL', true)
+						this.anims.play('heroDangleL', true)
+					}
+					// <-- dangle left animations
+					// jump up -->
+					if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+						this.body.checkCollision.up = false
+						if (this.painState) {
+							this.anims.play('heroPainLeft', true)
+						} else {
+							this.anims.play('heroDangleUpL', true)
 						}
-					} // <-- LEFT
-				}
-			} // <-- STOP
+					}
+					// <-- jump up
+				} // <-- dangle LEFT
+				// dangle RIGHT -->
+				else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+					this.allowShooting = false
+					this.lastDir = 1
+					this.setVelocityX(this.walkSpeed * this.lastDir)
+					// dangle right animations -->
+					if (this.painState) {
+						this.anims.play('heroPainRight', true)
+					} else {
+						this.anims.play('heroDangleR', true)
+					}
+					// <-- dangle right animations
+					// jump up -->
+					if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+						this.body.checkCollision.up = false
+						if (this.painState) {
+							this.anims.play('heroPainRight', true)
+						} else {
+							this.anims.play('heroDangleUpR', true)
+						}
+					}
+					// <-- jump up
+				} //<-- dangle RIGHT
+				else { // STOP -->
+					this.setVelocityX(0)
+					this.allowShooting = true
+					if (this.lastDir === 1) { // RIGHT -->
+						if (this.painState) {
+							this.anims.play('heroPainRight', true)
+						} else {
+							if (this.frame.name !== 'dangleShootR_0000') {
+								this.anims.play('heroDangleIdleR', true)
+							}
+						} // <-- RIGHT
+					} else if (this.lastDir === -1) { // LEFT -->
+						if (this.painState) {
+							this.anims.play('heroPainLeft', true)
+						} else {
+							if (this.frame.name !== 'dangleShootL_0000') {
+								this.anims.play('heroDangleIdleL', true)
+							}
+						} // <-- LEFT
+					}
+				} // <-- STOP
 			// <-- dangling
 			//////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////
-		// JUMP -->
-		if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-			this.setVelocityY(-185)
-			this.allowShooting = true
-		}
-		// <-- JUMP
-		} else { // hero in the air -->
-			this.allowShooting = true
-			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
-				this.lastDir = -1
-				this.setVelocityX(this.jumpSpeed * this.lastDir)
-			} else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
-				this.lastDir = 1
-				this.setVelocityX(this.jumpSpeed * this.lastDir)
-			} else {
-				this.setVelocityX(0)
+			// JUMP -->
+			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+				this.setVelocityY(-185)
+				this.allowShooting = true
 			}
-			if (this.lastDir === 1) { // JUMP RIGHT -->
-				if (this.painState) {
-					this.anims.play('heroPainRight', true)
+			// <-- JUMP
+			} else { // hero in the air -->
+				this.allowShooting = true
+				if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
+					this.lastDir = -1
+					this.setVelocityX(this.jumpSpeed * this.lastDir)
+				} else if (this.gameControls.key_RIGHT.isDown || this.gameControls.touch_RIGHT.isDown) {
+					this.lastDir = 1
+					this.setVelocityX(this.jumpSpeed * this.lastDir)
 				} else {
-					if (this.anims.currentAnim != null) {
-						if (this.anims.currentAnim.key !== 'heroDangleUpR') {
-							this.anims.play('heroJumpRight', true)
+					this.setVelocityX(0)
+				}
+				if (this.lastDir === 1) { // JUMP RIGHT -->
+					if (this.painState) {
+						this.anims.play('heroPainRight', true)
+					} else {
+						if (this.anims.currentAnim != null) {
+							if (this.anims.currentAnim.key !== 'heroDangleUpR') {
+								this.anims.play('heroJumpRight', true)
+							}
 						}
-					}
-				} // <-- JUMP RIGHT
-			} else if (this.lastDir === -1) { // JUMP LEFT -->
-				if (this.painState) {
-					this.anims.play('heroPainLeft', true)
-				} else {
-					if (this.anims.currentAnim != null) {
-						if (this.anims.currentAnim.key !== 'heroDangleUpL') {
-							this.anims.play('heroJumpLeft', true)
+					} // <-- JUMP RIGHT
+				} else if (this.lastDir === -1) { // JUMP LEFT -->
+					if (this.painState) {
+						this.anims.play('heroPainLeft', true)
+					} else {
+						if (this.anims.currentAnim != null) {
+							if (this.anims.currentAnim.key !== 'heroDangleUpL') {
+								this.anims.play('heroJumpLeft', true)
+							}
 						}
-					}
-				} // <-- JUMP LEFT
-			}
-		} // <-- hero in the air
-
+					} // <-- JUMP LEFT
+				}
+			} // <-- hero in the air
+	  }
 		// <-- hero movement
 
 		// fire gun -->

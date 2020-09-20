@@ -20,6 +20,7 @@ function Level0Scene() {
 	this.multiHandLayerData = null
 	this.giantRobosLayerData = null
 	this.keysAndGatesObjLayerData = null
+	this.placeTranslatorObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -31,6 +32,7 @@ function Level0Scene() {
 	this.enemyBullets = null
 	this.giantRobots = null
 	this.keysNGatesGroup = null
+	this.placeTranslator = []
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -62,7 +64,12 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1450, 1070, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1850, 1070, this.solidLayer, this.gameControls, this.heroGun)
+	
+	// place translator machine
+	this.placeTranslatorObjLayerData.forEach(pTData => {
+		this.placeTranslator.push(new PlaceTranslatorMachine(this, this.hero, pTData))
+	})
 
 	// dangle tiles
 	this.dangleTiles = new DangleTiles(this, this.hero, this.dangleTilesLayerData)
@@ -127,6 +134,9 @@ Level0Scene.prototype.initWorld = function() {
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
+
+	// place translator machine
+	this.placeTranslatorObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "PlaceTranslatorMachines")].objects
 
 	// dangle tiles
 	this.dangleTilesLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DangleTiles")].objects

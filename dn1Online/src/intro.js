@@ -242,9 +242,9 @@ IntroScene.prototype.create = function() {
 		frameRate: 6
 	})
 	this.anims.create({ 
-		key: 'placeTranslatorTakeOf',
+		key: 'placeTranslatorTakeOff',
 		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
-			prefix: 'PlaceTranslatorTakeOf_',
+			prefix: 'PlaceTranslatorTakeOff_',
 			end: 2,
 			zeroPad: 4
 		}),

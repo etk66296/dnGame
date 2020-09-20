@@ -25,7 +25,6 @@ class Key extends GiftObj {
 				equipmentSprite.setScrollFactor(0,0)
 				equipmentSprite.setDepth(200)
 				equipmentSprite.setVisible(true)
-				console.log(equipmentSprite)
 				this.hero.appendEquipment(equipmentSprite)
 				this.isCollected = true
 			}
