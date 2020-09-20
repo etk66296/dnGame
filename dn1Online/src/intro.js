@@ -230,6 +230,28 @@ IntroScene.prototype.create = function() {
 		repeat: 0,
 		frameRate: 5
 	})
+	this.anims.create({ 
+		key: 'placeTranslatorIdle',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'PlaceTranslatorIdle_',
+			end: 2,
+			zeroPad: 4
+		}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 6
+	})
+	this.anims.create({ 
+		key: 'placeTranslatorTakeOf',
+		frames: this.anims.generateFrameNames('heroSpriteAtlas', {
+			prefix: 'PlaceTranslatorTakeOf_',
+			end: 2,
+			zeroPad: 4
+		}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 24
+	})
 	// <-- hero sprite sheet
 	// enemies sprite sheet -->
 	this.anims.create({
