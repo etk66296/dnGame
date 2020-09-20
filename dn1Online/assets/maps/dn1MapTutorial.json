@@ -954,7 +954,7 @@
                  "type":"unpacked",
                  "visible":true,
                  "width":16,
-                 "x":928,
+                 "x":832,
                  "y":1088
                 }, 
                 {
@@ -1090,19 +1090,21 @@
                     {
                      "anim":"RedKey",
                      "frame":"RedKey_0000",
-                     "keyID":1
+                     "keyID":1,
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
                      "frame":"string",
-                     "keyID":"int"
+                     "keyID":"int",
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"Key",
                  "visible":true,
                  "width":16,
-                 "x":1312,
+                 "x":1296,
                  "y":1088
                 }, 
                 {
@@ -1127,7 +1129,7 @@
                  "type":"Plate",
                  "visible":true,
                  "width":16,
-                 "x":1248,
+                 "x":1264,
                  "y":1072
                 }, 
                 {
@@ -1150,7 +1152,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1088
                 }, 
                 {
@@ -1173,7 +1175,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1072
                 }, 
                 {
@@ -1196,7 +1198,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1056
                 }, 
                 {
@@ -1219,7 +1221,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1040
                 }, 
                 {
@@ -1242,7 +1244,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1024
                 }, 
                 {
@@ -1265,7 +1267,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1200,
+                 "x":1232,
                  "y":1008
                 }, 
                 {
@@ -1290,7 +1292,7 @@
                  "type":"Plate",
                  "visible":true,
                  "width":16,
-                 "x":1120,
+                 "x":1168,
                  "y":1072
                 }, 
                 {
@@ -1301,19 +1303,21 @@
                     {
                      "anim":"BlueKey",
                      "frame":"BlueKey_0000",
-                     "keyID":2
+                     "keyID":2,
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
                      "frame":"string",
-                     "keyID":"int"
+                     "keyID":"int",
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"Key",
                  "visible":true,
                  "width":16,
-                 "x":1152,
+                 "x":1200,
                  "y":1088
                 }, 
                 {
@@ -1336,7 +1340,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1088
                 }, 
                 {
@@ -1359,7 +1363,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1072
                 }, 
                 {
@@ -1382,7 +1386,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1056
                 }, 
                 {
@@ -1405,7 +1409,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1040
                 }, 
                 {
@@ -1428,7 +1432,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1024
                 }, 
                 {
@@ -1451,7 +1455,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":1088,
+                 "x":1136,
                  "y":1008
                 }, 
                 {
@@ -1474,7 +1478,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1088
                 }, 
                 {
@@ -1499,7 +1503,7 @@
                  "type":"Plate",
                  "visible":true,
                  "width":16,
-                 "x":1008,
+                 "x":1072,
                  "y":1072
                 }, 
                 {
@@ -1510,19 +1514,21 @@
                     {
                      "anim":"GreenKey",
                      "frame":"GreenKey_0000",
-                     "keyID":3
+                     "keyID":3,
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
                      "frame":"string",
-                     "keyID":"int"
+                     "keyID":"int",
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"Key",
                  "visible":true,
                  "width":16,
-                 "x":1040,
+                 "x":1104,
                  "y":1088
                 }, 
                 {
@@ -1545,7 +1551,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1072
                 }, 
                 {
@@ -1568,7 +1574,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1056
                 }, 
                 {
@@ -1591,7 +1597,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1040
                 }, 
                 {
@@ -1614,7 +1620,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1024
                 }, 
                 {
@@ -1637,7 +1643,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":976,
+                 "x":1040,
                  "y":1008
                 }, 
                 {
@@ -1660,7 +1666,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1088
                 }, 
                 {
@@ -1685,7 +1691,7 @@
                  "type":"Plate",
                  "visible":true,
                  "width":16,
-                 "x":912,
+                 "x":976,
                  "y":1072
                 }, 
                 {
@@ -1696,19 +1702,21 @@
                     {
                      "anim":"PurpleKey",
                      "frame":"PurpleKey_0000",
-                     "keyID":4
+                     "keyID":4,
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
                      "frame":"string",
-                     "keyID":"int"
+                     "keyID":"int",
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"Key",
                  "visible":true,
                  "width":16,
-                 "x":944,
+                 "x":1008,
                  "y":1088
                 }, 
                 {
@@ -1731,7 +1739,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1072
                 }, 
                 {
@@ -1754,7 +1762,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1056
                 }, 
                 {
@@ -1777,7 +1785,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1040
                 }, 
                 {
@@ -1800,7 +1808,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1024
                 }, 
                 {
@@ -1823,7 +1831,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":880,
+                 "x":944,
                  "y":1008
                 }, 
                 {
@@ -1834,20 +1842,22 @@
                     {
                      "anim":"YellowKey",
                      "frame":"YellowKey_0000",
-                     "keyID":5
+                     "keyID":5,
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "anim":"string",
                      "frame":"string",
-                     "keyID":"int"
+                     "keyID":"int",
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"Key",
                  "visible":true,
                  "width":16,
-                 "x":848,
-                 "y":1040
+                 "x":912,
+                 "y":1088
                 }, 
                 {
                  "height":16,
@@ -1871,8 +1881,8 @@
                  "type":"Plate",
                  "visible":true,
                  "width":16,
-                 "x":832,
-                 "y":1024
+                 "x":880,
+                 "y":1072
                 }, 
                 {
                  "height":16,
@@ -1894,7 +1904,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":816,
+                 "x":848,
                  "y":1040
                 }, 
                 {
@@ -1917,7 +1927,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":816,
+                 "x":848,
                  "y":1024
                 }, 
                 {
@@ -1940,7 +1950,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":816,
+                 "x":848,
                  "y":1008
                 }, 
                 {
@@ -1963,7 +1973,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":816,
+                 "x":848,
                  "y":1072
                 }, 
                 {
@@ -1986,7 +1996,7 @@
                  "type":"Gate",
                  "visible":true,
                  "width":16,
-                 "x":816,
+                 "x":848,
                  "y":1088
                 }],
          "opacity":1,
@@ -2102,7 +2112,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":254,
+ "nextobjectid":300,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

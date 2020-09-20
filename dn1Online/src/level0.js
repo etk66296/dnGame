@@ -45,6 +45,11 @@ Level0Scene.prototype.init = function () {
 }
 
 Level0Scene.prototype.create = function() {
+	// background
+	this.stuttgart = this.add.sprite(-50, 50, 'stuttgart')
+	this.stuttgart.setOrigin(0)
+	this.stuttgart.setDepth(-100)
+	this.stuttgart.setScrollFactor(0.15, 0.1)
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -96,7 +101,6 @@ Level0Scene.prototype.create = function() {
 		giantRobo.registerAsPainful()
 		giantRobo.registerAsShootable()
 	})
-	console.log(this.giantRobots)
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,

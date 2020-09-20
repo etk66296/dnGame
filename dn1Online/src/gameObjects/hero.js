@@ -22,7 +22,7 @@ class Hero extends PhysicsObj {
 		this.allowShooting = true
 		this.hasDangleClaws = false
 		this.hasMultiHand = false
-		this.hasRedKey = false
+		this.collectedKeyIds = []
 		this.equipment = { nextPosIndex: 0, positions: [
 			{ x: 16, y: 16 },
 			{ x: 16 + 18, y: 16 },
@@ -81,10 +81,10 @@ class Hero extends PhysicsObj {
 		// hero movement -->
 		// move LEFT -->
 		if(this.body.onFloor()) {
+			if (!this.body.checkCollision.up) {
+				this.body.checkCollision.up = true // reset checking collision up
+			}
 			if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
-				if (!this.body.checkCollision.up) {
-					this.body.checkCollision.up = true // reset checking collision up
-				}
 				this.lastDir = -1
 				this.setVelocityX(this.walkSpeed * this.lastDir)
 				// walk left animations -->
@@ -355,9 +355,21 @@ class Hero extends PhysicsObj {
 		} else if (equipmentObj.name === 'GunUpgrade') {
 			this.gameControls.upgradeGunPower()
 			this.gun.upgradeGunPower()
-		} else if ((equipmentObj.name === 'RedKey')) {
-			this.hasRedKey = true
+		} else if ((equipmentObj.keysNGatesType !== undefined)) {
+			if (equipmentObj.keysNGatesType === 'Key') {
+				this.collectedKeyIds.push(equipmentObj.keyID)
+			}
 		}
+	}
+
+	hasKey(keyID) {
+		let returnVal = false
+		this.collectedKeyIds.forEach(id => {
+			if (id === keyID) {
+				returnVal = true
+			}
+		})
+		return returnVal
 	}
 
 	updateHealthBlock = function() {

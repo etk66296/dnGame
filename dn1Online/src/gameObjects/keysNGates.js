@@ -1,7 +1,8 @@
-class Key extends PhysicsObj {
+class Key extends GiftObj {
   constructor (scene, hero, keyData) {
 		super(
 			scene,
+			hero,
 			keyData.x + 8,
 			keyData.y + 8,
 			'giftsSpriteAtlas',
@@ -9,18 +10,28 @@ class Key extends PhysicsObj {
 		)
 		this.hero = hero
 		this.name = keyData.name
-		this.collected = false
+		this.keyID = keyData.properties.keyID
 		this.keysNGatesType = keyData.type
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
 		this.play(keyData.properties.anim)
-		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (key, hero) => {
-			if (!this.collected) {
-				this.hero.appendEquipment(this)
-				this.collected = true
+		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			if (!this.isCollected) {
+				// create an equipment sprite with the necessary data
+				let equipmentSprite = this.scene.add.sprite(100, 100, 'giftsSpriteAtlas', keyData.properties.frame)
+				equipmentSprite.keyID = keyData.properties.keyID
+				equipmentSprite.keysNGatesType = keyData.type
+				equipmentSprite.setScrollFactor(0,0)
+				equipmentSprite.setDepth(200)
+				equipmentSprite.setVisible(true)
+				console.log(equipmentSprite)
+				this.hero.appendEquipment(equipmentSprite)
+				this.isCollected = true
 			}
-			scene.physics.world.removeCollider(this.heroOverlapEvent);
+			this.play('Points' + String(keyData.properties.points))
+			this.setVelocityY(-10)
+			scene.physics.world.removeCollider(this.heroOverlapEvent)
 		})
 	}
 	preUpdate (time, delta) {
@@ -46,7 +57,7 @@ class KeyPlate extends PhysicsObj {
 		this.setActive(true)
 		this.setVisible(true)
 		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (plate, hero) => {
-			if ((this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) && this.hero.hasRedKey) {
+			if ((this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) && this.hero.hasKey(this.keyID)) {
 				this.setFrame(this.doorOpenedFrame)
 				this.gates.children.iterate(gate => {
 					if (gate.keysNGatesType === 'Gate') {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="254">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="300">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -242,7 +242,7 @@
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="177" name="DangleClaw" type="unpacked" x="928" y="1088" width="16" height="16">
+  <object id="177" name="DangleClaw" type="unpacked" x="832" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="DangleClaw"/>
     <property name="frame" value="DangleClaw_0000"/>
@@ -286,14 +286,15 @@
   </object>
  </objectgroup>
  <objectgroup name="KeysAndGates">
-  <object id="203" name="RedKey" type="Key" x="1312" y="1088" width="16" height="16">
+  <object id="203" name="RedKey" type="Key" x="1296" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="RedKey"/>
     <property name="frame" value="RedKey_0000"/>
     <property name="keyID" type="int" value="1"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="211" name="RedKeyPlate" type="Plate" x="1248" y="1072" width="16" height="16">
+  <object id="211" name="RedKeyPlate" type="Plate" x="1264" y="1072" width="16" height="16">
    <properties>
     <property name="frameA" value="RedPlateLocked"/>
     <property name="frameB" value="RedPlateOpened"/>
@@ -301,49 +302,49 @@
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="212" name="RedGate" type="Gate" x="1200" y="1088" width="16" height="16">
+  <object id="212" name="RedGate" type="Gate" x="1232" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="213" name="RedGate" type="Gate" x="1200" y="1072" width="16" height="16">
+  <object id="213" name="RedGate" type="Gate" x="1232" y="1072" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="214" name="RedGate" type="Gate" x="1200" y="1056" width="16" height="16">
+  <object id="214" name="RedGate" type="Gate" x="1232" y="1056" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="215" name="RedGate" type="Gate" x="1200" y="1040" width="16" height="16">
+  <object id="215" name="RedGate" type="Gate" x="1232" y="1040" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="216" name="RedGate" type="Gate" x="1200" y="1024" width="16" height="16">
+  <object id="216" name="RedGate" type="Gate" x="1232" y="1024" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="217" name="RedGate" type="Gate" x="1200" y="1008" width="16" height="16">
+  <object id="217" name="RedGate" type="Gate" x="1232" y="1008" width="16" height="16">
    <properties>
     <property name="anim" value="RedGate"/>
     <property name="frame" value="RedGate_0000"/>
     <property name="keyID" type="int" value="1"/>
    </properties>
   </object>
-  <object id="218" name="BlueKeyPlate" type="Plate" x="1120" y="1072" width="16" height="16">
+  <object id="218" name="BlueKeyPlate" type="Plate" x="1168" y="1072" width="16" height="16">
    <properties>
     <property name="frameA" value="BluePlateLocked"/>
     <property name="frameB" value="BluePlateOpened"/>
@@ -351,63 +352,64 @@
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="219" name="BlueKey" type="Key" x="1152" y="1088" width="16" height="16">
+  <object id="219" name="BlueKey" type="Key" x="1200" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="BlueKey"/>
     <property name="frame" value="BlueKey_0000"/>
     <property name="keyID" type="int" value="2"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="220" name="BlueGate" type="Gate" x="1088" y="1088" width="16" height="16">
+  <object id="220" name="BlueGate" type="Gate" x="1136" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="221" name="BlueGate" type="Gate" x="1088" y="1072" width="16" height="16">
+  <object id="221" name="BlueGate" type="Gate" x="1136" y="1072" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="222" name="BlueGate" type="Gate" x="1088" y="1056" width="16" height="16">
+  <object id="222" name="BlueGate" type="Gate" x="1136" y="1056" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="223" name="BlueGate" type="Gate" x="1088" y="1040" width="16" height="16">
+  <object id="223" name="BlueGate" type="Gate" x="1136" y="1040" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="224" name="BlueGate" type="Gate" x="1088" y="1024" width="16" height="16">
+  <object id="224" name="BlueGate" type="Gate" x="1136" y="1024" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="225" name="BlueGate" type="Gate" x="1088" y="1008" width="16" height="16">
+  <object id="225" name="BlueGate" type="Gate" x="1136" y="1008" width="16" height="16">
    <properties>
     <property name="anim" value="BlueGate"/>
     <property name="frame" value="BlueGate_0000"/>
     <property name="keyID" type="int" value="2"/>
    </properties>
   </object>
-  <object id="226" name="GreenGate" type="Gate" x="976" y="1088" width="16" height="16">
+  <object id="226" name="GreenGate" type="Gate" x="1040" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="227" name="GreenKeyPlate" type="Plate" x="1008" y="1072" width="16" height="16">
+  <object id="227" name="GreenKeyPlate" type="Plate" x="1072" y="1072" width="16" height="16">
    <properties>
     <property name="frameA" value="GreenPlateLocked"/>
     <property name="frameB" value="GreenPlateOpened"/>
@@ -415,56 +417,57 @@
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="228" name="GreenKey" type="Key" x="1040" y="1088" width="16" height="16">
+  <object id="228" name="GreenKey" type="Key" x="1104" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="GreenKey"/>
     <property name="frame" value="GreenKey_0000"/>
     <property name="keyID" type="int" value="3"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="234" name="GreenGate" type="Gate" x="976" y="1072" width="16" height="16">
+  <object id="234" name="GreenGate" type="Gate" x="1040" y="1072" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="235" name="GreenGate" type="Gate" x="976" y="1056" width="16" height="16">
+  <object id="235" name="GreenGate" type="Gate" x="1040" y="1056" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="236" name="GreenGate" type="Gate" x="976" y="1040" width="16" height="16">
+  <object id="236" name="GreenGate" type="Gate" x="1040" y="1040" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="237" name="GreenGate" type="Gate" x="976" y="1024" width="16" height="16">
+  <object id="237" name="GreenGate" type="Gate" x="1040" y="1024" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="238" name="GreenGate" type="Gate" x="976" y="1008" width="16" height="16">
+  <object id="238" name="GreenGate" type="Gate" x="1040" y="1008" width="16" height="16">
    <properties>
     <property name="anim" value="GreenGate"/>
     <property name="frame" value="GreenGate_0000"/>
     <property name="keyID" type="int" value="3"/>
    </properties>
   </object>
-  <object id="239" name="PurpleGate" type="Gate" x="880" y="1088" width="16" height="16">
+  <object id="239" name="PurpleGate" type="Gate" x="944" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="240" name="PurpleKeyPlate" type="Plate" x="912" y="1072" width="16" height="16">
+  <object id="240" name="PurpleKeyPlate" type="Plate" x="976" y="1072" width="16" height="16">
    <properties>
     <property name="frameA" value="PurplePlateLocked"/>
     <property name="frameB" value="PurplePlateOpened"/>
@@ -472,56 +475,58 @@
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="241" name="PurpleKey" type="Key" x="944" y="1088" width="16" height="16">
+  <object id="241" name="PurpleKey" type="Key" x="1008" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleKey"/>
     <property name="frame" value="PurpleKey_0000"/>
     <property name="keyID" type="int" value="4"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="242" name="PurpleGate" type="Gate" x="880" y="1072" width="16" height="16">
+  <object id="242" name="PurpleGate" type="Gate" x="944" y="1072" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="243" name="PurpleGate" type="Gate" x="880" y="1056" width="16" height="16">
+  <object id="243" name="PurpleGate" type="Gate" x="944" y="1056" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="244" name="PurpleGate" type="Gate" x="880" y="1040" width="16" height="16">
+  <object id="244" name="PurpleGate" type="Gate" x="944" y="1040" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="245" name="PurpleGate" type="Gate" x="880" y="1024" width="16" height="16">
+  <object id="245" name="PurpleGate" type="Gate" x="944" y="1024" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="246" name="PurpleGate" type="Gate" x="880" y="1008" width="16" height="16">
+  <object id="246" name="PurpleGate" type="Gate" x="944" y="1008" width="16" height="16">
    <properties>
     <property name="anim" value="PurpleGate"/>
     <property name="frame" value="PurpleGate_0000"/>
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="247" name="YellowKey" type="Key" x="848" y="1040" width="16" height="16">
+  <object id="247" name="YellowKey" type="Key" x="912" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="YellowKey"/>
     <property name="frame" value="YellowKey_0000"/>
     <property name="keyID" type="int" value="5"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="248" name="YellowKeyPlate" type="Plate" x="832" y="1024" width="16" height="16">
+  <object id="248" name="YellowKeyPlate" type="Plate" x="880" y="1072" width="16" height="16">
    <properties>
     <property name="frameA" value="YellowPlateLocked"/>
     <property name="frameB" value="YellowPlateOpened"/>
@@ -529,35 +534,35 @@
     <property name="keyID" type="int" value="5"/>
    </properties>
   </object>
-  <object id="249" name="YellowGate" type="Gate" x="816" y="1040" width="16" height="16">
+  <object id="249" name="YellowGate" type="Gate" x="848" y="1040" width="16" height="16">
    <properties>
     <property name="anim" value="YellowGate"/>
     <property name="frame" value="YellowGate_0000"/>
     <property name="keyID" type="int" value="5"/>
    </properties>
   </object>
-  <object id="250" name="YellowGate" type="Gate" x="816" y="1024" width="16" height="16">
+  <object id="250" name="YellowGate" type="Gate" x="848" y="1024" width="16" height="16">
    <properties>
     <property name="anim" value="YellowGate"/>
     <property name="frame" value="YellowGate_0000"/>
     <property name="keyID" type="int" value="5"/>
    </properties>
   </object>
-  <object id="251" name="YellowGate" type="Gate" x="816" y="1008" width="16" height="16">
+  <object id="251" name="YellowGate" type="Gate" x="848" y="1008" width="16" height="16">
    <properties>
     <property name="anim" value="YellowGate"/>
     <property name="frame" value="YellowGate_0000"/>
     <property name="keyID" type="int" value="5"/>
    </properties>
   </object>
-  <object id="252" name="YellowGate" type="Gate" x="816" y="1072" width="16" height="16">
+  <object id="252" name="YellowGate" type="Gate" x="848" y="1072" width="16" height="16">
    <properties>
     <property name="anim" value="YellowGate"/>
     <property name="frame" value="YellowGate_0000"/>
     <property name="keyID" type="int" value="5"/>
    </properties>
   </object>
-  <object id="253" name="YellowGate" type="Gate" x="816" y="1088" width="16" height="16">
+  <object id="253" name="YellowGate" type="Gate" x="848" y="1088" width="16" height="16">
    <properties>
     <property name="anim" value="YellowGate"/>
     <property name="frame" value="YellowGate_0000"/>

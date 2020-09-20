@@ -16,6 +16,7 @@ IntroScene.prototype.preload = function () {
 	this.load.image('bgSunrise', 'assets/sprites/bgs/sunrise.png')
 	this.load.image('skyline2', 'assets/sprites/bgs/skyline2.png')
 	this.load.image('skyline1', 'assets/sprites/bgs/skyline1.png')
+	this.load.image('stuttgart', 'assets/sprites/bgs/stuttgart.jpg')
 
 	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
 	
@@ -506,6 +507,17 @@ IntroScene.prototype.create = function() {
 		frameRate: 16
 	})
 	this.anims.create({
+		key: 'YellowKey',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'YellowKey_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'YellowGate',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'YellowGate_',
@@ -513,7 +525,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 6
+		frameRate: 16
 	})
 	this.anims.create({
 		key: 'WasherBossSegment',
