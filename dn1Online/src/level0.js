@@ -21,6 +21,7 @@ function Level0Scene() {
 	this.giantRobosLayerData = null
 	this.keysAndGatesObjLayerData = null
 	this.placeTranslatorObjLayerData = null
+	this.observerCamsObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -90,6 +91,12 @@ Level0Scene.prototype.create = function() {
 	// shootable bricks
 	this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
 
+	// observer cams
+	this.observerCamsGroup = new GameCams(this, this.hero, this.observerCamsObjLayerData)
+	this.observerCamsGroup.children.iterate(cam => {
+		cam.registerAsShootable()
+	})
+
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
@@ -145,6 +152,9 @@ Level0Scene.prototype.initWorld = function() {
 
 	// spikes
 	this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects
+
+	// observer cams
+	this.observerCamsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ObserverCams")].objects
 
 	// keys and gates
 	this.keysAndGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KeysAndGates")].objects

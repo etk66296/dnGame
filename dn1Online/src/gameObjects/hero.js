@@ -9,6 +9,7 @@ class Hero extends PhysicsObj {
 		this.gun = gun
 		this.jumpSpeed = 85
 		this.walkSpeed = 140
+		this.jumpPower = -185
 		this.lastDir = 1
 		this.collectedPointes = 0
 		this.setName('hero')
@@ -127,7 +128,7 @@ class Hero extends PhysicsObj {
 				} // <-- STOP
 				// JUMP -->
 				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-					this.setVelocityY(-185)
+					this.setVelocityY(this.jumpPower)
 				}
 				// <-- JUMP
 				//////////////////////////////////////////////////////////////////////////////
@@ -218,7 +219,7 @@ class Hero extends PhysicsObj {
 			//////////////////////////////////////////////////////////////////////////////
 			// JUMP -->
 			if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-				this.setVelocityY(-185)
+				this.setVelocityY(this.jumpPower)
 				this.allowShooting = true
 			}
 			// <-- JUMP
@@ -357,6 +358,10 @@ class Hero extends PhysicsObj {
 		} else if (equipmentObj.name === 'GunUpgrade') {
 			this.gameControls.upgradeGunPower()
 			this.gun.upgradeGunPower()
+		} else if (equipmentObj.name === 'HighJumpShoe') {
+			console.log('jump power up')
+			this.jumpPower -= 50
+			this.jumpSpeed -= 25
 		} else if ((equipmentObj.keysNGatesType !== undefined)) {
 			if (equipmentObj.keysNGatesType === 'Key') {
 				this.collectedKeyIds.push(equipmentObj.keyID)
