@@ -5,12 +5,15 @@ class EnemyObj extends PhysicsObj {
 		this.hero = hero
 		this.finishAnim = finishAnim
 		this.isAlive = true
+		this.activeAfterDead = false
 		this.enemyFinishedEvent = this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.finishAnim) {
 				this.body.reset(-100, -100)
-				this.setActive(false)
+				if (!this.activeAfterDead) {
+					this.setActive(false)
+				}
 				this.setVisible(false)
-				// this.enemyFinishedEvent.remove(false)
+				scene.physics.world.removeCollider(this.enemyFinishedEvent)
 			}
 		})
 	}

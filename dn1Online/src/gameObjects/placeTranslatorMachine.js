@@ -8,7 +8,7 @@ class PlaceTranslatorMachine extends PhysicsObj {
 				placeTranslatorData.properties.frame
 			)
 			this.setActive(true)
-			this.setDepth(180)
+			this.setDepth(9)
 			this.hero = hero
 			this.play(placeTranslatorData.properties.animA)
 			this.homePos = { x: this.x, y: this.y }

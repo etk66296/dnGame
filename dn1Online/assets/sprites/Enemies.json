@@ -416,6 +416,38 @@
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
 		},
+		"fireWheelIdle_0000": {
+			"frame": {"x":2,"y":77,"w":23,"h":24},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":23,"h":24},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelIdle_0001": {
+			"frame": {"x":27,"y":77,"w":23,"h":24},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":23,"h":24},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelIdle_0002": {
+			"frame": {"x":55,"y":78,"w":17,"h":23},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":17,"h":23},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelIdle_0003": {
+			"frame": {"x":78,"y":77,"w":21,"h":24},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":21,"h":24},
+			"pivot": {"x":0.5,"y":0.5}
+		},
 		"giantRobotR": {
 			"frame": {"x":96,"y":25,"w":29,"h":29},
 			"rotated": false,

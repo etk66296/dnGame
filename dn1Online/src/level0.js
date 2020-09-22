@@ -22,6 +22,7 @@ function Level0Scene() {
 	this.keysAndGatesObjLayerData = null
 	this.placeTranslatorObjLayerData = null
 	this.observerCamsObjLayerData = null
+	this.fireWheelRobotsObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -34,6 +35,7 @@ function Level0Scene() {
 	this.giantRobots = null
 	this.keysNGatesGroup = null
 	this.placeTranslator = []
+	this.fireWheelRobots = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -49,7 +51,7 @@ Level0Scene.prototype.init = function () {
 
 Level0Scene.prototype.create = function() {
 	// background
-	this.stuttgart = this.add.sprite(-50, 50, 'stuttgart')
+	this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
 	this.stuttgart.setOrigin(0)
 	this.stuttgart.setDepth(-100)
 	this.stuttgart.setScrollFactor(0.15, 0.1)
@@ -65,7 +67,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1850, 1070, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 188, 100, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -92,7 +94,7 @@ Level0Scene.prototype.create = function() {
 	this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
 
 	// observer cams
-	this.observerCamsGroup = new GameCams(this, this.hero, this.observerCamsObjLayerData)
+	this.observerCamsGroup = new ObserverCams(this, this.hero, this.observerCamsObjLayerData)
 	this.observerCamsGroup.children.iterate(cam => {
 		cam.registerAsShootable()
 	})
@@ -114,6 +116,12 @@ Level0Scene.prototype.create = function() {
 	this.giantRobots.children.iterate(giantRobo => {
 		giantRobo.registerAsPainful()
 		giantRobo.registerAsShootable()
+	})
+	// fire wheel robots
+	this.fireWheelRobots = new FireWheelRobots(this, this.hero, this.fireWheelRobotsObjLayerData, this.solidLayer)
+	this.fireWheelRobots.children.iterate(fireWheelRobo => {
+		fireWheelRobo.registerAsPainful()
+		fireWheelRobo.registerAsShootable()
 	})
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
@@ -176,6 +184,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.miniRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Minirobots")].objects
 	// giant robos
 	this.giantRobosLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Giantrobots")].objects
+	// fire wheel robots
+	this.fireWheelRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FireWheelRobots")].objects
 	
 }
 
