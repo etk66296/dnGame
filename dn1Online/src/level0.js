@@ -126,7 +126,8 @@ Level0Scene.prototype.create = function() {
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
-		this.miniRobotsGroup
+		this.miniRobotsGroup,
+		this.fireWheelRobots
 	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// elevators
@@ -146,9 +147,9 @@ Level0Scene.prototype.initWorld = function() {
 	// map
 	this.worldMap = this.make.tilemap({ key: "level0map" })
 	this.tileset = this.worldMap.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
+	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
-	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
 
 	// place translator machine
 	this.placeTranslatorObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "PlaceTranslatorMachines")].objects

@@ -6,6 +6,7 @@ class EnemyObj extends PhysicsObj {
 		this.finishAnim = finishAnim
 		this.isAlive = true
 		this.activeAfterDead = false
+		this.vulnerable = true
 		this.enemyFinishedEvent = this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.finishAnim) {
 				this.body.reset(-100, -100)
@@ -25,10 +26,12 @@ class EnemyObj extends PhysicsObj {
 	registerAsShootable() {
 		this.scene.physics.add.overlap(this, this.hero.gun, (enemy, bullet) => {
 			bullet.explode()
-			enemy.lifes -= 1
-			if (enemy.lifes <= 0) {
-				enemy.setDestroyed()
-				this.isAlive = false
+			if (this.vulnerable) {
+				enemy.lifes -= 1
+				if (enemy.lifes <= 0) {
+					enemy.setDestroyed()
+					this.isAlive = false
+				}
 			}
 		})
 	}

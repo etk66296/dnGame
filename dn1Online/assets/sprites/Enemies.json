@@ -417,35 +417,67 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"fireWheelIdle_0000": {
-			"frame": {"x":2,"y":77,"w":23,"h":24},
+			"frame": {"x":1,"y":73,"w":24,"h":28},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":23,"h":24},
+			"sourceSize": {"w":24,"h":28},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"fireWheelIdle_0001": {
-			"frame": {"x":27,"y":77,"w":23,"h":24},
+			"frame": {"x":25,"y":73,"w":24,"h":28},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":23,"h":24},
+			"sourceSize": {"w":24,"h":28},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"fireWheelIdle_0002": {
-			"frame": {"x":55,"y":78,"w":17,"h":23},
+			"frame": {"x":49,"y":73,"w":24,"h":28},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":17,"h":23},
+			"sourceSize": {"w":24,"h":28},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"fireWheelIdle_0003": {
-			"frame": {"x":78,"y":77,"w":21,"h":24},
+			"frame": {"x":73,"y":73,"w":24,"h":28},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":21,"h":24},
+			"sourceSize": {"w":24,"h":28},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelActivated_0000": {
+			"frame": {"x":97,"y":73,"w":24,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":24,"h":28},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelActivated_0001": {
+			"frame": {"x":121,"y":73,"w":24,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":24,"h":28},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelActivated_0002": {
+			"frame": {"x":145,"y":73,"w":24,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":24,"h":28},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"fireWheelActivated_0003": {
+			"frame": {"x":169,"y":73,"w":24,"h":28},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":24,"h":28},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"giantRobotR": {

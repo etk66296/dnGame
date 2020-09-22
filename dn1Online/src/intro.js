@@ -275,6 +275,26 @@ IntroScene.prototype.create = function() {
 		frameRate: 8
 	})
 	this.anims.create({
+		key: 'fireWheelActivated',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'fireWheelActivated_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'fireWheelIdle',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'fireWheelIdle_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
 		key: 'minirobotDestroyed',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotDestroyed_',
