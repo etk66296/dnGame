@@ -69,7 +69,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 188, 100, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 604, 160, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -135,7 +135,8 @@ Level0Scene.prototype.create = function() {
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
 		this.miniRobotsGroup,
-		this.fireWheelRobots
+		this.fireWheelRobots,
+		this.flyRobots
 	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// elevators

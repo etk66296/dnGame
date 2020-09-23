@@ -1,7 +1,7 @@
 class EnemyBullet extends PhysicsObj {
   constructor (scene, x, y) {
 		super(scene, x, y, 'enemiesSpriteAtlas')
-		this.setSize(2, 5, true)
+		this.setSize(1, 1, true)
 		this.body.checkCollision.none = true
 		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === 'explodeEnemy') {

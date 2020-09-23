@@ -257,6 +257,94 @@
                  "width":16,
                  "x":464,
                  "y":144
+                }, 
+                {
+                 "height":16,
+                 "id":339,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":720,
+                 "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":340,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":624,
+                 "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":341,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":688,
+                 "y":80
+                }, 
+                {
+                 "height":16,
+                 "id":342,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":736,
+                 "y":80
+                }, 
+                {
+                 "height":16,
+                 "id":343,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":624,
+                 "y":160
+                }, 
+                {
+                 "height":16,
+                 "id":344,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":608,
+                 "y":80
+                }, 
+                {
+                 "height":16,
+                 "id":345,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":800,
+                 "y":64
+                }, 
+                {
+                 "height":16,
+                 "id":348,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":640,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2286,18 +2374,18 @@
                  "name":"FlyRobot",
                  "properties":
                     {
+                     "animC":"flyRobotCutter",
                      "animLR":"flyRobotLR",
                      "animRL":"flyRobotRL",
-                     "frameB":"flyRobotCutter",
                      "frameL":"flyRobotL",
                      "frameR":"flyRobotR",
                      "points":0
                     },
                  "propertytypes":
                     {
+                     "animC":"string",
                      "animLR":"string",
                      "animRL":"string",
-                     "frameB":"string",
                      "frameL":"string",
                      "frameR":"string",
                      "points":"int"
@@ -2308,6 +2396,64 @@
                  "width":16,
                  "x":704,
                  "y":112
+                }, 
+                {
+                 "height":16,
+                 "id":346,
+                 "name":"FlyRobot",
+                 "properties":
+                    {
+                     "animC":"flyRobotCutter",
+                     "animLR":"flyRobotLR",
+                     "animRL":"flyRobotRL",
+                     "frameL":"flyRobotL",
+                     "frameR":"flyRobotR",
+                     "points":0
+                    },
+                 "propertytypes":
+                    {
+                     "animC":"string",
+                     "animLR":"string",
+                     "animRL":"string",
+                     "frameL":"string",
+                     "frameR":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":656,
+                 "y":32
+                }, 
+                {
+                 "height":16,
+                 "id":347,
+                 "name":"FlyRobot",
+                 "properties":
+                    {
+                     "animC":"flyRobotCutter",
+                     "animLR":"flyRobotLR",
+                     "animRL":"flyRobotRL",
+                     "frameL":"flyRobotL",
+                     "frameR":"flyRobotR",
+                     "points":0
+                    },
+                 "propertytypes":
+                    {
+                     "animC":"string",
+                     "animLR":"string",
+                     "animRL":"string",
+                     "frameL":"string",
+                     "frameR":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":784,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2315,7 +2461,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":339,
+ "nextobjectid":350,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
