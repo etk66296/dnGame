@@ -33,9 +33,9 @@ class Key extends GiftObj {
 			scene.physics.world.removeCollider(this.heroOverlapEvent)
 		})
 	}
-	preUpdate (time, delta) {
-		super.preUpdate(time, delta)
-	}
+	// preUpdate (time, delta) {
+	// 	super.preUpdate(time, delta)
+	// }
 }
 class KeyPlate extends PhysicsObj {
   constructor (scene, hero, plateData, gates) {

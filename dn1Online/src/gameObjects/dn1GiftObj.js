@@ -22,6 +22,7 @@ class GiftObj extends PhysicsObj {
 			if(this.alpha <= 0.0) {
 				this.setActive(false)
 				this.setVisible(false)
+				this.setPosition(-200, -200)
 			}
 		}
 	}

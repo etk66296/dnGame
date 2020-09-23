@@ -295,6 +295,36 @@ IntroScene.prototype.create = function() {
 		frameRate: 24
 	})
 	this.anims.create({
+		key: 'flyRobotCutter',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'flyRobotCutter_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'flyRobotLR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'flyRobotLR_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 2
+	})
+	this.anims.create({
+		key: 'flyRobotRL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'flyRobotRL_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 2
+	})
+	this.anims.create({
 		key: 'minirobotDestroyed',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotDestroyed_',

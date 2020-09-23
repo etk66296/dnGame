@@ -5,7 +5,7 @@ function MemoryGame() {
 	    parent: 'phaser3Canvas',
 	    width: 500, // the odd values avoid bleeding on the render borders
 	    height: 280,
-			backgroundColor: '#111111',
+			backgroundColor: '#000000',
 			physics: {
 				default: "arcade",
 				arcade: {
