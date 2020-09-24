@@ -44,7 +44,6 @@ class PlaceTranslatorMachine extends PhysicsObj {
 					}
 				}
 			})
-			console.log(this)
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)

@@ -207,7 +207,7 @@ Level0Scene.prototype.initWorld = function() {
 	// fly robots
 	this.flyRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlyRobots")].objects
 	// deuterium spheres
-	this.deuteriumSphereObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSpheres")].objects
+	this.deuteriumSphereObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSphere")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

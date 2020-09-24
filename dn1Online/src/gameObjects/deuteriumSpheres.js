@@ -6,9 +6,16 @@ class DeuteriumSpere extends EnemyObj {
 			dsData.x + dsData.width / 2,
 			dsData.y + dsData.height / 2,
 			'enemiesSpriteAtlas',
-			dsData.properties.frameL
+			dsData.properties.frame
 		)
-		this.play(dsData.properties.animA)
+		let animDelayTimeEvent = this.scene.time.addEvent({
+			delay: 100 * dsData.properties.index,
+			callback: () => {
+				this.play(dsData.properties.animA)
+				animDelayTimeEvent.remove(false)
+			}
+		})
+		
 		// var stars = this.add.group({ key: 'star', repeat: 30 });
 
 	}
@@ -18,27 +25,36 @@ class DeuteriumSpere extends EnemyObj {
 	}
 }
 class DeuteriumSperes extends Phaser.Physics.Arcade.Group {
-  constructor (scene, hero, deuteriumSpheresData) {
+  constructor (scene, hero, deuteriumSphereData) {
 		super(scene.physics.world, scene)
-		deuteriumSpheresData.forEach((deuteriumSphereData) => {
+		deuteriumSphereData.forEach((deuteriumSphereData) => {
 			this.add(new DeuteriumSpere(scene, hero, deuteriumSphereData, this.circle))
 		})
-		this.circle = new Phaser.Geom.Circle(997, 112, 100);
-		Phaser.Actions.PlaceOnCircle(this, this.circle);
-
+		this.circle = new Phaser.Geom.Circle(
+			deuteriumSphereData[0].properties.rotCenterX,
+			deuteriumSphereData[0].properties.rotCenterY,
+			deuteriumSphereData[0].properties.rotRadius
+		)
+		Phaser.Actions.PlaceOnCircle(this.getChildren(), this.circle)
     scene.tweens.add({
-        targets: this.circle,
-        radius: 64,
-        ease: 'Quintic.easeInOut',
-        duration: 1500,
-        yoyo: true,
-        repeat: -1,
+				targets: this.circle,
+				radius: deuteriumSphereData[0].properties.rotRadius + 30,
+				ease: 'Quintic.easeInOut',
+				duration: 1500,
+				yoyo: true,
+				repeat: -1,
         onUpdate: () => {
-					// Phaser.Actions.RotateAroundDistance(this.getChildren(), { x: 997, y: 112 }, 0.02, this.circle.radius)
-					Phaser.Actions.RotateAround(this.getChildren(), { x: 997, y: 112 }, 0.02)
+					Phaser.Actions.RotateAroundDistance(
+						this.getChildren(),
+						{
+							x: deuteriumSphereData[0].properties.rotCenterX,
+							y: deuteriumSphereData[0].properties.rotCenterY
+						},
+						0.1,
+						this.circle.radius
+					)
         }
 		})
-		console.log(Phaser.Actions)
 		// scene.physics.add.collider(solidLayer, this)
 		// this.children.iterate(robo => {
 		// 	robo.setGravityY(200)
