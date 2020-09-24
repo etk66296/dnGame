@@ -25,6 +25,7 @@ function Level0Scene() {
 	this.fireWheelRobotsObjLayerData = null
 	this.flyRobotsObjLayerData = null
 	this.deuteriumSphereObjLayerData = null
+	this.killerRabbitObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -40,6 +41,7 @@ function Level0Scene() {
 	this.fireWheelRobots = null
 	this.flyRobots = null
 	this.deuteriumSpheres = null
+	this.killerRabbits = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -71,7 +73,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 890, 160, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1250, 160, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -138,6 +140,12 @@ Level0Scene.prototype.create = function() {
 	this.flyRobots.children.iterate(flyRobot=> {
 		flyRobot.registerAsPainful()
 		flyRobot.registerAsShootable()
+	})
+	// killer rabbits
+	this.killerRabbits = new KillerRabbits(this, this.hero, this.killerRabbitObjLayerData, this.solidLayer)
+	this.killerRabbits.children.iterate(killerRabbit => {
+		killerRabbit.registerAsPainful()
+		killerRabbit.registerAsShootable()
 	})
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
@@ -208,6 +216,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.flyRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlyRobots")].objects
 	// deuterium spheres
 	this.deuteriumSphereObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSphere")].objects
+	// killer rabbits
+	this.killerRabbitObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KillerRabbits")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

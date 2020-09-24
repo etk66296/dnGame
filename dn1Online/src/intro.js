@@ -265,6 +265,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 24
 	})
 	this.anims.create({
+		key: 'fumeExplosion',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'enemyFume_',
+				end: 6,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 5
+	})
+	this.anims.create({
 		key: 'minirobotAlive',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotAlive_',
@@ -333,6 +343,36 @@ IntroScene.prototype.create = function() {
 			}),
 		repeat: -1,
 		frameRate: 24
+	})
+	this.anims.create({
+		key: 'killerRabbitR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'killerRabbitR_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'killerRabbitL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'killerRabbitL_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'killerRabbitDie',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'killerRabbitDie_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'minirobotDestroyed',

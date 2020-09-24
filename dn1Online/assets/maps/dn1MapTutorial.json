@@ -2754,8 +2754,47 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"KillerRabbits",
+         "objects":[
+                {
+                 "height":27,
+                 "id":399,
+                 "name":"KillerRabbit",
+                 "properties":
+                    {
+                     "animDie":"killerRabbitDie",
+                     "animL":"killerRabbitL",
+                     "animR":"killerRabbitR",
+                     "frame":"killerRabbitL_0000",
+                     "pointsA":100,
+                     "pointsB":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animDie":"string",
+                     "animL":"string",
+                     "animR":"string",
+                     "frame":"string",
+                     "pointsA":"int",
+                     "pointsB":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1312,
+                 "y":213
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":399,
+ "nextobjectid":401,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

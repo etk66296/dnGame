@@ -7,6 +7,7 @@ class EnemyObj extends PhysicsObj {
 		this.isAlive = true
 		this.activeAfterDead = false
 		this.vulnerable = true
+		this.fumeHoodVel = -100
 		this.enemyFinishedEvent = this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.finishAnim) {
 				this.body.reset(-100, -100)
@@ -39,6 +40,6 @@ class EnemyObj extends PhysicsObj {
 		this.play(this.finishAnim)
 		this.body.checkCollision.none = true
 		this.setVelocityX(this.body.velocity.x / 10)
-		this.setVelocityY(-100)
+		this.setVelocityY(this.fumeHoodVel)
 	}
 }
