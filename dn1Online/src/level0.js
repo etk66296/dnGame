@@ -24,6 +24,7 @@ function Level0Scene() {
 	this.observerCamsObjLayerData = null
 	this.fireWheelRobotsObjLayerData = null
 	this.flyRobotsObjLayerData = null
+	this.deuteriumSphereObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -38,6 +39,7 @@ function Level0Scene() {
 	this.placeTranslator = []
 	this.fireWheelRobots = null
 	this.flyRobots = null
+	this.deuteriumSpheres = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -69,7 +71,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 604, 160, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 890, 160, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -100,7 +102,13 @@ Level0Scene.prototype.create = function() {
 	this.observerCamsGroup.children.iterate(cam => {
 		cam.registerAsShootable()
 	})
-
+	
+	// deuterium spheres
+	this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSphereObjLayerData)
+	this.deuteriumSpheres.children.iterate((dts) => {
+		dts.registerAsPainful()
+		dts.registerAsShootable()
+	})
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
@@ -198,7 +206,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.fireWheelRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FireWheelRobots")].objects
 	// fly robots
 	this.flyRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlyRobots")].objects
-	
+	// deuterium spheres
+	this.deuteriumSphereObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSpheres")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

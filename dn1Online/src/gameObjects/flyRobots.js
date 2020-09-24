@@ -9,6 +9,7 @@ class FlyRobot extends EnemyObj {
 			roboData.properties.frameL
 		)
 		this.roboData = roboData
+		this.lifes = 1
 		this.lastDirX = -1
 		this.lastDirY = -1
 		this.constantVelocity = {x: 20, y: 10}
@@ -23,19 +24,23 @@ class FlyRobot extends EnemyObj {
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (this.hero.x < this.x && this.lastDirX != -1) {
-			this.lastDirX = -1
-			this.play(this.roboData.properties.animRL)
+		if (Math.abs(this.x - this.hero.x) > 15) {
+			if (this.hero.x < this.x && this.lastDirX != -1) {
+				this.lastDirX = -1
+				this.play(this.roboData.properties.animRL)
+			}
+			if (this.hero.x > this.x && this.lastDirX != 1) {
+				this.lastDirX = 1
+				this.play(this.roboData.properties.animLR)
+			}
 		}
-		if (this.hero.x > this.x && this.lastDirX != 1) {
-			this.lastDirX = 1
-			this.play(this.roboData.properties.animLR)
-		}
-		if (this.hero.y < this.y && this.lastDirY != -1) {
-			this.lastDirY = -1
-		}
-		if (this.hero.y > this.y && this.lastDirY != 1) {
-			this.lastDirY = 1
+		if (Math.abs(this.y - this.hero.y) > 15) {
+			if ((this.hero.y - 24)< this.y && this.lastDirY != -1) {
+				this.lastDirY = -1
+			}
+			if ((this.hero.y - 24) > this.y && this.lastDirY != 1) {
+				this.lastDirY = 1
+			}
 		}
 		if (Math.abs(this.hero.x - this.x) < 150) {
 			this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)

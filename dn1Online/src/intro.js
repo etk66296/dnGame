@@ -325,6 +325,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 2
 	})
 	this.anims.create({
+		key: 'deuteriumSphere',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'deuteriumSphere_',
+				end: 8,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
 		key: 'minirobotDestroyed',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotDestroyed_',
