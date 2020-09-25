@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="407">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="408">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -49,6 +49,7 @@
   <object id="348" name="Guard" x="640" y="208" width="16" height="16"/>
   <object id="350" name="Guard" x="608" y="64" width="16" height="16"/>
   <object id="351" name="Guard" x="640" y="80" width="16" height="16"/>
+  <object id="407" name="Guard" x="1264" y="224" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="MultiHandAccess">
   <object id="179" name="MultiHandPlate" type="plate" x="1520" y="960" width="48" height="16">

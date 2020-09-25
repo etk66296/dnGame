@@ -149,7 +149,8 @@ Level0Scene.prototype.create = function() {
 		this.crocosGroup,
 		this.miniRobotsGroup,
 		this.fireWheelRobots,
-		this.flyRobots
+		this.flyRobots,
+		this.killerRabbits
 	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// elevators

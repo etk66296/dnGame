@@ -367,6 +367,17 @@
                  "width":16,
                  "x":640,
                  "y":80
+                }, 
+                {
+                 "height":16,
+                 "id":407,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1264,
+                 "y":224
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2550,7 +2561,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":407,
+ "nextobjectid":408,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
