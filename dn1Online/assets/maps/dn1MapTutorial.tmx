@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="401">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="407">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -659,115 +659,29 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="DeuteriumSphere">
-  <object id="370" name="DeuteriumSphere" x="928" y="160" width="16" height="16">
+ <objectgroup name="DeuteriumSpheres">
+  <object id="405" name="DeuteriumSphere" x="976" y="80" width="16" height="16">
    <properties>
     <property name="animA" value="deuteriumSphere"/>
+    <property name="duration" type="int" value="1200"/>
     <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="0"/>
+    <property name="numOfSpheres" type="int" value="10"/>
     <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
+    <property name="rotInnerRadius" type="int" value="50"/>
+    <property name="rotOuterRadius" type="int" value="80"/>
+    <property name="rotateDelta" type="float" value="0.125"/>
    </properties>
   </object>
-  <object id="388" name="DeuteriumSphere" x="944" y="160" width="16" height="16">
+  <object id="406" name="DeuteriumSphere" x="992" y="176" width="16" height="16">
    <properties>
     <property name="animA" value="deuteriumSphere"/>
+    <property name="duration" type="int" value="500"/>
     <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="1"/>
+    <property name="numOfSpheres" type="int" value="14"/>
     <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="389" name="DeuteriumSphere" x="960" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="2"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="390" name="DeuteriumSphere" x="976" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="3"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="391" name="DeuteriumSphere" x="992" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="4"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="392" name="DeuteriumSphere" x="1008" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="5"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="393" name="DeuteriumSphere" x="1024" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="6"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="394" name="DeuteriumSphere" x="1040" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="7"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="395" name="DeuteriumSphere" x="1056" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="8"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
-   </properties>
-  </object>
-  <object id="396" name="DeuteriumSphere" x="1072" y="160" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="index" type="int" value="9"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotCenterX" type="int" value="976"/>
-    <property name="rotCenterY" type="int" value="130"/>
-    <property name="rotRadius" type="int" value="50"/>
+    <property name="rotInnerRadius" type="int" value="40"/>
+    <property name="rotOuterRadius" type="int" value="60"/>
+    <property name="rotateDelta" type="float" value="0.08"/>
    </properties>
   </object>
  </objectgroup>

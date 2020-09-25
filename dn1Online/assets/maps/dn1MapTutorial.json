@@ -2437,317 +2437,73 @@
         }, 
         {
          "draworder":"topdown",
-         "name":"DeuteriumSphere",
+         "name":"DeuteriumSpheres",
          "objects":[
                 {
                  "height":16,
-                 "id":370,
+                 "id":405,
                  "name":"DeuteriumSphere",
                  "properties":
                     {
                      "animA":"deuteriumSphere",
+                     "duration":1200,
                      "frame":"deuteriumSphere_0000",
-                     "index":0,
+                     "numOfSpheres":10,
                      "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
+                     "rotInnerRadius":50,
+                     "rotOuterRadius":80,
+                     "rotateDelta":0.125
                     },
                  "propertytypes":
                     {
                      "animA":"string",
+                     "duration":"int",
                      "frame":"string",
-                     "index":"int",
+                     "numOfSpheres":"int",
                      "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":928,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":388,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":1,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":944,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":389,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":2,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":960,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":390,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":3,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
+                     "rotInnerRadius":"int",
+                     "rotOuterRadius":"int",
+                     "rotateDelta":"float"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":976,
-                 "y":160
+                 "y":80
                 }, 
                 {
                  "height":16,
-                 "id":391,
+                 "id":406,
                  "name":"DeuteriumSphere",
                  "properties":
                     {
                      "animA":"deuteriumSphere",
+                     "duration":500,
                      "frame":"deuteriumSphere_0000",
-                     "index":4,
+                     "numOfSpheres":14,
                      "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
+                     "rotInnerRadius":40,
+                     "rotOuterRadius":60,
+                     "rotateDelta":0.08
                     },
                  "propertytypes":
                     {
                      "animA":"string",
+                     "duration":"int",
                      "frame":"string",
-                     "index":"int",
+                     "numOfSpheres":"int",
                      "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
+                     "rotInnerRadius":"int",
+                     "rotOuterRadius":"int",
+                     "rotateDelta":"float"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":992,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":392,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":5,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1008,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":393,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":6,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1024,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":394,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":7,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1040,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":395,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":8,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1056,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":396,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "frame":"deuteriumSphere_0000",
-                     "index":9,
-                     "points":10,
-                     "rotCenterX":976,
-                     "rotCenterY":130,
-                     "rotRadius":50
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "frame":"string",
-                     "index":"int",
-                     "points":"int",
-                     "rotCenterX":"int",
-                     "rotCenterY":"int",
-                     "rotRadius":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1072,
-                 "y":160
+                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2794,7 +2550,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":401,
+ "nextobjectid":407,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

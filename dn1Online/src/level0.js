@@ -24,7 +24,7 @@ function Level0Scene() {
 	this.observerCamsObjLayerData = null
 	this.fireWheelRobotsObjLayerData = null
 	this.flyRobotsObjLayerData = null
-	this.deuteriumSphereObjLayerData = null
+	this.deuteriumSpheresObjLayerData = null
 	this.killerRabbitObjLayerData = null
 
 	// scene objects
@@ -106,11 +106,8 @@ Level0Scene.prototype.create = function() {
 	})
 	
 	// deuterium spheres
-	this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSphereObjLayerData)
-	this.deuteriumSpheres.children.iterate((dts) => {
-		dts.registerAsPainful()
-		dts.registerAsShootable()
-	})
+	this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSpheresObjLayerData)
+	
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
 	this.crocosGroup.children.iterate((croco) => {
@@ -215,7 +212,7 @@ Level0Scene.prototype.initWorld = function() {
 	// fly robots
 	this.flyRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlyRobots")].objects
 	// deuterium spheres
-	this.deuteriumSphereObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSphere")].objects
+	this.deuteriumSpheresObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DeuteriumSpheres")].objects
 	// killer rabbits
 	this.killerRabbitObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KillerRabbits")].objects
 }
