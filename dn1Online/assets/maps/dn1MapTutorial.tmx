@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="408">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="411">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -688,6 +688,36 @@
  </objectgroup>
  <objectgroup name="KillerRabbits">
   <object id="399" name="KillerRabbit" x="1312" y="213" width="16" height="27">
+   <properties>
+    <property name="animDie" value="killerRabbitDie"/>
+    <property name="animL" value="killerRabbitL"/>
+    <property name="animR" value="killerRabbitR"/>
+    <property name="frame" value="killerRabbitL_0000"/>
+    <property name="pointsA" type="int" value="100"/>
+    <property name="pointsB" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="408" name="KillerRabbit" x="1568" y="213" width="16" height="27">
+   <properties>
+    <property name="animDie" value="killerRabbitDie"/>
+    <property name="animL" value="killerRabbitL"/>
+    <property name="animR" value="killerRabbitR"/>
+    <property name="frame" value="killerRabbitL_0000"/>
+    <property name="pointsA" type="int" value="100"/>
+    <property name="pointsB" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="409" name="KillerRabbit" x="1712" y="213" width="16" height="27">
+   <properties>
+    <property name="animDie" value="killerRabbitDie"/>
+    <property name="animL" value="killerRabbitL"/>
+    <property name="animR" value="killerRabbitR"/>
+    <property name="frame" value="killerRabbitL_0000"/>
+    <property name="pointsA" type="int" value="100"/>
+    <property name="pointsB" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="410" name="KillerRabbit" x="1856" y="213" width="16" height="27">
    <properties>
     <property name="animDie" value="killerRabbitDie"/>
     <property name="animL" value="killerRabbitL"/>

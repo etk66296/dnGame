@@ -372,7 +372,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 12
+		frameRate: 4
 	})
 	this.anims.create({
 		key: 'minirobotDestroyed',
