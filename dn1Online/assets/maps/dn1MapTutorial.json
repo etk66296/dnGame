@@ -2647,8 +2647,37 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"Helicopters",
+         "objects":[
+                {
+                 "height":30,
+                 "id":412,
+                 "name":"",
+                 "properties":
+                    {
+                     "frameL":"HeliIdleL_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "frameL":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":1520,
+                 "y":80
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":411,
+ "nextobjectid":414,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

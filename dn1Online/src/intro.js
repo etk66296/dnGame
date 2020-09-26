@@ -365,6 +365,46 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({
+		key: 'HeliIdleL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'HeliIdleL_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'HeliIdleR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'HeliIdleR_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'HeliMoveL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'HeliMoveL_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'HeliMoveR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'HeliMoveR_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'killerRabbitDie',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'killerRabbitDie_',
