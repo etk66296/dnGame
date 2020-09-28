@@ -2658,18 +2658,30 @@
                  "name":"",
                  "properties":
                     {
-                     "frameL":"HeliIdleL_0000"
+                     "animAL":"HeliIdleL",
+                     "animAR":"HeliIdleR",
+                     "animBL":"HeliMoveL",
+                     "animBR":"HeliMoveR",
+                     "frameL":"HeliIdleL_0000",
+                     "points":"5000",
+                     "startMovingDist":300
                     },
                  "propertytypes":
                     {
-                     "frameL":"string"
+                     "animAL":"string",
+                     "animAR":"string",
+                     "animBL":"string",
+                     "animBR":"string",
+                     "frameL":"string",
+                     "points":"string",
+                     "startMovingDist":"int"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":1520,
-                 "y":80
+                 "x":1408,
+                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",

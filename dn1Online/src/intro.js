@@ -368,21 +368,21 @@ IntroScene.prototype.create = function() {
 		key: 'HeliIdleL',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'HeliIdleL_',
-				end: 2,
+				end: 1,
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 12
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'HeliIdleR',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'HeliIdleR_',
-				end: 2,
+				end: 1,
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 12
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'HeliMoveL',
@@ -392,7 +392,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 12
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'HeliMoveR',
@@ -402,7 +402,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 12
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'killerRabbitDie',

@@ -729,9 +729,15 @@
   </object>
  </objectgroup>
  <objectgroup name="Helicopters">
-  <object id="412" x="1520" y="80" width="64" height="30">
+  <object id="412" x="1408" y="176" width="64" height="30">
    <properties>
+    <property name="animAL" value="HeliIdleL"/>
+    <property name="animAR" value="HeliIdleR"/>
+    <property name="animBL" value="HeliMoveL"/>
+    <property name="animBR" value="HeliMoveR"/>
     <property name="frameL" value="HeliIdleL_0000"/>
+    <property name="points" value="5000"/>
+    <property name="startMovingDist" type="int" value="300"/>
    </properties>
   </object>
  </objectgroup>

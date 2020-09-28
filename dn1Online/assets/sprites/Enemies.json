@@ -232,7 +232,7 @@
 			"sourceSize": {"w":64,"h":30},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"HeliIdleL_0002": {
+		"HeliIdleR_0000": {
 			"frame": {"x":1,"y":361,"w":64,"h":30},
 			"rotated": false,
 			"trimmed": false,
@@ -240,7 +240,7 @@
 			"sourceSize": {"w":64,"h":30},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"HeliIdleR_0000": {
+		"HeliIdleR_0001": {
 			"frame": {"x":1,"y":391,"w":64,"h":30},
 			"rotated": false,
 			"trimmed": false,
@@ -248,24 +248,8 @@
 			"sourceSize": {"w":64,"h":30},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"HeliIdleR_0001": {
-			"frame": {"x":1,"y":421,"w":64,"h":30},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":64,"h":30},
-			"pivot": {"x":0.5,"y":0.5}
-		},
-		"HeliIdleR_0002": {
-			"frame": {"x":1,"y":451,"w":64,"h":30},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
-			"sourceSize": {"w":64,"h":30},
-			"pivot": {"x":0.5,"y":0.5}
-		},
 		"HeliMoveL_0000": {
-			"frame": {"x":257,"y":301,"w":64,"h":30},
+			"frame": {"x":257,"y":271,"w":64,"h":30},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
@@ -273,6 +257,14 @@
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		"HeliMoveL_0001": {
+			"frame": {"x":257,"y":301,"w":64,"h":30},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":64,"h":30},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"HeliMoveL_0002": {
 			"frame": {"x":257,"y":331,"w":64,"h":30},
 			"rotated": false,
 			"trimmed": false,
@@ -290,6 +282,14 @@
 		},
 		"HeliMoveR_0001": {
 			"frame": {"x":257,"y":391,"w":64,"h":30},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":64,"h":30},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"HeliMoveR_0002": {
+			"frame": {"x":257,"y":421,"w":64,"h":30},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
