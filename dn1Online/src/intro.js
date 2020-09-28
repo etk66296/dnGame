@@ -275,6 +275,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 5
 	})
 	this.anims.create({
+		key: 'exhaust',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'enemyFume_',
+				end: 6,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 24
+	})
+	this.anims.create({
 		key: 'minirobotAlive',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotAlive_',
