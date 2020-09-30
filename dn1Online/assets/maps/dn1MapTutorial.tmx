@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="423">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="429">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -41,14 +41,9 @@
   <object id="335" name="Guard" x="464" y="144" width="16" height="16"/>
   <object id="339" name="Guard" x="720" y="176" width="16" height="16"/>
   <object id="340" name="Guard" x="624" y="176" width="16" height="16"/>
-  <object id="341" name="Guard" x="688" y="80" width="16" height="16"/>
-  <object id="342" name="Guard" x="736" y="80" width="16" height="16"/>
   <object id="343" name="Guard" x="624" y="160" width="16" height="16"/>
-  <object id="344" name="Guard" x="592" y="48" width="16" height="16"/>
   <object id="345" name="Guard" x="800" y="64" width="16" height="16"/>
   <object id="348" name="Guard" x="640" y="208" width="16" height="16"/>
-  <object id="350" name="Guard" x="608" y="64" width="16" height="16"/>
-  <object id="351" name="Guard" x="640" y="80" width="16" height="16"/>
   <object id="407" name="Guard" x="1264" y="224" width="16" height="16"/>
   <object id="414" name="Guard" x="1408" y="176" width="16" height="16"/>
   <object id="415" name="Guard" x="1504" y="176" width="16" height="16"/>
@@ -528,19 +523,7 @@
     <property name="points" value="100"/>
    </properties>
   </object>
-  <object id="318" name="ObserverCam" x="256" y="96" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
   <object id="319" name="ObserverCam" x="272" y="96" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="320" name="ObserverCam" x="288" y="96" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
     <property name="points" value="100"/>
@@ -552,55 +535,13 @@
     <property name="points" value="100"/>
    </properties>
   </object>
-  <object id="322" name="ObserverCam" x="320" y="96" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="323" name="ObserverCam" x="176" y="160" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
   <object id="324" name="ObserverCam" x="192" y="160" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
     <property name="points" value="100"/>
    </properties>
   </object>
-  <object id="325" name="ObserverCam" x="208" y="160" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="326" name="ObserverCam" x="224" y="160" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="327" name="ObserverCam" x="272" y="192" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
   <object id="328" name="ObserverCam" x="304" y="192" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="329" name="ObserverCam" x="288" y="192" width="16" height="16">
-   <properties>
-    <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
-   </properties>
-  </object>
-  <object id="330" name="ObserverCam" x="320" y="192" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
     <property name="points" value="100"/>
@@ -677,18 +618,6 @@
     <property name="rotateDelta" type="float" value="0.125"/>
    </properties>
   </object>
-  <object id="406" name="DeuteriumSphere" x="992" y="176" width="16" height="16">
-   <properties>
-    <property name="animA" value="deuteriumSphere"/>
-    <property name="duration" type="int" value="500"/>
-    <property name="frame" value="deuteriumSphere_0000"/>
-    <property name="numOfSpheres" type="int" value="14"/>
-    <property name="points" type="int" value="10"/>
-    <property name="rotInnerRadius" type="int" value="40"/>
-    <property name="rotOuterRadius" type="int" value="60"/>
-    <property name="rotateDelta" type="float" value="0.08"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="KillerRabbits">
   <object id="399" name="KillerRabbit" x="1312" y="213" width="16" height="27">
@@ -758,6 +687,30 @@
     <property name="animL" value="flameRunnerL"/>
     <property name="animR" value="flameRunnerR"/>
     <property name="frame" value="flameRunnerL_0000"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Mines">
+  <object id="423" name="Mine" type="jumper" x="640" y="1360" width="16" height="16">
+   <properties>
+    <property name="frame" value="mine"/>
+   </properties>
+  </object>
+  <object id="426" name="Mine" type="jumper" x="592" y="1360" width="16" height="16">
+   <properties>
+    <property name="frame" value="mine"/>
+   </properties>
+  </object>
+  <object id="427" name="Mine" type="jumper" x="544" y="1360" width="16" height="16">
+   <properties>
+    <property name="frame" value="mine"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="WheelCanons">
+  <object id="428" name="Wheelcanon" x="1328" y="1088" width="16" height="16">
+   <properties>
+    <property name="frame" value="wheelcanonL_0000"/>
    </properties>
   </object>
  </objectgroup>

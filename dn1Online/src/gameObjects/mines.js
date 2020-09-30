@@ -1,35 +1,29 @@
-class Mine extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, type) {
-		super(scene, x, y, 'enemiesSpriteAtlas', 'mine')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
-		this.type = type
-	}
-	setup() {
+class Mine extends EnemyObj {
+  constructor (scene, hero, mineData) {
+		super(scene, hero, mineData.x + 8, mineData.y + 8, 'enemiesSpriteAtlas', mineData.properties.frame)
+		this.type = mineData.type
+		
+		this.lifes = 10
 		this.body.mass = 500
-		this.setActive(true)
-		this.setVisible(true)
-		this.setImmovable(true)
-		this.jumper = false
-		if(this.type === 'jumper') {
-			this.jumper = true
-		}
-		if(this.jumper) {
-			this.setBounce(1.0)
-			this.setGravityY(Phaser.Math.Between(200, 250))
-		}
 	}
 }
 
 class Mines extends Phaser.Physics.Arcade.Group {
-  constructor (scene, minesData, solidLayer, bullets) {
+  constructor (scene, hero, minesData, solidLayer) {
     super(scene.physics.world, scene)
     minesData.forEach((mineData) => {
-			this.add(new Mine(scene, mineData.x + 8, mineData.y + 8, mineData.type))
+			this.add(new Mine(scene, hero, mineData))
 		})
 		scene.physics.add.collider(solidLayer, this)
-		scene.physics.add.collider(bullets, this, (bullet) => {
-			bullet.play('heroExplode')
+
+		this.children.iterate(mine => {
+			mine.setActive(true)
+			mine.setVisible(true)
+			mine.setImmovable(true)
+			if(mine.type === 'jumper') {
+				mine.setBounce(1.0)
+				mine.setGravityY(Phaser.Math.Between(200, 250))
+			}
 		})
 	}
 }

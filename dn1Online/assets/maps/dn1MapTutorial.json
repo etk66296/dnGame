@@ -282,28 +282,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":341,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":688,
-                 "y":80
-                }, 
-                {
-                 "height":16,
-                 "id":342,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":736,
-                 "y":80
-                }, 
-                {
-                 "height":16,
                  "id":343,
                  "name":"Guard",
                  "rotation":0,
@@ -312,17 +290,6 @@
                  "width":16,
                  "x":624,
                  "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":344,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":592,
-                 "y":48
                 }, 
                 {
                  "height":16,
@@ -345,28 +312,6 @@
                  "width":16,
                  "x":640,
                  "y":208
-                }, 
-                {
-                 "height":16,
-                 "id":350,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":608,
-                 "y":64
-                }, 
-                {
-                 "height":16,
-                 "id":351,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":640,
-                 "y":80
                 }, 
                 {
                  "height":16,
@@ -2003,27 +1948,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":318,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":256,
-                 "y":96
-                }, 
-                {
-                 "height":16,
                  "id":319,
                  "name":"ObserverCam",
                  "properties":
@@ -2041,27 +1965,6 @@
                  "visible":true,
                  "width":16,
                  "x":272,
-                 "y":96
-                }, 
-                {
-                 "height":16,
-                 "id":320,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":288,
                  "y":96
                 }, 
                 {
@@ -2087,48 +1990,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":322,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":320,
-                 "y":96
-                }, 
-                {
-                 "height":16,
-                 "id":323,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":160
-                }, 
-                {
-                 "height":16,
                  "id":324,
                  "name":"ObserverCam",
                  "properties":
@@ -2150,69 +2011,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":325,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":208,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":326,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":224,
-                 "y":160
-                }, 
-                {
-                 "height":16,
-                 "id":327,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":272,
-                 "y":192
-                }, 
-                {
-                 "height":16,
                  "id":328,
                  "name":"ObserverCam",
                  "properties":
@@ -2230,48 +2028,6 @@
                  "visible":true,
                  "width":16,
                  "x":304,
-                 "y":192
-                }, 
-                {
-                 "height":16,
-                 "id":329,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":288,
-                 "y":192
-                }, 
-                {
-                 "height":16,
-                 "id":330,
-                 "name":"ObserverCam",
-                 "properties":
-                    {
-                     "frame":"camera_M",
-                     "points":"100"
-                    },
-                 "propertytypes":
-                    {
-                     "frame":"string",
-                     "points":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":320,
                  "y":192
                 }],
          "opacity":1,
@@ -2526,39 +2282,6 @@
                  "width":16,
                  "x":976,
                  "y":80
-                }, 
-                {
-                 "height":16,
-                 "id":406,
-                 "name":"DeuteriumSphere",
-                 "properties":
-                    {
-                     "animA":"deuteriumSphere",
-                     "duration":500,
-                     "frame":"deuteriumSphere_0000",
-                     "numOfSpheres":14,
-                     "points":10,
-                     "rotInnerRadius":40,
-                     "rotOuterRadius":60,
-                     "rotateDelta":0.08
-                    },
-                 "propertytypes":
-                    {
-                     "animA":"string",
-                     "duration":"int",
-                     "frame":"string",
-                     "numOfSpheres":"int",
-                     "points":"int",
-                     "rotInnerRadius":"int",
-                     "rotOuterRadius":"int",
-                     "rotateDelta":"float"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":992,
-                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2788,8 +2511,104 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"Mines",
+         "objects":[
+                {
+                 "height":16,
+                 "id":423,
+                 "name":"Mine",
+                 "properties":
+                    {
+                     "frame":"mine"
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"jumper",
+                 "visible":true,
+                 "width":16,
+                 "x":640,
+                 "y":1360
+                }, 
+                {
+                 "height":16,
+                 "id":426,
+                 "name":"Mine",
+                 "properties":
+                    {
+                     "frame":"mine"
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"jumper",
+                 "visible":true,
+                 "width":16,
+                 "x":592,
+                 "y":1360
+                }, 
+                {
+                 "height":16,
+                 "id":427,
+                 "name":"Mine",
+                 "properties":
+                    {
+                     "frame":"mine"
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"jumper",
+                 "visible":true,
+                 "width":16,
+                 "x":544,
+                 "y":1360
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"WheelCanons",
+         "objects":[
+                {
+                 "height":16,
+                 "id":428,
+                 "name":"Wheelcanon",
+                 "properties":
+                    {
+                     "frame":"wheelcanonL_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1328,
+                 "y":1088
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":423,
+ "nextobjectid":429,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

@@ -28,6 +28,8 @@ function Level0Scene() {
 	this.killerRabbitObjLayerData = null
 	this.helicoptersObjLayerData = null
 	this.flameRunnersObjLayerData = null
+	this.minesObjLayerData = null
+	this.wheelCanonsObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -46,6 +48,8 @@ function Level0Scene() {
 	this.killerRabbits = null
 	this.helicopters = null
 	this.flameRunners = null
+	this.mines = null
+	this.wheelCanons = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -77,7 +81,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1250, 160, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1400, 1050, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -150,15 +154,23 @@ Level0Scene.prototype.create = function() {
 	})
 	// helicopters
 	this.helicopters = new Helicopters(this, this.hero, this.helicoptersObjLayerData, this.solidLayer)
-	this.helicopters.children.iterate(helis => {
-		helis.registerAsPainful()
-		helis.registerAsShootable()
+	this.helicopters.children.iterate(heli => {
+		heli.registerAsPainful()
+		heli.registerAsShootable()
 	})
 	// flame runners
 	this.flameRunners = new FlameRunners(this, this.hero, this.flameRunnersObjLayerData, this.solidLayer)
 	this.flameRunners.children.iterate(flamerunner => {
 		flamerunner.registerAsPainful()
 	})
+	// mines
+	this.mines = new Mines(this, this.hero, this.minesObjLayerData, this.solidLayer)
+	this.mines.children.iterate(mine => {
+		mine.registerAsPainful()
+		mine.registerAsShootable()
+	})
+	// wheel canons
+	this.wheelCanons = new WheelCanons(this, this.hero, this.wheelCanonsObjLayerData, this.solidLayer)
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
@@ -236,6 +248,10 @@ Level0Scene.prototype.initWorld = function() {
 	this.helicoptersObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Helicopters")].objects
 	// flame runners
 	this.flameRunnersObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlameRunners")].objects
+	// mines
+	this.minesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Mines")].objects
+	// wheel canons
+	this.wheelCanonsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WheelCanons")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	
