@@ -11,6 +11,6 @@ class GlowThrowerSegment extends EnemyObj {
 class GlowThrower extends Phaser.Physics.Arcade.Group {
 	constructor (scene, hero, glowThrowerData) {
 		super(scene.physics.world, scene)
-		this.add(new GlowThrowerSegment(scene, hero, glowThrowerData))
+		// this.add(new GlowThrowerSegment(scene, hero, glowThrowerData))
 	}
 }
