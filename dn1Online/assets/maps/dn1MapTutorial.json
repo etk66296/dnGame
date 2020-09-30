@@ -367,6 +367,17 @@
                  "width":16,
                  "x":1600,
                  "y":144
+                }, 
+                {
+                 "height":16,
+                 "id":429,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1440,
+                 "y":1088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2589,11 +2600,17 @@
                  "name":"Wheelcanon",
                  "properties":
                     {
-                     "frame":"wheelcanonL_0000"
+                     "animL":"wheelcanonL",
+                     "animR":"wheelcanonR",
+                     "frame":"wheelcanonL_0000",
+                     "points":"250"
                     },
                  "propertytypes":
                     {
-                     "frame":"string"
+                     "animL":"string",
+                     "animR":"string",
+                     "frame":"string",
+                     "points":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -2607,8 +2624,47 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"Dynamite",
+         "objects":[
+                {
+                 "height":16,
+                 "id":430,
+                 "name":"Dynamite",
+                 "properties":
+                    {
+                     "animA":"BadGreyBoxExplode",
+                     "animB":"floorfire",
+                     "fireLengthL":10,
+                     "fireLengthR":5,
+                     "frame":"GreyBox",
+                     "points":0
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "fireLengthL":"int",
+                     "fireLengthR":"int",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1264,
+                 "y":976
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":429,
+ "nextobjectid":433,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

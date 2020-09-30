@@ -30,6 +30,7 @@ function Level0Scene() {
 	this.flameRunnersObjLayerData = null
 	this.minesObjLayerData = null
 	this.wheelCanonsObjLayerData = null
+	this.dynamiteObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -50,6 +51,7 @@ function Level0Scene() {
 	this.flameRunners = null
 	this.mines = null
 	this.wheelCanons = null
+	this.dynamiteBoxes = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -81,7 +83,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1400, 1050, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1200, 960, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -170,7 +172,16 @@ Level0Scene.prototype.create = function() {
 		mine.registerAsShootable()
 	})
 	// wheel canons
-	this.wheelCanons = new WheelCanons(this, this.hero, this.wheelCanonsObjLayerData, this.solidLayer)
+	this.wheelCanons = new WheelCanons(this, this.hero, this.wheelCanonsObjLayerData, this.solidLayer, this.enemyBullets)
+	this.wheelCanons.children.iterate(wc => {
+		wc.registerAsPainful()
+		wc.registerAsShootable()
+	})
+	// dynamite
+	this.dynamiteBoxes = new DynamiteBoxes(this, this.hero, this.dynamiteObjLayerData, this.solidLayer)
+	this.dynamiteBoxes.children.iterate(dynamite => {
+		dynamite.registerAsPainful()
+	})
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
@@ -178,7 +189,8 @@ Level0Scene.prototype.create = function() {
 		this.fireWheelRobots,
 		this.flyRobots,
 		this.killerRabbits,
-		this.flameRunners
+		this.flameRunners,
+		this.wheelCanons
 	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// elevators
@@ -252,6 +264,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.minesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Mines")].objects
 	// wheel canons
 	this.wheelCanonsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WheelCanons")].objects
+	// dynamite
+	this.dynamiteObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Dynamite")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

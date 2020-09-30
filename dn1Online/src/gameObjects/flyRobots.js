@@ -72,8 +72,14 @@ class FlyRobots extends Phaser.Physics.Arcade.Group {
 			this.add(new FlyRobot(scene, hero, robotData, enemyBullets))
 		})
 		scene.physics.add.collider(solidLayer, this)
-		// this.children.iterate(robo => {
-		// 	robo.setGravityY(200)
-		// })
+		this.children.iterate(robot => {
+			scene.physics.add.collider(robot, hero, () => {
+				if (hero.body.touching.down && robot.body.touching.up) {
+					robot.lifes = 0
+					robot.setDestroyed()
+					robot.isAlive = false
+				}
+			})
+		})
   }
 }

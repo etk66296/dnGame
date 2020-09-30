@@ -527,6 +527,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({
+		key: 'BadGreyBoxExplode',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'BadGreyBoxExplode_',
+				end: 4,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'GlowThrowerStartR',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'GlowThrowerStartR_',

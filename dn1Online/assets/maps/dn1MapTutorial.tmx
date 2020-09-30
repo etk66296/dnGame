@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="429">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="433">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -49,6 +49,7 @@
   <object id="415" name="Guard" x="1504" y="176" width="16" height="16"/>
   <object id="416" name="Guard" x="1504" y="144" width="16" height="16"/>
   <object id="417" name="Guard" x="1600" y="144" width="16" height="16"/>
+  <object id="429" name="Guard" x="1440" y="1088" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="MultiHandAccess">
   <object id="179" name="MultiHandPlate" type="plate" x="1520" y="960" width="48" height="16">
@@ -710,7 +711,22 @@
  <objectgroup name="WheelCanons">
   <object id="428" name="Wheelcanon" x="1328" y="1088" width="16" height="16">
    <properties>
+    <property name="animL" value="wheelcanonL"/>
+    <property name="animR" value="wheelcanonR"/>
     <property name="frame" value="wheelcanonL_0000"/>
+    <property name="points" value="250"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Dynamite">
+  <object id="430" name="Dynamite" x="1264" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="BadGreyBoxExplode"/>
+    <property name="animB" value="floorfire"/>
+    <property name="fireLengthL" type="int" value="10"/>
+    <property name="fireLengthR" type="int" value="5"/>
+    <property name="frame" value="GreyBox"/>
+    <property name="points" type="int" value="0"/>
    </properties>
   </object>
  </objectgroup>
