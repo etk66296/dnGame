@@ -7,21 +7,23 @@ class EnemyObj extends PhysicsObj {
 		this.isAlive = true
 		this.activeAfterDead = false
 		this.vulnerable = true
+		this.painEnabled = true
 		this.fumeHoodVel = -100
-		this.enemyFinishedEvent = this.on('animationcomplete', () => {
+		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.finishAnim) {
 				this.body.reset(-100, -100)
 				if (!this.activeAfterDead) {
 					this.setActive(false)
 				}
 				this.setVisible(false)
-				scene.physics.world.removeCollider(this.enemyFinishedEvent)
 			}
 		})
 	}
 	registerAsPainful() {
 		this.scene.physics.add.overlap(this, this.hero, () => {
-			this.hero.painState = true
+			if (this.painEnabled) {
+				this.hero.painState = true
+			}
 		})
 	}
 	registerAsShootable() {

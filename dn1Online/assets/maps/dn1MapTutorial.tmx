@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="433">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="434">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -722,8 +722,20 @@
   <object id="430" name="Dynamite" x="1264" y="976" width="16" height="16">
    <properties>
     <property name="animA" value="BadGreyBoxExplode"/>
-    <property name="animB" value="floorfire"/>
+    <property name="animB" value="DynamiteBlock"/>
+    <property name="animC" value="floorfire"/>
     <property name="fireLengthL" type="int" value="10"/>
+    <property name="fireLengthR" type="int" value="5"/>
+    <property name="frame" value="GreyBox"/>
+    <property name="points" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="433" name="Dynamite" x="1568" y="1120" width="16" height="16">
+   <properties>
+    <property name="animA" value="BadGreyBoxExplode"/>
+    <property name="animB" value="DynamiteBlock"/>
+    <property name="animC" value="floorfire"/>
+    <property name="fireLengthL" type="int" value="3"/>
     <property name="fireLengthR" type="int" value="5"/>
     <property name="frame" value="GreyBox"/>
     <property name="points" type="int" value="0"/>

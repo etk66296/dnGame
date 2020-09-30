@@ -181,6 +181,7 @@ Level0Scene.prototype.create = function() {
 	this.dynamiteBoxes = new DynamiteBoxes(this, this.hero, this.dynamiteObjLayerData, this.solidLayer)
 	this.dynamiteBoxes.children.iterate(dynamite => {
 		dynamite.registerAsPainful()
+		dynamite.registerAsShootable()
 	})
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [

@@ -94,11 +94,10 @@ class Gate extends PhysicsObj {
 		this.setActive(true)
 		this.setVisible(true)
 		this.scene.physics.add.collider(this.hero, this)
-		this.openedEvent = this.on('animationcomplete', () => {
+		this.on('animationcomplete', () => {
 			this.setActive(false)
 			this.setVisible(false)
 			this.setPosition(-200, -200)
-			scene.physics.world.removeCollider(this.openedEvent)
 		})
 	}
 

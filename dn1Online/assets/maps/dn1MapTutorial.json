@@ -2636,7 +2636,8 @@
                  "properties":
                     {
                      "animA":"BadGreyBoxExplode",
-                     "animB":"floorfire",
+                     "animB":"DynamiteBlock",
+                     "animC":"floorfire",
                      "fireLengthL":10,
                      "fireLengthR":5,
                      "frame":"GreyBox",
@@ -2646,6 +2647,7 @@
                     {
                      "animA":"string",
                      "animB":"string",
+                     "animC":"string",
                      "fireLengthL":"int",
                      "fireLengthR":"int",
                      "frame":"string",
@@ -2657,6 +2659,37 @@
                  "width":16,
                  "x":1264,
                  "y":976
+                }, 
+                {
+                 "height":16,
+                 "id":433,
+                 "name":"Dynamite",
+                 "properties":
+                    {
+                     "animA":"BadGreyBoxExplode",
+                     "animB":"DynamiteBlock",
+                     "animC":"floorfire",
+                     "fireLengthL":3,
+                     "fireLengthR":3,
+                     "frame":"GreyBox",
+                     "points":0
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "animC":"string",
+                     "fireLengthL":"int",
+                     "fireLengthR":"int",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1568,
+                 "y":1120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2664,7 +2697,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":433,
+ "nextobjectid":434,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

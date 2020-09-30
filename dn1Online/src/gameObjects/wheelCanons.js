@@ -33,7 +33,7 @@ class WheelCanon extends EnemyObj {
 		this.fireElapsedTime += delta
 		if (this.fireElapsedTime >= this.constFireDeltaTime ) {
 			this.fireElapsedTime = 0
-			this.enemyBullets.fireBullet(this.x, this.y - 4, this.lastDir)
+			this.enemyBullets.fireBullet(this.x, this.y - 6, this.lastDir)
 		}
 	}
 }

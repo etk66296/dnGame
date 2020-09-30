@@ -23,7 +23,7 @@ class KillerRabbit extends EnemyObj {
 		)
 		this.pointFlyerAnimObj.setVisible(false)
 		this.pointFlyerAnimObj.setActive(false)
-		this.pointFlyerAnimEvent = this.pointFlyerAnimObj.on('animationcomplete', () => {
+		this.pointFlyerAnimObj.on('animationcomplete', () => {
 			if (this.pointFlyerAlpha === 1.0) {
 				this.pointFlyerAnimObj.setPosition(this.x, this.y)
 			}
@@ -33,7 +33,6 @@ class KillerRabbit extends EnemyObj {
 			if (this.pointFlyerAlpha <= 0) {
 				this.pointFlyerAnimObj.setVisible(false)
 				this.pointFlyerAnimObj.setActive(false)
-				scene.physics.world.removeCollider(this.pointFlyerAnimEvent)
 			}
 		})
 

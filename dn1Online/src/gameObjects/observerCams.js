@@ -16,14 +16,13 @@ class ObserverCam extends EnemyObj {
 		this.pointFlyerAnimObj.setActive(false)
 		this.pointFlyerAnim = 'Points' + String(camData.properties.points)
 		this.pointFlyerAlpha = 1.0
-		this.pointFlyerAnimEvent = this.pointFlyerAnimObj.on('animationcomplete', () => {
+		this.pointFlyerAnimObj.on('animationcomplete', () => {
 			this.pointFlyerAnimObj.setPosition(this.pointFlyerAnimObj.x, this.pointFlyerAnimObj.y - 0.25)
 			this.pointFlyerAlpha -= 0.015
 			this.pointFlyerAnimObj.setAlpha(this.pointFlyerAlpha)
 			if (this.pointFlyerAlpha <= 0) {
 				this.pointFlyerAnimObj.setVisible(false)
 				this.pointFlyerAnimObj.setActive(false)
-				scene.physics.world.removeCollider(this.pointFlyerAnimEvent)
 				// active after dead was enabled => child class have to deactivate the sprite
 				this.setActive(false)
 			}
