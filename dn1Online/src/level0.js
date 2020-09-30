@@ -31,6 +31,7 @@ function Level0Scene() {
 	this.minesObjLayerData = null
 	this.wheelCanonsObjLayerData = null
 	this.dynamiteObjLayerData = null
+	this.glowThrowerObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -52,6 +53,7 @@ function Level0Scene() {
 	this.mines = null
 	this.wheelCanons = null
 	this.dynamiteBoxes = null
+	this.glowThrowers  = []
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -183,6 +185,11 @@ Level0Scene.prototype.create = function() {
 		dynamite.registerAsPainful()
 		dynamite.registerAsShootable()
 	})
+	// dynamite
+	this.glowThrowerObjLayerData.forEach(glowThrowerData => {
+		this.glowThrowers.push(new GlowThrower(this, this.hero, this.glowThrowerObjLayerData))
+	})
+
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
@@ -267,6 +274,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.wheelCanonsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WheelCanons")].objects
 	// dynamite
 	this.dynamiteObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Dynamite")].objects
+	// glow throwers
+	this.glowThrowerObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "GlowThrowers")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	
