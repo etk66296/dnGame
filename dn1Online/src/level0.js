@@ -27,6 +27,7 @@ function Level0Scene() {
 	this.deuteriumSpheresObjLayerData = null
 	this.killerRabbitObjLayerData = null
 	this.helicoptersObjLayerData = null
+	this.flameRunnersObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -44,6 +45,7 @@ function Level0Scene() {
 	this.deuteriumSpheres = null
 	this.killerRabbits = null
 	this.helicopters = null
+	this.flameRunners = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -152,13 +154,19 @@ Level0Scene.prototype.create = function() {
 		helis.registerAsPainful()
 		helis.registerAsShootable()
 	})
+	// flame runners
+	this.flameRunners = new FlameRunners(this, this.hero, this.flameRunnersObjLayerData, this.solidLayer)
+	this.flameRunners.children.iterate(flamerunner => {
+		flamerunner.registerAsPainful()
+	})
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 		this.crocosGroup,
 		this.miniRobotsGroup,
 		this.fireWheelRobots,
 		this.flyRobots,
-		this.killerRabbits
+		this.killerRabbits,
+		this.flameRunners
 	]/*collider groups(mini robots, crocos, ...)*/)
 
 	// elevators
@@ -226,6 +234,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.killerRabbitObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KillerRabbits")].objects
 	// helicopters
 	this.helicoptersObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Helicopters")].objects
+	// flame runners
+	this.flameRunnersObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlameRunners")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

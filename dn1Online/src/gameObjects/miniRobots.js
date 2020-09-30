@@ -1,9 +1,8 @@
 class Minirobot extends EnemyObj {
-  constructor (scene, hero, x, y, pointCounterDsp) {
-		super(scene, hero, x + 8, y + 10, 'enemiesSpriteAtlas')
+  constructor (scene, hero, robotData) {
+		super(scene, hero, robotData.x + 8, robotData.y + 10, 'enemiesSpriteAtlas')
 		this.lastDir = -1
 		this.definedVelocity = 50
-		this.heroHits = 1
 		this.play('minirobotAlive')
 		this.setSize(16, 20)
 		this.setVelocityX(this.lastDir * this.definedVelocity)
@@ -20,7 +19,7 @@ class Minirobots extends Phaser.Physics.Arcade.Group {
   constructor (scene, hero, robotsData, solidLayer) {
 		super(scene.physics.world, scene)
 		robotsData.forEach((robotData) => {
-			this.add(new Minirobot(scene, hero, robotData.x, robotData.y))
+			this.add(new Minirobot(scene, hero, robotData))
 		})
 		scene.physics.add.collider(solidLayer, this)
   }

@@ -285,6 +285,28 @@ IntroScene.prototype.create = function() {
 		frameRate: 24
 	})
 	this.anims.create({
+		key: 'flameRunnerL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'flameRunnerL_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 16
+	})
+	this.anims.create({
+		key: 'flameRunnerR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'flameRunnerR_',
+				end: 2,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 16
+	})
+	this.anims.create({
 		key: 'minirobotAlive',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'minirobotAlive_',
