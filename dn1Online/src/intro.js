@@ -544,7 +544,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerStartL',
@@ -554,7 +554,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerHalfR',
@@ -564,7 +564,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerHalfL',
@@ -573,8 +573,8 @@ IntroScene.prototype.create = function() {
 				end: 1,
 				zeroPad: 4
 			}),
-		repeat: 0,
-		frameRate: 6
+		repeat: -1,
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerFullR',
@@ -584,7 +584,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerFullL',
@@ -594,7 +594,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'GlowThrowerSegment',
@@ -604,7 +604,7 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 6
+		frameRate: 24
 	})
 	this.anims.create({
 		key: 'FallingTrapSegmentL',

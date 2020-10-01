@@ -85,7 +85,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1200, 960, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1200, 1050, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -185,9 +185,14 @@ Level0Scene.prototype.create = function() {
 		dynamite.registerAsPainful()
 		dynamite.registerAsShootable()
 	})
-	// dynamite
+	// glow throwers
 	this.glowThrowerObjLayerData.forEach(glowThrowerData => {
-		this.glowThrowers.push(new GlowThrower(this, this.hero, this.glowThrowerObjLayerData))
+		this.glowThrowers.push(new GlowThrower(this, this.hero, glowThrowerData))
+	})
+	this.glowThrowers.forEach(glowThrower => {
+		glowThrower.children.iterate(segment => {
+			segment.registerAsPainful()
+		})
 	})
 
 	// bouncer

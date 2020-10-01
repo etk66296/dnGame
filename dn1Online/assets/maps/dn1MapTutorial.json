@@ -73,17 +73,6 @@
          "objects":[
                 {
                  "height":16,
-                 "id":4,
-                 "name":"Guard",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1184,
-                 "y":192
-                }, 
-                {
-                 "height":16,
                  "id":6,
                  "name":"Guard",
                  "rotation":0,
@@ -213,6 +202,17 @@
                  "width":16,
                  "x":1440,
                  "y":1088
+                }, 
+                {
+                 "height":16,
+                 "id":440,
+                 "name":"Guard",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":816,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -619,14 +619,14 @@
          "objects":[
                 {
                  "height":16,
-                 "id":3,
+                 "id":439,
                  "name":"Crocos",
                  "rotation":0,
                  "type":"leftcrawler",
                  "visible":true,
                  "width":16,
-                 "x":1184,
-                 "y":208
+                 "x":816,
+                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2316,7 +2316,12 @@
                      "animB":"GlowThrowerHalfR",
                      "animC":"GlowThrowerFullR",
                      "animD":"GlowThrowerSegment",
-                     "frame":"GlowThrowerSegment_0000"
+                     "fireWidth":4,
+                     "frame":"GlowThrowerStartR_0000",
+                     "fullPowerDuration":1000,
+                     "fullPowerTime":2000,
+                     "idleTime":2000,
+                     "preheatingTime":2000
                     },
                  "propertytypes":
                     {
@@ -2324,7 +2329,12 @@
                      "animB":"string",
                      "animC":"string",
                      "animD":"string",
-                     "frame":"string"
+                     "fireWidth":"int",
+                     "frame":"string",
+                     "fullPowerDuration":"int",
+                     "fullPowerTime":"int",
+                     "idleTime":"int",
+                     "preheatingTime":"int"
                     },
                  "rotation":0,
                  "type":"right",
@@ -2335,7 +2345,7 @@
                 }, 
                 {
                  "height":16,
-                 "id":438,
+                 "id":441,
                  "name":"GlowThrower",
                  "properties":
                     {
@@ -2343,7 +2353,12 @@
                      "animB":"GlowThrowerHalfL",
                      "animC":"GlowThrowerFullL",
                      "animD":"GlowThrowerSegment",
-                     "frame":"GlowThrowerSegment_0000"
+                     "fireWidth":4,
+                     "frame":"GlowThrowerStartL_0000",
+                     "fullPowerDuration":2000,
+                     "fullPowerTime":2000,
+                     "idleTime":2000,
+                     "preheatingTime":2000
                     },
                  "propertytypes":
                     {
@@ -2351,7 +2366,12 @@
                      "animB":"string",
                      "animC":"string",
                      "animD":"string",
-                     "frame":"string"
+                     "fireWidth":"int",
+                     "frame":"string",
+                     "fullPowerDuration":"int",
+                     "fullPowerTime":"int",
+                     "idleTime":"int",
+                     "preheatingTime":"int"
                     },
                  "rotation":0,
                  "type":"left",
@@ -2366,7 +2386,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":439,
+ "nextobjectid":442,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
