@@ -627,6 +627,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 12
 	})
 	this.anims.create({
+		key: 'TileNeedle',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'TileNeedle_',
+				end: 7,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 4
+	})
+	this.anims.create({
 		key: 'RedKey',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'RedKey_',

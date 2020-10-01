@@ -32,6 +32,7 @@ function Level0Scene() {
 	this.wheelCanonsObjLayerData = null
 	this.dynamiteObjLayerData = null
 	this.glowThrowerObjLayerData = null
+	this.needleTilesObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -54,6 +55,7 @@ function Level0Scene() {
 	this.wheelCanons = null
 	this.dynamiteBoxes = null
 	this.glowThrowers  = []
+	this.needleTiles = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -85,7 +87,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1200, 1050, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, 1560, 930, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -194,6 +196,8 @@ Level0Scene.prototype.create = function() {
 			segment.registerAsPainful()
 		})
 	})
+	// needle tiles
+	this.needleTiles = new NeedleTiles(this, this.hero, this.needleTilesObjLayerData)
 
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
@@ -281,6 +285,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.dynamiteObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Dynamite")].objects
 	// glow throwers
 	this.glowThrowerObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "GlowThrowers")].objects
+	// needle tiles
+	this.needleTilesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "NeedleTiles")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

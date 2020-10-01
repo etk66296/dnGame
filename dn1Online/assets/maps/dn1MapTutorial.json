@@ -2385,8 +2385,39 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"NeedleTiles",
+         "objects":[
+                {
+                 "height":16,
+                 "id":442,
+                 "name":"NeedleTile",
+                 "properties":
+                    {
+                     "animA":"TileNeedle",
+                     "frame":"TileNeedle_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1664,
+                 "y":1056
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":442,
+ "nextobjectid":444,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

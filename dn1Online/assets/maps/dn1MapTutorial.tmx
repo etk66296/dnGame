@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="442">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="444">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -684,6 +684,14 @@
     <property name="fullPowerTime" type="int" value="2000"/>
     <property name="idleTime" type="int" value="2000"/>
     <property name="preheatingTime" type="int" value="2000"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="NeedleTiles">
+  <object id="442" name="NeedleTile" x="1664" y="1056" width="16" height="16">
+   <properties>
+    <property name="animA" value="TileNeedle"/>
+    <property name="frame" value="TileNeedle_0000"/>
    </properties>
   </object>
  </objectgroup>
