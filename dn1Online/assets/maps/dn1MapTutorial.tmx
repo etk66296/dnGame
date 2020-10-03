@@ -33,7 +33,7 @@
   <object id="348" name="Guard" x="640" y="208" width="16" height="16"/>
   <object id="414" name="Guard" x="1408" y="176" width="16" height="16"/>
   <object id="415" name="Guard" x="1504" y="176" width="16" height="16"/>
-  <object id="429" name="Guard" x="1440" y="1088" width="16" height="16"/>
+  <object id="429" name="Guard" x="1456" y="1088" width="16" height="16"/>
   <object id="440" name="Guard" x="816" y="192" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="MultiHandAccess">
@@ -691,7 +691,8 @@
   <object id="442" name="NeedleTile" x="1664" y="1056" width="16" height="16">
    <properties>
     <property name="animA" value="TileNeedle"/>
-    <property name="frame" value="TileNeedle_0000"/>
+    <property name="frameA" value="TileNeedle_0006"/>
+    <property name="frameB" value="TileNeedle_0000"/>
    </properties>
   </object>
  </objectgroup>

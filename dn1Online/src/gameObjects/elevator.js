@@ -32,7 +32,7 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		this.backToOrigin = false
 		this.originY = y
 		this.currentVelocity = 0
-		this.acceleration = 3
+		this.acceleration = 7
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)
@@ -56,12 +56,14 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		if(this.body.touching.up) {
 			if (this.hero.gameControls.key_USE.isDown || this.hero.gameControls.touch_USE.isDown) {
 				if (this.y > (this.originY - this.maxHeight + 24)) {
+					// smoothly speed up the elevator
 					this.currentVelocity -= this.acceleration
 					if (this.currentVelocity < -80) {
 						this.currentVelocity = -80
 					}
 					this.setVelocityY(this.currentVelocity)
 				} else if (this.y > (this.originY - this.maxHeight) && this.currentVelocity < 0) {
+					// smoothly slow down the elevator
 					this.currentVelocity += this.acceleration
 					this.setVelocityY(this.currentVelocity)
 				} else {

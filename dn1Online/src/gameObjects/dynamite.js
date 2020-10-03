@@ -45,11 +45,11 @@ class Floorfire extends EnemyObj {
 		// box exbloded animation
 		this.boxExplodeEvent = this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.dynamiteData.properties.animA) {
-				this.painEnabled = true
 				this.play(this.dynamiteData.properties.animB)
 			} else if (this.anims.currentAnim.key === this.dynamiteData.properties.animB) {
 				this.play(this.dynamiteData.properties.animC)
 				this.fireTriggered = true
+				this.painEnabled = true
 			} else if (this.anims.currentAnim.key === this.dynamiteData.properties.animC) {
 				this.setActive(false)
 				this.setVisible(false)

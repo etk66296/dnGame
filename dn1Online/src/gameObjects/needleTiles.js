@@ -6,22 +6,30 @@ class NeedleTile extends EnemyObj {
 			needleTileData.x + needleTileData.width / 2,
 			needleTileData.y + needleTileData.height / 2,
 			'enemiesSpriteAtlas',
-			needleTileData.properties.frame
+			needleTileData.properties.frameA
 		)
 		this.setSize(16, 16)
 		this.setOffset(0, 10)
 		this.setDepth(2) // just one layer over the hero sprite
 		this.needleTileData = needleTileData
-		this.ontouched = false
+		this.touched = false
+		this.allowAnimation = false
 	}
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (this.body.touching.up && !this.ontouched) {
-			this.play(this.needleTileData.properties.animA)
-			this.ontouched = true
+		if (this.body.touching.up) {
+			if (!this.touched) {
+				this.setFrame(this.needleTileData.properties.frameB)
+				this.touched = true
+				this.allowAnimation = true
+			}
 		} else {
-			this.ontouched = false
+			if (this.frame.name === this.needleTileData.properties.frameB && this.allowAnimation) {
+				this.play(this.needleTileData.properties.animA)
+				this.allowAnimation = false
+				this.touched = false
+			}
 		}
 	}
 }

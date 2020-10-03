@@ -65,7 +65,9 @@ class MultiHandTile extends PhysicsObj {
 					this.setVisible(true)
 					this.timeDelayEvent.remove(false)
 					this.scene.physics.add.collider(this, this.hero, () => {
-						this.hero.body.blocked.down = true
+						if (this.body.touching.up) {
+							this.hero.body.blocked.down = true
+						}
 					})
 				}
 			})

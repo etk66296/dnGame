@@ -200,7 +200,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1440,
+                 "x":1456,
                  "y":1088
                 }, 
                 {
@@ -2397,12 +2397,14 @@
                  "properties":
                     {
                      "animA":"TileNeedle",
-                     "frame":"TileNeedle_0000"
+                     "frameA":"TileNeedle_0006",
+                     "frameB":"TileNeedle_0000"
                     },
                  "propertytypes":
                     {
                      "animA":"string",
-                     "frame":"string"
+                     "frameA":"string",
+                     "frameB":"string"
                     },
                  "rotation":0,
                  "type":"",
