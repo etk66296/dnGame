@@ -26,6 +26,73 @@
         }, 
         {
          "draworder":"topdown",
+         "name":"AnimatedDecorations",
+         "objects":[
+                {
+                 "height":16,
+                 "id":450,
+                 "name":"CyberWindow",
+                 "properties":
+                    {
+                     "anim":"CyberWindow"
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1376,
+                 "y":960
+                }, 
+                {
+                 "height":16,
+                 "id":451,
+                 "name":"WarpKernel",
+                 "properties":
+                    {
+                     "anim":"WarpKernel"
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1392,
+                 "y":960
+                }, 
+                {
+                 "height":16,
+                 "id":452,
+                 "name":"PanelChart",
+                 "properties":
+                    {
+                     "anim":"PanelChart"
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1408,
+                 "y":960
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "name":"Spikes",
          "objects":[
                 {
@@ -2418,8 +2485,72 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"WasherBosses",
+         "objects":[
+                {
+                 "height":16,
+                 "id":444,
+                 "name":"WasherBoss",
+                 "properties":
+                    {
+                     "animA":"WasherBossSegment",
+                     "frameA":"WasherBoss_0000",
+                     "height":"4",
+                     "lifes":8,
+                     "points":10000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frameA":"string",
+                     "height":"string",
+                     "lifes":"int",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1312,
+                 "y":976
+                }, 
+                {
+                 "height":16,
+                 "id":449,
+                 "name":"WasherBoss",
+                 "properties":
+                    {
+                     "animA":"WasherBossSegment",
+                     "frameA":"WasherBoss_0000",
+                     "height":"4",
+                     "lifes":4,
+                     "points":10000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frameA":"string",
+                     "height":"string",
+                     "lifes":"int",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1344,
+                 "y":976
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":444,
+ "nextobjectid":453,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

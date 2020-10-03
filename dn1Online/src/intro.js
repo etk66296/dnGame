@@ -1056,6 +1056,26 @@ IntroScene.prototype.create = function() {
 		repeat: -1,
 		frameRate: 8
 	})
+	this.anims.create({
+		key: 'WarpKernel',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'WarpKernel_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 8
+	})
+	this.anims.create({
+		key: 'PanelChart',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'PanelChart_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 8
+	})
 	// <-- decoration
 	// level gate -->
 	this.anims.create({

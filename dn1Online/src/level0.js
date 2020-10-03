@@ -33,6 +33,8 @@ function Level0Scene() {
 	this.dynamiteObjLayerData = null
 	this.glowThrowerObjLayerData = null
 	this.needleTilesObjLayerData = null
+	this.washerBossObjLayerData = null
+	this.decoObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -56,6 +58,7 @@ function Level0Scene() {
 	this.dynamiteBoxes = null
 	this.glowThrowers  = []
 	this.needleTiles = null
+	this.washerBosses = []
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -198,6 +201,18 @@ Level0Scene.prototype.create = function() {
 	})
 	// needle tiles
 	this.needleTiles = new NeedleTiles(this, this.hero, this.needleTilesObjLayerData)
+	// washer boss
+	this.washerBossObjLayerData.forEach(washerBossData => {
+		this.washerBosses.push(new WasherBoss(this, this.hero, washerBossData))
+	})
+	this.washerBosses.forEach(washerBoss => {
+		washerBoss.children.iterate(washerBossSegment => {
+			washerBossSegment.registerAsPainful()
+			washerBossSegment.registerAsShootable()
+		})
+	})
+	// decoration
+	this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
 
 	// bouncer
 	this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
@@ -287,6 +302,10 @@ Level0Scene.prototype.initWorld = function() {
 	this.glowThrowerObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "GlowThrowers")].objects
 	// needle tiles
 	this.needleTilesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "NeedleTiles")].objects
+	// washerboss
+	this.washerBossObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WasherBosses")].objects
+	// deco
+	this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	
