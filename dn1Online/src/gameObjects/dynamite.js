@@ -51,6 +51,7 @@ class Floorfire extends EnemyObj {
 				this.fireTriggered = true
 				this.painEnabled = true
 			} else if (this.anims.currentAnim.key === this.dynamiteData.properties.animC) {
+				this.hero.addPoints(this.dynamiteData.properties.points)
 				this.setActive(false)
 				this.setVisible(false)
 				this.painEnabled = false

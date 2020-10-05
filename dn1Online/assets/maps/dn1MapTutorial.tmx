@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="468">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="470">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -94,7 +94,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="1584" y="960" width="16" height="32"/>
+  <object id="461" name="Hero" x="1216" y="1056" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="98" name="Spike" x="912" y="1184" width="16" height="16"/>
@@ -205,7 +205,11 @@
   <object id="110" name="DangleRail" x="816" y="992" width="688" height="18"/>
  </objectgroup>
  <objectgroup name="Minirobots">
-  <object id="8" name="Minirobot" x="416" y="1404" width="16" height="20"/>
+  <object id="8" name="Minirobot" x="416" y="1404" width="16" height="20">
+   <properties>
+    <property name="points" type="int" value="125"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Elevators">
   <object id="9" name="Elevator" x="736" y="1408" width="16" height="16">
@@ -585,19 +589,19 @@
   <object id="308" name="ObserverCam" x="240" y="96" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
+    <property name="points" type="int" value="100"/>
    </properties>
   </object>
-  <object id="324" name="ObserverCam" x="192" y="160" width="16" height="16">
+  <object id="468" name="ObserverCam" x="192" y="160" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
+    <property name="points" type="int" value="100"/>
    </properties>
   </object>
-  <object id="328" name="ObserverCam" x="304" y="192" width="16" height="16">
+  <object id="469" name="ObserverCam" x="288" y="192" width="16" height="16">
    <properties>
     <property name="frame" value="camera_M"/>
-    <property name="points" value="100"/>
+    <property name="points" type="int" value="100"/>
    </properties>
   </object>
  </objectgroup>
@@ -624,7 +628,12 @@
   </object>
  </objectgroup>
  <objectgroup name="Giantrobots">
-  <object id="194" name="GIantrobo" x="1840" y="1168" width="32" height="32"/>
+  <object id="194" name="GIantrobo" x="1840" y="1168" width="32" height="32">
+   <properties>
+    <property name="frame" value="giantRobotL"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="FireWheelRobots">
   <object id="331" name="FireWheelRobot" x="496" y="132" width="24" height="28">
@@ -632,7 +641,7 @@
     <property name="animA" value="fireWheelIdle"/>
     <property name="animB" value="fireWheelActivated"/>
     <property name="frame" value="fireWheelIdle_0000"/>
-    <property name="points" value="1000"/>
+    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
  </objectgroup>
@@ -644,7 +653,7 @@
     <property name="animRL" value="flyRobotRL"/>
     <property name="frameL" value="flyRobotL"/>
     <property name="frameR" value="flyRobotR"/>
-    <property name="points" type="int" value="0"/>
+    <property name="points" type="int" value="125"/>
    </properties>
   </object>
  </objectgroup>
@@ -682,7 +691,7 @@
     <property name="animBL" value="HeliMoveL"/>
     <property name="animBR" value="HeliMoveR"/>
     <property name="frameL" value="HeliIdleL_0000"/>
-    <property name="points" value="5000"/>
+    <property name="points" type="int" value="5000"/>
     <property name="startMovingDist" type="int" value="300"/>
    </properties>
   </object>
@@ -709,7 +718,7 @@
     <property name="animL" value="wheelcanonL"/>
     <property name="animR" value="wheelcanonR"/>
     <property name="frame" value="wheelcanonL_0000"/>
-    <property name="points" value="250"/>
+    <property name="points" type="int" value="250"/>
    </properties>
   </object>
  </objectgroup>
@@ -722,7 +731,7 @@
     <property name="fireLengthL" type="int" value="10"/>
     <property name="fireLengthR" type="int" value="5"/>
     <property name="frame" value="GreyBox"/>
-    <property name="points" type="int" value="10"/>
+    <property name="points" type="int" value="150"/>
    </properties>
   </object>
   <object id="433" name="Dynamite" x="1568" y="1120" width="16" height="16">

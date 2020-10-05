@@ -9,6 +9,7 @@ class WasherBossSegment extends EnemyObj {
 			washerBossData.properties.frameA
 		)
 		this.lifes = washerBossData.properties.lifes
+		this.points = washerBossData.properties.points
 		this.play(washerBossData.properties.animA)
 		this.group = null
 	}

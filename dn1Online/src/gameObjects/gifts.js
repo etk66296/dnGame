@@ -2,6 +2,7 @@ class GiftBox extends PhysicsObj {
 	constructor (scene, hero, x, y, gift) {
 		super(scene, x, y, 'giftsSpriteAtlas', gift.giftData.properties.boxframe)
 		this.body.setSize(16, 18, true)
+		this.hero = hero
 		// after the box explode remove the sprite
 		this.boxAnimCompleteEvent = this.on('animationcomplete', () => {
 			this.body.reset(-100, -100)
@@ -11,6 +12,7 @@ class GiftBox extends PhysicsObj {
 		})
 		// register box as shootable
 		this.shootableBoxEvent = this.scene.physics.add.overlap(this, hero.gun, (box, bullet) => {
+			this.hero.addPoints(1) // open a box points
 			bullet.explode()
 			this.body.checkCollision.none = true
 			this.play(gift.giftData.properties.boxanim)
@@ -29,7 +31,7 @@ class JustCollectGift extends GiftObj {
 		this.alpha = 1.0
 		this.giftData = giftData
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
-			this.hero.addPoints(giftData.properties.points)
+			this.hero.addPoints(this.giftData.properties.points)
 			// this.setActive(false)
 			this.play('Points' + String(giftData.properties.points))
 			this.setVelocityY(-10)
@@ -56,6 +58,7 @@ class SpecialGift extends GiftObj {
 		this.giftData = giftData
 		this.name = giftData.name
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			this.hero.addPoints(giftData.properties.points)
 			this.hero.appendEquipment(this)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)			
 		})
@@ -133,7 +136,7 @@ class HealthUpGift extends GiftObj {
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			if (this.giftState === 0) {
 				this.hero.addHealth(giftData.properties.healthA)
-				this.hero.addPoints(giftData.pointsA)
+				this.hero.addPoints(giftData.properties.pointsA)
 				this.play('Points' + String(giftData.properties.pointsA))
 				scene.physics.world.removeCollider(this.shootableGiftEvent)
 				this.isCollected = true
@@ -146,7 +149,7 @@ class HealthUpGift extends GiftObj {
 				scene.physics.world.removeCollider(this.overlapHeroEvent)
 			} else {
 				this.hero.addHealth(giftData.properties.healthB)
-				this.hero.addPoints(giftData.pointsB)
+				this.hero.addPoints(giftData.properties.pointsB)
 				this.play('Points' + String(giftData.properties.pointsB))
 				this.setVelocityY(-10)
 				this.isCollected = true

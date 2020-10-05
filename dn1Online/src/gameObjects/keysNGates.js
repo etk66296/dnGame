@@ -18,6 +18,7 @@ class Key extends GiftObj {
 		this.play(keyData.properties.anim)
 		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			if (!this.isCollected) {
+				this.hero.addPoints(keyData.properties.points)
 				// create an equipment sprite with the necessary data
 				let equipmentSprite = this.scene.add.sprite(100, 100, 'giftsSpriteAtlas', keyData.properties.frame)
 				equipmentSprite.keyID = keyData.properties.keyID

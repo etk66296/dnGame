@@ -2,6 +2,7 @@ class Minirobot extends EnemyObj {
   constructor (scene, hero, robotData) {
 		super(scene, hero, robotData.x + 8, robotData.y + 10, 'enemiesSpriteAtlas')
 		this.lastDir = -1
+		this.points = robotData.properties.points
 		this.definedVelocity = 50
 		this.play('minirobotAlive')
 		this.setSize(16, 20)

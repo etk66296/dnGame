@@ -9,6 +9,7 @@ class EnemyObj extends PhysicsObj {
 		this.vulnerable = true
 		this.painEnabled = true
 		this.fumeHoodVel = -100
+		this.points = 25
 		this.on('animationcomplete', () => {
 			if (this.anims.currentAnim.key === this.finishAnim) {
 				this.body.reset(-100, -100)
@@ -39,6 +40,7 @@ class EnemyObj extends PhysicsObj {
 		})
 	}
 	setDestroyed () {
+		this.hero.addPoints(this.points)
 		this.play(this.finishAnim)
 		this.body.checkCollision.none = true
 		this.setVelocityX(this.body.velocity.x / 10)

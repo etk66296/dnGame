@@ -8,6 +8,7 @@ class FireWheelRobot extends EnemyObj {
 			'enemiesSpriteAtlas',
 			roboData.properties.frame
 		)
+		this.points = roboData.properties.points
 		this.lifes = 2
 		this.play(roboData.properties.animB)
 		this.lastDir = -1

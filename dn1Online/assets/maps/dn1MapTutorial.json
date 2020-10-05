@@ -331,8 +331,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1584,
-                 "y":960
+                 "x":1216,
+                 "y":1056
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -849,6 +849,14 @@
                  "height":20,
                  "id":8,
                  "name":"Minirobot",
+                 "properties":
+                    {
+                     "points":125
+                    },
+                 "propertytypes":
+                    {
+                     "points":"int"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -2083,12 +2091,12 @@
                  "properties":
                     {
                      "frame":"camera_M",
-                     "points":"100"
+                     "points":100
                     },
                  "propertytypes":
                     {
                      "frame":"string",
-                     "points":"string"
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"",
@@ -2099,17 +2107,17 @@
                 }, 
                 {
                  "height":16,
-                 "id":324,
+                 "id":468,
                  "name":"ObserverCam",
                  "properties":
                     {
                      "frame":"camera_M",
-                     "points":"100"
+                     "points":100
                     },
                  "propertytypes":
                     {
                      "frame":"string",
-                     "points":"string"
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"",
@@ -2120,23 +2128,23 @@
                 }, 
                 {
                  "height":16,
-                 "id":328,
+                 "id":469,
                  "name":"ObserverCam",
                  "properties":
                     {
                      "frame":"camera_M",
-                     "points":"100"
+                     "points":100
                     },
                  "propertytypes":
                     {
                      "frame":"string",
-                     "points":"string"
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":304,
+                 "x":288,
                  "y":192
                 }],
          "opacity":1,
@@ -2239,6 +2247,16 @@
                  "height":32,
                  "id":194,
                  "name":"GIantrobo",
+                 "properties":
+                    {
+                     "frame":"giantRobotL",
+                     "points":500
+                    },
+                 "propertytypes":
+                    {
+                     "frame":"string",
+                     "points":"int"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -2265,14 +2283,14 @@
                      "animA":"fireWheelIdle",
                      "animB":"fireWheelActivated",
                      "frame":"fireWheelIdle_0000",
-                     "points":"1000"
+                     "points":1000
                     },
                  "propertytypes":
                     {
                      "animA":"string",
                      "animB":"string",
                      "frame":"string",
-                     "points":"string"
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"",
@@ -2302,7 +2320,7 @@
                      "animRL":"flyRobotRL",
                      "frameL":"flyRobotL",
                      "frameR":"flyRobotR",
-                     "points":0
+                     "points":125
                     },
                  "propertytypes":
                     {
@@ -2423,7 +2441,7 @@
                      "animBL":"HeliMoveL",
                      "animBR":"HeliMoveR",
                      "frameL":"HeliIdleL_0000",
-                     "points":"5000",
+                     "points":5000,
                      "startMovingDist":300
                     },
                  "propertytypes":
@@ -2433,7 +2451,7 @@
                      "animBL":"string",
                      "animBR":"string",
                      "frameL":"string",
-                     "points":"string",
+                     "points":"int",
                      "startMovingDist":"int"
                     },
                  "rotation":0,
@@ -2524,14 +2542,14 @@
                      "animL":"wheelcanonL",
                      "animR":"wheelcanonR",
                      "frame":"wheelcanonL_0000",
-                     "points":"250"
+                     "points":250
                     },
                  "propertytypes":
                     {
                      "animL":"string",
                      "animR":"string",
                      "frame":"string",
-                     "points":"string"
+                     "points":"int"
                     },
                  "rotation":0,
                  "type":"",
@@ -2562,7 +2580,7 @@
                      "fireLengthL":10,
                      "fireLengthR":5,
                      "frame":"GreyBox",
-                     "points":10
+                     "points":150
                     },
                  "propertytypes":
                     {
@@ -2772,7 +2790,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":468,
+ "nextobjectid":470,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

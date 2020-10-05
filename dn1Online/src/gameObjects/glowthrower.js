@@ -129,5 +129,8 @@ class GlowThrower extends Phaser.Physics.Arcade.Group {
 		glowThrowerData.x = glowerHeadPos.x
 		glowThrowerData.y = glowerHeadPos.y
 		this.add(new GlowThrowerHead(scene, hero, glowThrowerData, this))
+		this.children.iterate(segment => {
+			segment.painEnabled = false
+		})
 	}
 }

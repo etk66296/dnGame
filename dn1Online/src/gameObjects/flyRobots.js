@@ -9,6 +9,7 @@ class FlyRobot extends EnemyObj {
 			roboData.properties.frameL
 		)
 		this.roboData = roboData
+		this.points = this.roboData.properties.points
 		this.lifes = 1
 		this.lastDirX = -1
 		this.lastDirY = -1

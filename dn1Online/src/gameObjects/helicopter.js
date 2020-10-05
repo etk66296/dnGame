@@ -10,6 +10,7 @@ class Helicopter extends EnemyObj {
 		)
 		this.lifes = 4
 		this.heliData = heliData
+		this.points = heliData.properties.points
 		this.lastDirX = -1
 		this.lastDirY = -1
 		this.play(heliData.properties.animAL)

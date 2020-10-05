@@ -67,7 +67,6 @@ class KillerRabbit extends EnemyObj {
 		super.preUpdate(time, delta)
 		// animation
 		if (!this.isAlive) {
-			this.hero.addPoints(this.points)
 			this.pointFlyerAnimObj.setVisible(true)
 			this.pointFlyerAnimObj.setActive(true)
 			this.pointFlyerAnimObj.play(this.pointFlyerAnim)

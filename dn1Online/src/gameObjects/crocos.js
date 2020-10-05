@@ -4,6 +4,7 @@ class Croco extends EnemyObj {
 		this.type = type // rightcrawler | leftcrawler
 		this.lastDir = -1
 		this.definedVelocity = 12
+		// crocos yield the default points... see parent class
 		this.play('crocoR')
 		this.setVelocityX(this.lastDir * this.definedVelocity)
 		if (this.type === 'leftcrawler') {

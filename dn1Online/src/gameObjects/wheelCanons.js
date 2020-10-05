@@ -9,6 +9,7 @@ class WheelCanon extends EnemyObj {
 			wheelCanonData.properties.frame
 		)
 		this.wheelCanonData = wheelCanonData
+		this.points = wheelCanonData.properties.points
 		this.lifes = 2
 		this.lastDir = -1
 		this.definedVelocity = 80

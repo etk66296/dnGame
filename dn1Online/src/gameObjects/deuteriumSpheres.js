@@ -8,6 +8,7 @@ class DeuteriumSpere extends EnemyObj {
 			'enemiesSpriteAtlas',
 			dsData.properties.frame
 		)
+		this.points = dsData.properties.points
 		let animDelayTimeEvent = this.scene.time.addEvent({
 			delay: 100 * index,
 			callback: () => {
