@@ -127,7 +127,7 @@ class Hero extends PhysicsObj {
 					}
 				} // <-- STOP
 				// JUMP -->
-				if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+				if (this.gameControls.touch_JUMP.isDown || Phaser.Input.Keyboard.JustDown(this.gameControls.key_JUMP)) {
 					this.setVelocityY(this.jumpPower)
 				}
 				// <-- JUMP
@@ -140,7 +140,7 @@ class Hero extends PhysicsObj {
 					this.y += 2
 					this.setGravityY(300)
 				}
-				if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.body.velocity.x === 0) {
+				if ((this.gameControls.touch_FIRE.isDown || Phaser.Input.Keyboard.JustDown(this.gameControls.key_FIRE)) && this.body.velocity.x === 0) {
 					if (this.lastDir === 1) {
 						this.setFrame('dangleShootR_0000')
 					} else {
@@ -260,7 +260,7 @@ class Hero extends PhysicsObj {
 		// <-- hero movement
 
 		// fire gun -->
-		if ((this.gameControls.touch_FIRE.isDown || this.gameControls.key_FIRE.isDown) && this.allowShooting) {
+		if ((this.gameControls.touch_FIRE.isDown || Phaser.Input.Keyboard.JustDown(this.gameControls.key_FIRE)) && this.allowShooting) {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
 			// console.log(this)
 		}
