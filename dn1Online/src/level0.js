@@ -9,6 +9,7 @@ function Level0Scene() {
 	// world layers
 	this.solidLayer = null
 	this.decorationLayer = null
+	this.heroObjLayerData = null
 	this.giftsObjLayerData = null
 	this.elevatorsObjLayerData = null
 	this.bouncerGuardsObjLayerData = null
@@ -90,7 +91,7 @@ Level0Scene.prototype.create = function() {
 
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
-	this.hero = new Hero(this, 1560, 930, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero = new Hero(this, this.heroObjLayerData[0].x, this.heroObjLayerData[0].y, this.solidLayer, this.gameControls, this.heroGun)
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {
@@ -245,6 +246,9 @@ Level0Scene.prototype.initWorld = function() {
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
 	this.solidLayer.setCollisionBetween(0, 11519)
+
+	// hero
+	this.heroObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Hero")].objects
 
 	// place translator machine
 	this.placeTranslatorObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "PlaceTranslatorMachines")].objects

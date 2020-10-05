@@ -56,6 +56,18 @@ class Controls extends Phaser.GameObjects.Group {
 		this.gunPowerTxtObj.setScrollFactor(0, 0)
 		this.gunPowerTxtObj.setDepth(102)
 
+		this.collectedPointsTxtObj = scene.add.text(
+			405,
+			54,
+			String(0),
+			{
+				fontFamily: 'Arial',
+				fontSize: 16, color: '#FFFFFF'
+			}
+		)
+		this.collectedPointsTxtObj.setScrollFactor(0, 0)
+		this.collectedPointsTxtObj.setDepth(102)
+
 		return this
 	}
 	setup() {
@@ -79,5 +91,8 @@ class Controls extends Phaser.GameObjects.Group {
 	upgradeGunPower() {
 		this.gunPowerAmount += 1
 		this.gunPowerTxtObj.setText(String(this.gunPowerAmount))
+	}
+	updatePointDsp(amount) {
+		this.collectedPointsTxtObj.setText(String(amount))
 	}
 }

@@ -334,6 +334,7 @@ class Hero extends PhysicsObj {
 
 	addPoints(points) {
 		this.collectedPointes += points
+		this.gameControls.updatePointDsp(this.collectedPointes)
 	}
 
 	addHealth(amount) {

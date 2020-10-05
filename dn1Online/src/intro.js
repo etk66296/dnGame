@@ -1076,6 +1076,76 @@ IntroScene.prototype.create = function() {
 		repeat: -1,
 		frameRate: 8
 	})
+	this.anims.create({
+		key: 'Alert',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'Alert_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 8
+	})
+	this.anims.create({
+		key: 'ArrowUp',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'ArrowUp_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 4
+	})
+	this.anims.create({
+		key: 'CmdConsole',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'CmdConsole_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 2
+	})
+	this.anims.create({
+		key: 'BlueNoise',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'BlueNoise_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'IsolatedBlueNoise',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'IsolatedBlueNoise_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'GreenFluid',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'GreenFluid_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'OrganicWall',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'OrganicWall_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
 	// <-- decoration
 	// level gate -->
 	this.anims.create({
