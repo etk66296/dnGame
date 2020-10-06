@@ -3,6 +3,8 @@ function Level0Scene() {
 	this.worldMap = null
 	this.tileset = null
 
+	// this.stopScene = false
+
 	// controls
 	this.gameControls = null
 	
@@ -125,8 +127,8 @@ Level0Scene.prototype.create = function() {
 		cam.registerAsShootable()
 	})
 	
-	// deuterium spheres
-	this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSpheresObjLayerData)
+	// // deuterium spheres
+	// this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSpheresObjLayerData)
 	
 	// crocos
 	this.crocosGroup = new Crocos(this, this.hero, this.crocosObjLayerData, this.solidLayer)
@@ -242,6 +244,9 @@ Level0Scene.prototype.create = function() {
 }
 
 Level0Scene.prototype.update = function (time, delta) {
+	// if (this.stopScene) {
+	// 	console.log('sceneStopped')
+	// }
 }
 
 Level0Scene.prototype.initWorld = function() {	

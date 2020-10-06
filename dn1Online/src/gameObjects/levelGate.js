@@ -17,12 +17,7 @@ class LevelGate extends PhysicsObj {
 			// change scene here
 			// !!!
 			this.hero.setVisible(false)
-			console.log(scene.scene)
-			// scene.scene.manager.start('LevelControlScene')
-			// scene.scene.manager.destroy('Level0Scene')
-			// scene.scene.manager.destroy()
-			scene.scene.manager.start('LevelControlScene')
-			console.log('level completed => change scene here')
+			scene.scene.manager.start('LevelControlScene', {hero: this.hero})
 		})
 	}
 	openGate() {

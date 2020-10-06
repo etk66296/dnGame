@@ -8,7 +8,8 @@ LevelControlScene.prototype = Object.create(Phaser.Scene.prototype)
 LevelControlScene.prototype.constructor = LevelControlScene
 
 LevelControlScene.prototype.init = function(data) {
-	this.innerText = data.text
+	this.hero = data.hero
+	this.scene.remove('Level0Scene')
 }
 
 LevelControlScene.prototype.preload = function () {
