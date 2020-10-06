@@ -36,6 +36,7 @@ function Level0Scene() {
 	this.needleTilesObjLayerData = null
 	this.washerBossObjLayerData = null
 	this.decoObjLayerData = null
+	this.levelGatesObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -60,6 +61,7 @@ function Level0Scene() {
 	this.glowThrowers  = []
 	this.needleTiles = null
 	this.washerBosses = []
+	this.levelGates = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -232,6 +234,9 @@ Level0Scene.prototype.create = function() {
 		this.elevators.push(new Elevator(this, elevatorData, this.hero))
 	})
 
+	// level gates
+	this.levelGates = new LevelGates(this, this.hero, this.levelGatesObjLayerData)
+
 	// camera
 	this.cameras.main.startFollow(this.hero)
 }
@@ -310,6 +315,8 @@ Level0Scene.prototype.initWorld = function() {
 	this.washerBossObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WasherBosses")].objects
 	// deco
 	this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
+	// level gates
+	this.levelGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "LevelGates")].objects
 }
 
 Level0Scene.prototype.initControls = function() {	

@@ -331,8 +331,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1216,
-                 "y":1056
+                 "x":128,
+                 "y":1392
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2789,8 +2789,39 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"LevelGates",
+         "objects":[
+                {
+                 "height":32,
+                 "id":470,
+                 "name":"LevelGate",
+                 "properties":
+                    {
+                     "anim":"LevelGate",
+                     "frame":"LevelGate_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":1392
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":470,
+ "nextobjectid":472,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

@@ -10,11 +10,11 @@ function MemoryGame() {
 				default: "arcade",
 				arcade: {
 					// gravity: { y: 300 }, // Top down game, so no gravity
-					debug: true
+					debug: false
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, Level0Scene, InfoTextScene, LogoScene, Level1Scene],
+			scene: [IntroScene, Level0Scene, InfoTextScene, LevelControlScene],
 			audio: {
         disableWebAudio: true
     	}

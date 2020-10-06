@@ -1149,42 +1149,9 @@ IntroScene.prototype.create = function() {
 	// <-- decoration
 	// level gate -->
 	this.anims.create({
-		key: 'LevelGateTL',
+		key: 'LevelGate',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
-				prefix: 'LevelGateTL_',
-				end: 6,
-				zeroPad: 4
-			}),
-		yoyo: true,
-		repeat: 0,
-		frameRate: 12
-	})
-	this.anims.create({
-		key: 'LevelGateTR',
-		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
-				prefix: 'LevelGateTR_',
-				end: 6,
-				zeroPad: 4
-			}),
-		yoyo: true,
-		repeat: 0,
-		frameRate: 12
-	})
-	this.anims.create({
-		key: 'LevelGateBL',
-		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
-				prefix: 'LevelGateBL_',
-				end: 6,
-				zeroPad: 4
-			}),
-		yoyo: true,
-		repeat: 0,
-		frameRate: 12
-	})
-	this.anims.create({
-		key: 'LevelGateBR',
-		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
-				prefix: 'LevelGateBR_',
+				prefix: 'LevelGate_',
 				end: 6,
 				zeroPad: 4
 			}),

@@ -1,27 +1,32 @@
-class LevelGateSegment extends Phaser.Physics.Arcade.Sprite {
-  constructor (scene, x, y, segmentData, hero) {
-		super(scene, x, y, 'giftsSpriteAtlas', segmentData.name + '_0000')
-		scene.add.existing(this)
-		scene.physics.add.existing(this)
+class LevelGate extends PhysicsObj {
+  constructor (scene, hero, levelGateData) {
+		super(
+			scene,
+			levelGateData.x + levelGateData.width / 2,
+			levelGateData.y + levelGateData.height / 2,
+			'giftsSpriteAtlas',
+			levelGateData.properties.frame
+		)
 		this.hero = hero
-		this.openGateAnimation = segmentData.name
-	}
-	setup () {
-		this.setImmovable(true)
+		this.levelGateData = levelGateData
 		this.setActive(true)
 		this.setVisible(true)
 		this.setDepth(-1)
-		// only one door segment must hold the level completed code
-		if (this.openGateAnimation === 'LevelGateBR') {
-			this.on('animationcomplete', () => {
-				console.log('level completed => change scene here')
-				this.hero.setVisible(false)
-			})
-		}
+		this.on('animationcomplete', () => {
+			// !!!
+			// change scene here
+			// !!!
+			this.hero.setVisible(false)
+			console.log(scene.scene)
+			// scene.scene.manager.start('LevelControlScene')
+			// scene.scene.manager.destroy('Level0Scene')
+			// scene.scene.manager.destroy()
+			scene.scene.manager.start('LevelControlScene')
+			console.log('level completed => change scene here')
+		})
 	}
-
 	openGate() {
-		this.play(this.openGateAnimation)
+		this.play(this.levelGateData.properties.anim)
 	}
 
 	preUpdate (time, delta) {
@@ -29,27 +34,25 @@ class LevelGateSegment extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 
-class LevelGate extends Phaser.Physics.Arcade.Group {
-  constructor (scene, levelGateData, hero, key_USE, touch_USE) {
+class LevelGates extends Phaser.Physics.Arcade.Group {
+  constructor (scene, hero, levelGatesData) {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		this.levelComplete = false
-		this.key_USE = key_USE
-		this.touch_USE = touch_USE
-		levelGateData.forEach((levelGateSegmentData) => {
-			this.add(new LevelGateSegment(scene, levelGateSegmentData.x + 8, levelGateSegmentData.y + 8, levelGateSegmentData, hero))
+		levelGatesData.forEach((levelGateData) => {
+			this.add(new LevelGate(scene, hero, levelGateData))
 		})
-	}
-	setup () {
-		this.scene.physics.add.overlap(this.hero, this, () => {
-			if (!this.levelComplete) {
-				if (this.key_USE.isDown || this.touch_USE.isDown) {
-					this.levelComplete = true
-					this.children.iterate((doorSegment) => {
-						doorSegment.openGate()
-					})
+		this.children.iterate((gate) => {
+			gate.setImmovable(true)
+			// hero is allowed to open the door
+			scene.physics.add.overlap(this.hero, gate, () => {
+				if (!this.levelComplete) {
+					if (this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) {
+						this.levelComplete = true
+						gate.openGate()
+					}
 				}
-			}
+			})
 		})
 	}
 }
