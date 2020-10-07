@@ -94,7 +94,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="128" y="1392" width="16" height="32"/>
+  <object id="461" name="Hero" x="192" y="1392" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="98" name="Spike" x="912" y="1184" width="16" height="16"/>
@@ -321,21 +321,21 @@
     <property name="points" type="int" value="500"/>
    </properties>
   </object>
-  <object id="176" name="MultiHand" type="unpacked" x="1440" y="976" width="16" height="16">
+  <object id="176" name="MultiHand" type="unpacked" x="112" y="1408" width="16" height="16">
    <properties>
     <property name="anim" value="MultiHand"/>
     <property name="frame" value="MultiHand_0000"/>
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="177" name="DangleClaw" type="unpacked" x="848" y="1040" width="16" height="16">
+  <object id="177" name="DangleClaw" type="unpacked" x="160" y="1408" width="16" height="16">
    <properties>
     <property name="anim" value="DangleClaw"/>
     <property name="frame" value="DangleClaw_0000"/>
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="178" name="HighJumpShoe" type="unpacked" x="208" y="224" width="16" height="16">
+  <object id="178" name="HighJumpShoe" type="unpacked" x="144" y="1408" width="16" height="16">
    <properties>
     <property name="anim" value="HighJumpShoe"/>
     <property name="frame" value="HighJumpShoe_0000"/>
@@ -349,7 +349,7 @@
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="200" name="GunUpgrade" type="unpacked" x="1888" y="1184" width="16" height="16">
+  <object id="200" name="GunUpgrade" type="unpacked" x="128" y="1408" width="16" height="16">
    <properties>
     <property name="anim" value="GunUpgrade"/>
     <property name="frame" value="GunUpgrade_0000"/>

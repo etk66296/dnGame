@@ -26,7 +26,8 @@ IntroScene.prototype.preload = function () {
 
 	// MAPS
 	this.load.tilemapTiledJSON("level0map", "assets/maps/dn1MapTutorial.json")
-	this.load.tilemapTiledJSON("level1map", "assets/maps/dn1MapLevel1.json")
+	this.load.tilemapTiledJSON("maLlevelCtrl", "assets/maps/dn1MapLevelCtrl.json")
+	// this.load.tilemapTiledJSON("level1map", "assets/maps/dn1MapLevel1.json")
 
 	// SPRITESHEETS
 	this.load.atlas('heroSpriteAtlas', 'assets/sprites/Hero.png', 'assets/sprites/Hero.json')

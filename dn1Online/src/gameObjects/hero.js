@@ -19,10 +19,15 @@ class Hero extends PhysicsObj {
 		this.setBounce(0.0)
 		this.setDepth(1)
 		this.scene.physics.add.collider(this, this.solidLayer)
-		this.allowDangling = false
-		this.allowShooting = true
+		
+		// collected equipment
 		this.hasDangleClaws = false
 		this.hasMultiHand = false
+		this.hasHighJumpShoe = false
+		this.numOfGunUps = 1
+
+		this.allowDangling = false
+		this.allowShooting = true
 		this.movementAllowed = true
 		this.collectedKeyIds = []
 		this.equipment = { nextPosIndex: 0, positions: [
@@ -357,12 +362,12 @@ class Hero extends PhysicsObj {
 		} else if (equipmentObj.name === 'MultiHand') {
 			this.hasMultiHand = true
 		} else if (equipmentObj.name === 'GunUpgrade') {
+			this.numOfGunUps += 1
 			this.gameControls.upgradeGunPower()
 			this.gun.upgradeGunPower()
 		} else if (equipmentObj.name === 'HighJumpShoe') {
-			console.log('jump power up')
-			this.jumpPower -= 50
-			this.jumpSpeed -= 25
+			this.hasHighJumpShoe = true
+			this.upgradeJumpPower()
 		} else if ((equipmentObj.keysNGatesType !== undefined)) {
 			if (equipmentObj.keysNGatesType === 'Key') {
 				this.collectedKeyIds.push(equipmentObj.keyID)
@@ -370,6 +375,11 @@ class Hero extends PhysicsObj {
 		}
 	}
 
+	upgradeJumpPower() {
+		this.jumpPower -= 50
+		this.jumpSpeed -= 25
+	}
+	
 	hasKey(keyID) {
 		let returnVal = false
 		this.collectedKeyIds.forEach(id => {
@@ -380,7 +390,7 @@ class Hero extends PhysicsObj {
 		return returnVal
 	}
 
-	updateHealthBlock = function() {
+	updateHealthBlock() {
 		if (this.heroPainState) {
 			this.heroPainStopWatch += delta
 		}
@@ -396,5 +406,56 @@ class Hero extends PhysicsObj {
 				healthBlock.setVisible(true)
 			}
 		})
+	}
+
+	resetEquipment() {
+		this.equipment.nextPosIndex = 0
+		if (this.hasHighJumpShoe) {
+			let highJumpShow = this.scene.add.sprite(
+				this.equipment.positions[this.equipment.nextPosIndex].x,
+				this.equipment.positions[this.equipment.nextPosIndex].y,
+				'giftsSpriteAtlas',
+				'HighJumpShoe_0000'
+			)
+			highJumpShow.setDepth(102)
+			highJumpShow.setScrollFactor(0)
+			this.equipment.nextPosIndex += 1
+			this.upgradeJumpPower()
+		}
+		if (this.hasDangleClaws) {
+			let hasDangleClaws = this.scene.add.sprite(
+				this.equipment.positions[this.equipment.nextPosIndex].x,
+				this.equipment.positions[this.equipment.nextPosIndex].y,
+				'giftsSpriteAtlas',
+				'DangleClaw_0000'
+			)
+			hasDangleClaws.setDepth(102)
+			hasDangleClaws.setScrollFactor(0)
+			this.equipment.nextPosIndex += 1
+		}
+		if (this.hasMultiHand) {
+			let hasMultiHand = this.scene.add.sprite(
+				this.equipment.positions[this.equipment.nextPosIndex].x,
+				this.equipment.positions[this.equipment.nextPosIndex].y,
+				'giftsSpriteAtlas',
+				'MultiHand_0000'
+			)
+			hasMultiHand.setDepth(102)
+			hasMultiHand.setScrollFactor(0)
+			this.equipment.nextPosIndex += 1
+		}
+		for (let i = 1; i < this.numOfGunUps; i++) {
+			let gunPowerUp = this.scene.add.sprite(
+				this.equipment.positions[this.equipment.nextPosIndex].x,
+				this.equipment.positions[this.equipment.nextPosIndex].y,
+				'giftsSpriteAtlas',
+				'GunUpgrade_0000'
+			)
+			gunPowerUp.setDepth(102)
+			gunPowerUp.setScrollFactor(0)
+			this.equipment.nextPosIndex += 1
+			this.gameControls.upgradeGunPower()
+			this.gun.upgradeGunPower()
+		}
 	}
 }
