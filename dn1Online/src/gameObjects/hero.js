@@ -20,7 +20,15 @@ class Hero extends PhysicsObj {
 		this.setDepth(1)
 		this.scene.physics.add.collider(this, this.solidLayer)
 		
-		// collected equipment
+		// collected equipment and level information
+		this.nextLevelData = {
+			key: 0,
+			mapData: '',
+			numOfTiles: 0,
+			lastScene: ''
+		} 
+		
+		this.currentLevelId = 0
 		this.hasDangleClaws = false
 		this.hasMultiHand = false
 		this.hasHighJumpShoe = false

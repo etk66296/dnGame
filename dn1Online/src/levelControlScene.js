@@ -1,7 +1,6 @@
 function LevelControlScene() {
 	Phaser.Scene.call(this, 'LevelControlScene')
 	this.heroData = null
-	this.nextLevelId = -1
 
 	// hud and controls
 	this.headUpDsp = null
@@ -25,13 +24,20 @@ LevelControlScene.prototype = Object.create(Phaser.Scene.prototype)
 LevelControlScene.prototype.constructor = LevelControlScene
 
 LevelControlScene.prototype.init = function(data) {
-	console.log(data)
+	// safe the hero data to cookies, thus the user is able to restore the current level
+	document.cookie = "dn1SaveGameData=" + JSON.stringify(data) + "; samesite=strict"
 	this.heroData = data
-	this.scene.remove('Level0Scene')
-	this.initWorld()
+	// this.scene.remove('Level0Scene')
 }
 
 LevelControlScene.prototype.preload = function () {
+	this.heroData.currentLevelId += 1
+	this.levelData = this.preloadWorldData(this.heroData.currentLevelId) // load the next level json data
+}
+
+LevelControlScene.prototype.create = function() {
+	// create the nex world
+	this.createWorld(this.levelData)
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -50,6 +56,13 @@ LevelControlScene.prototype.preload = function () {
 	this.hero.hasDangleClaws = this.heroData.hasDangleClaws
 	this.hero.hasMultiHand = this.heroData.hasMultiHand
 	this.hero.numOfGunUps = this.heroData.numOfGunUps
+	this.hero.currentLevelId = this.heroData.currentLevelId
+	this.hero.nextLevelData = {
+		key: this.levelData.key,
+		mapData: this.levelData.mapData,
+		numOfTiles: this.levelData.numOfTiles,
+		lastScene: this.levelData.lastScene
+	} 
 	this.hero.resetEquipment()
 
 	// level gates
@@ -59,20 +72,37 @@ LevelControlScene.prototype.preload = function () {
 	this.cameras.main.startFollow(this.hero)
 }
 
-LevelControlScene.prototype.create = function() {
-	
-}
-
 LevelControlScene.prototype.update = function() {
 }
 
-LevelControlScene.prototype.initWorld = function() {	
+LevelControlScene.prototype.preloadWorldData = function(levelID) {
+	switch (levelID) {
+		case 1: {
+			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel1City',
+				numOfTiles: 127 * 89,
+				lastScene: 'LevelControlScene'
+			} 
+		}
+		case 2: {
+			
+		}
+		default: {
+			this.worldMap = this.make.tilemap({ key: "maplevelCtrl" })
+		}
+	}
+	return null
+}
+
+LevelControlScene.prototype.createWorld = function() {	
 	// map
-	this.worldMap = this.make.tilemap({ key: "maLlevelCtrl" })
+	this.worldMap = this.make.tilemap({key: 'maplevelCtrl'})
 	this.tileset = this.worldMap.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
-	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
-	this.solidLayer.setCollisionBetween(0, 1388)
+	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset)
+	this.solidLayer.setCollisionBetween(0, 64 * 32)
 
 	// hero
 	this.heroObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Hero")].objects

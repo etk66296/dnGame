@@ -2796,16 +2796,18 @@
          "objects":[
                 {
                  "height":32,
-                 "id":470,
+                 "id":472,
                  "name":"LevelGate",
                  "properties":
                     {
-                     "anim":"LevelGate",
-                     "frame":"LevelGate_0000"
+                     "animA":"LevelGateOpen",
+                     "animB":"LevelGateClose",
+                     "frame":"LevelGateOpen_0000"
                     },
                  "propertytypes":
                     {
-                     "anim":"string",
+                     "animA":"string",
+                     "animB":"string",
                      "frame":"string"
                     },
                  "rotation":0,
@@ -2821,7 +2823,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":472,
+ "nextobjectid":473,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

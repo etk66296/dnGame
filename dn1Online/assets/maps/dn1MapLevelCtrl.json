@@ -55,12 +55,14 @@
                  "name":"LevelGate",
                  "properties":
                     {
-                     "anim":"LevelGate",
-                     "frame":"LevelGate_0000"
+                     "animA":"LevelGateOpen",
+                     "animB":"LevelGateClose",
+                     "frame":"LevelGateOpen_0000"
                     },
                  "propertytypes":
                     {
-                     "anim":"string",
+                     "animA":"string",
+                     "animB":"string",
                      "frame":"string"
                     },
                  "rotation":0,

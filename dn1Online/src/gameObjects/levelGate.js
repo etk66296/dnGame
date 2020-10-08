@@ -16,18 +16,29 @@ class LevelGate extends PhysicsObj {
 			// !!!
 			// change scene here
 			// !!!
-			this.hero.setVisible(false)
-			scene.scene.manager.start('LevelControlScene', {
-				points: this.hero.collectedPointes,
-				hasHighJumpShoe: this.hero.hasHighJumpShoe,
-				hasDangleClaws: this.hero.hasDangleClaws,
-				hasMultiHand: this.hero.hasMultiHand,
-				numOfGunUps: this.hero.numOfGunUps
-			})
+			if (this.anims.currentAnim.key === this.levelGateData.properties.animA) {
+				this.hero.setVisible(false)
+				this.play(this.levelGateData.properties.animB)
+			} else {
+				scene.scene.manager.start(this.hero.nextLevelData.key , {
+					points: this.hero.collectedPointes,
+					hasHighJumpShoe: this.hero.hasHighJumpShoe,
+					hasDangleClaws: this.hero.hasDangleClaws,
+					hasMultiHand: this.hero.hasMultiHand,
+					numOfGunUps: this.hero.numOfGunUps,
+					levelData: {
+						key: this.hero.nextLevelData.key,
+						mapData: this.hero.nextLevelData.mapData,
+						numOfTiles: this.hero.nextLevelData.numOfTiles,
+						lastScene: this.hero.nextLevelData.lastScene
+					},
+					currentLevelId: this.hero.currentLevelId
+				})
+			}
 		})
 	}
 	openGate() {
-		this.play(this.levelGateData.properties.anim)
+		this.play(this.levelGateData.properties.animA)
 	}
 
 	preUpdate (time, delta) {

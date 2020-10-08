@@ -25,8 +25,8 @@ IntroScene.prototype.preload = function () {
 
 
 	// MAPS
-	this.load.tilemapTiledJSON("level0map", "assets/maps/dn1MapTutorial.json")
-	this.load.tilemapTiledJSON("maLlevelCtrl", "assets/maps/dn1MapLevelCtrl.json")
+	this.load.tilemapTiledJSON("maplevelCtrl", "assets/maps/dn1MapLevelCtrl.json")
+	// this.load.tilemapTiledJSON("level0map", "assets/maps/dn1MapTutorial.json")
 	// this.load.tilemapTiledJSON("level1map", "assets/maps/dn1MapLevel1.json")
 
 	// SPRITESHEETS
@@ -1150,13 +1150,22 @@ IntroScene.prototype.create = function() {
 	// <-- decoration
 	// level gate -->
 	this.anims.create({
-		key: 'LevelGate',
+		key: 'LevelGateOpen',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
-				prefix: 'LevelGate_',
+				prefix: 'LevelGateOpen_',
 				end: 6,
 				zeroPad: 4
 			}),
-		yoyo: true,
+		repeat: 0,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'LevelGateClose',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'LevelGateClose_',
+				end: 6,
+				zeroPad: 4
+			}),
 		repeat: 0,
 		frameRate: 12
 	})
@@ -1184,7 +1193,14 @@ IntroScene.prototype.update = function (time, delta) {
 	if (this.elapsedIntroTime > this.introDelay) {
 		this.scene.stop('IntroScene')
 		// this.scene.start('LogoScene',  { doRestart: false })
-		this.scene.start('Level0Scene')
+		this.scene.start('LevelControlScene', {
+			points: 0,
+			hasHighJumpShoe: false,
+			hasDangleClaws: false,
+			hasMultiHand: false,
+			numOfGunUps: 0,
+			currentLevelId: 0
+		})
 	}
 	this.elapsedIntroTime += delta
 }

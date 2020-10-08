@@ -19,8 +19,9 @@
  <objectgroup name="LevelGates">
   <object id="1" name="LevelGate" x="640" y="256" width="32" height="32">
    <properties>
-    <property name="anim" value="LevelGate"/>
-    <property name="frame" value="LevelGate_0000"/>
+    <property name="animA" value="LevelGateOpen"/>
+    <property name="animB" value="LevelGateClose"/>
+    <property name="frame" value="LevelGateOpen_0000"/>
    </properties>
   </object>
  </objectgroup>

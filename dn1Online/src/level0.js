@@ -73,16 +73,18 @@ Level0Scene.prototype.preload = function () {
 	// all preloads are done in the intro scene
 }
 
-Level0Scene.prototype.init = function () {
-	this.initWorld()
+Level0Scene.prototype.init = function (data) {
+	this.heroData = data
+	this.scene.manager.stop(this.heroData.levelData.lastScene)
 }
 
 Level0Scene.prototype.create = function() {
-	// background
-	this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
-	this.stuttgart.setOrigin(0)
-	this.stuttgart.setDepth(-100)
-	this.stuttgart.setScrollFactor(0.15, 0.1)
+	this.createWorld(this.heroData.levelData)
+	// // background
+	// this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
+	// this.stuttgart.setOrigin(0)
+	// this.stuttgart.setDepth(-100)
+	// this.stuttgart.setScrollFactor(0.15, 0.1)
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -249,13 +251,14 @@ Level0Scene.prototype.update = function (time, delta) {
 	// }
 }
 
-Level0Scene.prototype.initWorld = function() {	
+Level0Scene.prototype.createWorld = function(worldData) {	
 	// map
-	this.worldMap = this.make.tilemap({ key: "level0map" })
+	console.log(worldData)
+	this.worldMap = this.make.tilemap({ key: worldData.mapData })
 	this.tileset = this.worldMap.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)
 	this.solidLayer = this.worldMap.createStaticLayer("Solid", this.tileset) //, 0, 0)
-	this.solidLayer.setCollisionBetween(0, 11519)
+	this.solidLayer.setCollisionBetween(0, worldData.numOfTiles)
 
 	// hero
 	this.heroObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Hero")].objects
