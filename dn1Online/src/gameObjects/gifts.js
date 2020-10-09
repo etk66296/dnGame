@@ -177,6 +177,7 @@ class HealthUpGift extends GiftObj {
 		// if packed => pack it
 		if (giftData.type === "packed") {
 			this.setActive(false)
+			this.setVisible(false)
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
@@ -205,6 +206,25 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 				this.add(new JustCollectGift(scene, hero, giftData))
 			}
 		})
-		scene.physics.add.collider(this, solidLayer)
+		// scene.physics.add.collider(this, solidLayer)
+		this.children.iterate(mygift => {
+			if (mygift.box !== null) {
+				scene.physics.add.collider(mygift.box, solidLayer, () => {
+					mygift.setVisible(true)
+					mygift.setPosition(mygift.box.x, mygift.box.y)
+				})
+				if (mygift.giftData.properties.gravity) {
+					mygift.box.setGravityY(300)
+				} else {
+					// this is neseccary, cause without gravity no collision, no collision no collider event
+					mygift.setVisible(true)
+					mygift.setPosition(mygift.box.x, mygift.box.y)
+				}
+			} // unboxed gifts are also allowed to get gravity
+			else if (mygift.giftData.properties.gravity) {
+				scene.physics.add.collider(mygift, solidLayer)
+				mygift.setGravityY(300)
+			}
+		})
 	}
 }
