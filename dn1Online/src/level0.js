@@ -98,6 +98,14 @@ Level0Scene.prototype.create = function() {
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
 	this.hero = new Hero(this, this.heroObjLayerData[0].x, this.heroObjLayerData[0].y, this.solidLayer, this.gameControls, this.heroGun)
+
+	// define the data for changing the scene to the next level
+	this.hero.nextLevelData = {
+		key: 'LevelControlScene',
+		mapData: 'maplevelCtrl',
+		numOfTiles: 64 * 32,
+		lastScene: 'Level0Scene'
+	} 
 	
 	// place translator machine
 	this.placeTranslatorObjLayerData.forEach(pTData => {

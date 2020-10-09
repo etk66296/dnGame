@@ -1199,6 +1199,12 @@ IntroScene.prototype.update = function (time, delta) {
 			hasDangleClaws: false,
 			hasMultiHand: false,
 			numOfGunUps: 0,
+			levelData: {
+				key: '',
+				mapData: '',
+				numOfTiles: '',
+				lastScene: 'INTRO'
+			},
 			currentLevelId: 0
 		})
 	}

@@ -26,6 +26,10 @@ LevelControlScene.prototype.constructor = LevelControlScene
 LevelControlScene.prototype.init = function(data) {
 	// safe the hero data to cookies, thus the user is able to restore the current level
 	document.cookie = "dn1SaveGameData=" + JSON.stringify(data) + "; samesite=strict"
+	console.log(data, this.scene)
+	if (data.levelData.lastScene !== 'INTRO') {
+		this.scene.manager.stop(data.levelData.lastScene)
+	}
 	this.heroData = data
 	// this.scene.remove('Level0Scene')
 }

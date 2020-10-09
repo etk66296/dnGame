@@ -829,8 +829,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="LevelGates" visible="0">
-  <object id="472" name="LevelGate" x="1328" y="592" width="32" height="32">
+ <objectgroup name="LevelGates">
+  <object id="472" name="LevelGate" x="1408" y="448" width="32" height="32">
    <properties>
     <property name="animA" value="LevelGateOpen"/>
     <property name="animB" value="LevelGateClose"/>

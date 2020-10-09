@@ -22,7 +22,7 @@ class Hero extends PhysicsObj {
 		
 		// collected equipment and level information
 		this.nextLevelData = {
-			key: 0,
+			key: '',
 			mapData: '',
 			numOfTiles: 0,
 			lastScene: ''
