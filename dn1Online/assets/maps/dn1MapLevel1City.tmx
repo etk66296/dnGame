@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="575">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="642">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -547,7 +547,7 @@
     <property name="pointsB" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="573" name="FullPowerUp" type="unpacked" x="960" y="400" width="16" height="16">
+  <object id="573" name="FullPowerUp" type="unpacked" x="1568" y="592" width="16" height="16">
    <properties>
     <property name="animA" value="FullPowerUp"/>
     <property name="animB" value="FullPowerUp"/>
@@ -559,6 +559,614 @@
     <property name="healthB" type="int" value="10"/>
     <property name="pointsA" type="int" value="1000"/>
     <property name="pointsB" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="575" name="FullPowerUp" type="unpacked" x="1968" y="944" width="16" height="16">
+   <properties>
+    <property name="animA" value="FullPowerUp"/>
+    <property name="animB" value="FullPowerUp"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value="FullPowerUp_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="healthA" type="int" value="10"/>
+    <property name="healthB" type="int" value="10"/>
+    <property name="pointsA" type="int" value="1000"/>
+    <property name="pointsB" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="578" name="FloppyDisk" type="unpacked" x="1008" y="464" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="579" name="FloppyDisk" type="packed" x="976" y="432" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="580" name="FloppyDisk" type="packed" x="1024" y="464" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="581" name="FloppyDisk" type="unpacked" x="1888" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="582" name="FloppyDisk" type="unpacked" x="1904" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="583" name="FloppyDisk" type="unpacked" x="1920" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="584" name="FloppyDisk" type="unpacked" x="1936" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="585" name="FloppyDisk" type="unpacked" x="1952" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="586" name="FloppyDisk" type="unpacked" x="1968" y="1008" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="587" name="FloppyDisk" type="unpacked" x="1792" y="864" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="588" name="FloppyDisk" type="unpacked" x="1776" y="864" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="589" name="FloppyDisk" type="unpacked" x="1472" y="1056" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="590" name="FloppyDisk" type="unpacked" x="1488" y="624" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="591" name="FloppyDisk" type="packed" x="816" y="368" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Joystick_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="2000"/>
+   </properties>
+  </object>
+  <object id="592" name="FloppyDisk" type="packed" x="224" y="480" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Joystick_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="2000"/>
+   </properties>
+  </object>
+  <object id="593" name="FloppyDisk" type="unpacked" x="256" y="368" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Joystick_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="2000"/>
+   </properties>
+  </object>
+  <object id="594" name="FloppyDisk" type="unpacked" x="864" y="944" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Joystick_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="2000"/>
+   </properties>
+  </object>
+  <object id="595" name="FloppyDisk" type="unpacked" x="1504" y="992" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="596" name="FloppyDisk" type="packed" x="816" y="992" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="597" name="FloppyDisk" type="packed" x="576" y="944" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="598" name="FloppyDisk" type="packed" x="1280" y="896" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="600" name="Radio" type="unpacked" x="784" y="384" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="601" name="Radio" type="unpacked" x="944" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="602" name="Radio" type="unpacked" x="896" y="768" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="603" name="Radio" type="unpacked" x="896" y="688" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="605" name="Radio" type="unpacked" x="800" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="606" name="Radio" type="unpacked" x="848" y="608" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="607" name="Radio" type="unpacked" x="768" y="608" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="608" name="Radio" type="unpacked" x="784" y="736" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="609" name="Radio" type="unpacked" x="736" y="752" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="610" name="Radio" type="unpacked" x="1104" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="611" name="Radio" type="unpacked" x="1120" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="612" name="Radio" type="unpacked" x="1136" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="613" name="Radio" type="unpacked" x="1152" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="614" name="Radio" type="unpacked" x="1168" y="976" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="615" name="Radio" type="packed" x="1552" y="1104" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="616" name="Football" type="packed" x="384" y="464" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="617" name="Radio" type="unpacked" x="352" y="512" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="618" name="Radio" type="unpacked" x="384" y="512" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="619" name="Radio" type="unpacked" x="416" y="624" width="16" height="16">
+   <properties>
+    <property name="animA" value="Radio"/>
+    <property name="animB" value="Radio"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Radio_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="620" name="Football" type="unpacked" x="144" y="704" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="629" name="Football" type="unpacked" x="160" y="704" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="630" name="Football" type="unpacked" x="176" y="704" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="631" name="Football" type="unpacked" x="192" y="704" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="632" name="Football" type="unpacked" x="208" y="704" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="633" name="Football" type="unpacked" x="1328" y="400" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="634" name="Football" type="unpacked" x="1360" y="400" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="635" name="Football" type="unpacked" x="1392" y="400" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="636" name="Football" type="unpacked" x="1712" y="736" width="16" height="16">
+   <properties>
+    <property name="animA" value="Football"/>
+    <property name="animB" value="Football"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Football_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="637" name="Flag" type="packed" x="592" y="272" width="16" height="16">
+   <properties>
+    <property name="animA" value="Flag"/>
+    <property name="animB" value="Flag"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Flag_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="638" name="Flag" type="packed" x="624" y="288" width="16" height="16">
+   <properties>
+    <property name="animA" value="Flag"/>
+    <property name="animB" value="Flag"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Flag_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="639" name="Flag" type="packed" x="560" y="272" width="16" height="16">
+   <properties>
+    <property name="animA" value="Flag"/>
+    <property name="animB" value="Flag"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Flag_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="640" name="Flag" type="packed" x="512" y="272" width="16" height="16">
+   <properties>
+    <property name="animA" value="Flag"/>
+    <property name="animB" value="Flag"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Flag_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="641" name="Flag" type="packed" x="464" y="304" width="16" height="16">
+   <properties>
+    <property name="animA" value="Flag"/>
+    <property name="animB" value="Flag"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="Flag_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="500"/>
    </properties>
   </object>
  </objectgroup>

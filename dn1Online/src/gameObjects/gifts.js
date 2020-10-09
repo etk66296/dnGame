@@ -34,16 +34,20 @@ class JustCollectGift extends GiftObj {
 			this.hero.addPoints(this.giftData.properties.points)
 			// this.setActive(false)
 			this.play('Points' + String(giftData.properties.points))
+			this.setGravityY(0)
+			this.body.checkCollision.none = true // none collision must be set to lift up the point flyer
 			this.setVelocityY(-10)
+			console.log('warum null', this)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)
 			this.isCollected = true
 		})
 		if (giftData.properties.anim !== "") {
-			this.play(giftData.properties.anim)
+			this.play(giftData.properties.animA)
 		}
 		// if packed => pack it
 		if (giftData.type === "packed") {
 			this.setActive(false)
+			this.setVisible(false)
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
@@ -140,6 +144,8 @@ class HealthUpGift extends GiftObj {
 				this.play('Points' + String(giftData.properties.pointsA))
 				scene.physics.world.removeCollider(this.shootableGiftEvent)
 				this.isCollected = true
+				this.setGravityY(0)
+				this.body.checkCollision.none = true // none collision must be set to lift up the point flyer
 				if (this.name === 'ColaTin') {
 					this.setVelocityY(-20) // the tin itself
 				}
