@@ -261,7 +261,6 @@ Level0Scene.prototype.update = function (time, delta) {
 
 Level0Scene.prototype.createWorld = function(worldData) {	
 	// map
-	console.log(worldData)
 	this.worldMap = this.make.tilemap({ key: worldData.mapData })
 	this.tileset = this.worldMap.addTilesetImage("TilesNoTileBleeding", "TilesNoTileBleeding")
 	this.decorationLayer = this.worldMap.createStaticLayer("Decoration", this.tileset)

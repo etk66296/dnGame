@@ -37,7 +37,6 @@ class JustCollectGift extends GiftObj {
 			this.setGravityY(0)
 			this.body.checkCollision.none = true // none collision must be set to lift up the point flyer
 			this.setVelocityY(-10)
-			console.log('warum null', this)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)
 			this.isCollected = true
 		})
@@ -95,6 +94,8 @@ class FragileGift extends GiftObj {
 				this.hero.addPoints(giftData.properties.pointsB)
 				this.play('Points' + String(giftData.properties.pointsB))
 			}
+			this.setGravityY(0)
+			this.body.checkCollision.none = true // none collision must be set to lift up the point flyer
 			this.setVelocityY(-10)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)
 			scene.physics.world.removeCollider(this.shootableGiftEvent)
@@ -122,6 +123,7 @@ class FragileGift extends GiftObj {
 		// if packed => pack it
 		if (giftData.type === "packed") {
 			this.setActive(false)
+			this.setVisible(false)
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}

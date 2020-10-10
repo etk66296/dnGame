@@ -13,8 +13,8 @@ class Hero extends PhysicsObj {
 		this.lastDir = 1
 		this.collectedPointes = 0
 		this.setName('hero')
-		this.body.setSize(12, 30, true)
-		this.body.setOffset(9, 2)
+		this.body.setSize(10, 30, true)
+		this.body.setOffset(10, 2)
 		this.setGravityY(300)
 		this.setBounce(0.0)
 		this.setDepth(1)
