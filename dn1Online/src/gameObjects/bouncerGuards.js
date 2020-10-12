@@ -15,12 +15,15 @@ class BouncerGuards extends Phaser.GameObjects.Group {
 		this.trapBouncerGuards = []
 		// <-- special guards
 		bouncerData.forEach((bouncer, index) => {
-			let tmpGuard = this.add(new BouncerGuard(scene, bouncerData[index]))
-			// if (bouncer.type === "Trapguard") {
-			// 	this.trapBouncerGuards.push(tmpGuard)
-			// }
+			this.add(new BouncerGuard(scene, bouncerData[index]))
 		})
-
+		this.children.iterate(guard => {
+			if (guard.worldData.type === "Trapguard") {
+				guard.setActive(false)
+				guard.body.checkCollision.none = true
+				this.trapBouncerGuards.push(guard)
+			}
+		})
 		colliderGroups.forEach(bounceGroup => {
 			// run trough the guard goups and append colliders with corresponding guard ids
 			bounceGroup.children.iterate(bouncer => { // loop trough the game objects (crocos, minirobots, ...)

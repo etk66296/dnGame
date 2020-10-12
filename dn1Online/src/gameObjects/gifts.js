@@ -1,3 +1,28 @@
+class EmptyBox extends PhysicsObj {
+	constructor (scene, hero, boxData) {
+		super(scene, boxData.x + 8, boxData.y + 8, 'giftsSpriteAtlas', boxData.properties.boxframe)
+		this.body.setSize(16, 18, true)
+		this.hero = hero
+		this.giftData = boxData
+		this.box = null
+		// after the box explode remove the sprite
+		this.boxAnimCompleteEvent = this.on('animationcomplete', () => {
+			this.body.reset(-100, -100)
+			this.setActive(false)
+			this.setVisible(false)
+			scene.physics.world.removeCollider(this.boxAnimCompleteEvent)
+		})
+		// register box as shootable
+		this.shootableBoxEvent = this.scene.physics.add.overlap(this, hero.gun, (box, bullet) => {
+			this.hero.addPoints(boxData.properties.points) // open a box points
+			bullet.explode()
+			this.body.checkCollision.none = true
+			this.play(boxData.properties.boxanim)
+			scene.physics.world.removeCollider(this.shootableBoxEvent)
+		})
+	}
+}
+
 class GiftBox extends PhysicsObj {
 	constructor (scene, hero, x, y, gift) {
 		super(scene, x, y, 'giftsSpriteAtlas', gift.giftData.properties.boxframe)
@@ -208,9 +233,11 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 								giftData.name === 'MultiHand' ||
 								giftData.name === 'GunUpgrade') {
 				this.add(new SpecialGift(scene, hero, giftData))
+			} else if(giftData.name === 'EmptyBox') {
+				this.add(new EmptyBox(scene, hero, giftData))
 			} else if(giftData.name === 'Balloon') {
 				this.add(new FragileGift(scene, hero, giftData))
-			} else {
+			}	else {
 				this.add(new JustCollectGift(scene, hero, giftData))
 			}
 		})

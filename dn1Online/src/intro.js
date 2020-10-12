@@ -611,19 +611,41 @@ IntroScene.prototype.create = function() {
 		key: 'FallingTrapSegmentL',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'TrapSegmentL_',
-				end: 8,
+				end: 9,
 				zeroPad: 4
 			}),
 		repeat: 0,
-		frameRate: 12
+		frameRate: 8
 	})
 	this.anims.create({
 		key: 'FallingTrapSegmentR',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
 				prefix: 'TrapSegmentR_',
-				end: 8,
+				end: 9,
 				zeroPad: 4
 			}),
+		repeat: 0,
+		frameRate: 8
+	})
+	this.anims.create({
+		key: 'SwingingTrapSegmentL',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'TrapSegmentL_',
+				end: 3,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: 0,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'SwingingTrapSegmentR',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'TrapSegmentR_',
+				end: 3,
+				zeroPad: 4
+			}),
+		yoyo: true,
 		repeat: 0,
 		frameRate: 12
 	})
@@ -1172,9 +1194,20 @@ IntroScene.prototype.create = function() {
 	// <-- level gate
 	// enemies -->
 	this.anims.create({
-		key: 'SpikeBottomUp',
+		key: 'SpikeUp',
 		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
-				prefix: 'SpikeBottomUp_',
+				prefix: 'SpikeUp_',
+				end: 18,
+				zeroPad: 4
+			}),
+		// delay: Phaser.Math.Between(0, 2000),
+		repeat: 0,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'SpikeDown',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'SpikeDown_',
 				end: 18,
 				zeroPad: 4
 			}),

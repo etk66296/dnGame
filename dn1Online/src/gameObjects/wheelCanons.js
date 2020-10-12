@@ -8,6 +8,7 @@ class WheelCanon extends EnemyObj {
 			'enemiesSpriteAtlas',
 			wheelCanonData.properties.frame
 		)
+		this.worldData = wheelCanonData
 		this.wheelCanonData = wheelCanonData
 		this.points = wheelCanonData.properties.points
 		this.lifes = 2
@@ -16,7 +17,8 @@ class WheelCanon extends EnemyObj {
 		this.enemyBullets = enemyBullets
 		this.constFireDeltaTime = 1500
 		this.fireElapsedTime = 0
-		this.setSize(32, 17)
+		this.setSize(32, 16)
+		this.setOffset(0, -1)
 	}
 	
 	preUpdate (time, delta) {
@@ -24,9 +26,9 @@ class WheelCanon extends EnemyObj {
 		if (this.body.velocity.x === 0) {
 			this.lastDir *= -1
 			if (this.lastDir === -1) {
-				this.play(this.wheelCanonData.properties.animL)
+				this.play(this.worldData.properties.animL)
 			} else {
-				this.play(this.wheelCanonData.properties.animR)
+				this.play(this.worldData.properties.animR)
 			}
 			this.setVelocityX(this.lastDir * this.definedVelocity)
 		}

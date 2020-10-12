@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="794">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="854">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -75,81 +75,7 @@
   <object id="478" name="CyberWindow" x="864" y="544" width="16" height="16">
    <properties>
     <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="479" name="CyberWindow" x="880" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="480" name="CyberWindow" x="896" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="481" name="CyberWindow" x="912" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="482" name="CyberWindow" x="928" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="483" name="CyberWindow" x="944" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="484" name="CyberWindow" x="960" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="485" name="CyberWindow" x="976" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="486" name="CyberWindow" x="992" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="487" name="CyberWindow" x="1008" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="488" name="CyberWindow" x="1024" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="489" name="CyberWindow" x="1040" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="490" name="CyberWindow" x="1056" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="491" name="CyberWindow" x="1072" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="492" name="CyberWindow" x="1088" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
-   </properties>
-  </object>
-  <object id="493" name="CyberWindow" x="1104" y="544" width="16" height="16">
-   <properties>
-    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="0"/>
    </properties>
   </object>
   <object id="783" name="PanelChart" x="976" y="448" width="16" height="16">
@@ -182,11 +108,204 @@
     <property name="anim" value="CmdConsole"/>
    </properties>
   </object>
+  <object id="823" name="CyberWindow" x="880" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="824" name="CyberWindow" x="896" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="200"/>
+   </properties>
+  </object>
+  <object id="825" name="CyberWindow" x="912" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="300"/>
+   </properties>
+  </object>
+  <object id="826" name="CyberWindow" x="928" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="400"/>
+   </properties>
+  </object>
+  <object id="827" name="CyberWindow" x="944" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="500"/>
+   </properties>
+  </object>
+  <object id="828" name="CyberWindow" x="960" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="600"/>
+   </properties>
+  </object>
+  <object id="829" name="CyberWindow" x="976" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="700"/>
+   </properties>
+  </object>
+  <object id="830" name="CyberWindow" x="992" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="800"/>
+   </properties>
+  </object>
+  <object id="831" name="CyberWindow" x="1008" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="900"/>
+   </properties>
+  </object>
+  <object id="832" name="CyberWindow" x="1024" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1000"/>
+   </properties>
+  </object>
+  <object id="833" name="CyberWindow" x="1040" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1100"/>
+   </properties>
+  </object>
+  <object id="834" name="CyberWindow" x="1056" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1200"/>
+   </properties>
+  </object>
+  <object id="835" name="CyberWindow" x="1072" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1300"/>
+   </properties>
+  </object>
+  <object id="836" name="CyberWindow" x="1088" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1400"/>
+   </properties>
+  </object>
+  <object id="837" name="CyberWindow" x="1104" y="544" width="16" height="16">
+   <properties>
+    <property name="anim" value="CyberWindow"/>
+    <property name="delay" type="int" value="1500"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="960" y="432" width="16" height="32"/>
+  <object id="461" name="Hero" x="544" y="784" width="16" height="32"/>
  </objectgroup>
- <objectgroup name="Spikes"/>
+ <objectgroup name="Spikes">
+  <object id="797" name="Spike" type="up" x="448" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="798" name="Spike" type="up" x="1552" y="528" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeDown"/>
+    <property name="frame" value="SpikeDown_0000"/>
+   </properties>
+  </object>
+  <object id="799" name="Spike" type="up" x="464" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="800" name="Spike" type="up" x="480" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="801" name="Spike" type="up" x="1440" y="768" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeDown"/>
+    <property name="frame" value="SpikeDown_0000"/>
+   </properties>
+  </object>
+  <object id="802" name="Spike" type="up" x="1424" y="768" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeDown"/>
+    <property name="frame" value="SpikeDown_0000"/>
+   </properties>
+  </object>
+  <object id="803" name="Spike" type="up" x="1840" y="864" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeDown"/>
+    <property name="frame" value="SpikeDown_0000"/>
+   </properties>
+  </object>
+  <object id="804" name="Spike" type="up" x="624" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="805" name="Spike" type="up" x="704" y="800" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="806" name="Spike" type="up" x="864" y="800" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="807" name="Spike" type="up" x="1168" y="816" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="808" name="Spike" type="up" x="1184" y="816" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="809" name="Spike" type="up" x="1200" y="816" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="810" name="Spike" type="up" x="1216" y="816" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="811" name="Spike" type="up" x="1232" y="816" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="845" name="Spike" type="up" x="1792" y="576" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="846" name="Spike" type="up" x="1808" y="576" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Guards">
   <object id="716" name="Guard" x="1840" y="336" width="16" height="16">
    <properties>
@@ -338,6 +457,41 @@
     <property name="guardID" type="int" value="26"/>
    </properties>
   </object>
+  <object id="813" name="Guard" x="1136" y="736" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="839" name="Guard" type="Trapguard" x="464" y="800" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="999"/>
+   </properties>
+  </object>
+  <object id="840" name="Guard" type="Trapguard" x="512" y="800" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="999"/>
+   </properties>
+  </object>
+  <object id="841" name="Guard" type="Trapguard" x="480" y="800" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="999"/>
+   </properties>
+  </object>
+  <object id="842" name="Guard" type="Trapguard" x="496" y="800" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="999"/>
+   </properties>
+  </object>
+  <object id="849" name="Guard" x="1488" y="480" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="28"/>
+   </properties>
+  </object>
+  <object id="850" name="Guard" x="1616" y="480" width="16" height="16">
+   <properties>
+    <property name="guardID" type="int" value="28"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Minirobots">
   <object id="777" name="Minirobot" x="1184" y="460" width="16" height="20">
@@ -361,6 +515,30 @@
   <object id="792" name="Minirobot" x="288" y="460" width="16" height="20">
    <properties>
     <property name="guardID" type="int" value="26"/>
+    <property name="points" type="int" value="125"/>
+   </properties>
+  </object>
+  <object id="812" name="Minirobot" x="1104" y="732" width="16" height="20">
+   <properties>
+    <property name="guardID" type="int" value="9"/>
+    <property name="points" type="int" value="125"/>
+   </properties>
+  </object>
+  <object id="843" name="Minirobot" x="624" y="796" width="16" height="20">
+   <properties>
+    <property name="guardID" type="int" value="999"/>
+    <property name="points" type="int" value="125"/>
+   </properties>
+  </object>
+  <object id="847" name="Minirobot" x="1408" y="460" width="16" height="20">
+   <properties>
+    <property name="guardID" type="int" value="24"/>
+    <property name="points" type="int" value="125"/>
+   </properties>
+  </object>
+  <object id="848" name="Minirobot" x="1568" y="476" width="16" height="20">
+   <properties>
+    <property name="guardID" type="int" value="28"/>
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
@@ -1460,6 +1638,61 @@
     <property name="pointsB" type="int" value="1000"/>
    </properties>
   </object>
+  <object id="815" name="EmptyBox" type="packed" x="848" y="560" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value=""/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="816" name="EmptyBox" type="packed" x="880" y="560" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value=""/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="820" name="EmptyBox" type="packed" x="912" y="560" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value=""/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="821" name="EmptyBox" type="packed" x="1040" y="560" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value=""/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="822" name="EmptyBox" type="packed" x="1072" y="560" width="16" height="16">
+   <properties>
+    <property name="animA" value="Joystick"/>
+    <property name="animB" value="Joystick"/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="frame" value=""/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="KeysAndGates">
   <object id="203" name="RedKey" type="Key" x="896" y="640" width="16" height="16">
@@ -1628,6 +1861,18 @@
     <property name="points" type="int" value="100"/>
    </properties>
   </object>
+  <object id="851" name="ObserverCam" x="1520" y="752" width="16" height="16">
+   <properties>
+    <property name="frame" value="camera_M"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="852" name="ObserverCam" x="1584" y="752" width="16" height="16">
+   <properties>
+    <property name="frame" value="camera_M"/>
+    <property name="points" type="int" value="100"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="ShootableBricks">
   <object id="83" name="brick" x="1856" y="880" width="16" height="16">
@@ -1670,13 +1915,19 @@
     <property name="frame" value="mine"/>
    </properties>
   </object>
+  <object id="853" name="Mine" type="jumper" x="1376" y="912" width="16" height="16">
+   <properties>
+    <property name="frame" value="mine"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="WheelCanons">
-  <object id="428" name="Wheelcanon" x="432" y="800" width="16" height="16">
+  <object id="428" name="Wheelcanon" x="368" y="800" width="16" height="16">
    <properties>
     <property name="animL" value="wheelcanonL"/>
     <property name="animR" value="wheelcanonR"/>
     <property name="frame" value="wheelcanonL_0000"/>
+    <property name="guardID" type="int" value="999"/>
     <property name="points" type="int" value="250"/>
    </properties>
   </object>
@@ -1802,6 +2053,20 @@
     <property name="animA" value="LevelGateOpen"/>
     <property name="animB" value="LevelGateClose"/>
     <property name="frame" value="LevelGateOpen_0000"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Traps">
+  <object id="838" name="Trap" x="464" y="816" width="16" height="16">
+   <properties>
+    <property name="animAL" value="SwingingTrapSegmentL"/>
+    <property name="animAR" value="SwingingTrapSegmentR"/>
+    <property name="animBL" value="FallingTrapSegmentL"/>
+    <property name="animBR" value="FallingTrapSegmentR"/>
+    <property name="collapseTime" type="int" value="1500"/>
+    <property name="frameL" value="TrapSegmentL_0000"/>
+    <property name="frameR" value="TrapSegmentR_0000"/>
+    <property name="length" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>

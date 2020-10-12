@@ -10,7 +10,19 @@ class DecoTile extends Phaser.GameObjects.Sprite {
 		this.decoData = decoData
 		this.setActive(true)
 		this.setVisible(true)
-		this.play(this.decoData.properties.anim)
+		this.timeEvent = null
+		if (decoData.name === 'CyberWindow') {
+			this.timeEvent = this.scene.time.addEvent({
+				// delay: Phaser.Math.Between(0, 5000),
+				delay: decoData.properties.delay,
+				callback: () => {
+					this.play(this.decoData.properties.anim)
+					this.timeEvent.remove(false)
+				}
+			})
+		} else {
+			this.play(this.decoData.properties.anim)
+		}
 	}
 }
 class AnimatedDeco extends Phaser.GameObjects.Group {

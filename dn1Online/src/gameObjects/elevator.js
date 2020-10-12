@@ -32,7 +32,7 @@ class ElevatorHead extends Phaser.Physics.Arcade.Sprite {
 		this.backToOrigin = false
 		this.originY = y
 		this.currentVelocity = 0
-		this.acceleration = 7
+		this.acceleration = 3
 		this.setImmovable(true)
 		this.setActive(true)
 		this.setVisible(true)

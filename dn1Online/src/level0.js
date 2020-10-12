@@ -39,6 +39,7 @@ function Level0Scene() {
 	this.washerBossObjLayerData = null
 	this.decoObjLayerData = null
 	this.levelGatesObjLayerData = null
+	this.trapsObjLayerData = null
 
 	// scene objects
 	this.heroGun = null
@@ -64,6 +65,7 @@ function Level0Scene() {
 	this.needleTiles = null
 	this.washerBosses = []
 	this.levelGates = null
+	this.traps = []
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -81,10 +83,10 @@ Level0Scene.prototype.init = function (data) {
 Level0Scene.prototype.create = function() {
 	this.createWorld(this.heroData.levelData)
 	// // background
-	// this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
-	// this.stuttgart.setOrigin(0)
-	// this.stuttgart.setDepth(-100)
-	// this.stuttgart.setScrollFactor(0.15, 0.1)
+	this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
+	this.stuttgart.setOrigin(0)
+	this.stuttgart.setDepth(-100)
+	this.stuttgart.setScrollFactor(0.15, 0.1)
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -252,18 +254,27 @@ Level0Scene.prototype.create = function() {
 	// decoration
 	this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
 
+
 	// bouncer
 	if (this.bouncerGuardsObjLayerData !== null) {
 		this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 			this.crocosGroup,
-			this.miniRobotsGroup
+			this.miniRobotsGroup,
 			// this.fireWheelRobots,
 			// this.flyRobots,
 			// this.killerRabbits,
 			// this.flameRunners,
-			// this.wheelCanons
+			this.wheelCanons
 		]/*collider groups(mini robots, crocos, ...)*/)
 	}
+
+	// traps
+	if (this.trapsObjLayerData !== null) {
+		this.trapsObjLayerData.forEach(trapData => {
+			this.traps.push(new Trap(this, this.hero, trapData, this.bouncerGuards))
+		})
+	}
+
 	// elevators
 	this.elevators = []
 	this.elevatorsObjLayerData.forEach((elevatorData) => {
@@ -380,6 +391,11 @@ Level0Scene.prototype.createWorld = function(worldData) {
 	this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
 	// level gates
 	this.levelGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "LevelGates")].objects
+	
+	// traps
+	if (this.worldMap.objects.findIndex(x => x.name === "Traps") !== -1) {
+		this.trapsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Traps")].objects
+	}
 }
 
 Level0Scene.prototype.initControls = function() {	

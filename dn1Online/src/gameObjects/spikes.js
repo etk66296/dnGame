@@ -1,7 +1,8 @@
 class Spike extends PhysicsObj {
   constructor (scene, hero, spikeData) {
-		super(scene, spikeData.x + 8, spikeData.y + 8, 'enemiesSpriteAtlas', 'SpikeBottomUp_0000')
+		super(scene, spikeData.x + 8, spikeData.y + 8, 'enemiesSpriteAtlas', spikeData.properties.frame)
 		this.hero = hero
+		this.worldData = spikeData
 		this.scene.physics.add.overlap(this, this.hero, () => {
 			this.hero.painState = true
 		})
@@ -9,7 +10,7 @@ class Spike extends PhysicsObj {
 			// delay: Phaser.Math.Between(0, 5000),
 			delay: 5000,
 			callback: () => {
-				this.play('SpikeBottomUp')
+				this.play(this.worldData.properties.animA)
 			},
 			loop: true
 		})
