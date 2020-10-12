@@ -1,10 +1,10 @@
 class BouncerGuard extends Phaser.GameObjects.Rectangle {
-	constructor(scene, x, y, width, height, type) {
-			super(scene, x, y, width, height)
+	constructor(scene, bouncerData) {
+			super(scene, bouncerData.x + 8, bouncerData.y + 8, bouncerData.width, bouncerData.height)
 			scene.add.existing(this)
 			scene.physics.add.existing(this)
 			this.body.immovable = true
-			this.bouncerType = type
+			this.worldData = bouncerData
 	}
 }
 
@@ -14,13 +14,21 @@ class BouncerGuards extends Phaser.GameObjects.Group {
 		// special guards -->
 		this.trapBouncerGuards = []
 		// <-- special guards
-		bouncerData.forEach((bouncer) => {
-			let tmpGuard = this.add(new BouncerGuard(scene, bouncer.x + 8, bouncer.y + 8, bouncer.width, bouncer.height, bouncer.type))
-			if (bouncer.type === "Trapguard") {
-				this.trapBouncerGuards.push(tmpGuard)
-			}
-			colliderGroups.forEach(colGrp => {
-				scene.physics.add.collider(tmpGuard, colGrp)
+		bouncerData.forEach((bouncer, index) => {
+			let tmpGuard = this.add(new BouncerGuard(scene, bouncerData[index]))
+			// if (bouncer.type === "Trapguard") {
+			// 	this.trapBouncerGuards.push(tmpGuard)
+			// }
+		})
+
+		colliderGroups.forEach(bounceGroup => {
+			// run trough the guard goups and append colliders with corresponding guard ids
+			bounceGroup.children.iterate(bouncer => { // loop trough the game objects (crocos, minirobots, ...)
+				this.children.iterate(guard => {
+					if (guard.worldData.properties.guardID === bouncer.worldData.properties.guardID) { // loup trough the bouncer guards
+						scene.physics.add.collider(bouncer, guard)
+					}
+				})
 			})
 		})
   }

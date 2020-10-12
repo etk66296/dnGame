@@ -1,7 +1,8 @@
 class Croco extends EnemyObj {
-  constructor (scene, hero, x, y, type) {
-		super(scene, hero, x, y, 'enemiesSpriteAtlas')
-		this.type = type // rightcrawler | leftcrawler
+  constructor (scene, hero, crocosData) {
+		super(scene, hero, crocosData.x + 8, crocosData.y + 8, 'enemiesSpriteAtlas')
+		this.worldData = crocosData
+		this.type = crocosData.type // rightcrawler | leftcrawler
 		this.lastDir = -1
 		this.definedVelocity = 12
 		// crocos yield the default points... see parent class
@@ -27,7 +28,7 @@ class Crocos extends Phaser.Physics.Arcade.Group {
   constructor (scene, hero, crocosData, solidLayer) {
 		super(scene.physics.world, scene)
 		crocosData.forEach((crocoData) => {
-			this.add(new Croco(scene, hero, crocoData.x + 8, crocoData.y + 8, crocoData.type))
+			this.add(new Croco(scene, hero, crocoData))
 		})
 		scene.physics.add.collider(solidLayer, this)
   }
