@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="854">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="855">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -200,7 +200,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="544" y="784" width="16" height="32"/>
+  <object id="461" name="Hero" x="960" y="448" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="797" name="Spike" type="up" x="448" y="656" width="16" height="16">
