@@ -12,6 +12,7 @@ class LevelGate extends PhysicsObj {
 		this.setActive(true)
 		this.setVisible(true)
 		this.setDepth(-1)
+		this.passTroughFinished = false
 		this.on('animationcomplete', () => {
 			// !!!
 			// change scene here
@@ -21,7 +22,7 @@ class LevelGate extends PhysicsObj {
 				this.play(this.levelGateData.properties.animB)
 			} else {
 				scene.scene.manager.start(this.hero.nextLevelData.key , {
-					points: this.hero.collectedPointes,
+					points: this.hero.collectedPoints,
 					hasHighJumpShoe: this.hero.hasHighJumpShoe,
 					hasDangleClaws: this.hero.hasDangleClaws,
 					hasMultiHand: this.hero.hasMultiHand,

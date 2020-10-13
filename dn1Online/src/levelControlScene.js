@@ -26,9 +26,9 @@ LevelControlScene.prototype.constructor = LevelControlScene
 LevelControlScene.prototype.init = function(data) {
 	// safe the hero data to cookies, thus the user is able to restore the current level
 	document.cookie = "dn1SaveGameData=" + JSON.stringify(data) + "; samesite=strict"
-	console.log(data, this.scene)
 	if (data.levelData.lastScene !== 'INTRO') {
 		this.scene.manager.stop(data.levelData.lastScene)
+		// this.scene.manager.remove(data.levelData.lastScene)
 	}
 	this.heroData = data
 	// this.scene.remove('Level0Scene')
@@ -80,21 +80,43 @@ LevelControlScene.prototype.update = function() {
 }
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
+	console.log('level id: ', levelID)
 	switch (levelID) {
 		case 1: {
 			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
 			return this.levelData = {
 				key: 'Level0Scene',
 				mapData: 'mapLevel1City',
-				numOfTiles: 127 * 89,
+				numOfTiles: 128 * 90,
 				lastScene: 'LevelControlScene'
 			} 
 		}
 		case 2: {
-			
+			this.load.tilemapTiledJSON("mapLevel2City", "assets/maps/dn1MapLevel2City.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel2City',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene'
+			} 
+		}
+		case 3: {
+			this.load.tilemapTiledJSON("mapLevel3SpaceStation", "assets/maps/dn1MapLevel3SpaceStation.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel3SpaceStation',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene'
+			} 
 		}
 		default: {
 			this.worldMap = this.make.tilemap({ key: "maplevelCtrl" })
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'LevelControlScene',
+				numOfTiles: 64 * 32,
+				lastScene: ''
+			} 
 		}
 	}
 	return null

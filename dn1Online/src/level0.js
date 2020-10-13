@@ -81,6 +81,10 @@ Level0Scene.prototype.init = function (data) {
 }
 
 Level0Scene.prototype.create = function() {
+	// reset every game object and pass it to the garbage collection
+	this.add.displayList.removeAll()
+
+
 	this.createWorld(this.heroData.levelData)
 	// // background
 	this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
@@ -100,6 +104,7 @@ Level0Scene.prototype.create = function() {
 	// create the hero and gun instances
 	this.heroGun = new HeroGun(this, this.solidLayer)
 	this.hero = new Hero(this, this.heroObjLayerData[0].x, this.heroObjLayerData[0].y, this.solidLayer, this.gameControls, this.heroGun)
+	this.hero.currentLevelId = this.heroData.currentLevelId
 
 	// define the data for changing the scene to the next level
 	this.hero.nextLevelData = {
@@ -124,27 +129,39 @@ Level0Scene.prototype.create = function() {
 	if (this.multiHandLayerData !== null) {
 		this.mutliHandAcess = new MultiHandPlateAndTiles(this, this.hero, this.multiHandLayerData)
 	}
+
 	// key and gates
-	this.keysNGatesGroup = new KeysNGates(this, this.hero, this.keysAndGatesObjLayerData)
+	if (this.keysAndGatesObjLayerData !== null) {
+		this.keysNGatesGroup = new KeysNGates(this, this.hero, this.keysAndGatesObjLayerData)
+	}
 
 	// enemy bullets
-	this.enemyBullets = new EnemyBullets(this, this.hero, this.solidLayer)
+	if (this.solidLayer !== null) {
+		this.enemyBullets = new EnemyBullets(this, this.hero, this.solidLayer)
+	}
 
 	// gifts
 	if (this.giftsObjLayerData !== null) {
 		this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
 	}
+
 	// spikes
-	this.spikesGroup = new Spikes(this, this.hero, this.spikesObjLayerData)
+	if (this.spikesObjLayerData !== null) {
+		this.spikesGroup = new Spikes(this, this.hero, this.spikesObjLayerData)
+	}
 
 	// shootable bricks
-	this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
+	if (this.shootableBricksObjLayerData !== null) {
+		this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
+	}
 
 	// observer cams
-	this.observerCamsGroup = new ObserverCams(this, this.hero, this.observerCamsObjLayerData)
-	this.observerCamsGroup.children.iterate(cam => {
-		cam.registerAsShootable()
-	})
+	if (this.observerCamsObjLayerData !== null) {
+		this.observerCamsGroup = new ObserverCams(this, this.hero, this.observerCamsObjLayerData)
+		this.observerCamsGroup.children.iterate(cam => {
+			cam.registerAsShootable()
+		})
+	}
 	
 	// // deuterium spheres
 	// if (this.deuteriumSpheresObjLayerData !== null) {
@@ -159,28 +176,36 @@ Level0Scene.prototype.create = function() {
 			croco.registerAsShootable()
 		})
 	}
+
 	// mini robots
-	this.miniRobotsGroup = new Minirobots(this, this.hero, this.miniRobotsObjLayerData, this.solidLayer)
-	this.miniRobotsGroup.children.iterate((miniRobo) => {
-		miniRobo.registerAsPainful()
-		miniRobo.registerAsShootable()
-	})
-	// giant roboty
-	this.giantRobots = new Giantrobots(this, this.hero, this.giantRobosLayerData, this.solidLayer, this.enemyBullets)
-	this.giantRobots.children.iterate(giantRobo => {
-		giantRobo.registerAsPainful()
-		giantRobo.registerAsShootable()
-	})
+	if (this.miniRobotsObjLayerData !== null && this.solidLayer !== null) {
+		this.miniRobotsGroup = new Minirobots(this, this.hero, this.miniRobotsObjLayerData, this.solidLayer)
+		this.miniRobotsGroup.children.iterate((miniRobo) => {
+			miniRobo.registerAsPainful()
+			miniRobo.registerAsShootable()
+		})
+	}
+
+	// giant robot
+	if (this.giantRobosLayerData !== null && this.solidLayer !== null) {
+		this.giantRobots = new Giantrobots(this, this.hero, this.giantRobosLayerData, this.solidLayer, this.enemyBullets)
+		this.giantRobots.children.iterate(giantRobo => {
+			giantRobo.registerAsPainful()
+			giantRobo.registerAsShootable()
+		})
+	}
+
 	// fire wheel robots
-	if (this.fireWheelRobotsObjLayerData !== null) {
+	if (this.fireWheelRobotsObjLayerData !== null && this.solidLayer !== null) {
 		this.fireWheelRobots = new FireWheelRobots(this, this.hero, this.fireWheelRobotsObjLayerData, this.solidLayer)
 		this.fireWheelRobots.children.iterate(fireWheelRobo => {
 			fireWheelRobo.registerAsPainful()
 			fireWheelRobo.registerAsShootable()
 		})
 	}
+
 	// fly robots
-	if (this.flyRobotsObjLayerData !== null) {
+	if (this.flyRobotsObjLayerData !== null && this.solidLayer !== null) {
 		this.flyRobots = new FlyRobots(this, this.hero, this.flyRobotsObjLayerData, this.solidLayer, this.enemyBullets)
 		this.flyRobots.children.iterate(flyRobot=> {
 			flyRobot.registerAsPainful()
@@ -188,72 +213,92 @@ Level0Scene.prototype.create = function() {
 		})
 	}
 	// killer rabbits
-	if (this.killerRabbitObjLayerData !== null) {
+	if (this.killerRabbitObjLayerData !== null && this.solidLayer !== null) {
 		this.killerRabbits = new KillerRabbits(this, this.hero, this.killerRabbitObjLayerData, this.solidLayer)
 		this.killerRabbits.children.iterate(killerRabbit => {
 			killerRabbit.registerAsPainful()
 			killerRabbit.registerAsShootable()
 		})
 	}
+
 	// helicopters
-	if (this.helicoptersObjLayerData !== null) {
+	if (this.helicoptersObjLayerData !== null && this.solidLayer !== null) {
 		this.helicopters = new Helicopters(this, this.hero, this.helicoptersObjLayerData, this.solidLayer)
 		this.helicopters.children.iterate(heli => {
 			heli.registerAsPainful()
 			heli.registerAsShootable()
 		})
 	}
+
 	// flame runners
-	if (this.flameRunnersObjLayerData !== null) {
+	if (this.flameRunnersObjLayerData !== null && this.solidLayer !== null) {
 		this.flameRunners = new FlameRunners(this, this.hero, this.flameRunnersObjLayerData, this.solidLayer)
 		this.flameRunners.children.iterate(flamerunner => {
 			flamerunner.registerAsPainful()
 		})
 	}
+
 	// mines
-	this.mines = new Mines(this, this.hero, this.minesObjLayerData, this.solidLayer)
-	this.mines.children.iterate(mine => {
-		mine.registerAsPainful()
-		mine.registerAsShootable()
-	})
-	// wheel canons
-	this.wheelCanons = new WheelCanons(this, this.hero, this.wheelCanonsObjLayerData, this.solidLayer, this.enemyBullets)
-	this.wheelCanons.children.iterate(wc => {
-		wc.registerAsPainful()
-		wc.registerAsShootable()
-	})
-	// dynamite
-	this.dynamiteBoxes = new DynamiteBoxes(this, this.hero, this.dynamiteObjLayerData, this.solidLayer)
-	this.dynamiteBoxes.children.iterate(dynamite => {
-		dynamite.registerAsPainful()
-		dynamite.registerAsShootable()
-	})
-	// glow throwers
-	this.glowThrowerObjLayerData.forEach(glowThrowerData => {
-		this.glowThrowers.push(new GlowThrower(this, this.hero, glowThrowerData))
-	})
-	this.glowThrowers.forEach(glowThrower => {
-		glowThrower.children.iterate(segment => {
-			segment.registerAsPainful()
+	if (this.minesObjLayerData !== null && this.solidLayer !== null) {
+		this.mines = new Mines(this, this.hero, this.minesObjLayerData, this.solidLayer)
+		this.mines.children.iterate(mine => {
+			mine.registerAsPainful()
+			mine.registerAsShootable()
 		})
-	})
+	}
+
+	// wheel canons
+	if (this.wheelCanonsObjLayerData !== null && this.solidLayer !== null) {
+		this.wheelCanons = new WheelCanons(this, this.hero, this.wheelCanonsObjLayerData, this.solidLayer, this.enemyBullets)
+		this.wheelCanons.children.iterate(wc => {
+			wc.registerAsPainful()
+			wc.registerAsShootable()
+		})
+	}
+
+	// dynamite
+	if (this.dynamiteObjLayerData !== null && this.solidLayer !== null) {
+		this.dynamiteBoxes = new DynamiteBoxes(this, this.hero, this.dynamiteObjLayerData, this.solidLayer)
+		this.dynamiteBoxes.children.iterate(dynamite => {
+			dynamite.registerAsPainful()
+			dynamite.registerAsShootable()
+		})
+	}
+
+	// glow throwers
+	if (this.glowThrowerObjLayerData !== null) {
+		this.glowThrowerObjLayerData.forEach(glowThrowerData => {
+			this.glowThrowers.push(new GlowThrower(this, this.hero, glowThrowerData))
+		})
+		this.glowThrowers.forEach(glowThrower => {
+			glowThrower.children.iterate(segment => {
+				segment.registerAsPainful()
+			})
+		})
+	}
+
 	// needle tiles
 	if (this.needleTilesObjLayerData !== null) {
 		this.needleTiles = new NeedleTiles(this, this.hero, this.needleTilesObjLayerData)
 	}
-	// washer boss
-	this.washerBossObjLayerData.forEach(washerBossData => {
-		this.washerBosses.push(new WasherBoss(this, this.hero, washerBossData))
-	})
-	this.washerBosses.forEach(washerBoss => {
-		washerBoss.children.iterate(washerBossSegment => {
-			washerBossSegment.registerAsPainful()
-			washerBossSegment.registerAsShootable()
-		})
-	})
-	// decoration
-	this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
 
+	// washer boss
+	if (this.washerBossObjLayerData !== null) {
+		this.washerBossObjLayerData.forEach(washerBossData => {
+			this.washerBosses.push(new WasherBoss(this, this.hero, washerBossData))
+		})
+		this.washerBosses.forEach(washerBoss => {
+			washerBoss.children.iterate(washerBossSegment => {
+				washerBossSegment.registerAsPainful()
+				washerBossSegment.registerAsShootable()
+			})
+		})
+	}
+
+	// decoration
+	if (this.decoObjLayerData !== null) {
+		this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
+	}
 
 	// bouncer
 	if (this.bouncerGuardsObjLayerData !== null) {
@@ -276,13 +321,17 @@ Level0Scene.prototype.create = function() {
 	}
 
 	// elevators
-	this.elevators = []
-	this.elevatorsObjLayerData.forEach((elevatorData) => {
-		this.elevators.push(new Elevator(this, elevatorData, this.hero))
-	})
+	if (this.elevatorsObjLayerData !== null) {
+		this.elevators = []
+		this.elevatorsObjLayerData.forEach((elevatorData) => {
+			this.elevators.push(new Elevator(this, elevatorData, this.hero))
+		})
+	}
 
 	// level gates
-	this.levelGates = new LevelGates(this, this.hero, this.levelGatesObjLayerData)
+	if (this.levelGatesObjLayerData !== null) {
+		this.levelGates = new LevelGates(this, this.hero, this.levelGatesObjLayerData)
+	}
 
 	// camera
 	this.cameras.main.startFollow(this.hero)
@@ -303,38 +352,53 @@ Level0Scene.prototype.createWorld = function(worldData) {
 	this.solidLayer.setCollisionBetween(0, worldData.numOfTiles)
 
 	// hero
-	this.heroObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Hero")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Hero") !== -1) {
+		this.heroObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Hero")].objects
+	}
 
 	// place translator machine
 	if (this.worldMap.objects.findIndex(x => x.name === "PlaceTranslatorMachines") !== -1) {
 		this.placeTranslatorObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "PlaceTranslatorMachines")].objects
 	}
+
 	// dangle tiles
 	if (this.worldMap.objects.findIndex(x => x.name === "DangleTiles") !== -1) {
 		this.dangleTilesLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "DangleTiles")].objects
 	}
+
 	// multi hand
 	if (this.worldMap.objects.findIndex(x => x.name === "MultiHandAccess") !== -1) {
 		this.multiHandLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "MultiHandAccess")].objects
 	}
+
 	// spikes
-	this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Spikes") !== -1) {
+		this.spikesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Spikes")].objects
+	}
 
 	// observer cams
-	this.observerCamsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ObserverCams")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "ObserverCams") !== -1) {
+		this.observerCamsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ObserverCams")].objects
+	}
 
 	// keys and gates
-	this.keysAndGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KeysAndGates")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "KeysAndGates") !== -1) {
+		this.keysAndGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "KeysAndGates")].objects
+	}
 
 	// shootable bricks layer
-	this.shootableBricksObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ShootableBricks")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "ShootableBricks") !== -1) {
+		this.shootableBricksObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "ShootableBricks")].objects
+	}
 
 	// gifts
 	if (this.worldMap.objects.findIndex(x => x.name === "Gifts") !== -1) {
 		this.giftsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Gifts")].objects
 	}
 	// elevators
-	this.elevatorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Elevators")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Elevators") !== -1) {
+		this.elevatorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Elevators")].objects
+	}
 
 	// bouncer guards
 	if (this.worldMap.objects.findIndex(x => x.name === "Guards") !== -1) {
@@ -345,9 +409,15 @@ Level0Scene.prototype.createWorld = function(worldData) {
 		this.crocosObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Crocos")].objects
 	}
 	// mini robots
-	this.miniRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Minirobots")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Minirobots") !== -1) {
+		this.miniRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Minirobots")].objects
+	}
+	
 	// giant robos
-	this.giantRobosLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Giantrobots")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Giantrobots") !== -1) {
+		this.giantRobosLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Giantrobots")].objects
+	}
+	
 	// fire wheel robots
 	if (this.worldMap.objects.findIndex(x => x.name === "FireWheelRobots") !== -1) {
 		this.fireWheelRobotsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FireWheelRobots")].objects
@@ -373,25 +443,44 @@ Level0Scene.prototype.createWorld = function(worldData) {
 		this.flameRunnersObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "FlameRunners")].objects
 	}
 	// mines
-	this.minesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Mines")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Mines") !== -1) {
+		this.minesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Mines")].objects
+	}
+
 	// wheel canons
-	this.wheelCanonsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WheelCanons")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "WheelCanons") !== -1) {
+		this.wheelCanonsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WheelCanons")].objects
+	}
+
 	// dynamite
-	this.dynamiteObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Dynamite")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "Dynamite") !== -1) {
+		this.dynamiteObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Dynamite")].objects
+	}
+
 	// glow throwers
-	this.glowThrowerObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "GlowThrowers")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "GlowThrowers") !== -1) {
+		this.glowThrowerObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "GlowThrowers")].objects
+	}
 
 	// needle tiles
 	if (this.worldMap.objects.findIndex(x => x.name === "NeedleTiles") !== -1) {
 		this.needleTilesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "NeedleTiles")].objects
 	}
 	// washerboss
-	this.washerBossObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WasherBosses")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "WasherBosses") !== -1) {
+		this.washerBossObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "WasherBosses")].objects
+	}
+
 	// deco
-	this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
+	if (this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations") !== -1) {
+		this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
+	}
+
 	// level gates
-	this.levelGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "LevelGates")].objects
-	
+	if (this.worldMap.objects.findIndex(x => x.name === "LevelGates") !== -1) {
+		this.levelGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "LevelGates")].objects
+	}
+
 	// traps
 	if (this.worldMap.objects.findIndex(x => x.name === "Traps") !== -1) {
 		this.trapsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Traps")].objects

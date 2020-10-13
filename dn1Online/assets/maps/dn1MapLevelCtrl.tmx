@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="64" height="32" tilewidth="16" tileheight="16" nextobjectid="4">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
-  <image source="../../../../../../../Dokumente/git/games/dn1Online/assets/sprites/TilesNoTileBleeding.png" width="578" height="308"/>
+  <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
  </tileset>
  <layer name="Decoration" width="64" height="32">
   <data encoding="base64">
