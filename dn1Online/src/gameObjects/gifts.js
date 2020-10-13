@@ -62,7 +62,7 @@ class GiftBox extends PhysicsObj {
 		}
 		if (this.body.velocity.y !== 0) {
 			this.gift.setVisible(false)
-			this.gift.y = this.y
+			this.gift.y = this.y - 2 // gift must be shootable => subtract the offset of 2 this.body.setSize(16, --> 18 <--, true)
 		} else {
 			this.gift.setVisible(true)
 		}
