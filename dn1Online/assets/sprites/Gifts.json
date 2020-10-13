@@ -1360,7 +1360,7 @@
 			"sourceSize": {"w":32,"h":32},
 			"pivot": {"x":0.5,"y":0.5}
 		},
-		"LevelGateClose_0003": {
+		"LevelGateClose_0004": {
 			"frame": {"x":417,"y":93,"w":32,"h":32},
 			"rotated": false,
 			"trimmed": false,

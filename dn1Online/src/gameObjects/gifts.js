@@ -64,8 +64,30 @@ class JustCollectGift extends GiftObj {
 			this.setVelocityY(-10)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)
 			this.isCollected = true
+
+			// character gift
+			// add it to the heros equipment
+			if (this.giftData.name === 'GiftCharacter') {
+				this.hero.collectedCharacters += giftData.properties.character
+				console.log(this.hero.collectedCharacters)
+				if (this.hero.collectedCharacters === 'ogvw') {
+					for (let i = 0; i < 5; i++) {
+						let pointFlyer = this.scene.add.sprite(this.hero.x + i * 18, this.hero.y - i * 10, 'giftsSpriteAtlas')
+						pointFlyer.play('Points10000')
+						this.hero.addPoints(this.giftData.properties.points * 5)
+						this.scene.time.addEvent({
+							delay: 3000,
+							callback: () => {
+								pointFlyer.setActive(false)
+								pointFlyer.setVisible(false)
+							},
+							loop: false
+						})
+					}
+				}
+			}
 		})
-		if (giftData.properties.anim !== "") {
+		if (giftData.properties.animA !== "") {
 			this.play(giftData.properties.animA)
 		}
 		// if packed => pack it
@@ -238,6 +260,7 @@ class Gifts extends Phaser.Physics.Arcade.Group {
 			} else if(giftData.name === 'Balloon') {
 				this.add(new FragileGift(scene, hero, giftData))
 			}	else {
+				// JustCollectGift includes character gift implementation
 				this.add(new JustCollectGift(scene, hero, giftData))
 			}
 		})

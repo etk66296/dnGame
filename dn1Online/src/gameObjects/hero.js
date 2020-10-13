@@ -11,7 +11,8 @@ class Hero extends PhysicsObj {
 		this.walkSpeed = 140
 		this.jumpPower = -185
 		this.lastDir = 1
-		this.collectedPointes = 0
+		this.collectedPoints = 0
+		this.collectedCharacters = ''
 		this.setName('hero')
 		this.body.setSize(10, 30, true)
 		this.body.setOffset(10, 2)
@@ -346,8 +347,8 @@ class Hero extends PhysicsObj {
 	}
 
 	addPoints(points) {
-		this.collectedPointes += points
-		this.gameControls.updatePointDsp(this.collectedPointes)
+		this.collectedPoints += points
+		this.gameControls.updatePointDsp(this.collectedPoints)
 	}
 
 	addHealth(amount) {

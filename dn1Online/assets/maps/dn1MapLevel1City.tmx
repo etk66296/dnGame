@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="855">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="127" height="89" tilewidth="16" tileheight="16" nextobjectid="863">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -200,7 +200,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="960" y="448" width="16" height="32"/>
+  <object id="461" name="Hero" x="1472" y="912" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="797" name="Spike" type="up" x="448" y="656" width="16" height="16">
@@ -300,6 +300,24 @@
    </properties>
   </object>
   <object id="846" name="Spike" type="up" x="1808" y="576" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="855" name="Spike" type="up" x="1520" y="928" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="856" name="Spike" type="up" x="1568" y="928" width="16" height="16">
+   <properties>
+    <property name="animA" value="SpikeUp"/>
+    <property name="frame" value="SpikeUp_0000"/>
+   </properties>
+  </object>
+  <object id="857" name="Spike" type="up" x="1616" y="928" width="16" height="16">
    <properties>
     <property name="animA" value="SpikeUp"/>
     <property name="frame" value="SpikeUp_0000"/>
@@ -1691,6 +1709,54 @@
     <property name="frame" value=""/>
     <property name="gravity" type="bool" value="false"/>
     <property name="points" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="859" name="GiftCharacter" type="unpacked" x="1504" y="896" width="16" height="16">
+   <properties>
+    <property name="animA" value=""/>
+    <property name="animB" value=""/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="character" value="o"/>
+    <property name="frame" value="GiftCharacterO"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="860" name="GiftCharacter" type="unpacked" x="1552" y="896" width="16" height="16">
+   <properties>
+    <property name="animA" value=""/>
+    <property name="animB" value=""/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="character" value="g"/>
+    <property name="frame" value="GiftCharacterG"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="861" name="GiftCharacter" type="unpacked" x="1600" y="896" width="16" height="16">
+   <properties>
+    <property name="animA" value=""/>
+    <property name="animB" value=""/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="character" value="v"/>
+    <property name="frame" value="GiftCharacterV"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="862" name="GiftCharacter" type="unpacked" x="1648" y="896" width="16" height="16">
+   <properties>
+    <property name="animA" value=""/>
+    <property name="animB" value=""/>
+    <property name="boxanim" value="GreyBoxExplode"/>
+    <property name="boxframe" value="GreyBox"/>
+    <property name="character" value="w"/>
+    <property name="frame" value="GiftCharacterW"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
    </properties>
   </object>
  </objectgroup>

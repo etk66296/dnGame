@@ -591,8 +591,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":960,
-                 "y":448
+                 "x":1472,
+                 "y":912
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -960,6 +960,69 @@
                  "width":16,
                  "x":1808,
                  "y":576
+                }, 
+                {
+                 "height":16,
+                 "id":855,
+                 "name":"Spike",
+                 "properties":
+                    {
+                     "animA":"SpikeUp",
+                     "frame":"SpikeUp_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"up",
+                 "visible":true,
+                 "width":16,
+                 "x":1520,
+                 "y":928
+                }, 
+                {
+                 "height":16,
+                 "id":856,
+                 "name":"Spike",
+                 "properties":
+                    {
+                     "animA":"SpikeUp",
+                     "frame":"SpikeUp_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"up",
+                 "visible":true,
+                 "width":16,
+                 "x":1568,
+                 "y":928
+                }, 
+                {
+                 "height":16,
+                 "id":857,
+                 "name":"Spike",
+                 "properties":
+                    {
+                     "animA":"SpikeUp",
+                     "frame":"SpikeUp_0000"
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "frame":"string"
+                    },
+                 "rotation":0,
+                 "type":"up",
+                 "visible":true,
+                 "width":16,
+                 "x":1616,
+                 "y":928
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5215,6 +5278,138 @@
                  "width":16,
                  "x":1072,
                  "y":560
+                }, 
+                {
+                 "height":16,
+                 "id":859,
+                 "name":"GiftCharacter",
+                 "properties":
+                    {
+                     "animA":"",
+                     "animB":"",
+                     "boxanim":"GreyBoxExplode",
+                     "boxframe":"GreyBox",
+                     "character":"o",
+                     "frame":"GiftCharacterO",
+                     "gravity":false,
+                     "points":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "character":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":1504,
+                 "y":896
+                }, 
+                {
+                 "height":16,
+                 "id":860,
+                 "name":"GiftCharacter",
+                 "properties":
+                    {
+                     "animA":"",
+                     "animB":"",
+                     "boxanim":"GreyBoxExplode",
+                     "boxframe":"GreyBox",
+                     "character":"g",
+                     "frame":"GiftCharacterG",
+                     "gravity":false,
+                     "points":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "character":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":1552,
+                 "y":896
+                }, 
+                {
+                 "height":16,
+                 "id":861,
+                 "name":"GiftCharacter",
+                 "properties":
+                    {
+                     "animA":"",
+                     "animB":"",
+                     "boxanim":"GreyBoxExplode",
+                     "boxframe":"GreyBox",
+                     "character":"v",
+                     "frame":"GiftCharacterV",
+                     "gravity":false,
+                     "points":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "character":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":1600,
+                 "y":896
+                }, 
+                {
+                 "height":16,
+                 "id":862,
+                 "name":"GiftCharacter",
+                 "properties":
+                    {
+                     "animA":"",
+                     "animB":"",
+                     "boxanim":"GreyBoxExplode",
+                     "boxframe":"GreyBox",
+                     "character":"w",
+                     "frame":"GiftCharacterW",
+                     "gravity":false,
+                     "points":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "character":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":1648,
+                 "y":896
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6481,7 +6676,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":855,
+ "nextobjectid":863,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
