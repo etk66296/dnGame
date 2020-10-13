@@ -8,8 +8,8 @@ class FlyRobot extends EnemyObj {
 			'enemiesSpriteAtlas',
 			roboData.properties.frameL
 		)
-		this.roboData = roboData
-		this.points = this.roboData.properties.points
+		this.worldData = roboData
+		this.points = this.worldData.properties.points
 		this.lifes = 1
 		this.lastDirX = -1
 		this.lastDirY = -1
@@ -28,11 +28,11 @@ class FlyRobot extends EnemyObj {
 		if (Math.abs(this.x - this.hero.x) > 15) {
 			if (this.hero.x < this.x && this.lastDirX != -1) {
 				this.lastDirX = -1
-				this.play(this.roboData.properties.animRL)
+				this.play(this.worldData.properties.animRL)
 			}
 			if (this.hero.x > this.x && this.lastDirX != 1) {
 				this.lastDirX = 1
-				this.play(this.roboData.properties.animLR)
+				this.play(this.worldData.properties.animLR)
 			}
 		}
 		if (Math.abs(this.y - this.hero.y) > 15) {

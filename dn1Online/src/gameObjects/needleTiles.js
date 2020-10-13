@@ -4,12 +4,12 @@ class NeedleTile extends EnemyObj {
 			scene,
 			hero,
 			needleTileData.x + needleTileData.width / 2,
-			needleTileData.y + needleTileData.height / 2,
+			needleTileData.y + needleTileData.height / 2 - 4,
 			'enemiesSpriteAtlas',
 			needleTileData.properties.frameA
 		)
-		this.setSize(16, 16)
-		this.setOffset(0, 10)
+		this.setSize(16, 17)
+		this.setOffset(0, 8)
 		this.setDepth(2) // just one layer over the hero sprite
 		this.needleTileData = needleTileData
 		this.touched = false
