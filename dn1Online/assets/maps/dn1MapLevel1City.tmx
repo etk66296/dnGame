@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="877">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="878">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -1838,6 +1838,17 @@
     <property name="pointsB" type="int" value="10000"/>
     <property name="teaser" type="bool" value="true"/>
     <property name="teaserDist" type="int" value="96"/>
+   </properties>
+  </object>
+  <object id="877" name="FloppyDisk" type="packed" x="1280" y="656" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="true"/>
+    <property name="points" type="int" value="5000"/>
    </properties>
   </object>
  </objectgroup>
