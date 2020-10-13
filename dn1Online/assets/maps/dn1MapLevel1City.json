@@ -591,8 +591,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1472,
-                 "y":912
+                 "x":848,
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5410,6 +5410,43 @@
                  "width":16,
                  "x":1648,
                  "y":896
+                }, 
+                {
+                 "height":16,
+                 "id":863,
+                 "name":"Balloon",
+                 "properties":
+                    {
+                     "animA":"SmallBalloon",
+                     "animB":"Balloon",
+                     "boxanim":"BlueBoxExplode",
+                     "boxframe":"BlueBox",
+                     "frame":"FullPowerUp_0000",
+                     "gravity":false,
+                     "pointsA":100,
+                     "pointsB":10000,
+                     "teaser":true,
+                     "teaserDist":96
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "pointsA":"int",
+                     "pointsB":"int",
+                     "teaser":"bool",
+                     "teaserDist":"int"
+                    },
+                 "rotation":0,
+                 "type":"packed",
+                 "visible":true,
+                 "width":16,
+                 "x":992,
+                 "y":560
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6676,7 +6713,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":863,
+ "nextobjectid":864,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

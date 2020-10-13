@@ -28,6 +28,8 @@ class GiftBox extends PhysicsObj {
 		super(scene, x, y, 'giftsSpriteAtlas', gift.giftData.properties.boxframe)
 		this.body.setSize(16, 18, true)
 		this.hero = hero
+		this.teased = false
+		this.gift = gift
 		// after the box explode remove the sprite
 		this.boxAnimCompleteEvent = this.on('animationcomplete', () => {
 			this.body.reset(-100, -100)
@@ -40,12 +42,30 @@ class GiftBox extends PhysicsObj {
 			this.hero.addPoints(1) // open a box points
 			bullet.explode()
 			this.body.checkCollision.none = true
+			this.setGravityY(0)
 			this.play(gift.giftData.properties.boxanim)
 			// activate the box content
 			gift.setActive(true)
 			gift.body.checkCollision.none = false
 			scene.physics.world.removeCollider(this.shootableBoxEvent)
 		})
+	}
+	preUpdate (time, delta) {
+		super.preUpdate(time, delta)
+		if (this.gift.giftData.properties.teaser && !this.teased) {
+			let currentDst = Phaser.Math.Distance.Between(this.hero.x, this.hero.y, this.x, this.y)
+			if (currentDst < this.gift.giftData.properties.teaserDist) {
+				this.setGravityY(300)
+				this.teased = true
+				console.log(this)
+			}
+		}
+		if (this.body.velocity.y !== 0) {
+			this.gift.setVisible(false)
+			this.gift.y = this.y
+		} else {
+			this.gift.setVisible(true)
+		}
 	}
 }
 
