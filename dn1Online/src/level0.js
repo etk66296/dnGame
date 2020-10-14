@@ -145,14 +145,14 @@ Level0Scene.prototype.create = function() {
 		this.giftsGroup = new Gifts(this, this.hero, this.giftsObjLayerData, this.solidLayer)
 	}
 
+	// shootable bricks
+	if (this.shootableBricksObjLayerData !== null) {
+		this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData, this.giftsGroup)
+	}
+
 	// spikes
 	if (this.spikesObjLayerData !== null) {
 		this.spikesGroup = new Spikes(this, this.hero, this.spikesObjLayerData)
-	}
-
-	// shootable bricks
-	if (this.shootableBricksObjLayerData !== null) {
-		this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData)
 	}
 
 	// observer cams
@@ -305,6 +305,7 @@ Level0Scene.prototype.create = function() {
 		this.bouncerGuards = new BouncerGuards(this, this.bouncerGuardsObjLayerData, [
 			this.crocosGroup,
 			this.miniRobotsGroup,
+			this.giantRobots,
 			// this.fireWheelRobots,
 			this.flyRobots,
 			// this.killerRabbits,
@@ -395,6 +396,7 @@ Level0Scene.prototype.createWorld = function(worldData) {
 	if (this.worldMap.objects.findIndex(x => x.name === "Gifts") !== -1) {
 		this.giftsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Gifts")].objects
 	}
+
 	// elevators
 	if (this.worldMap.objects.findIndex(x => x.name === "Elevators") !== -1) {
 		this.elevatorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Elevators")].objects

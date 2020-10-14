@@ -4,7 +4,7 @@ class Bullet extends PhysicsObj {
 		scene.add.existing(this)
 		scene.physics.add.existing(this)
 		this.toggleFire = 2
-		this.setSize(1, 1, true)
+		this.setSize(1, 4, true)
 		this.setOffset(8, 1)
 		this.body.checkCollision.none = true
 		this.on('animationcomplete', () => {
@@ -23,7 +23,7 @@ class Bullet extends PhysicsObj {
 			right: true,
 			up: false
 		}
-		this.body.reset(x, y + this.toggleFire)
+		this.body.reset(x, y)
 		// this.toggleFire = this.toggleFire * -1
 		this.setActive(true)
 		this.setVisible(true)
@@ -48,7 +48,7 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
       classType: Bullet
 		})
 		this.gunIsReady = true
-		this.collingDownTime = 1000
+		this.collingDownTime = 500
 		this.cooledDownEvent = null
 		scene.physics.add.collider(solidLayer, this, bullet => {
 			bullet.body.checkCollision.none = true

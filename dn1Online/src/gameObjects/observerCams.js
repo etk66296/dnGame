@@ -10,6 +10,8 @@ class ObserverCam extends EnemyObj {
 		)
 		this.camData = camData
 		this.points = camData.properties.points
+		this.setSize(16, 18)
+		this.setOffset(0, 2)
 		// extra sprite for showing points after the cam was shot
 		this.activeAfterDead = true
 		this.pointFlyerAnimObj = this.scene.add.sprite(camData.x + 8, camData.y + 8, 'giftsSpriteAtlas')

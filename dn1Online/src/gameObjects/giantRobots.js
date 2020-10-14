@@ -10,6 +10,7 @@ class Giantrobot extends EnemyObj {
 			'EplodeGiantRobotL'
 		)
 		this.points = roboData.properties.points
+		this.worldData = roboData
 		this.jumpDeltaTime = 0
 		this.timeToNextJump = 2000
 		this.fireDeltaTime = 0
