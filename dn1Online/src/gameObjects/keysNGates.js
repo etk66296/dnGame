@@ -87,6 +87,9 @@ class Gate extends PhysicsObj {
 			'enemiesSpriteAtlas',
 			gateData.properties.frame
 		)
+		if (gateData.properties.animatedGate) {
+			this.play(gateData.properties.animB)
+		}
 		this.openAnim = gateData.properties.anim
 		this.hero = hero
 		this.gateName = gateData.name
@@ -96,13 +99,15 @@ class Gate extends PhysicsObj {
 		this.setVisible(true)
 		this.scene.physics.add.collider(this.hero, this)
 		this.on('animationcomplete', () => {
-			this.setActive(false)
-			this.setVisible(false)
-			this.setPosition(-200, -200)
+			if (this.anims.currentAnim.key === gateData.properties.anim) {
+				this.setActive(false)
+				this.setVisible(false)
+				this.setPosition(-200, -200)
+			}
 		})
 	}
 
-	open (gateName) {
+	open () {
 		this.play(this.openAnim)
 	}
 

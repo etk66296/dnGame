@@ -213,20 +213,16 @@ class HealthUpGift extends GiftObj {
 				this.play('Points' + String(giftData.properties.pointsA))
 				scene.physics.world.removeCollider(this.shootableGiftEvent)
 				this.isCollected = true
+				this.body.checkCollision.none = true
 				this.setGravityY(0)
-				this.body.checkCollision.none = true // none collision must be set to lift up the point flyer
-				if (this.name === 'ColaTin') {
-					this.setVelocityY(-20) // the tin itself
-				}
-				if (this.name === 'ChopOfMeat' || this.name === 'FullPowerUp') {
-					this.setVelocityY(-10) // point flyer
-				}
+				this.setVelocityY(-20) // it looks better to give the point flyers a constant speed instead of negative gravity
 				scene.physics.world.removeCollider(this.overlapHeroEvent)
 			} else {
 				this.hero.addHealth(giftData.properties.healthB)
 				this.hero.addPoints(giftData.properties.pointsB)
 				this.play('Points' + String(giftData.properties.pointsB))
-				this.setVelocityY(-10)
+				this.setGravityY(0) // constant velocity is better than gravity for point fliyers
+				this.setVelocityY(-20)
 				this.isCollected = true
 				scene.physics.world.removeCollider(this.shootableGiftEvent)
 				scene.physics.world.removeCollider(this.overlapHeroEvent)
@@ -239,7 +235,7 @@ class HealthUpGift extends GiftObj {
 			this.play(this.giftData.properties.animB)
 			this.giftState = 1
 			if (this.name === 'ColaTin') {
-				this.setVelocityY(-20)
+				this.setGravityY(-60)
 			}
 			scene.physics.world.removeCollider(this.shootableGiftEvent)
 		})

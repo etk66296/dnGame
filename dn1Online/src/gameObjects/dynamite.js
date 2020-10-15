@@ -57,6 +57,7 @@ class Floorfire extends EnemyObj {
 				this.setActive(false)
 				this.setVisible(false)
 				this.painEnabled = false
+				this.setPosition(-100, -100)
 			}
 		})
 	}

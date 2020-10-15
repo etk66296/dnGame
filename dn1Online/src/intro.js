@@ -660,6 +660,38 @@ IntroScene.prototype.create = function() {
 		frameRate: 8
 	})
 	this.anims.create({
+		key: 'CircuitBoard',
+		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
+				prefix: 'CircuitBoard_',
+				end: 8,
+				zeroPad: 4
+			}),
+		yoyo: true,
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
+		key: 'CircuitBoardGate',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'CircuitBoardGate_',
+				end: 7,
+				zeroPad: 4
+			}),
+		repeat: 0,
+		frameRate: 24
+	})
+	this.anims.create({
+		key: 'CircuitBoardGateAnim',
+		frames: this.anims.generateFrameNames('enemiesSpriteAtlas', {
+				prefix: 'CircuitBoardGateAnim_',
+				end: 1,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		yoyo: true,
+		frameRate: 24
+	})
+	this.anims.create({
 		key: 'RedKey',
 		frames: this.anims.generateFrameNames('giftsSpriteAtlas', {
 				prefix: 'RedKey_',
