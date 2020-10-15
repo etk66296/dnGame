@@ -37,7 +37,7 @@ class KillerRabbit extends EnemyObj {
 		})
 
 		// motion
-		this.killerRabbitData = killerRabbitData
+		this.worldData = killerRabbitData
 		this.definedVelocity = -65
 		this.lastDir = -1
 		this.setVelocityX(this.lastDir * this.definedVelocity)
@@ -75,9 +75,9 @@ class KillerRabbit extends EnemyObj {
 			if (this.body.velocity.x === 0) {
 				this.lastDir *= -1
 				if (this.lastDir === 1) {
-					this.play(this.killerRabbitData.properties.animR)
+					this.play(this.worldData.properties.animR)
 				} else {
-					this.play(this.killerRabbitData.properties.animL)
+					this.play(this.worldData.properties.animL)
 				}
 				this.setVelocityX(this.lastDir * this.definedVelocity)
 			}

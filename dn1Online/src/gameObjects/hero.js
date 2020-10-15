@@ -26,7 +26,9 @@ class Hero extends PhysicsObj {
 			key: '',
 			mapData: '',
 			numOfTiles: 0,
-			lastScene: ''
+			lastScene: '',
+			backgroundImageFilePath: '',
+			backgroundKey: ''
 		} 
 		
 		this.currentLevelId = 0
@@ -276,7 +278,6 @@ class Hero extends PhysicsObj {
 		// fire gun -->
 		if ((this.gameControls.touch_FIRE.isDown || Phaser.Input.Keyboard.JustDown(this.gameControls.key_FIRE)) && this.allowShooting) {
 			this.gun.fireBullet(this.x, this.y, this.lastDir)
-			// console.log(this)
 		}
 		// <-- fire gun
 
@@ -385,8 +386,8 @@ class Hero extends PhysicsObj {
 	}
 
 	upgradeJumpPower() {
-		this.jumpPower -= 50
-		this.jumpSpeed -= 25
+		this.jumpPower -= 25
+		this.jumpSpeed += 26
 	}
 	
 	hasKey(keyID) {

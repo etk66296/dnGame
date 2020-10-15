@@ -1162,6 +1162,16 @@ IntroScene.prototype.create = function() {
 		frameRate: 2
 	})
 	this.anims.create({
+		key: 'CmdConsoleFast',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'CmdConsole_',
+				end: 3,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		frameRate: 12
+	})
+	this.anims.create({
 		key: 'BlueNoise',
 		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
 				prefix: 'BlueNoise_',
@@ -1179,7 +1189,8 @@ IntroScene.prototype.create = function() {
 				zeroPad: 4
 			}),
 		repeat: -1,
-		frameRate: 24
+		yoyo: true,
+		frameRate: 12
 	})
 	this.anims.create({
 		key: 'GreenFluid',
@@ -1200,6 +1211,17 @@ IntroScene.prototype.create = function() {
 			}),
 		repeat: -1,
 		frameRate: 12
+	})
+	this.anims.create({
+		key: 'BlueDischarge',
+		frames: this.anims.generateFrameNames('decorationSpriteAtlas', {
+				prefix: 'BlueDischarge_',
+				end: 2,
+				zeroPad: 4
+			}),
+		repeat: -1,
+		yoyo: true,
+		frameRate: 24
 	})
 	// <-- decoration
 	// level gate -->

@@ -12,7 +12,7 @@ class PlaceTranslatorMachine extends PhysicsObj {
 			this.hero = hero
 			this.play(placeTranslatorData.properties.animA)
 			this.homePos = { x: this.x, y: this.y }
-			this.isAtHomePos = true
+			// this.isAtHomePos = true
 			this.deviceBlocked = false
 			this.heroOverlapEvent = scene.physics.add.overlap(this, hero, () => {
 				  if (!this.deviceBlocked) {
@@ -23,22 +23,14 @@ class PlaceTranslatorMachine extends PhysicsObj {
 						this.hero.setVelocity(0, 0)
 					  this.deviceBlocked = true
 					  this.play(placeTranslatorData.properties.animB)
-					   let placeTranlateTimeEvent = this.scene.time.addEvent({
+					   let placeTranslateTimeEvent = this.scene.time.addEvent({
 						  	delay: 1000,
-						  	callback: () => {
+						  	callback: () => { // translate the hero
 						  		this.play(placeTranslatorData.properties.animA)
-						  		if (this.isAtHomePos) {
-						  			this.setPosition(placeTranslatorData.properties.xPosB, placeTranslatorData.properties.yPosB)
-						  			this.hero.setPosition(placeTranslatorData.properties.xPosB, placeTranslatorData.properties.yPosB)
-						  			this.isAtHomePos = false
-						  		} else {
-						  			this.setPosition(this.homePos.x, this.homePos.y)
-						  			this.hero.setPosition(this.homePos.x, this.homePos.y)
-						  		  this.isAtHomePos = true
-						  		}
+						  		this.hero.setPosition(placeTranslatorData.properties.xPosB + 24, placeTranslatorData.properties.yPosB + 42)
 									this.deviceBlocked = false
 									this.hero.movementAllowed = true
-						  		placeTranlateTimeEvent.remove(false)
+						  		placeTranslateTimeEvent.remove(false)
 						  	}
 						  })
 					}

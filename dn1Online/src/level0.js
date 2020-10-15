@@ -42,6 +42,7 @@ function Level0Scene() {
 	this.trapsObjLayerData = null
 
 	// scene objects
+	this.bgImage = null
 	this.heroGun = null
 	this.hero = null
 	this.crocosGroup = null
@@ -71,26 +72,31 @@ function Level0Scene() {
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
 Level0Scene.prototype.constructor = Level0Scene
 
-Level0Scene.prototype.preload = function () {
-	// all preloads are done in the intro scene
-}
-
 Level0Scene.prototype.init = function (data) {
 	this.heroData = data
 	this.scene.manager.stop(this.heroData.levelData.lastScene)
 }
 
+Level0Scene.prototype.preload = function () {
+	// all preloads are done in the intro scene
+	console.log(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
+	this.load.image(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
+}
+
 Level0Scene.prototype.create = function() {
 	// reset every game object and pass it to the garbage collection
 	this.add.displayList.removeAll()
-
+	
 
 	this.createWorld(this.heroData.levelData)
 	// // background
-	this.stuttgart = this.add.sprite(-50, 0, 'stuttgart')
-	this.stuttgart.setOrigin(0)
-	this.stuttgart.setDepth(-100)
-	this.stuttgart.setScrollFactor(0.15, 0.1)
+	if (this.bgImage !== null) {
+		this.bgImage.destroy()
+	}
+	this.bgImage = this.add.sprite(-50, 0, this.heroData.levelData.backgroundKey)
+	this.bgImage.setOrigin(0)
+	this.bgImage.setDepth(-100)
+	this.bgImage.setScrollFactor(0.15, 0.1)
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -111,7 +117,9 @@ Level0Scene.prototype.create = function() {
 		key: 'LevelControlScene',
 		mapData: 'maplevelCtrl',
 		numOfTiles: 64 * 32,
-		lastScene: 'Level0Scene'
+		lastScene: 'Level0Scene',
+		backgroundImageFilePath: '',
+		backgroundKey: ''
 	} 
 	
 	// place translator machine
@@ -308,7 +316,7 @@ Level0Scene.prototype.create = function() {
 			this.giantRobots,
 			// this.fireWheelRobots,
 			this.flyRobots,
-			// this.killerRabbits,
+			this.killerRabbits,
 			// this.flameRunners,
 			this.wheelCanons
 		]/*collider groups(mini robots, crocos, ...)*/)
@@ -340,7 +348,6 @@ Level0Scene.prototype.create = function() {
 
 Level0Scene.prototype.update = function (time, delta) {
 	// if (this.stopScene) {
-	// 	console.log('sceneStopped')
 	// }
 }
 

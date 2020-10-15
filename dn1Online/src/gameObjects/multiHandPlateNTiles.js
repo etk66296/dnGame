@@ -55,7 +55,6 @@ class MultiHandTile extends PhysicsObj {
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		// console.log(this.plate.plateSwitchedOn, !this.enabled)
 		if (this.multiHandSystem.tilesEnabled && !this.enabled) {
 			// start enable time
 			this.enabled = true

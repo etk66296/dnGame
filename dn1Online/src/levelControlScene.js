@@ -65,7 +65,9 @@ LevelControlScene.prototype.create = function() {
 		key: this.levelData.key,
 		mapData: this.levelData.mapData,
 		numOfTiles: this.levelData.numOfTiles,
-		lastScene: this.levelData.lastScene
+		lastScene: this.levelData.lastScene,
+		backgroundImageFilePath: this.levelData.backgroundImageFilePath,
+		backgroundKey: this.levelData.backgroundKey,
 	} 
 	this.hero.resetEquipment()
 
@@ -81,7 +83,7 @@ LevelControlScene.prototype.update = function() {
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
 	console.log('level id: ', levelID)
-	levelID = 3
+	levelID = 4
 	switch (levelID) {
 		case 1: {
 			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
@@ -89,7 +91,9 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				key: 'Level0Scene',
 				mapData: 'mapLevel1City',
 				numOfTiles: 128 * 90,
-				lastScene: 'LevelControlScene'
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
+				backgroundKey: 'backgroundImageStuttgart'
 			} 
 		}
 		case 2: {
@@ -98,7 +102,9 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				key: 'Level0Scene',
 				mapData: 'mapLevel2City',
 				numOfTiles: 128 * 90,
-				lastScene: 'LevelControlScene'
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
+				backgroundKey: 'backgroundImageStuttgart'
 			} 
 		}
 		case 3: {
@@ -107,7 +113,20 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				key: 'Level0Scene',
 				mapData: 'mapLevel3SpaceStation',
 				numOfTiles: 128 * 90,
-				lastScene: 'LevelControlScene'
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: 'assets/sprites/bgs/moon.jpg',
+				backgroundKey: 'backgroundImageMoon'
+			} 
+		}
+		case 4: {
+			this.load.tilemapTiledJSON("mapLevel4SpaceHangar", "assets/maps/dn1MapLevel4SpaceHangar.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel4SpaceHangar',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: 'assets/sprites/bgs/hangar.jpg',
+				backgroundKey: 'backgroundImageHangar'
 			} 
 		}
 		default: {
@@ -116,7 +135,9 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				key: 'Level0Scene',
 				mapData: 'LevelControlScene',
 				numOfTiles: 64 * 32,
-				lastScene: ''
+				lastScene: '',
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
+				backgroundKey: 'backgroundImageStuttgart'
 			} 
 		}
 	}

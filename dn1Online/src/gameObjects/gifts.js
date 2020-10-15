@@ -57,7 +57,6 @@ class GiftBox extends PhysicsObj {
 			if (currentDst < this.gift.giftData.properties.teaserDist) {
 				this.setGravityY(300)
 				this.teased = true
-				console.log(this)
 			}
 		}
 		if (this.body.velocity.y !== 0) {
@@ -89,7 +88,6 @@ class JustCollectGift extends GiftObj {
 			// add it to the heros equipment
 			if (this.giftData.name === 'GiftCharacter') {
 				this.hero.collectedCharacters += giftData.properties.character
-				console.log(this.hero.collectedCharacters)
 				if (this.hero.collectedCharacters === 'ogvw') {
 					for (let i = 0; i < 5; i++) {
 						let pointFlyer = this.scene.add.sprite(this.hero.x + i * 18, this.hero.y - i * 10, 'giftsSpriteAtlas')

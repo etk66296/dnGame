@@ -319,6 +319,30 @@
 			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
 			"sourceSize": {"w":16,"h":16},
 			"pivot": {"x":0.5,"y":0.5}
+		},
+		"BlueDischarge_0000": {
+			"frame": {"x":20,"y":290,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"BlueDischarge_0001": {
+			"frame": {"x":38,"y":290,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"BlueDischarge_0002": {
+			"frame": {"x":56,"y":290,"w":16,"h":16},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":16,"h":16},
+			"pivot": {"x":0.5,"y":0.5}
 		}
 		
 	},

@@ -8,7 +8,6 @@ LogoScene.prototype = Object.create(Phaser.Scene.prototype)
 LogoScene.prototype.constructor = LogoScene
 
 LogoScene.prototype.init = function(data) {
-	// console.log(data.points)
 	this.doRestart = data.doRestart
 }
 

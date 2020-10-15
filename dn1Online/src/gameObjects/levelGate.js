@@ -31,9 +31,11 @@ class LevelGate extends PhysicsObj {
 						key: this.hero.nextLevelData.key,
 						mapData: this.hero.nextLevelData.mapData,
 						numOfTiles: this.hero.nextLevelData.numOfTiles,
-						lastScene: this.hero.nextLevelData.lastScene
+						lastScene: this.hero.nextLevelData.lastScene,
+						backgroundImageFilePath: this.hero.nextLevelData.backgroundImageFilePath,
+						backgroundKey: this.hero.nextLevelData.backgroundKey
 					},
-					currentLevelId: this.hero.currentLevelId
+					currentLevelId: this.hero.currentLevelId,
 				})
 			}
 		})
