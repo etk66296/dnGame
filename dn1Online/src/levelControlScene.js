@@ -129,6 +129,17 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				backgroundKey: 'backgroundImageHangar'
 			} 
 		}
+		case 5: {
+			this.load.tilemapTiledJSON("mapLevel5LabBuilding", "assets/maps/dn1MapLevel5LabBuilding.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel5LabBuilding',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: '',
+				backgroundKey: ''
+			} 
+		}
 		default: {
 			this.worldMap = this.make.tilemap({ key: "maplevelCtrl" })
 			return this.levelData = {

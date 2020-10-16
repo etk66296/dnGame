@@ -80,7 +80,9 @@ Level0Scene.prototype.init = function (data) {
 Level0Scene.prototype.preload = function () {
 	// all preloads are done in the intro scene
 	console.log(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
-	this.load.image(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
+	if (this.heroData.levelData.backgroundImageFilePath !== '') {
+		this.load.image(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
+	}
 }
 
 Level0Scene.prototype.create = function() {
@@ -91,10 +93,12 @@ Level0Scene.prototype.create = function() {
 	if (this.bgImage !== null) {
 		this.bgImage.destroy()
 	}
-	this.bgImage = this.add.sprite(-50, 0, this.heroData.levelData.backgroundKey)
-	this.bgImage.setOrigin(0)
-	this.bgImage.setDepth(-100)
-	this.bgImage.setScrollFactor(0.15, 0.1)
+	if (this.heroData.levelData.backgroundKey !== '') {
+		this.bgImage = this.add.sprite(-50, 0, this.heroData.levelData.backgroundKey)
+		this.bgImage.setOrigin(0)
+		this.bgImage.setDepth(-100)
+		this.bgImage.setScrollFactor(0.15, 0.1)
+	}
 
 	// level tiles
 	this.createWorld(this.heroData.levelData)
