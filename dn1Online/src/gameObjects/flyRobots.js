@@ -80,7 +80,7 @@ class FlyRobots extends Phaser.Physics.Arcade.Group {
 					robot.setDestroyed()
 					robot.isAlive = false
 				} else {
-					this.hero.painState = true
+					hero.painState = true
 				}
 			})
 		})

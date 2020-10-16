@@ -72,6 +72,6 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
 		}
 	}
 	upgradeGunPower() {
-		this.collingDownTime -= 200
+		this.collingDownTime -= 100
 	}
 }

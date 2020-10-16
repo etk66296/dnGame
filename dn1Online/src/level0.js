@@ -55,7 +55,7 @@ function Level0Scene() {
 	this.placeTranslator = []
 	this.fireWheelRobots = null
 	this.flyRobots = null
-	this.deuteriumSpheres = null
+	this.deuteriumSpheres = []
 	this.killerRabbits = null
 	this.helicopters = null
 	this.flameRunners = null
@@ -87,8 +87,6 @@ Level0Scene.prototype.create = function() {
 	// reset every game object and pass it to the garbage collection
 	this.add.displayList.removeAll()
 	
-
-	this.createWorld(this.heroData.levelData)
 	// // background
 	if (this.bgImage !== null) {
 		this.bgImage.destroy()
@@ -97,6 +95,14 @@ Level0Scene.prototype.create = function() {
 	this.bgImage.setOrigin(0)
 	this.bgImage.setDepth(-100)
 	this.bgImage.setScrollFactor(0.15, 0.1)
+
+	// level tiles
+	this.createWorld(this.heroData.levelData)
+	// decoration
+	if (this.decoObjLayerData !== null) {
+		this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
+	}
+	
 	// hud
 	this.headUpDsp = this.add.sprite(-10, -10, 'headUpDsp')
 	this.headUpDsp.setOrigin(0)
@@ -172,9 +178,17 @@ Level0Scene.prototype.create = function() {
 	}
 	
 	// // deuterium spheres
-	// if (this.deuteriumSpheresObjLayerData !== null) {
-		// this.deuteriumSpheres = new DeuteriumSperes(this, this.hero, this.deuteriumSpheresObjLayerData)
-	// }
+	if (this.deuteriumSpheresObjLayerData !== null) {
+		this.deuteriumSpheresObjLayerData.forEach(deuteriumSphereData => {
+			this.deuteriumSpheres.push(new DeuteriumSperes(this, this.hero, deuteriumSphereData))
+		})
+		this.deuteriumSpheres.forEach(dtSphere => {
+			dtSphere.children.iterate((dtElem) => {
+				dtElem.registerAsPainful()
+				dtElem.registerAsShootable()
+			})
+		})
+	}
 	
 	// crocos
 	if (this.crocosObjLayerData !== null) {
@@ -303,10 +317,6 @@ Level0Scene.prototype.create = function() {
 		})
 	}
 
-	// decoration
-	if (this.decoObjLayerData !== null) {
-		this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
-	}
 
 	// bouncer
 	if (this.bouncerGuardsObjLayerData !== null) {
@@ -314,7 +324,7 @@ Level0Scene.prototype.create = function() {
 			this.crocosGroup,
 			this.miniRobotsGroup,
 			this.giantRobots,
-			// this.fireWheelRobots,
+			this.fireWheelRobots,
 			this.flyRobots,
 			this.killerRabbits,
 			// this.flameRunners,

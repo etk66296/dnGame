@@ -8,6 +8,7 @@ class DeuteriumSpere extends EnemyObj {
 			'enemiesSpriteAtlas',
 			dsData.properties.frame
 		)
+		this.worldData = dsData
 		this.points = dsData.properties.points
 		let animDelayTimeEvent = this.scene.time.addEvent({
 			delay: 100 * index,
@@ -16,55 +17,38 @@ class DeuteriumSpere extends EnemyObj {
 				animDelayTimeEvent.remove(false)
 			}
 		})
-		
-		// var stars = this.add.group({ key: 'star', repeat: 30 });
+
+		this.path = new Phaser.Curves.Path()
+		this.ellipse = new Phaser.Curves.Ellipse(this.x, this.y, dsData.properties.radius)
+		this.path.add(this.ellipse.setRotation(index / Math.PI * 0.5))
+
+		this.follower = { t: 0, vec: new Phaser.Math.Vector2() }
+		this.myTween = scene.tweens.add({
+			targets: this.follower,
+			t: 1,
+			// ease: 'Sine.easeInOut',
+			ease: 'Linear',
+			duration: dsData.properties.duration,
+			yoyo: false,
+			repeat: -1
+		})
 
 	}
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
+		this.path.getPoint(this.follower.t, this.follower.vec);
+		this.setPosition(this.follower.vec.x, this.follower.vec.y)
+		if (!this.isAlive) {
+			this.myTween.remove()
+		}
 	}
 }
-class DeuteriumSperes {
-  constructor (scene, hero, deuteriumSpheresData) {
-		// super(scene.physics.world, scene)
-		this.deuteriumCircles = []
-		deuteriumSpheresData.forEach((deuteriumSphereData) => {
-			this.deuteriumCircles.push({group: new Phaser.Physics.Arcade.Group(scene), circle: null, data: deuteriumSphereData})
-			for (let i = 0; i < deuteriumSphereData.properties.numOfSpheres; i++) {
-				this.deuteriumCircles[this.deuteriumCircles.length - 1].group.add(new DeuteriumSpere(scene, hero, deuteriumSphereData, i))
-			}
-			this.deuteriumCircles[this.deuteriumCircles.length - 1].circle = new Phaser.Geom.Circle(
-				deuteriumSphereData.x,
-				deuteriumSphereData.y,
-				deuteriumSphereData.properties.rotInnerRadius
-			)
-			Phaser.Actions.PlaceOnCircle(this.deuteriumCircles[this.deuteriumCircles.length - 1].group.getChildren(), this.deuteriumCircles[this.deuteriumCircles.length - 1].circle)
-			this.deuteriumCircles[this.deuteriumCircles.length - 1].group.children.iterate((dts) => {
-				dts.registerAsPainful()
-				dts.registerAsShootable()
-			})
-		})
-
-		// add the tweens
-		this.deuteriumCircles.forEach((dtc) => {
-			scene.tweens.add({
-        targets: dtc.circle,
-        radius: dtc.data.properties.rotOuterRadius,
-        ease: 'Quintic.easeInOut',
-        duration: dtc.data.properties.duration,
-        yoyo: true,
-        repeat: -1,
-        onUpdate: function ()
-        {
-            Phaser.Actions.RotateAroundDistance(
-							dtc.group.getChildren(),
-							{ x: dtc.data.x, y: dtc.data.y },
-							dtc.data.properties.rotateDelta,
-							dtc.circle.radius
-						)
-        }
-    	})
-		})
-  }
+class DeuteriumSperes extends Phaser.Physics.Arcade.Group {
+  constructor (scene, hero, deuteriumSphereData) {
+		super(scene.physics.world, scene)
+		for (let i = 0; i < deuteriumSphereData.properties.numOfSpheres; i++) {
+			this.add(new DeuteriumSpere(scene, hero, deuteriumSphereData, i))
+		}
+	}
 }

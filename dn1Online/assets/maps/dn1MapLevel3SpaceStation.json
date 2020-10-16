@@ -5433,6 +5433,39 @@
                  "width":16,
                  "x":400,
                  "y":576
+                }, 
+                {
+                 "height":16,
+                 "id":1290,
+                 "name":"Balloon",
+                 "properties":
+                    {
+                     "animA":"SmallBalloon",
+                     "animB":"Balloon",
+                     "boxanim":"BlueBoxExplode",
+                     "boxframe":"BlueBox",
+                     "frame":"FullPowerUp_0000",
+                     "gravity":false,
+                     "pointsA":100,
+                     "pointsB":10000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "pointsA":"int",
+                     "pointsB":"int"
+                    },
+                 "rotation":0,
+                 "type":"packed",
+                 "visible":true,
+                 "width":16,
+                 "x":1744,
+                 "y":848
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -9019,7 +9052,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":1290,
+ "nextobjectid":1291,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

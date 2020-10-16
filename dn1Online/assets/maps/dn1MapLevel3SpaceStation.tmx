@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="1290">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="1291">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -1885,6 +1885,18 @@
     <property name="points" type="int" value="100"/>
     <property name="teaser" type="bool" value="false"/>
     <property name="teaserDist" type="int" value="64"/>
+   </properties>
+  </object>
+  <object id="1290" name="Balloon" type="packed" x="1744" y="848" width="16" height="16">
+   <properties>
+    <property name="animA" value="SmallBalloon"/>
+    <property name="animB" value="Balloon"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FullPowerUp_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="pointsA" type="int" value="100"/>
+    <property name="pointsB" type="int" value="10000"/>
    </properties>
   </object>
  </objectgroup>

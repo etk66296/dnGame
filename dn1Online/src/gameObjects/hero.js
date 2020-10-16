@@ -14,7 +14,7 @@ class Hero extends PhysicsObj {
 		this.collectedPoints = 0
 		this.collectedCharacters = ''
 		this.setName('hero')
-		this.body.setSize(10, 30, true)
+		this.body.setSize(8, 30, true)
 		this.body.setOffset(10, 2)
 		this.setGravityY(300)
 		this.setBounce(0.0)
@@ -272,7 +272,15 @@ class Hero extends PhysicsObj {
 					} // <-- JUMP LEFT
 				}
 			} // <-- hero in the air
-	  }
+		}
+		
+		// the bounding box offset debends on hero direction ... the bottom back edge should overlap the heros heel
+		if (this.lastDir === -1) {
+			this.body.setOffset(12, 2)
+		} else {
+			this.body.setOffset(10, 2)
+		}
+
 		// <-- hero movement
 
 		// fire gun -->
