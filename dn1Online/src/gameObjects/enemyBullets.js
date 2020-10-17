@@ -36,7 +36,7 @@ class EnemyBullets extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene)
 		this.hero = hero
     this.createMultiple({
-      frameQuantity: 5,
+      frameQuantity: 55,
       key: 'enemybullets',
       active: false,
       visible: false,
