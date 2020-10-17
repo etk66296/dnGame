@@ -83,7 +83,7 @@ LevelControlScene.prototype.update = function() {
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
 	console.log('level id: ', levelID)
-	// levelID = 4
+	levelID = 5
 	switch (levelID) {
 		case 1: {
 			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")

@@ -1157,7 +1157,7 @@
     <property name="points" type="int" value="2000"/>
    </properties>
   </object>
-  <object id="1500" name="FloppyDisk" type="unpacked" x="1200" y="1104" width="16" height="16">
+  <object id="1500" name="Joystick" type="unpacked" x="1200" y="1104" width="16" height="16">
    <properties>
     <property name="animA" value="Joystick"/>
     <property name="animB" value="Joystick"/>
