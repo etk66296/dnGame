@@ -754,7 +754,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="877" name="Hero" x="1712" y="896" width="16" height="32"/>
+  <object id="877" name="Hero" x="1840" y="80" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes"/>
  <objectgroup name="Guards">

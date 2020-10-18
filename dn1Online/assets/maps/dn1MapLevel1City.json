@@ -591,8 +591,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1312,
-                 "y":592
+                 "x":800,
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5689,6 +5689,37 @@
                  "width":16,
                  "x":992,
                  "y":560
+                }, 
+                {
+                 "height":16,
+                 "id":877,
+                 "name":"FloppyDisk",
+                 "properties":
+                    {
+                     "animA":"FloppyDisk",
+                     "animB":"FloppyDisk",
+                     "boxanim":"BlueBoxExplode",
+                     "boxframe":"BlueBox",
+                     "frame":"FloppyDisk_0000",
+                     "gravity":true,
+                     "points":5000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"packed",
+                 "visible":true,
+                 "width":16,
+                 "x":1280,
+                 "y":656
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6955,7 +6986,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":877,
+ "nextobjectid":878,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

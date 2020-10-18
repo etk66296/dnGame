@@ -2725,8 +2725,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":1712,
-                 "y":896
+                 "x":1840,
+                 "y":80
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3997,7 +3997,7 @@
                 {
                  "height":16,
                  "id":1500,
-                 "name":"FloppyDisk",
+                 "name":"Joystick",
                  "properties":
                     {
                      "animA":"Joystick",

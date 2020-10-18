@@ -48,7 +48,7 @@
  </layer>
  <objectgroup name="AnimatedDecorations"/>
  <objectgroup name="Hero">
-  <object id="877" name="Hero" x="1840" y="1264" width="16" height="32"/>
+  <object id="877" name="Hero" x="224" y="96" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="926" name="Spike" type="up" x="912" y="1328" width="16" height="16">

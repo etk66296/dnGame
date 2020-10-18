@@ -200,7 +200,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="461" name="Hero" x="1312" y="592" width="16" height="32"/>
+  <object id="461" name="Hero" x="800" y="448" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="797" name="Spike" type="up" x="448" y="656" width="16" height="16">
