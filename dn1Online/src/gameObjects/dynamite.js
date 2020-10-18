@@ -6,6 +6,7 @@ class Floorfire extends EnemyObj {
 		this.painEnabled = false
 		this.setSize(16, 17)
 		this.fireTriggered = false
+		this.bulletHitEvent = null
 
 		// floor fires in left direction -->
 		this.floorFiresL = new Phaser.Physics.Arcade.Group(scene.physics.world, scene)
@@ -52,6 +53,9 @@ class Floorfire extends EnemyObj {
 				this.body.checkCollision.none = false
 				this.fireTriggered = true
 				this.painEnabled = true
+				if (this.bulletHitEvent !== null) {
+					scene.physics.world.removeCollider(this.bulletHitEvent)
+				}
 			} else if (this.anims.currentAnim.key === this.dynamiteData.properties.animC) {
 				this.hero.addPoints(this.dynamiteData.properties.points)
 				this.setActive(false)
@@ -63,7 +67,7 @@ class Floorfire extends EnemyObj {
 	}
 
 	registerAsShootable() {
-		this.scene.physics.add.overlap(this, this.hero.gun, (enemy, bullet) => {
+		this.bulletHitEvent = this.scene.physics.add.overlap(this, this.hero.gun, (enemy, bullet) => {
 			bullet.explode()
 			this.play(this.dynamiteData.properties.animA)
 		})

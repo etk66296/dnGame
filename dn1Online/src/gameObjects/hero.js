@@ -394,7 +394,7 @@ class Hero extends PhysicsObj {
 	}
 
 	upgradeJumpPower() {
-		this.jumpPower -= 25
+		this.jumpPower -= 20
 		this.jumpSpeed += 26
 	}
 	

@@ -331,7 +331,7 @@ Level0Scene.prototype.create = function() {
 			this.fireWheelRobots,
 			this.flyRobots,
 			this.killerRabbits,
-			// this.flameRunners,
+			this.flameRunners,
 			this.wheelCanons
 		]/*collider groups(mini robots, crocos, ...)*/)
 	}

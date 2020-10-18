@@ -6,6 +6,7 @@ class Spike extends PhysicsObj {
 		this.scene.physics.add.overlap(this, this.hero, () => {
 			this.hero.painState = true
 		})
+		this.setSize(16, 10)
 		this.scene.time.addEvent({
 			// delay: Phaser.Math.Between(0, 5000),
 			delay: 5000,

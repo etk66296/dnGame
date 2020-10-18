@@ -47,6 +47,8 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
       visible: false,
       classType: Bullet
 		})
+		this.gunUpgrades = 0
+		this.gunFiredCounter = 0
 		this.gunIsReady = true
 		this.collingDownTime = 500
 		this.cooledDownEvent = null
@@ -57,21 +59,27 @@ class HeroGun extends Phaser.Physics.Arcade.Group {
 	}
 	fireBullet (x, y, dir) {
 		if (this.gunIsReady) {
-			this.gunIsReady = false
+			// for (let i = 0; i < this.gunUpgrades; i++) {
 			let bullet = this.getFirstDead(false)
     	if (bullet) {
-	     	bullet.fire(x, y, dir)
+				bullet.fire(x /* + (dir * i * 16)*/, y, dir)
 			}
-			this.cooledDownEvent = this.scene.time.addEvent({
-				delay: this.collingDownTime ,
-				callback: () => {
-					this.gunIsReady = true
-					this.cooledDownEvent.remove(false)
-				}
-			})
+			this.gunFiredCounter += 1
+			// }
+			if (this.gunFiredCounter > this.gunUpgrades) {
+				this.gunFiredCounter = 0
+				this.gunIsReady = false
+				this.cooledDownEvent = this.scene.time.addEvent({
+					delay: this.collingDownTime ,
+					callback: () => {
+						this.gunIsReady = true
+						this.cooledDownEvent.remove(false)
+					}
+				})
+			}
 		}
 	}
 	upgradeGunPower() {
-		this.collingDownTime -= 100
+		this.gunUpgrades += 1
 	}
 }

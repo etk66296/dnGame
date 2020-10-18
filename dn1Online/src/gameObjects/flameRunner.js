@@ -5,16 +5,16 @@ class FlameRunner extends EnemyObj { /*the flame runners are not shootable*/
 		this.definedVelocity = 65
 		this.play(flameData.properties.animL)
 		this.setVelocityX(this.lastDir * this.definedVelocity)
-		this.flameData = flameData
+		this.worldData = flameData
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta) // blocked by a bouncer or a solid layer tile
 		if (this.body.velocity.x === 0) {
 			this.lastDir *= -1
 			if (this.lastDir === 1) {
-				this.play(this.flameData.properties.animR)
+				this.play(this.worldData.properties.animR)
 			} else {
-				this.play(this.flameData.properties.animL)
+				this.play(this.worldData.properties.animL)
 			}
 			this.setVelocityX(this.lastDir * this.definedVelocity)
 		}
