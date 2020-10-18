@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="2657">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="2659">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -1328,16 +1328,6 @@
     <property name="guardID" type="int" value="11"/>
    </properties>
   </object>
-  <object id="1784" name="Guard" x="1664" y="1312" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="13"/>
-   </properties>
-  </object>
-  <object id="1785" name="Guard" x="1792" y="1312" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="13"/>
-   </properties>
-  </object>
   <object id="1801" name="Guard" x="160" y="624" width="16" height="16">
    <properties>
     <property name="guardID" type="int" value="20"/>
@@ -1468,11 +1458,6 @@
     <property name="guardID" type="int" value="61"/>
    </properties>
   </object>
-  <object id="2291" name="Guard" x="720" y="864" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="63"/>
-   </properties>
-  </object>
   <object id="2292" name="Guard" x="848" y="864" width="16" height="16">
    <properties>
     <property name="guardID" type="int" value="64"/>
@@ -1588,21 +1573,6 @@
     <property name="guardID" type="int" value="321"/>
    </properties>
   </object>
-  <object id="2651" name="Guard" x="1584" y="272" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="958"/>
-   </properties>
-  </object>
-  <object id="2652" name="Guard" x="1584" y="288" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="958"/>
-   </properties>
-  </object>
-  <object id="2653" name="Guard" x="1584" y="304" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="958"/>
-   </properties>
-  </object>
   <object id="2654" name="Guard" x="1712" y="304" width="16" height="16">
    <properties>
     <property name="guardID" type="int" value="959"/>
@@ -1619,7 +1589,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Minirobots" visible="0">
+ <objectgroup name="Minirobots">
   <object id="1686" name="Minirobot" x="144" y="1068" width="16" height="20">
    <properties>
     <property name="guardID" type="int" value="4"/>
@@ -1639,12 +1609,6 @@
    </properties>
   </object>
   <object id="1765" name="Minirobot" x="672" y="1308" width="16" height="20">
-   <properties>
-    <property name="guardID" type="int" value="6"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="1766" name="Minirobot" x="752" y="1308" width="16" height="20">
    <properties>
     <property name="guardID" type="int" value="6"/>
     <property name="points" type="int" value="125"/>
@@ -1782,12 +1746,6 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2299" name="Minirobot" x="1008" y="876" width="16" height="20">
-   <properties>
-    <property name="guardID" type="int" value="66"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
   <object id="2300" name="Minirobot" x="1120" y="876" width="16" height="20">
    <properties>
     <property name="guardID" type="int" value="66"/>
@@ -1813,18 +1771,6 @@
    </properties>
   </object>
   <object id="2391" name="Minirobot" x="1264" y="1116" width="16" height="20">
-   <properties>
-    <property name="guardID" type="int" value="321"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="2392" name="Minirobot" x="1376" y="1116" width="16" height="20">
-   <properties>
-    <property name="guardID" type="int" value="321"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="2393" name="Minirobot" x="1504" y="1116" width="16" height="20">
    <properties>
     <property name="guardID" type="int" value="321"/>
     <property name="points" type="int" value="125"/>
@@ -1882,6 +1828,12 @@
    <properties>
     <property name="guardID" type="int" value="-1"/>
     <property name="points" type="int" value="166"/>
+   </properties>
+  </object>
+  <object id="2658" name="Minirobot" x="992" y="876" width="16" height="20">
+   <properties>
+    <property name="guardID" type="int" value="66"/>
+    <property name="points" type="int" value="125"/>
    </properties>
   </object>
  </objectgroup>
@@ -4899,7 +4851,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="1787" name="FlyRobot" x="1712" y="1312" width="16" height="16">
+  <object id="1787" name="FlyRobot" x="1728" y="1312" width="16" height="16">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -4907,17 +4859,6 @@
     <property name="frameL" value="flyRobotL"/>
     <property name="frameR" value="flyRobotR"/>
     <property name="guardID" type="int" value="11"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="1790" name="FlyRobot" x="1808" y="1312" width="16" height="16">
-   <properties>
-    <property name="animC" value="flyRobotCutter"/>
-    <property name="animLR" value="flyRobotLR"/>
-    <property name="animRL" value="flyRobotRL"/>
-    <property name="frameL" value="flyRobotL"/>
-    <property name="frameR" value="flyRobotR"/>
-    <property name="guardID" type="int" value="13"/>
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
@@ -5031,17 +4972,6 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2289" name="FlyRobot" x="736" y="864" width="16" height="16">
-   <properties>
-    <property name="animC" value="flyRobotCutter"/>
-    <property name="animLR" value="flyRobotLR"/>
-    <property name="animRL" value="flyRobotRL"/>
-    <property name="frameL" value="flyRobotL"/>
-    <property name="frameR" value="flyRobotR"/>
-    <property name="guardID" type="int" value="63"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
   <object id="2290" name="FlyRobot" x="864" y="864" width="16" height="16">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
@@ -5127,17 +5057,6 @@
     <property name="frameL" value="flyRobotL"/>
     <property name="frameR" value="flyRobotR"/>
     <property name="guardID" type="int" value="-1"/>
-    <property name="points" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="2649" name="FlyRobot" x="1648" y="288" width="16" height="16">
-   <properties>
-    <property name="animC" value="flyRobotCutter"/>
-    <property name="animLR" value="flyRobotLR"/>
-    <property name="animRL" value="flyRobotRL"/>
-    <property name="frameL" value="flyRobotL"/>
-    <property name="frameR" value="flyRobotR"/>
-    <property name="guardID" type="int" value="958"/>
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
