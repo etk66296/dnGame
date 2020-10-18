@@ -140,6 +140,17 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				backgroundKey: ''
 			} 
 		}
+		case 6: {
+			this.load.tilemapTiledJSON("mapLevel6FalloutShelter", "assets/maps/dn1MapLevel6FalloutShelter.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel6FalloutShelter',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: '',
+				backgroundKey: ''
+			} 
+		}
 		default: {
 			this.worldMap = this.make.tilemap({ key: "maplevelCtrl" })
 			return this.levelData = {
