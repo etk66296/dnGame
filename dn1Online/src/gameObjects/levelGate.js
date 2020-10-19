@@ -21,12 +21,14 @@ class LevelGate extends PhysicsObj {
 				this.hero.setVisible(false)
 				this.play(this.levelGateData.properties.animB)
 			} else {
+				console.log(this.hero.numOfGunUps)
 				scene.scene.manager.start(this.hero.nextLevelData.key , {
 					points: this.hero.collectedPoints,
 					hasHighJumpShoe: this.hero.hasHighJumpShoe,
 					hasDangleClaws: this.hero.hasDangleClaws,
 					hasMultiHand: this.hero.hasMultiHand,
 					numOfGunUps: this.hero.numOfGunUps,
+					numOfHealthBlocks: this.hero.healthBlocks.current,
 					levelData: {
 						key: this.hero.nextLevelData.key,
 						mapData: this.hero.nextLevelData.mapData,

@@ -462,7 +462,7 @@ class Hero extends PhysicsObj {
 			hasMultiHand.setScrollFactor(0)
 			this.equipment.nextPosIndex += 1
 		}
-		for (let i = 1; i < this.numOfGunUps; i++) {
+		for (let i = 0; i < this.numOfGunUps; i++) {
 			let gunPowerUp = this.scene.add.sprite(
 				this.equipment.positions[this.equipment.nextPosIndex].x,
 				this.equipment.positions[this.equipment.nextPosIndex].y,

@@ -1282,6 +1282,7 @@ IntroScene.prototype.update = function (time, delta) {
 		// this.scene.start('LogoScene',  { doRestart: false })
 		this.scene.start('LevelControlScene', {
 			points: 0,
+			numOfHealthBlocks: 10,
 			hasHighJumpShoe: false,
 			hasDangleClaws: false,
 			hasMultiHand: false,

@@ -61,6 +61,7 @@ LevelControlScene.prototype.create = function() {
 	this.hero.hasMultiHand = this.heroData.hasMultiHand
 	this.hero.numOfGunUps = this.heroData.numOfGunUps
 	this.hero.currentLevelId = this.heroData.currentLevelId
+	this.hero.healthBlocks.current = this.heroData.numOfHealthBlocks
 	this.hero.nextLevelData = {
 		key: this.levelData.key,
 		mapData: this.levelData.mapData,

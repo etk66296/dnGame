@@ -122,7 +122,7 @@ Level0Scene.prototype.create = function() {
 	this.hero = new Hero(this, this.heroObjLayerData[0].x, this.heroObjLayerData[0].y, this.solidLayer, this.gameControls, this.heroGun)
 	this.hero.currentLevelId = this.heroData.currentLevelId
 
-	// define the data for changing the scene to the next level
+	// define the data for changing the scene to the next level control scene
 	this.hero.nextLevelData = {
 		key: 'LevelControlScene',
 		mapData: 'maplevelCtrl',
@@ -130,7 +130,18 @@ Level0Scene.prototype.create = function() {
 		lastScene: 'Level0Scene',
 		backgroundImageFilePath: '',
 		backgroundKey: ''
-	} 
+	}
+
+	// set the heros eqipment, points and health
+	this.hero.addPoints(this.heroData.points)
+	this.hero.hasHighJumpShoe = this.heroData.hasHighJumpShoe
+	this.hero.hasDangleClaws = this.heroData.hasDangleClaws
+	this.hero.hasMultiHand = this.heroData.hasMultiHand
+	this.hero.numOfGunUps = this.heroData.numOfGunUps
+	this.hero.currentLevelId = this.heroData.currentLevelId
+	this.hero.healthBlocks.current = this.heroData.numOfHealthBlocks
+	this.hero.resetEquipment()
+	this.hero.updateHealthBlock()
 	
 	// place translator machine
 	if (this.placeTranslatorObjLayerData !== null) {
