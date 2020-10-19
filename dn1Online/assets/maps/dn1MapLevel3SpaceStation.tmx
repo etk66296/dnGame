@@ -392,7 +392,7 @@
   </object>
   <object id="1179" name="Croco" type="leftcrawler" x="1856" y="800" width="16" height="16">
    <properties>
-    <property name="guardID" type="int" value="3"/>
+    <property name="guardID" type="int" value="-1"/>
    </properties>
   </object>
   <object id="1213" name="Croco" type="leftcrawler" x="1856" y="1136" width="16" height="16">
@@ -1383,7 +1383,7 @@
     <property name="points" type="int" value="500"/>
    </properties>
   </object>
-  <object id="1168" name="FloppyDisk" type="packed" x="1680" y="672" width="16" height="16">
+  <object id="1168" name="Joystick" type="packed" x="1680" y="672" width="16" height="16">
    <properties>
     <property name="animA" value="Joystick"/>
     <property name="animB" value="Joystick"/>

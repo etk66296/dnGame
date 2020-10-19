@@ -40,6 +40,7 @@ function Level0Scene() {
 	this.decoObjLayerData = null
 	this.levelGatesObjLayerData = null
 	this.trapsObjLayerData = null
+	this.conveyorsObjLayerData = null
 
 	// scene objects
 	this.bgImage = null
@@ -67,6 +68,7 @@ function Level0Scene() {
 	this.washerBosses = []
 	this.levelGates = null
 	this.traps = []
+	this.conveyors = []
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -368,6 +370,11 @@ Level0Scene.prototype.create = function() {
 		this.levelGates = new LevelGates(this, this.hero, this.levelGatesObjLayerData)
 	}
 
+	// level gates
+	if (this.conveyorsObjLayerData !== null) {
+		this.conveyors = new Conveyors(this, this.hero, this.conveyorsObjLayerData)
+	}
+
 	// camera
 	this.cameras.main.startFollow(this.hero)
 }
@@ -519,6 +526,11 @@ Level0Scene.prototype.createWorld = function(worldData) {
 	// traps
 	if (this.worldMap.objects.findIndex(x => x.name === "Traps") !== -1) {
 		this.trapsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Traps")].objects
+	}
+
+	// Conveyors
+	if (this.worldMap.objects.findIndex(x => x.name === "Conveyors") !== -1) {
+		this.conveyorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Conveyors")].objects
 	}
 }
 

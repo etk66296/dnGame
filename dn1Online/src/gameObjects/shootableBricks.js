@@ -14,8 +14,6 @@ class Brick extends PhysicsObj {
 			scene.physics.world.removeCollider(this.birckShotEvent)
 		})
 	}
-	preUpdate (time, delta) {
-	}
 }
 
 class ShootableBricks extends Phaser.Physics.Arcade.Group {
