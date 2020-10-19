@@ -8759,6 +8759,29 @@
                  "width":16,
                  "x":432,
                  "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":2758,
+                 "name":"HighJumpShoe",
+                 "properties":
+                    {
+                     "anim":"HighJumpShoe",
+                     "frame":"HighJumpShoe_0000",
+                     "points":1000
+                    },
+                 "propertytypes":
+                    {
+                     "anim":"string",
+                     "frame":"string",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"unpacked",
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -11202,7 +11225,7 @@
                  "properties":
                     {
                      "frame":"giantRobotL",
-                     "guardID":11,
+                     "guardID":-1,
                      "points":500
                     },
                  "propertytypes":
@@ -12883,7 +12906,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":2758,
+ "nextobjectid":2759,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

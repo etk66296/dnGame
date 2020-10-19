@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="65" tilewidth="16" tileheight="16" nextobjectid="2758">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="65" tilewidth="16" tileheight="16" nextobjectid="2759">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -2885,6 +2885,13 @@
     <property name="points" type="int" value="1"/>
    </properties>
   </object>
+  <object id="2758" name="HighJumpShoe" type="unpacked" x="192" y="112" width="16" height="16">
+   <properties>
+    <property name="anim" value="HighJumpShoe"/>
+    <property name="frame" value="HighJumpShoe_0000"/>
+    <property name="points" type="int" value="1000"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="FireWheelRobots">
   <object id="1992" name="FireWheelRobot" x="1120" y="292" width="24" height="28">
@@ -3602,7 +3609,7 @@
   <object id="2604" name="GIantrobo" x="1360" y="96" width="32" height="32">
    <properties>
     <property name="frame" value="giantRobotL"/>
-    <property name="guardID" type="int" value="11"/>
+    <property name="guardID" type="int" value="-1"/>
     <property name="points" type="int" value="500"/>
    </properties>
   </object>

@@ -56,5 +56,14 @@ class EnemyBullets extends Phaser.Physics.Arcade.Group {
     if (bullet) {
       bullet.fire(x, y, dir)
 		}
-  }
+	}
+	registerBulletBlockers(blockerGroup) { // if the propertie is set the tiles block enemy bullets
+		blockerGroup.children.iterate(tile => {
+			if (tile.worldData.properties.enemyBulletBlocker) {
+				this.scene.physics.add.collider(tile, this, (tile, bullet) => {
+					bullet.play('explodeEnemy')
+				})
+			}
+		})
+	}
 }

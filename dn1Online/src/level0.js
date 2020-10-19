@@ -177,6 +177,7 @@ Level0Scene.prototype.create = function() {
 	// shootable bricks
 	if (this.shootableBricksObjLayerData !== null) {
 		this.shootableBricksGroup = new ShootableBricks(this, this.hero, this.shootableBricksObjLayerData, this.giftsGroup)
+		this.enemyBullets.registerBulletBlockers(this.shootableBricksGroup)
 	}
 
 	// spikes
