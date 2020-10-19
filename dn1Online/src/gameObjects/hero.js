@@ -38,6 +38,7 @@ class Hero extends PhysicsObj {
 		this.numOfGunUps = 1
 
 		this.allowDangling = false
+		this.allowDanglePullUp = false
 		this.allowShooting = true
 		this.movementAllowed = true
 		this.collectedKeyIds = []
@@ -176,12 +177,14 @@ class Hero extends PhysicsObj {
 					}
 					// <-- dangle left animations
 					// jump up -->
-					if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-						this.body.checkCollision.up = false
-						if (this.painState) {
-							this.anims.play('heroPainLeft', true)
-						} else {
-							this.anims.play('heroDangleUpL', true)
+					if (this.allowDanglePullUp) {
+						if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+							this.body.checkCollision.up = false
+							if (this.painState) {
+								this.anims.play('heroPainLeft', true)
+							} else {
+								this.anims.play('heroDangleUpL', true)
+							}
 						}
 					}
 					// <-- jump up
@@ -199,12 +202,14 @@ class Hero extends PhysicsObj {
 					}
 					// <-- dangle right animations
 					// jump up -->
-					if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
-						this.body.checkCollision.up = false
-						if (this.painState) {
-							this.anims.play('heroPainRight', true)
-						} else {
-							this.anims.play('heroDangleUpR', true)
+					if (this.allowDanglePullUp) {
+						if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
+							this.body.checkCollision.up = false
+							if (this.painState) {
+								this.anims.play('heroPainRight', true)
+							} else {
+								this.anims.play('heroDangleUpR', true)
+							}
 						}
 					}
 					// <-- jump up

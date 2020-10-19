@@ -1,5 +1,5 @@
 class DangleTile extends Phaser.GameObjects.Rectangle {
-	constructor(scene, hero, dangleTileData) {
+	constructor(scene, hero, dangleTileData, railGroup) {
 			super(
 				scene,
 				dangleTileData.x + dangleTileData.width / 2,
@@ -12,15 +12,26 @@ class DangleTile extends Phaser.GameObjects.Rectangle {
 			this.setActive(true)
 			this.body.immovable = true
 			this.hero = hero
-			scene.physics.add.collider(this, hero)
+			this.worldData = dangleTileData
+			this.railGroup = railGroup
+			this.railInUse = false
+
 	}
 	preUpdate (time, delta) {
-		if (this.body.touching.down && this.hero.hasDangleClaws) {
-			this.hero.allowDangling = true
-			this.hero.setGravityY(-300)
-		} else {
-			this.hero.allowDangling = false
-			this.hero.setGravityY(300)
+		if (!this.railGroup.inUse || this.railInUse) {
+			this.railGroup.inUse = true // if one dangle rail gets hangs the hero it must block all others, thus the other dangle tiles do not let the hero fall
+			this.railInUse = true
+			if (this.body.touching.down && this.hero.hasDangleClaws) {
+				this.hero.allowDangling = true
+				this.hero.allowDanglePullUp = this.worldData.properties.allowPullUp
+				this.hero.setGravityY(-300)
+				this.railGroup.inUse = true
+			} else {
+				this.hero.allowDangling = false
+				this.hero.setGravityY(300)
+				this.railGroup.inUse = false
+				this.railInUse = false
+			}
 		}
 	}
 }
@@ -28,9 +39,12 @@ class DangleTile extends Phaser.GameObjects.Rectangle {
 class DangleTiles extends Phaser.GameObjects.Group {
   constructor (scene, hero, dangleTilesData) {
 		super(scene.physics.world, scene)
+		this.inUse = false 
 		dangleTilesData.forEach((dangleTileData) => {
-			this.add(new DangleTile(scene, hero, dangleTileData))
+			this.add(new DangleTile(scene, hero, dangleTileData, this))
 		})
-		
+		this.children.iterate(dangleTile => {
+			scene.physics.add.collider(dangleTile, hero)
+		})
   }
 }

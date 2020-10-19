@@ -8,6 +8,7 @@ class EnemyBullet extends PhysicsObj {
 				this.body.reset(-100, -100)
 				this.setActive(false)
 				this.setVisible(false)
+				this.setFrame('enemyBulletR')
 			}
 		})
 	}
@@ -61,7 +62,10 @@ class EnemyBullets extends Phaser.Physics.Arcade.Group {
 		blockerGroup.children.iterate(tile => {
 			if (tile.worldData.properties.enemyBulletBlocker) {
 				this.scene.physics.add.collider(tile, this, (tile, bullet) => {
-					bullet.play('explodeEnemy')
+					bullet.body.reset(-100, -100)
+					bullet.setActive(false)
+					bullet.setVisible(false)
+					bullet.setFrame('enemyBulletR')
 				})
 			}
 		})
