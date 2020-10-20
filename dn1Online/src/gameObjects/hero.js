@@ -163,6 +163,7 @@ class Hero extends PhysicsObj {
 					} else {
 						this.setFrame('dangleShootL_0000')
 					}
+					this.gun.fireBullet(this.x, this.y, this.lastDir)
 				}
 				// dangling LEFT -->
 				if (this.gameControls.key_LEFT.isDown || this.gameControls.touch_LEFT.isDown) {
