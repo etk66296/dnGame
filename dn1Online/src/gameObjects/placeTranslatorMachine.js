@@ -27,7 +27,7 @@ class PlaceTranslatorMachine extends PhysicsObj {
 						  	delay: 1000,
 						  	callback: () => { // translate the hero
 						  		this.play(placeTranslatorData.properties.animA)
-						  		this.hero.setPosition(placeTranslatorData.properties.xPosB + 24, placeTranslatorData.properties.yPosB + 42)
+						  		this.hero.setPosition(placeTranslatorData.properties.xPosB + 24, placeTranslatorData.properties.yPosB + 40)
 									this.deviceBlocked = false
 									this.hero.movementAllowed = true
 						  		placeTranslateTimeEvent.remove(false)
