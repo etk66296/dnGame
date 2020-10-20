@@ -25,39 +25,41 @@ class FlyRobot extends EnemyObj {
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (Math.abs(this.x - this.hero.x) > 15) {
-			if (this.hero.x < this.x && this.lastDirX != -1) {
-				this.lastDirX = -1
-				this.play(this.worldData.properties.animRL)
+		if (Phaser.Math.Distance.Between(this.hero.x, this.hero.y, this.x, this.y) < 140) {
+			if (Math.abs(this.x - this.hero.x) > 15) {
+				if (this.hero.x < this.x && this.lastDirX != -1) {
+					this.lastDirX = -1
+					this.play(this.worldData.properties.animRL)
+				}
+				if (this.hero.x > this.x && this.lastDirX != 1) {
+					this.lastDirX = 1
+					this.play(this.worldData.properties.animLR)
+				}
 			}
-			if (this.hero.x > this.x && this.lastDirX != 1) {
-				this.lastDirX = 1
-				this.play(this.worldData.properties.animLR)
+			if (Math.abs(this.y - this.hero.y) > 15) {
+				if ((this.hero.y - 24)< this.y && this.lastDirY != -1) {
+					this.lastDirY = -1
+				}
+				if ((this.hero.y - 24) > this.y && this.lastDirY != 1) {
+					this.lastDirY = 1
+				}
 			}
-		}
-		if (Math.abs(this.y - this.hero.y) > 15) {
-			if ((this.hero.y - 24)< this.y && this.lastDirY != -1) {
-				this.lastDirY = -1
+			if (Math.abs(this.hero.x - this.x) < 150) {
+				this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)
+				this.cutterObj.setPosition(this.x, this.y + 9)
 			}
-			if ((this.hero.y - 24) > this.y && this.lastDirY != 1) {
-				this.lastDirY = 1
+			if (Math.abs(this.hero.y - this.y) < 150) {
+				this.body.setVelocityY(this.lastDirY * this.constantVelocity.y)
+				this.cutterObj.setPosition(this.x, this.y + 9)
 			}
-		}
-		if (Math.abs(this.hero.x - this.x) < 150) {
-			this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)
-			this.cutterObj.setPosition(this.x, this.y + 9)
-		}
-		if (Math.abs(this.hero.y - this.y) < 150) {
-			this.body.setVelocityY(this.lastDirY * this.constantVelocity.y)
-			this.cutterObj.setPosition(this.x, this.y + 9)
-		}
-		
-		// fire bullet
-		if (!this.anims.isPlaying) {
-			this.fireElapsedTime += delta
-			if (this.fireElapsedTime >= this.constFireDeltaTime ) {
-				this.fireElapsedTime = 0
-				this.enemyBullets.fireBullet(this.x, this.y, this.lastDirX)
+
+			// fire bullet
+			if (!this.anims.isPlaying) {
+				this.fireElapsedTime += delta
+				if (this.fireElapsedTime >= this.constFireDeltaTime ) {
+					this.fireElapsedTime = 0
+					this.enemyBullets.fireBullet(this.x, this.y, this.lastDirX)
+				}
 			}
 		}
 		if (!this.isAlive) {
