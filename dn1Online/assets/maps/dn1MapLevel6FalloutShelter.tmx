@@ -1611,8 +1611,8 @@
   </object>
   <object id="3062" name="EmptyBox" type="packed" x="912" y="832" width="16" height="16">
    <properties>
-    <property name="animA" value="Joystick"/>
-    <property name="animB" value="Joystick"/>
+    <property name="animA" value=""/>
+    <property name="animB" value=""/>
     <property name="boxanim" value="GreyBoxExplode"/>
     <property name="boxframe" value="GreyBox"/>
     <property name="frame" value=""/>

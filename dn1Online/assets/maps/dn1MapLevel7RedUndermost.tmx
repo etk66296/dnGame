@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="3706">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="3707">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -1396,13 +1396,6 @@
   </object>
  </objectgroup>
  <objectgroup name="Gifts">
-  <object id="3070" name="HighJumpShoe" type="unpacked" x="192" y="752" width="16" height="16">
-   <properties>
-    <property name="anim" value="HighJumpShoe"/>
-    <property name="frame" value="HighJumpShoe_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
   <object id="3072" name="Joystick" type="unpacked" x="176" y="752" width="16" height="16">
    <properties>
     <property name="animA" value="Joystick"/>
@@ -2491,6 +2484,11 @@
   <object id="3605" name="DangleRail" x="1088" y="594" width="96" height="16">
    <properties>
     <property name="allowPullUp" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3706" name="DangleRail" x="80" y="50" width="304" height="16">
+   <properties>
+    <property name="allowPullUp" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

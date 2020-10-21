@@ -8210,6 +8210,25 @@
                  "width":96,
                  "x":1088,
                  "y":594
+                }, 
+                {
+                 "height":16,
+                 "id":3706,
+                 "name":"DangleRail",
+                 "properties":
+                    {
+                     "allowPullUp":false
+                    },
+                 "propertytypes":
+                    {
+                     "allowPullUp":"bool"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":304,
+                 "x":80,
+                 "y":50
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -12087,7 +12106,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3706,
+ "nextobjectid":3707,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
