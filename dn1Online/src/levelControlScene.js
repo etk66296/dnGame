@@ -84,7 +84,7 @@ LevelControlScene.prototype.update = function() {
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
 	console.log('level id: ', levelID)
-	levelID = 8
+	levelID = 9
 	switch (levelID) {
 		case 1: {
 			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
@@ -172,6 +172,17 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				lastScene: 'LevelControlScene',
 				backgroundImageFilePath: 'assets/sprites/bgs/schwaebischeAlb.jpg',
 				backgroundKey: 'schwaebischeAlb'
+			} 
+		}
+		case 9: {
+			this.load.tilemapTiledJSON("mapLevel9Storehouse", "assets/maps/dn1MapLevel9Storehouse.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevel9Storehouse',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: '',
+				backgroundKey: ''
 			} 
 		}
 		default: {

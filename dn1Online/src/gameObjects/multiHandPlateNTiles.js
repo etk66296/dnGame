@@ -52,6 +52,7 @@ class MultiHandTile extends PhysicsObj {
 			this.delayTime = 200
 			this.enabled = false
 			this.timeDelayEvent = null
+			this.railInUse = false
 	}
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
@@ -71,12 +72,30 @@ class MultiHandTile extends PhysicsObj {
 				}
 			})
 		}
+		if (this.enabled) {
+			if (!this.multiHandSystem.inUse || this.railInUse) {
+				this.multiHandSystem.inUse = true // if one dangle rail gets hangs the hero it must block all others, thus the other dangle tiles do not let the hero fall
+				this.railInUse = true
+				if (this.body.touching.down && this.hero.hasDangleClaws) {
+					this.hero.allowDangling = true
+					this.hero.allowDanglePullUp = true
+					this.hero.setGravityY(-300)
+					this.multiHandSystem.inUse = true
+				} else {
+					this.hero.allowDangling = false
+					this.hero.setGravityY(300)
+					this.multiHandSystem.inUse = false
+					this.railInUse = false
+				}
+			}
+		}
 	}
 }
 
 class MultiHandPlateAndTiles extends Phaser.GameObjects.Group {
   constructor (scene, hero, multiHandData) {
 		super(scene.physics.world, scene)
+		this.inUse = false 
 		this.tilesEnabled = false
 		multiHandData.forEach((mhData) => {
 			if (mhData.type === 'plate') {
