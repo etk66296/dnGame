@@ -170,8 +170,8 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				mapData: 'mapLevel8TeckCastle',
 				numOfTiles: 128 * 90,
 				lastScene: 'LevelControlScene',
-				backgroundImageFilePath: '',
-				backgroundKey: ''
+				backgroundImageFilePath: 'assets/sprites/bgs/schwaebischeAlb.jpg',
+				backgroundKey: 'schwaebischeAlb'
 			} 
 		}
 		default: {
