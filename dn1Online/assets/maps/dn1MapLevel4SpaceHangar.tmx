@@ -808,36 +808,6 @@
     <property name="guardID" type="int" value="20"/>
    </properties>
   </object>
-  <object id="1588" name="Guard" x="464" y="1184" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
-  <object id="1591" name="Guard" x="464" y="1168" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
-  <object id="1592" name="Guard" x="464" y="1152" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
-  <object id="1593" name="Guard" x="464" y="1136" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
-  <object id="1594" name="Guard" x="464" y="1120" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
-  <object id="1595" name="Guard" x="464" y="1104" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="101"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="Minirobots"/>
  <objectgroup name="NeedleTiles">
@@ -1794,7 +1764,7 @@
   <object id="1484" name="GIantrobo" x="432" y="1168" width="32" height="32">
    <properties>
     <property name="frame" value="giantRobotL"/>
-    <property name="guardID" type="int" value="101"/>
+    <property name="guardID" type="int" value="-1"/>
     <property name="points" type="int" value="500"/>
    </properties>
   </object>

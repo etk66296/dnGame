@@ -16,6 +16,7 @@ class Helicopter extends EnemyObj {
 		this.play(heliData.properties.animAL)
 		this.currentDist = 0
 		this.constantVelocity = {x: 50, y: 10}
+		this.activated = false
 
 		// exhaust animation
 		this.exhaust = this.scene.add.sprite(
@@ -28,28 +29,32 @@ class Helicopter extends EnemyObj {
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		this.currentDist = Phaser.Math.Distance.Between(this.x, this.y, this.hero.x, this.hero.y)
-		if (this.currentDist < this.heliData.properties.startMovingDist &&
-			Math.abs(this.x - this.hero.x) > 25) {
-			if (this.x < this.hero.x && this.lastDirX != 1) {
-				this.lastDirX = 1
-				this.play(this.heliData.properties.animAR)
+		if (Phaser.Math.Distance.Between(this.x, this.y, this.hero.x, this.hero.y) < this.heliData.properties.startMovingDist &&
+				!this.activated) {
+			this.activated = true
+		}
+		if (this.activated) {
+			if (Math.abs(this.x - this.hero.x) > 25) {
+				if (this.x < this.hero.x && this.lastDirX != 1) {
+					this.lastDirX = 1
+					this.play(this.heliData.properties.animAR)
+				}
+				if (this.x >= this.hero.x && this.lastDirX != -1) {
+					this.lastDirX = -1
+					this.play(this.heliData.properties.animAL)
+				}
+				// if the hero is under the helicopter go down and fight
+				if (Math.abs(this.x - this.hero.x) <= 60 && this.lastDirY !== 1) {
+					this.constantVelocity.y = 30
+					this.lastDirY = 1
+				}
+				if (Math.abs(this.x - this.hero.x) > 60 && this.lastDirY !== -1) {
+					this.constantVelocity.y = 10
+					this.lastDirY = -1
+				}
+				this.body.setVelocityY(this.lastDirY * this.constantVelocity.y)
+				this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)
 			}
-			if (this.x >= this.hero.x && this.lastDirX != -1) {
-				this.lastDirX = -1
-				this.play(this.heliData.properties.animAL)
-			}
-			// if the hero is under the helicopter go down and fight
-			if (Math.abs(this.x - this.hero.x) <= 60 && this.lastDirY !== 1) {
-				this.constantVelocity.y = 30
-				this.lastDirY = 1
-			}
-			if (Math.abs(this.x - this.hero.x) > 60 && this.lastDirY !== -1) {
-				this.constantVelocity.y = 10
-				this.lastDirY = -1
-			}
-			this.body.setVelocityY(this.lastDirY * this.constantVelocity.y)
-			this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)
 		}
 		if (!this.exhaust.anims.isPlaying) {
 			this.exhaust.setPosition(
