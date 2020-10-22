@@ -80,6 +80,18 @@ class MultiHandTile extends PhysicsObj {
 					this.multiHandSystem.inUseNum += 1
 				}
 				this.railInUse = true
+
+				// use it
+				if (this.multiHandSystem.inUseNum > 0 && !this.hero.allowDangling) {
+					this.hero.allowDangling = true
+					this.hero.setGravityY(-300)
+					this.hero.allowDanglePullUp = true
+				}
+				if (this.multiHandSystem.inUseNum <= 0 && this.hero.allowDangling) {
+					this.hero.allowDangling = false
+					this.hero.setGravityY(300)
+					this.hero.allowDanglePullUp = false
+				}
 			} else {
 				if (this.railInUse) {
 					this.railInUse = false
@@ -89,17 +101,6 @@ class MultiHandTile extends PhysicsObj {
 						this.multiHandSystem.inUseNum = 0
 					}
 				}
-			}
-
-			if (this.multiHandSystem.inUseNum > 0 && !this.hero.allowDangling) {
-				this.hero.allowDangling = true
-				this.hero.setGravityY(-300)
-				this.hero.allowDanglePullUp = true
-			}
-			if (this.multiHandSystem.inUseNum <= 0 && this.hero.allowDangling) {
-				this.hero.allowDangling = false
-				this.hero.setGravityY(300)
-				this.hero.allowDanglePullUp = false
 			}
 		}
 	}
