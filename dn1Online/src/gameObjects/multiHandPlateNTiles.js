@@ -72,21 +72,34 @@ class MultiHandTile extends PhysicsObj {
 				}
 			})
 		}
+
+		// allow dangling when the hero is touching down
 		if (this.enabled) {
-			if (!this.multiHandSystem.inUse || this.railInUse) {
-				this.multiHandSystem.inUse = true // if one dangle rail gets hangs the hero it must block all others, thus the other dangle tiles do not let the hero fall
-				this.railInUse = true
-				if (this.body.touching.down && this.hero.hasDangleClaws) {
-					this.hero.allowDangling = true
-					this.hero.allowDanglePullUp = true
-					this.hero.setGravityY(-300)
-					this.multiHandSystem.inUse = true
-				} else {
-					this.hero.allowDangling = false
-					this.hero.setGravityY(300)
-					this.multiHandSystem.inUse = false
-					this.railInUse = false
+			if (this.body.touching.down && this.hero.hasDangleClaws) {
+				if (!this.railInUse) {
+					this.multiHandSystem.inUseNum += 1
 				}
+				this.railInUse = true
+			} else {
+				if (this.railInUse) {
+					this.railInUse = false
+					this.multiHandSystem.inUseNum -= 1
+					if (this.multiHandSystem.inUseNum <= 0) {
+						this.multiHandSystem.inUse = false
+						this.multiHandSystem.inUseNum = 0
+					}
+				}
+			}
+
+			if (this.multiHandSystem.inUseNum > 0 && !this.hero.allowDangling) {
+				this.hero.allowDangling = true
+				this.hero.setGravityY(-300)
+				this.hero.allowDanglePullUp = true
+			}
+			if (this.multiHandSystem.inUseNum <= 0 && this.hero.allowDangling) {
+				this.hero.allowDangling = false
+				this.hero.setGravityY(300)
+				this.hero.allowDanglePullUp = false
 			}
 		}
 	}
@@ -95,7 +108,7 @@ class MultiHandTile extends PhysicsObj {
 class MultiHandPlateAndTiles extends Phaser.GameObjects.Group {
   constructor (scene, hero, multiHandData) {
 		super(scene.physics.world, scene)
-		this.inUse = false 
+		this.inUseNum = 0
 		this.tilesEnabled = false
 		multiHandData.forEach((mhData) => {
 			if (mhData.type === 'plate') {
@@ -107,6 +120,5 @@ class MultiHandPlateAndTiles extends Phaser.GameObjects.Group {
 				this.add(new MultiHandTile(scene, hero, mhData, this))
 			}
 		})
-		
   }
 }
