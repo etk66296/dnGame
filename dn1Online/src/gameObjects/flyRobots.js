@@ -15,7 +15,7 @@ class FlyRobot extends EnemyObj {
 		this.lastDirY = -1
 		this.constantVelocity = {x: 20, y: 10}
 		this.enemyBullets = enemyBullets
-		this.body.setSize(18, 20, true)
+		this.body.setSize(16, 20, true)
 		// this.body.setOffset(0, 2)
 		this.cutterObj = this.scene.add.sprite(roboData.x + 8, roboData.y + 16, 'enemiesSpriteAtlas')
 		this.cutterObj.play(roboData.properties.animC)

@@ -2135,7 +2135,7 @@
     <property name="keyID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="1012" name="PurpleKey" type="Key" x="1328" y="592" width="16" height="16">
+  <object id="1012" name="CircuitBoardKey" type="Key" x="1328" y="592" width="16" height="16">
    <properties>
     <property name="anim" value="CircuitBoard"/>
     <property name="frame" value="CircuitBoard_0000"/>
@@ -2143,7 +2143,7 @@
     <property name="points" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="1013" name="PurpleKeyPlate" type="Plate" x="1776" y="1296" width="16" height="16">
+  <object id="1013" name="CircuitBoardPlate" type="Plate" x="1776" y="1296" width="16" height="16">
    <properties>
     <property name="frameA" value="CircuitBoardPlateLocked"/>
     <property name="frameB" value="CircuitBoardPlateOpened"/>

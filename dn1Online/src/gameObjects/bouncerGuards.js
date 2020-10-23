@@ -30,7 +30,9 @@ class BouncerGuards extends Phaser.GameObjects.Group {
 				bounceGroup.children.iterate(bouncer => { // loop trough the game objects (crocos, minirobots, ...)
 					this.children.iterate(guard => {
 						if (guard.worldData.properties.guardID === bouncer.worldData.properties.guardID) { // loup trough the bouncer guards
-							scene.physics.add.collider(bouncer, guard)
+							scene.physics.add.collider(bouncer, guard, () => {
+								bouncer.body.blocked.down = true
+							})
 						}
 					})
 				})

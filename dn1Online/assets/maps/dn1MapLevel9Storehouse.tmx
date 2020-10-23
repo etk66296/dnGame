@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="4339">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="128" height="90" tilewidth="16" tileheight="16" nextobjectid="4340">
  <tileset firstgid="1" name="TilesNoTileBleeding" tilewidth="16" tileheight="16" spacing="2" margin="2" tilecount="544" columns="32">
   <image source="../sprites/TilesNoTileBleeding.png" width="578" height="308"/>
   <tile id="461">
@@ -570,18 +570,6 @@
     <property name="guardID" type="int" value="4"/>
    </properties>
   </object>
-  <object id="4176" name="FloppyDisk" type="packed" x="640" y="528" width="16" height="16">
-   <properties>
-    <property name="animA" value="FloppyDisk"/>
-    <property name="animB" value="FloppyDisk"/>
-    <property name="blockerID" type="int" value="1"/>
-    <property name="boxanim" value="BlueBoxExplode"/>
-    <property name="boxframe" value="BlueBox"/>
-    <property name="frame" value="FloppyDisk_0000"/>
-    <property name="gravity" type="bool" value="true"/>
-    <property name="points" type="int" value="5000"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="Gifts">
   <object id="3991" name="GunUpgrade" type="unpacked" x="336" y="816" width="16" height="16">
@@ -1149,6 +1137,18 @@
    </properties>
   </object>
   <object id="4338" name="FloppyDisk" type="packed" x="528" y="608" width="16" height="16">
+   <properties>
+    <property name="animA" value="FloppyDisk"/>
+    <property name="animB" value="FloppyDisk"/>
+    <property name="blockerID" type="int" value="1"/>
+    <property name="boxanim" value="BlueBoxExplode"/>
+    <property name="boxframe" value="BlueBox"/>
+    <property name="frame" value="FloppyDisk_0000"/>
+    <property name="gravity" type="bool" value="false"/>
+    <property name="points" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="4339" name="FloppyDisk" type="packed" x="640" y="528" width="16" height="16">
    <properties>
     <property name="animA" value="FloppyDisk"/>
     <property name="animB" value="FloppyDisk"/>

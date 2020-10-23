@@ -17,10 +17,10 @@ class Conveyor extends Phaser.GameObjects.Rectangle {
 	}
 	preUpdate (time, delta) {
 		if (this.body.touching.up) {
-			this.hero.x += (this.dir * 3) 
+			this.hero.x += (this.dir * 2) 
 		}
 		if (this.body.touching.down) {
-			this.hero.x += (this.dir * -3)
+			this.hero.x += (this.dir * -2)
 		}
 	}
 }
