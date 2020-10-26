@@ -41,6 +41,7 @@ function Level0Scene() {
 	this.levelGatesObjLayerData = null
 	this.trapsObjLayerData = null
 	this.conveyorsObjLayerData = null
+	this.masterBossObjLayerData = null
 
 	// scene objects
 	this.bgImage = null
@@ -69,6 +70,7 @@ function Level0Scene() {
 	this.levelGates = null
 	this.traps = []
 	this.conveyors = []
+	this.masterBoss = null
 }
 
 Level0Scene.prototype = Object.create(Phaser.Scene.prototype)
@@ -335,6 +337,15 @@ Level0Scene.prototype.create = function() {
 		})
 	}
 
+	// master biss
+	if (this.masterBossObjLayerData !== null) {
+		// there is just one master boss
+		this.masterBoss = new MasterBoss(this, this.hero, this.masterBossObjLayerData[0], this.solidLayer, this.enemyBullets)
+		this.add.sprite(this.masterBoss)
+		this.masterBoss.registerAsPainful()
+		this.masterBoss.registerAsShootable()
+	}
+
 
 	// bouncer
 	if (this.bouncerGuardsObjLayerData !== null) {
@@ -531,6 +542,11 @@ Level0Scene.prototype.createWorld = function(worldData) {
 	// Conveyors
 	if (this.worldMap.objects.findIndex(x => x.name === "Conveyors") !== -1) {
 		this.conveyorsObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "Conveyors")].objects
+	}
+	
+	// master boss
+	if (this.worldMap.objects.findIndex(x => x.name === "MasterBoss") !== -1) {
+		this.masterBossObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "MasterBoss")].objects
 	}
 }
 

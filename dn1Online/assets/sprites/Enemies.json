@@ -1,5 +1,37 @@
 {
 	"frames": {
+		"masterBossAfterBurnerR": {
+			"frame": {"x":434,"y":382,"w":32,"h":32},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":32,"h":32},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"masterBossR": {
+			"frame": {"x":470,"y":382,"w":32,"h":32},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":32,"h":32},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"masterBossAfterBurnerL": {
+			"frame": {"x":436,"y":418,"w":32,"h":32},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":32,"h":32},
+			"pivot": {"x":0.5,"y":0.5}
+		},
+		"masterBossL": {
+			"frame": {"x":472,"y":418,"w":32,"h":32},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+			"sourceSize": {"w":32,"h":32},
+			"pivot": {"x":0.5,"y":0.5}
+		},
 		"mine": {
 			"frame": {"x":290,"y":20,"w":16,"h":16},
 			"rotated": false,
