@@ -3637,23 +3637,23 @@
   </object>
  </objectgroup>
  <objectgroup name="Traps"/>
- <objectgroup name="PlaceTranslatorMachines" offsetx="48" offsety="16">
-  <object id="3606" name="PlaceTranslator" x="1568" y="352" width="48" height="48">
+ <objectgroup name="PlaceTranslatorMachines">
+  <object id="3606" name="PlaceTranslator" x="1616" y="368" width="48" height="48">
    <properties>
     <property name="animA" value="placeTranslatorIdle"/>
     <property name="animB" value="placeTranslatorTakeOff"/>
     <property name="frame" value="PlaceTranslatorIdle_0000"/>
-    <property name="xPosB" type="int" value="180"/>
-    <property name="yPosB" type="int" value="128"/>
+    <property name="xPosB" type="int" value="176"/>
+    <property name="yPosB" type="int" value="144"/>
    </properties>
   </object>
-  <object id="3607" name="PlaceTranslator" x="128" y="128" width="48" height="48">
+  <object id="3607" name="PlaceTranslator" x="176" y="144" width="48" height="48">
    <properties>
     <property name="animA" value="placeTranslatorIdle"/>
     <property name="animB" value="placeTranslatorTakeOff"/>
     <property name="frame" value="PlaceTranslatorIdle_0000"/>
-    <property name="xPosB" type="int" value="1620"/>
-    <property name="yPosB" type="int" value="352"/>
+    <property name="xPosB" type="int" value="1616"/>
+    <property name="yPosB" type="int" value="368"/>
    </properties>
   </object>
  </objectgroup>

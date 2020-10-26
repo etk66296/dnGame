@@ -90,6 +90,7 @@ Level0Scene.prototype.preload = function () {
 }
 
 Level0Scene.prototype.create = function() {
+	console.log(this)
 	// reset every game object and pass it to the garbage collection
 	this.add.displayList.removeAll()
 	
@@ -103,7 +104,6 @@ Level0Scene.prototype.create = function() {
 		this.bgImage.setDepth(-100)
 		this.bgImage.setScrollFactor(0.15, 0.1)
 	}
-
 	// level tiles
 	this.createWorld(this.heroData.levelData)
 	// decoration
@@ -337,7 +337,7 @@ Level0Scene.prototype.create = function() {
 		})
 	}
 
-	// master biss
+	// master boss
 	if (this.masterBossObjLayerData !== null) {
 		// there is just one master boss
 		this.masterBoss = new MasterBoss(this, this.hero, this.masterBossObjLayerData[0], this.solidLayer, this.enemyBullets)

@@ -84,8 +84,19 @@ LevelControlScene.prototype.update = function() {
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
 	console.log('level id: ', levelID)
-	levelID = 10
+	// levelID = 1
 	switch (levelID) {
+		case -1: {
+			this.load.tilemapTiledJSON("mapLevelTest", "assets/maps/test.json")
+			return this.levelData = {
+				key: 'Level0Scene',
+				mapData: 'mapLevelTest',
+				numOfTiles: 128 * 90,
+				lastScene: 'LevelControlScene',
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgartDay.jpg',
+				backgroundKey: 'backgroundImageStuttgartDay'
+			} 
+		}
 		case 1: {
 			this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
 			return this.levelData = {
@@ -93,8 +104,8 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				mapData: 'mapLevel1City',
 				numOfTiles: 128 * 90,
 				lastScene: 'LevelControlScene',
-				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
-				backgroundKey: 'backgroundImageStuttgart'
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgartDay.jpg',
+				backgroundKey: 'backgroundImageStuttgartDay'
 			} 
 		}
 		case 2: {
@@ -104,8 +115,8 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				mapData: 'mapLevel2City',
 				numOfTiles: 128 * 90,
 				lastScene: 'LevelControlScene',
-				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
-				backgroundKey: 'backgroundImageStuttgart'
+				backgroundImageFilePath: 'assets/sprites/bgs/stuttgartNight.jpg',
+				backgroundKey: 'backgroundImageStuttgartNight'
 			} 
 		}
 		case 3: {

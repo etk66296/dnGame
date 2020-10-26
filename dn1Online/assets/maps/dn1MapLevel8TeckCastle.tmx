@@ -1575,7 +1575,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="PlaceTranslatorMachines" offsetx="48" offsety="16"/>
+ <objectgroup name="PlaceTranslatorMachines"/>
  <imagelayer name="bg" opacity="0.51">
   <image source="dn1-e1l08.png" width="2048" height="1440"/>
  </imagelayer>

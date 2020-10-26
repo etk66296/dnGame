@@ -1,6 +1,6 @@
 function IntroScene() {
 	Phaser.Scene.call(this, 'IntroScene')
-	this.introDelay = 2000
+	this.introDelay = 2500
 	this.elapsedIntroTime = 0
 }
 
@@ -10,13 +10,17 @@ IntroScene.prototype.constructor = IntroScene
 
 IntroScene.prototype.preload = function () {
 	this.load.image('introScreen', 'assets/introScreen.png')
-	this.load.image('logoScreen', 'assets/myLogo.png')
 	this.load.image('TilesNoTileBleeding', 'assets/sprites/TilesNoTileBleeding.png')
 	this.load.image('headUpDsp', 'assets/headUpDsp.png')
-	this.load.image('bgSunrise', 'assets/sprites/bgs/sunrise.png')
-	this.load.image('skyline2', 'assets/sprites/bgs/skyline2.png')
-	this.load.image('skyline1', 'assets/sprites/bgs/skyline1.png')
-	this.load.image('stuttgart', 'assets/sprites/bgs/stuttgart.jpg')
+
+	// menu background
+	this.load.image('menuBackground', 'assets/sprites/bgs/menu.jpg')
+	this.load.image('menuTile', 'assets/sprites/menuTile.png')
+	this.load.image('menuTile2', 'assets/sprites/menuTile2.png')
+	// menu buttons
+	this.load.image('menuBtnPlay', 'assets/buttons/play.png')
+	this.load.image('menuBtnNotes', 'assets/buttons/notes.png')
+	this.load.image('menuBtnScore', 'assets/buttons/score.png')
 
 	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
 	
@@ -72,6 +76,9 @@ IntroScene.prototype.preload = function () {
 		'assets/sounds/washerBossNoise.ogg',
 		'assets/sounds/washerBossNoise.mp3'
 	])
+
+	// debug
+	// this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
 }
 
 IntroScene.prototype.create = function() {
@@ -1279,22 +1286,45 @@ IntroScene.prototype.create = function() {
 IntroScene.prototype.update = function (time, delta) {
 	if (this.elapsedIntroTime > this.introDelay) {
 		this.scene.stop('IntroScene')
-		// this.scene.start('LogoScene',  { doRestart: false })
-		this.scene.start('LevelControlScene', {
-			points: 0,
-			numOfHealthBlocks: 10,
-			hasHighJumpShoe: false,
-			hasDangleClaws: false,
-			hasMultiHand: false,
-			numOfGunUps: 0,
-			levelData: {
-				key: '',
-				mapData: '',
-				numOfTiles: '',
-				lastScene: 'INTRO'
-			},
-			currentLevelId: 0
-		})
+		
+		
+		this.scene.start('MenuScene')
+		
+		// this.scene.manager.start('Level0Scene' , {
+		// 	points: 0,
+		// 	hasHighJumpShoe: false,
+		// 	hasDangleClaws: false,
+		// 	hasMultiHand: false,
+		// 	numOfGunUps: 0,
+		// 	numOfHealthBlocks: 10,
+		// 	levelData: {
+		// 		key: 'Level0Scene',
+		// 		mapData: 'mapLevel1City',
+		// 		numOfTiles: 128 * 90,
+		// 		lastScene: 'IntroScene',
+		// 		backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
+		// 		backgroundKey: 'backgroundImageStuttgart'
+		// 	},
+		// 	currentLevelId: 0,
+		// })
+
+		// this.scene.manager.start('LevelControlScene' , {
+		// 	points: 0,
+		// 	hasHighJumpShoe: false,
+		// 	hasDangleClaws: false,
+		// 	hasMultiHand: false,
+		// 	numOfGunUps: 0,
+		// 	numOfHealthBlocks: 10,
+		// 	levelData: {
+		// 		key: '',
+		// 		mapData: '',
+		// 		numOfTiles: 128 * 90,
+		// 		lastScene: 'IntroScene',
+		// 		backgroundImageFilePath: '',
+		// 		backgroundKey: ''
+		// 	},
+		// 	currentLevelId: 0,
+		// })
 	}
 	this.elapsedIntroTime += delta
 }

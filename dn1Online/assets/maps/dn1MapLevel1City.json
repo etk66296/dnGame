@@ -1869,6 +1869,25 @@
                  "width":16,
                  "x":992,
                  "y":560
+                }, 
+                {
+                 "height":16,
+                 "id":879,
+                 "name":"Guard",
+                 "properties":
+                    {
+                     "guardID":2
+                    },
+                 "propertytypes":
+                    {
+                     "guardID":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1872,
+                 "y":768
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6617,7 +6636,7 @@
                      "animB":"DynamiteBlock",
                      "animC":"floorfire",
                      "fireLengthL":6,
-                     "fireLengthR":2,
+                     "fireLengthR":1,
                      "frame":"GreyBox",
                      "points":0
                     },
@@ -6986,7 +7005,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":879,
+ "nextobjectid":880,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

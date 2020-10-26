@@ -1,18 +1,15 @@
 class Croco extends EnemyObj {
   constructor (scene, hero, crocosData) {
-		super(scene, hero, crocosData.x + 8, crocosData.y + 8, 'enemiesSpriteAtlas')
+		super(scene, hero, crocosData.x + crocosData.width / 2, crocosData.y + crocosData.height / 2, 'enemiesSpriteAtlas')
 		this.worldData = crocosData
 		this.type = crocosData.type // rightcrawler | leftcrawler
 		this.lastDir = -1
 		this.definedVelocity = 12
-		// crocos yield the default points... see parent class
-		this.play('crocoR')
-		this.setVelocityX(this.lastDir * this.definedVelocity)
+		this.setSize(16, 16)
+		this.setOffset(0, 0)
 		if (this.type === 'leftcrawler') {
-			this.setGravityX(200)
 			this.play('crocoL')
 		} else {
-			this.setGravityX(-200)
 			this.play('crocoR')
 		}
 	}

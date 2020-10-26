@@ -5158,29 +5158,6 @@
          "objects":[
                 {
                  "height":16,
-                 "id":3070,
-                 "name":"HighJumpShoe",
-                 "properties":
-                    {
-                     "anim":"HighJumpShoe",
-                     "frame":"HighJumpShoe_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":192,
-                 "y":752
-                }, 
-                {
-                 "height":16,
                  "id":3072,
                  "name":"Joystick",
                  "properties":
@@ -8772,8 +8749,8 @@
                  "y":704
                 }, 
                 {
-                 "height":16,
-                 "id":3656,
+                 "height":20,
+                 "id":3707,
                  "name":"FlyRobot",
                  "properties":
                     {
@@ -8800,7 +8777,7 @@
                  "visible":true,
                  "width":16,
                  "x":784,
-                 "y":560
+                 "y":571
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -12044,8 +12021,8 @@
                      "animA":"placeTranslatorIdle",
                      "animB":"placeTranslatorTakeOff",
                      "frame":"PlaceTranslatorIdle_0000",
-                     "xPosB":180,
-                     "yPosB":128
+                     "xPosB":176,
+                     "yPosB":144
                     },
                  "propertytypes":
                     {
@@ -12059,8 +12036,8 @@
                  "type":"",
                  "visible":true,
                  "width":48,
-                 "x":1568,
-                 "y":352
+                 "x":1616,
+                 "y":368
                 }, 
                 {
                  "height":48,
@@ -12071,8 +12048,8 @@
                      "animA":"placeTranslatorIdle",
                      "animB":"placeTranslatorTakeOff",
                      "frame":"PlaceTranslatorIdle_0000",
-                     "xPosB":1620,
-                     "yPosB":352
+                     "xPosB":1616,
+                     "yPosB":368
                     },
                  "propertytypes":
                     {
@@ -12086,11 +12063,9 @@
                  "type":"",
                  "visible":true,
                  "width":48,
-                 "x":128,
-                 "y":128
+                 "x":176,
+                 "y":144
                 }],
-         "offsetx":48,
-         "offsety":16,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -12106,7 +12081,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3707,
+ "nextobjectid":3708,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

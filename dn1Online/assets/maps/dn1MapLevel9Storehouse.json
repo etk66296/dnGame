@@ -2056,6 +2056,44 @@
                  "width":16,
                  "x":336,
                  "y":608
+                }, 
+                {
+                 "height":16,
+                 "id":4341,
+                 "name":"Croco",
+                 "properties":
+                    {
+                     "guardID":4
+                    },
+                 "propertytypes":
+                    {
+                     "guardID":"int"
+                    },
+                 "rotation":0,
+                 "type":"rightcrawler",
+                 "visible":true,
+                 "width":16,
+                 "x":336,
+                 "y":352
+                }, 
+                {
+                 "height":16,
+                 "id":4342,
+                 "name":"Croco",
+                 "properties":
+                    {
+                     "guardID":4
+                    },
+                 "propertytypes":
+                    {
+                     "guardID":"int"
+                    },
+                 "rotation":0,
+                 "type":"rightcrawler",
+                 "visible":true,
+                 "width":16,
+                 "x":336,
+                 "y":256
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3621,7 +3659,7 @@
                      "boxanim":"BlueBoxExplode",
                      "boxframe":"BlueBox",
                      "frame":"FloppyDisk_0000",
-                     "gravity":true,
+                     "gravity":false,
                      "points":5000
                     },
                  "propertytypes":
@@ -3674,6 +3712,39 @@
                  "width":16,
                  "x":640,
                  "y":528
+                }, 
+                {
+                 "height":16,
+                 "id":4340,
+                 "name":"Balloon",
+                 "properties":
+                    {
+                     "animA":"SmallBalloon",
+                     "animB":"Balloon",
+                     "boxanim":"BlueBoxExplode",
+                     "boxframe":"BlueBox",
+                     "frame":"FullPowerUp_0000",
+                     "gravity":false,
+                     "pointsA":100,
+                     "pointsB":10000
+                    },
+                 "propertytypes":
+                    {
+                     "animA":"string",
+                     "animB":"string",
+                     "boxanim":"string",
+                     "boxframe":"string",
+                     "frame":"string",
+                     "gravity":"bool",
+                     "pointsA":"int",
+                     "pointsB":"int"
+                    },
+                 "rotation":0,
+                 "type":"packed",
+                 "visible":true,
+                 "width":16,
+                 "x":544,
+                 "y":400
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3724,8 +3795,6 @@
          "draworder":"topdown",
          "name":"Helicopters",
          "objects":[],
-         "offsetx":0,
-         "offsety":-16,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -8977,8 +9046,8 @@
                      "animA":"placeTranslatorIdle",
                      "animB":"placeTranslatorTakeOff",
                      "frame":"PlaceTranslatorIdle_0000",
-                     "xPosB":1865,
-                     "yPosB":656
+                     "xPosB":1872,
+                     "yPosB":672
                     },
                  "propertytypes":
                     {
@@ -8992,8 +9061,8 @@
                  "type":"",
                  "visible":true,
                  "width":48,
-                 "x":304,
-                 "y":64
+                 "x":336,
+                 "y":80
                 }, 
                 {
                  "height":48,
@@ -9004,8 +9073,8 @@
                      "animA":"placeTranslatorIdle",
                      "animB":"placeTranslatorTakeOff",
                      "frame":"PlaceTranslatorIdle_0000",
-                     "xPosB":355,
-                     "yPosB":64
+                     "xPosB":336,
+                     "yPosB":80
                     },
                  "propertytypes":
                     {
@@ -9019,11 +9088,9 @@
                  "type":"",
                  "visible":true,
                  "width":48,
-                 "x":1824,
-                 "y":656
+                 "x":1872,
+                 "y":672
                 }],
-         "offsetx":48,
-         "offsety":16,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -9039,7 +9106,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":4340,
+ "nextobjectid":4343,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

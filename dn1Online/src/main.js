@@ -6,15 +6,21 @@ function MemoryGame() {
 	    width: 500, // the odd values avoid bleeding on the render borders
 	    height: 280,
 			backgroundColor: '#000000',
+			scale: {
+				mode: Phaser.Scale.FIT,
+				// mode: Phaser.Scale.ENVELOP,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+			},
+			autoRound: false,
 			physics: {
 				default: "arcade",
 				arcade: {
 					// gravity: { y: 300 }, // Top down game, so no gravity
-					debug: true
+					debug: false
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, LevelControlScene, Level0Scene, InfoTextScene],
+			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene],
 			audio: {
         disableWebAudio: true
     	}

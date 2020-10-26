@@ -1,182 +1,220 @@
 function MenuScene() {
 	Phaser.Scene.call(this, 'MenuScene')
-	this.cardPositions = [
-		{ x: 50, y: 50, }, // R0
-		{ x: 250, y: 50 },
-		{ x: 450, y: 50 },
-		{ x: 150, y: 150 },// R1
-		{ x: 350, y: 150 },
-		{ x: 550, y: 150 },
-		{ x: 50, y: 250 }, // R2
-		{ x: 250, y: 250 },
-		{ x: 450, y: 250 },
-		{ x: 150, y: 350 }, // R3
-		{ x: 350, y: 350 },
-		{ x: 550, y: 350 },
-		{ x: 50, y: 450 }, // R4
-		{ x: 250, y: 450 },
-		{ x: 450, y: 450 },
-		{ x: 150, y: 550 }, // R5
-		{ x: 350, y: 550 },
-		{ x: 550, y: 550 }
-	]
-	this.pairNames = [
-		'lemon',
-		'grape',
-		'cherry',
-		'strawberry',
-		'blackberry',
-		'banana',
-		'lime',
-		'peach',
-		'plum',
-		'apple'
-	]
-	this.mix = this.pairNames.concat(this.pairNames)
-	this.sprites = []
+	this.bgImage = null
 
-	// menu butttons
-	this.menuPlay
-	this.menuScore
-	this.menuHelp
-	this.soundOnOff
-	this.soundOnOffSwitch = false
+	this.menuTileGroup = null
+	this.menuTileGroupBg = null
 
-	// sound and music
-	this.backgroundMusic
+	// buttons
+	this.playButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
+	this.notesButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
+	this.scoreButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
+
 }
 
 MenuScene.prototype = Object.create(Phaser.Scene.prototype)
 MenuScene.prototype.constructor = MenuScene
 
-MenuScene.prototype.shuffleMix = function () {
-  let j, x, i;
-  for (i = this.mix.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = this.mix[i];
-	  this.mix[i] = this.mix[j];
-    this.mix[j] = x;
-  }
+MenuScene.prototype.init = function (data) {
+
+	
 }
 
-MenuScene.prototype.preload = function () {}
+MenuScene.prototype.preload = function () {
+	// this.load.tilemapTiledJSON("mapLevel1City", "assets/maps/dn1MapLevel1City.json")
+}
 
 MenuScene.prototype.create = function() {
+
+	// background
+	this.bgImage = this.add.sprite(0, 0, 'menuBackground')
+	this.bgImage.setOrigin(0)
+	this.bgImage.setDepth(-100)
+	this.bgImage.setScrollFactor(0, 0)
+
+	this.headlineCharGroup = this.add.group()
 	
-	// add the background image
-	this.add.image(0, 0, 'table').setOrigin(0);
-
-	// create the card rotating background animtion
-	for (let animIndex = 0; animIndex < 10; animIndex++) {
-		// create frames form atlas json definitions
-		let frames = this.anims.generateFrameNames('cards', {
-			prefix: this.pairNames[animIndex] + '_',
-			end: 9, zeroPad: 4
+	// headline text
+	let headLineStr = 'Dieter NussbaumEinsatz im Ländle'
+	for (let i = 0; i < headLineStr.length; i++) {
+		let charIndex = i
+		this.time.addEvent({
+			delay: 100 * i,
+			loop: false,
+			callback: () => {
+				// quick and dirty
+				let pos = {x: 32 + 24 * charIndex, y: 18}
+				let fontSize = 48
+				if (charIndex > 14) {
+					pos = {x: 32 + 24 * (charIndex - 14), y: 72}
+					fontSize = 24
+				}
+				let letter = this.add.text(pos.x, pos.y, headLineStr.charAt(i),{
+					fontFamily: 'VT323-Regular',
+					fontSize: fontSize,
+					color: '#54fc54',
+					fontStyle: 'bold'
+				})
+				letter.setStroke('#00a800', 5);
+				letter.setShadow(2, -2, '#a85400' /*color*/, 0 /*blur*/, true /*stroke*/, false /*fill*/)
+			}
 		})
+	}
 
-		// push the closed card frame for a complete card rotation
-		frames.push({ key: 'cards', frames: this.pairNames[animIndex] + '_0000' })
-
-		// create the animation object
-		this.anims.create({
-			delay: Math.floor(Math.random() * 1000 + 1000),
-			key: 'rotate' + this.pairNames[animIndex],
-			frames: frames,
-			frameRate: 12,
-			repeat: 1,
-			repeatDelay: Math.floor(Math.random() * 1000 + Math.random() * 1000)
+	// // menu tiles
+	// this.menuTileGroupBg = this.add.group()
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 24, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 216, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 200, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 232, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 264, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 280, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 56, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 8, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 152, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 88, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 104, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 72, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 136, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 40, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 184, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 120, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 168, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.createMultiple({ key: 'menuTile2', frameQuantity: 32, setXY: { x: 8, y: 248, stepX: 16, stepY: 0 }, visible: false })
+	// this.menuTileGroupBg.children.iterate((tile, index) => {
+	// 	this.time.addEvent({
+	// 		delay: 5 * index,
+	// 		loop: false,
+	// 		callback: () => {
+	// 			tile.setVisible(true)
+	// 		}
+	// 	})
+	// })
+	this.menuTileGroup = this.add.group()
+	this.menuTileGroup.createMultiple({ key: 'menuTile', frameQuantity: 31, setXY: { x: 10, y: 12, stepX: 16, stepY: 0 }, visible: false })
+	this.menuTileGroup.createMultiple({ key: 'menuTile', frameQuantity: 16, setXY: { x: 490, y: 28, stepX: 0, stepY: 16 }, visible: false })
+	this.menuTileGroup.createMultiple({ key: 'menuTile', frameQuantity: 30, setXY: { x: 474, y: 268, stepX: -16, stepY: 0 }, visible: false })
+	this.menuTileGroup.createMultiple({ key: 'menuTile', frameQuantity: 15, setXY: { x: 10, y: 252, stepX: 0, stepY: -16 }, visible: false })
+	this.menuTileGroup.children.iterate((tile, index) => {
+		this.time.addEvent({
+			delay: 5 * index,
+			loop: false,
+			callback: () => {
+				tile.setVisible(true)
+			}
 		})
-	}
+	})
 
-	// mix the cards 
-	this.shuffleMix()
-	for (let cardIndex = 0; cardIndex < this.cardPositions.length; cardIndex++) {
-		var config = {
-			key: 'cards',
-			x: this.cardPositions[cardIndex].x,
-			y: this.cardPositions[cardIndex].y,
-			// scale: { randFloat: [ 0.7, 1.3 ] },
-			scale: 1,
-			anims: 'rotate' + this.mix[cardIndex]
-		}
-		this.sprites.push(this.make.sprite(config))
-	}
+	// menu buttons
 
-	// menu options
-	// play button
-	// this.menuPlay = this.add.sprite(256, 256, 'menu', 'menuPlay').setInteractive({
-  //   hitArea: new Phaser.Geom.Rectangle(256-103, 256-47, 206, 94),
-  //   // hitAreaCallback: () => {
-	// 	// 	this.scene.stop('MenuScene')
-	// 	// 	this.scene.start('GameScene')
-	// 	// },
-  //   draggable: false,
-  //   dropZone: false,
-  //   useHandCursor: false,
-  //   cursor: 'pointer',
-  //   pixelPerfect: false,
-  //   alphaTolerance: 1
-	// })
-	this.menuPlay = this.add.sprite(256, 256, 'menu', 'menuPlay').setInteractive()
-	this.menuPlay.on('pointerover', (pointer) => {
-	  this.menuPlay.setFrame('menuPlayHover')
+	// play
+	this.playButton.gameObj = this.add.sprite(256, 150, 'menuBtnPlay')
+	this.playButton.gameObj.setInteractive()
+	this.playButton.gameObj.on('pointerup', () => {
+		this.scene.manager.stop('MenuScene')
+		this.scene.manager.start('LevelControlScene' , {
+			points: 0,
+			hasHighJumpShoe: false,
+			hasDangleClaws: false,
+			hasMultiHand: false,
+			numOfGunUps: 0,
+			numOfHealthBlocks: 10,
+			levelData: {
+				key: '',
+				mapData: '',
+				numOfTiles: 128 * 90,
+				lastScene: 'IntroScene',
+				backgroundImageFilePath: '',
+				backgroundKey: ''
+			},
+			currentLevelId: 0,
+		})
 	})
-	this.menuPlay.on('pointerout', (pointer) => {
-		this.menuPlay.setFrame('menuPlay')
+	this.playButton.gameObj.on('pointerover', () => {
+		this.playButton.pointerOver = true
 	})
-	this.menuPlay.on('pointerup', (pointer) => {
-		this.scene.stop('MenuScene')
-		this.scene.start('GameScene')
+	this.playButton.gameObj.on('pointerout', () => {
+		this.playButton.pointerOver = false
 	})
-	// sound on of
-	// this.soundOnOff = this.add.sprite(470, 470, 'soundSwitch', 'soundOff').setInteractive({
-  //   hitArea: new Phaser.Geom.Rectangle(470-16, 470-16, 32, 32),
-  //   // hitAreaCallback: callback,
-  //   draggable: false,
-  //   dropZone: false,
-  //   useHandCursor: false,
-  //   cursor: 'pointer',
-  //   pixelPerfect: false,
-  //   alphaTolerance: 1
-	// })
-	this.soundOnOff = this.add.sprite(470, 470, 'soundSwitch', 'soundOff').setInteractive()
-	this.soundOnOff.on('pointerup', (pointer) => {
-		if(this.soundOnOffSwitch) {
-			this.soundOnOffSwitch = false
-			this.soundOnOff.setFrame('soundOff')
-			this.backgroundMusic.pause()
-		} else {
-			this.soundOnOffSwitch = true
-			this.soundOnOff.setFrame('soundOn')
-			// play music
-			this.backgroundMusic = this.sound.add('backgroundMusic')
-			this.backgroundMusic.config.loop = true
-			this.backgroundMusic.play()
-		}	
+
+	// notes
+	this.notesButton.gameObj = this.add.sprite(400, 150, 'menuBtnNotes')
+	this.notesButton.gameObj.setInteractive()
+	this.notesButton.gameObj.on('pointerup', () => {
 	})
-	if(!this.soundOnOffSwitch) {
-		this.soundOnOffSwitch = false
-		this.soundOnOff.setFrame('soundOff')
-	} else {
-		this.soundOnOffSwitch = true
-		this.soundOnOff.setFrame('soundOn')
-	}
-	// **********************************************************
-	// for development:
-	// this.scene.stop('MenuScene')
-	// this.scene.start('GameScene')
-	// **********************************************************
+	this.notesButton.gameObj.on('pointerover', () => {
+		this.notesButton.pointerOver = true
+	})
+	this.notesButton.gameObj.on('pointerout', () => {
+		this.notesButton.pointerOver = false
+	})
+
+	// score
+	this.scoreButton.gameObj = this.add.sprite(256, 220, 'menuBtnScore')
+	this.scoreButton.gameObj.setInteractive()
+	this.scoreButton.gameObj.on('pointerup', () => {
+	})
+	this.scoreButton.gameObj.on('pointerover', () => {
+		this.scoreButton.pointerOver = true
+	})
+	this.scoreButton.gameObj.on('pointerout', () => {
+		this.scoreButton.pointerOver = false
+	})
+
 }
 
 MenuScene.prototype.update = function (time, delta) {
-	this.sprites.forEach(sprite => {
-		sprite.x -= 0.1 * delta
-		sprite.y -= 0.1 * delta
-		if(sprite.x <= -50 || sprite.y <= -50) {
-			let xNow = sprite.x
-			let yNow = sprite.y
-			sprite.x =  510 + (-1) * xNow
-			sprite.y =  510 + (-1) * yNow
+	// play
+	if (this.playButton.pointerOver) {
+		this.playButton.gameObj.setScale(this.playButton.currentScale)
+		this.playButton.currentScale -= this.playButton.scaleDelta
+		if (this.playButton.currentScale < 0.95) {
+			this.playButton.scaleDelta *= -1
+			this.playButton.currentScale = 0.95
 		}
-	})
+		if (this.playButton.currentScale > 1.0) {
+			this.playButton.scaleDelta *= -1
+			this.playButton.currentScale = 1.0
+		}
+	} else {
+		this.playButton.scaleDelta *= -1
+		this.playButton.currentScale = 1.0
+	}
+
+	// notes
+	if (this.notesButton.pointerOver) {
+		this.notesButton.gameObj.setScale(this.notesButton.currentScale)
+		this.notesButton.currentScale -= this.notesButton.scaleDelta
+		if (this.notesButton.currentScale < 0.95) {
+			this.notesButton.scaleDelta *= -1
+			this.notesButton.currentScale = 0.95
+		}
+		if (this.notesButton.currentScale > 1.0) {
+			this.notesButton.scaleDelta *= -1
+			this.notesButton.currentScale = 1.0
+		}
+	} else {
+		this.notesButton.scaleDelta *= -1
+		this.notesButton.currentScale = 1.0
+	}
+
+	// score
+	if (this.scoreButton.pointerOver) {
+		this.scoreButton.gameObj.setScale(this.scoreButton.currentScale)
+		this.scoreButton.currentScale -= this.scoreButton.scaleDelta
+		if (this.scoreButton.currentScale < 0.95) {
+			this.scoreButton.scaleDelta *= -1
+			this.scoreButton.currentScale = 0.95
+		}
+		if (this.scoreButton.currentScale > 1.0) {
+			this.scoreButton.scaleDelta *= -1
+			this.scoreButton.currentScale = 1.0
+		}
+	} else {
+		this.scoreButton.scaleDelta *= -1
+		this.scoreButton.currentScale = 1.0
+	}
 }
+
+
+
