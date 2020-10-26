@@ -108,7 +108,7 @@ MenuScene.prototype.create = function() {
 	// menu buttons
 
 	// play
-	this.playButton.gameObj = this.add.sprite(256, 150, 'menuBtnPlay')
+	this.playButton.gameObj = this.add.sprite(264, 142, 'menuBtnPlay')
 	this.playButton.gameObj.setInteractive()
 	this.playButton.gameObj.on('pointerup', () => {
 		this.scene.manager.stop('MenuScene')
@@ -138,9 +138,11 @@ MenuScene.prototype.create = function() {
 	})
 
 	// notes
-	this.notesButton.gameObj = this.add.sprite(400, 150, 'menuBtnNotes')
+	this.notesButton.gameObj = this.add.sprite(404, 142, 'menuBtnNotes')
 	this.notesButton.gameObj.setInteractive()
 	this.notesButton.gameObj.on('pointerup', () => {
+		this.scene.manager.stop('MenuScene')
+		this.scene.manager.start('NotesScene')
 	})
 	this.notesButton.gameObj.on('pointerover', () => {
 		this.notesButton.pointerOver = true
@@ -150,7 +152,7 @@ MenuScene.prototype.create = function() {
 	})
 
 	// score
-	this.scoreButton.gameObj = this.add.sprite(256, 220, 'menuBtnScore')
+	this.scoreButton.gameObj = this.add.sprite(264, 220, 'menuBtnScore')
 	this.scoreButton.gameObj.setInteractive()
 	this.scoreButton.gameObj.on('pointerup', () => {
 	})

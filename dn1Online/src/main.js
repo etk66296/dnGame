@@ -7,8 +7,8 @@ function MemoryGame() {
 	    height: 280,
 			backgroundColor: '#000000',
 			scale: {
-				// mode: Phaser.Scale.FIT,
-				mode: Phaser.Scale.ENVELOP,
+				mode: Phaser.Scale.FIT,
+				// mode: Phaser.Scale.ENVELOP,
         autoCenter: Phaser.Scale.CENTER_BOTH
 			},
 			autoRound: false,
@@ -20,7 +20,7 @@ function MemoryGame() {
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene],
+			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene, NotesScene],
 			audio: {
         disableWebAudio: true
     	}
