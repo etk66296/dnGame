@@ -20,7 +20,7 @@ function MemoryGame() {
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene, NotesScene, ScoreScene],
+			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene, NotesScene, InputPanel, ScoreScene, SubmitScoreScene],
 			audio: {
         disableWebAudio: true
     	}

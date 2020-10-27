@@ -295,22 +295,7 @@ class Hero extends PhysicsObj {
 		}
 		// <-- fire gun
 
-		// reset values -->
-		// <-- reset values
-
 		// reset pain -->
-		// if (this.painState) {
-		// 	this.painEvent = this.scene.time.addEvent({
-		// 		delay:this.painTime,
-		// 		callback: () => {
-		// 			if (this.painState) {
-		// 				this.healthBlocks.current -= 1
-		// 				this.painState = false
-		// 			}
-		// 			this.painEvent.remove(false)
-		// 		}
-		// 	})
-		// }
 		if (this.painState) {
 			this.painStopWatch += delta
 		}
@@ -321,6 +306,21 @@ class Hero extends PhysicsObj {
 		}
 		this.updateHealthBlock()
 		// <-- reset pain
+
+		// game over -->
+		if (this.healthBlocks.current < 0) {
+			this.movementAllowed = false
+			if (this.anims.currentAnim.key !== 'heroExplode') {
+				this.play('heroExplode')
+				this.body.checkCollision.none = true
+				this.setGravityY(-200)
+			}
+			if (this.y < -1000) {
+				// this.scene.scene.manager.stop('Level0Scene')
+				this.scene.scene.manager.start('SubmitScoreScene' , { points: this.collectedPoints })
+			}
+		}
+		// <-- game over
 
 		//###########################################################################
 		//###########################################################################

@@ -40,7 +40,13 @@ class LevelGate extends PhysicsObj {
 				}
 				// save cookies only when entering the level control scene
 				if (this.hero.nextLevelData.lastScene === 'Level0Scene') {
-					document.cookie = "dn1SaveGameData=" + JSON.stringify(heroData) + "; samesite=strict"
+					// Build the expiration date string:
+					var expiration_date = new Date()
+					var cookie_string = '';
+					expiration_date.setFullYear(expiration_date.getFullYear() + 1);
+					// Build the set-cookie string:
+					cookie_string = "; path=/; expires=" + expiration_date.toUTCString();
+					document.cookie = "dn1SaveGameData=" + JSON.stringify(heroData) + "; samesite=strict" + cookie_string
 				}
 				scene.scene.manager.start(this.hero.nextLevelData.key , heroData)
 			}

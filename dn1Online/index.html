@@ -11,6 +11,7 @@
       }
       html {
         background-color: #000000;
+        overflow: hidden;
         /* background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 100%);
         background-repeat: no-repeat;
         background-size: auto; */
@@ -34,6 +35,8 @@
     <script src="src/menu.js"></script>
     <script src="src/notes.js"></script>
     <script src="src/score.js"></script>
+    <script src="src/inputPanel.js"></script>
+    <script src="src/submitScore.js"></script>
     <script src="src/logo.js"></script>
     <script src="src/gameObjects/dn1PhysicsObj.js"></script>
     <script src="src/gameObjects/dn1EnemyObj.js"></script>
@@ -85,6 +88,9 @@
     <!-- <header>
 
     </header> -->
+    <div class="font_preload" style="opacity: 0"><!--force preloading the font-familiy-->
+      <span style="font-family: 'VT323-Regular', Arial, sans-serif;"></span>
+    </div>
     <main>
       <div style="display: inline-block; padding: 0px;" class="centerInnterDiv" id="phaser3Canvas"></div>
     </main>

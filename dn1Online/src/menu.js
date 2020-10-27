@@ -31,10 +31,11 @@ function MenuScene() {
 	this.bestScoreText = null
 	// request best core
 	this.requestScore = function() {
-		axios.get('http://localhost:9999/score.json')
-		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
+		// axios.get('http://localhost:9999/score.json')
+		axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
 			.then(response => {
 				this.bestScoreText = this.add.text(200, 220, '🥇  ' + response.data.score[0].name + '\t\t' + String(response.data.score[0].points), { fontFamily: 'VT323-Regular', fontSize: 20, color: '#ffffff', fontStyle: 'bold' })
+				console.log('best player:', '🥇  ' + response.data.score[0].name + '\t\t' + String(response.data.score[0].points))
 			})
 			.catch(error => {
 				console.log(error)
@@ -67,6 +68,8 @@ MenuScene.prototype.create = function() {
 	
 	// headline text
 	let headLineStr = 'Dieter NussbaumEinsatz im Ländle'
+	let fontSize = 48
+	let charPos = { x: 32, y: 18 }
 	for (let i = 0; i < headLineStr.length; i++) {
 		let charIndex = i
 		this.time.addEvent({
@@ -74,13 +77,12 @@ MenuScene.prototype.create = function() {
 			loop: false,
 			callback: () => {
 				// quick and dirty
-				let pos = {x: 32 + 24 * charIndex, y: 18}
-				let fontSize = 48
+				charPos = {x: 32 + 24 * charIndex, y: 18}
 				if (charIndex > 14) {
-					pos = {x: 32 + 24 * (charIndex - 14), y: 72}
+					charPos = {x: 32 + 24 * (charIndex - 14), y: 72}
 					fontSize = 24
 				}
-				let letter = this.add.text(pos.x, pos.y, headLineStr.charAt(i),{
+				let letter = this.add.text(charPos.x, charPos.y, headLineStr.charAt(i),{
 					fontFamily: 'VT323-Regular',
 					fontSize: fontSize,
 					color: '#AAAAAA',
@@ -113,7 +115,7 @@ MenuScene.prototype.create = function() {
 	// resume
 	this.resumeButton.gameObj = this.add.sprite(264, 150, 'menuBtnResume')
 	this.resumeButton.gameObj.setInteractive()
-	this.resumeButton.gameObj.on('pointerup', () => {
+	this.resumeButton.gameObj.on('pointerdown', () => {
 		// try to load cookie game data
 		let cookieDataString = this.getCookie('dn1SaveGameData')
 		
@@ -173,7 +175,7 @@ MenuScene.prototype.create = function() {
 	// new game
 	this.newGameButton.gameObj = this.add.sprite(404, 150, 'menuBtnPlay')
 	this.newGameButton.gameObj.setInteractive()
-	this.newGameButton.gameObj.on('pointerup', () => {
+	this.newGameButton.gameObj.on('pointerdown', () => {
 		this.scene.manager.stop('MenuScene')
 		this.scene.manager.start('LevelControlScene' , {
 			points: 0,
@@ -210,7 +212,7 @@ MenuScene.prototype.create = function() {
 	// notes
 	this.notesButton.gameObj = this.add.sprite(264, 190, 'menuBtnNotes')
 	this.notesButton.gameObj.setInteractive()
-	this.notesButton.gameObj.on('pointerup', () => {
+	this.notesButton.gameObj.on('pointerdown', () => {
 		this.scene.manager.stop('MenuScene')
 		this.scene.manager.start('NotesScene')
 	})
@@ -224,7 +226,7 @@ MenuScene.prototype.create = function() {
 	// score
 	this.scoreButton.gameObj = this.add.sprite(404, 190, 'menuBtnScore')
 	this.scoreButton.gameObj.setInteractive()
-	this.scoreButton.gameObj.on('pointerup', () => {
+	this.scoreButton.gameObj.on('pointerdown', () => {
 		this.scene.manager.stop('MenuScene')
 		this.scene.manager.start('ScoreScene')
 	})

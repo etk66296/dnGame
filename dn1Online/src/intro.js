@@ -25,6 +25,13 @@ IntroScene.prototype.preload = function () {
 	this.load.image('menuBtnBack', 'assets/buttons/back.png')
 	this.load.image('menuBtnUp', 'assets/buttons/up.png')
 	this.load.image('menuBtnDown', 'assets/buttons/down.png')
+	// bitmap font
+	this.load.bitmapFont('arcade', 'assets/font/arcade.png', 'assets/font/arcade.xml')
+	this.load.bitmapFont('ice', 'assets/font/iceicebaby.png', 'assets/font/iceicebaby.xml')
+	this.load.image('rub', 'assets/font/rub.png')
+	this.load.image('end', 'assets/font/end.png')
+	this.load.image('block', 'assets/font/block.png')
+	
 
 	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
 	
