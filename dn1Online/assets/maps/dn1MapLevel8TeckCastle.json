@@ -3480,7 +3480,7 @@
          "name":"FlyRobots",
          "objects":[
                 {
-                 "height":16,
+                 "height":20,
                  "id":3756,
                  "name":"FlyRobot",
                  "properties":
@@ -3509,6 +3509,37 @@
                  "width":16,
                  "x":976,
                  "y":960
+                }, 
+                {
+                 "height":20,
+                 "id":3908,
+                 "name":"FlyRobot",
+                 "properties":
+                    {
+                     "animC":"flyRobotCutter",
+                     "animLR":"flyRobotLR",
+                     "animRL":"flyRobotRL",
+                     "frameL":"flyRobotL",
+                     "frameR":"flyRobotR",
+                     "guardID":-1,
+                     "points":125
+                    },
+                 "propertytypes":
+                    {
+                     "animC":"string",
+                     "animLR":"string",
+                     "animRL":"string",
+                     "frameL":"string",
+                     "frameR":"string",
+                     "guardID":"int",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1680,
+                 "y":912
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4705,8 +4736,6 @@
          "draworder":"topdown",
          "name":"PlaceTranslatorMachines",
          "objects":[],
-         "offsetx":48,
-         "offsety":16,
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -4722,7 +4751,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3908,
+ "nextobjectid":3909,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

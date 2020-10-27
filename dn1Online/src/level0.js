@@ -83,14 +83,13 @@ Level0Scene.prototype.init = function (data) {
 
 Level0Scene.prototype.preload = function () {
 	// all preloads are done in the intro scene
-	console.log(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
+	// console.log(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
 	if (this.heroData.levelData.backgroundImageFilePath !== '') {
 		this.load.image(this.heroData.levelData.backgroundKey, this.heroData.levelData.backgroundImageFilePath)
 	}
 }
 
 Level0Scene.prototype.create = function() {
-	console.log(this)
 	// reset every game object and pass it to the garbage collection
 	this.add.displayList.removeAll()
 	

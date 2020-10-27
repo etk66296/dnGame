@@ -18,6 +18,7 @@ InfoTextScene.prototype.preload = function () {
 }
 
 InfoTextScene.prototype.create = function() {
+	this.input.topOnly = true
 	this.key_ENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
 
 	this.bgImage = this.add.image(this.boxPos.x, this.boxPos.y, 'textbox')
@@ -28,7 +29,7 @@ InfoTextScene.prototype.create = function() {
 		this.scene.manager.stop('InfoTextScene')
 		this.scene.manager.resume('Level0Scene')
 	})
-	this.textObj = this.add.text(this.boxPos.x + 20, this.boxPos.y + 20, 'Static Text Object', { fontFamily: 'Arial', fontSize: 16, color: '#FFFFFF' })
+	this.textObj = this.add.text(this.boxPos.x + 20, this.boxPos.y + 20, 'Static Text Object', { fontFamily: 'VT323-Regular', fontSize: 28, color: '#FFFFFF' })
 	this.textObj.setFontStyle('bold')
 	this.textObj.setOrigin(0, 0)
 	this.textObj.setScrollFactor(0,0)

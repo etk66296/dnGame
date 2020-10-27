@@ -2969,7 +2969,7 @@
  </objectgroup>
  <objectgroup name="Helicopters"/>
  <objectgroup name="FlyRobots">
-  <object id="2149" name="FlyRobot" x="1104" y="544" width="16" height="16">
+  <object id="2149" name="FlyRobot" x="1104" y="544" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -2980,7 +2980,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2150" name="FlyRobot" x="1168" y="544" width="16" height="16">
+  <object id="2150" name="FlyRobot" x="1168" y="544" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -2991,7 +2991,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2238" name="FlyRobot" x="1344" y="736" width="16" height="16">
+  <object id="2238" name="FlyRobot" x="1344" y="736" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3002,7 +3002,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2248" name="FlyRobot" x="1840" y="800" width="16" height="16">
+  <object id="2248" name="FlyRobot" x="1840" y="800" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3013,7 +3013,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2348" name="FlyRobot" x="1040" y="992" width="16" height="16">
+  <object id="2348" name="FlyRobot" x="1040" y="992" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3024,7 +3024,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2445" name="FlyRobot" x="1760" y="928" width="16" height="16">
+  <object id="2445" name="FlyRobot" x="1760" y="928" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3035,7 +3035,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2446" name="FlyRobot" x="1792" y="992" width="16" height="16">
+  <object id="2446" name="FlyRobot" x="1792" y="992" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3046,7 +3046,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2610" name="FlyRobot" x="1024" y="32" width="16" height="16">
+  <object id="2610" name="FlyRobot" x="1024" y="32" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3057,7 +3057,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2650" name="FlyRobot" x="1744" y="288" width="16" height="16">
+  <object id="2650" name="FlyRobot" x="1744" y="288" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3068,7 +3068,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2659" name="FlyRobot" x="736" y="32" width="16" height="16">
+  <object id="2659" name="FlyRobot" x="736" y="32" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -3079,7 +3079,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="2721" name="FlyRobot" x="128" y="672" width="16" height="16">
+  <object id="2721" name="FlyRobot" x="128" y="672" width="16" height="20">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>
@@ -4164,7 +4164,7 @@
  </objectgroup>
  <objectgroup name="PlaceTranslatorMachines"/>
  <objectgroup name="DeuteriumSpheres"/>
- <imagelayer name="bg" visible="0" opacity="0.68">
+ <imagelayer name="bg" opacity="0.68">
   <image source="dn1-e1l05.png" width="2048" height="1440"/>
  </imagelayer>
 </map>

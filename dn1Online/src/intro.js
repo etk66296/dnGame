@@ -21,7 +21,10 @@ IntroScene.prototype.preload = function () {
 	this.load.image('menuBtnPlay', 'assets/buttons/play.png')
 	this.load.image('menuBtnNotes', 'assets/buttons/notes.png')
 	this.load.image('menuBtnScore', 'assets/buttons/score.png')
+	this.load.image('menuBtnResume', 'assets/buttons/resume.png')
 	this.load.image('menuBtnBack', 'assets/buttons/back.png')
+	this.load.image('menuBtnUp', 'assets/buttons/up.png')
+	this.load.image('menuBtnDown', 'assets/buttons/down.png')
 
 	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
 	

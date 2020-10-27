@@ -18,14 +18,13 @@ function LevelControlScene() {
 	this.heroGun = null
 	this.hero = null
 	this.levelGates = null
+
 }
 
 LevelControlScene.prototype = Object.create(Phaser.Scene.prototype)
 LevelControlScene.prototype.constructor = LevelControlScene
 
 LevelControlScene.prototype.init = function(data) {
-	// safe the hero data to cookies, thus the user is able to restore the current level
-	document.cookie = "dn1SaveGameData=" + JSON.stringify(data) + "; samesite=strict"
 	if (data.levelData.lastScene !== 'INTRO') {
 		this.scene.manager.stop(data.levelData.lastScene)
 		// this.scene.manager.remove(data.levelData.lastScene)

@@ -9030,7 +9030,7 @@
          "name":"FlyRobots",
          "objects":[
                 {
-                 "height":16,
+                 "height":20,
                  "id":2149,
                  "name":"FlyRobot",
                  "properties":
@@ -9061,7 +9061,7 @@
                  "y":544
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2150,
                  "name":"FlyRobot",
                  "properties":
@@ -9092,7 +9092,7 @@
                  "y":544
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2238,
                  "name":"FlyRobot",
                  "properties":
@@ -9123,7 +9123,7 @@
                  "y":736
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2248,
                  "name":"FlyRobot",
                  "properties":
@@ -9154,7 +9154,7 @@
                  "y":800
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2348,
                  "name":"FlyRobot",
                  "properties":
@@ -9185,7 +9185,7 @@
                  "y":992
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2445,
                  "name":"FlyRobot",
                  "properties":
@@ -9216,7 +9216,7 @@
                  "y":928
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2446,
                  "name":"FlyRobot",
                  "properties":
@@ -9247,7 +9247,7 @@
                  "y":992
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2610,
                  "name":"FlyRobot",
                  "properties":
@@ -9278,7 +9278,7 @@
                  "y":32
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2650,
                  "name":"FlyRobot",
                  "properties":
@@ -9309,7 +9309,7 @@
                  "y":288
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2659,
                  "name":"FlyRobot",
                  "properties":
@@ -9340,7 +9340,7 @@
                  "y":32
                 }, 
                 {
-                 "height":16,
+                 "height":20,
                  "id":2721,
                  "name":"FlyRobot",
                  "properties":
@@ -12902,7 +12902,7 @@
          "name":"bg",
          "opacity":0.680000007152557,
          "type":"imagelayer",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],

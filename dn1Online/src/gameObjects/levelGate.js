@@ -21,8 +21,7 @@ class LevelGate extends PhysicsObj {
 				this.hero.setVisible(false)
 				this.play(this.levelGateData.properties.animB)
 			} else {
-				console.log(this.hero.numOfGunUps)
-				scene.scene.manager.start(this.hero.nextLevelData.key , {
+				let heroData = {
 					points: this.hero.collectedPoints,
 					hasHighJumpShoe: this.hero.hasHighJumpShoe,
 					hasDangleClaws: this.hero.hasDangleClaws,
@@ -38,7 +37,12 @@ class LevelGate extends PhysicsObj {
 						backgroundKey: this.hero.nextLevelData.backgroundKey
 					},
 					currentLevelId: this.hero.currentLevelId,
-				})
+				}
+				// save cookies only when entering the level control scene
+				if (this.hero.nextLevelData.lastScene === 'Level0Scene') {
+					document.cookie = "dn1SaveGameData=" + JSON.stringify(heroData) + "; samesite=strict"
+				}
+				scene.scene.manager.start(this.hero.nextLevelData.key , heroData)
 			}
 		})
 	}
