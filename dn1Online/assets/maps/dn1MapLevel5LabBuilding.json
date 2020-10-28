@@ -8759,29 +8759,6 @@
                  "width":16,
                  "x":432,
                  "y":176
-                }, 
-                {
-                 "height":16,
-                 "id":2758,
-                 "name":"HighJumpShoe",
-                 "properties":
-                    {
-                     "anim":"HighJumpShoe",
-                     "frame":"HighJumpShoe_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":192,
-                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",

@@ -1307,29 +1307,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":3737,
-                 "name":"HighJumpShoe",
-                 "properties":
-                    {
-                     "anim":"HighJumpShoe",
-                     "frame":"HighJumpShoe_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":1168
-                }, 
-                {
-                 "height":16,
                  "id":3744,
                  "name":"Joystick",
                  "properties":
@@ -3084,75 +3061,6 @@
                  "width":16,
                  "x":864,
                  "y":512
-                }, 
-                {
-                 "height":16,
-                 "id":3890,
-                 "name":"GunUpgrade",
-                 "properties":
-                    {
-                     "anim":"GunUpgrade",
-                     "frame":"GunUpgrade_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":1168
-                }, 
-                {
-                 "height":16,
-                 "id":3891,
-                 "name":"GunUpgrade",
-                 "properties":
-                    {
-                     "anim":"GunUpgrade",
-                     "frame":"GunUpgrade_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":1168
-                }, 
-                {
-                 "height":16,
-                 "id":3892,
-                 "name":"GunUpgrade",
-                 "properties":
-                    {
-                     "anim":"GunUpgrade",
-                     "frame":"GunUpgrade_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":1168
                 }, 
                 {
                  "height":16,

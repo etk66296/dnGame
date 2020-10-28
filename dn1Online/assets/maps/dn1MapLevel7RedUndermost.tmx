@@ -1902,13 +1902,6 @@
     <property name="pointsB" type="int" value="1000"/>
    </properties>
   </object>
-  <object id="3602" name="MultiHand" type="unpacked" x="1200" y="1168" width="16" height="16">
-   <properties>
-    <property name="anim" value="MultiHand"/>
-    <property name="frame" value="MultiHand_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
   <object id="3609" name="FloppyDisk" type="unpacked" x="352" y="560" width="16" height="16">
    <properties>
     <property name="animA" value="FloppyDisk"/>

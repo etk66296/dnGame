@@ -6521,29 +6521,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":3602,
-                 "name":"MultiHand",
-                 "properties":
-                    {
-                     "anim":"MultiHand",
-                     "frame":"MultiHand_0000",
-                     "points":1000
-                    },
-                 "propertytypes":
-                    {
-                     "anim":"string",
-                     "frame":"string",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"unpacked",
-                 "visible":true,
-                 "width":16,
-                 "x":1200,
-                 "y":1168
-                }, 
-                {
-                 "height":16,
                  "id":3609,
                  "name":"FloppyDisk",
                  "properties":

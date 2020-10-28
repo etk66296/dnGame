@@ -2153,158 +2153,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":1261,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":576
-                }, 
-                {
-                 "height":16,
-                 "id":1269,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":560
-                }, 
-                {
-                 "height":16,
-                 "id":1270,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":544
-                }, 
-                {
-                 "height":16,
-                 "id":1271,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":528
-                }, 
-                {
-                 "height":16,
-                 "id":1273,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":512
-                }, 
-                {
-                 "height":16,
-                 "id":1274,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":496
-                }, 
-                {
-                 "height":16,
-                 "id":1275,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":480
-                }, 
-                {
-                 "height":16,
-                 "id":1276,
-                 "name":"Guard",
-                 "properties":
-                    {
-                     "guardID":123
-                    },
-                 "propertytypes":
-                    {
-                     "guardID":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1824,
-                 "y":464
-                }, 
-                {
-                 "height":16,
                  "id":1277,
                  "name":"Guard",
                  "properties":
@@ -7456,12 +7304,14 @@
                  "name":"GIantrobo",
                  "properties":
                     {
+                     "activationDistance":64,
                      "frame":"giantRobotL",
-                     "guardID":123,
+                     "guardID":-1,
                      "points":500
                     },
                  "propertytypes":
                     {
+                     "activationDistance":"int",
                      "frame":"string",
                      "guardID":"int",
                      "points":"int"
@@ -7471,7 +7321,7 @@
                  "visible":true,
                  "width":32,
                  "x":1840,
-                 "y":528
+                 "y":560
                 }, 
                 {
                  "height":32,

@@ -32,10 +32,10 @@ function MenuScene() {
 	// request best core
 	this.requestScore = function() {
 		// axios.get('http://localhost:9999/score.json')
-		axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
+		axios.get('http://www.ogv-wendlingen.de/games/dn1Online/score.php')
+		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
 			.then(response => {
 				this.bestScoreText = this.add.text(200, 220, '🥇  ' + response.data.score[0].name + '\t\t' + String(response.data.score[0].points), { fontFamily: 'VT323-Regular', fontSize: 20, color: '#ffffff', fontStyle: 'bold' })
-				console.log('best player:', '🥇  ' + response.data.score[0].name + '\t\t' + String(response.data.score[0].points))
 			})
 			.catch(error => {
 				console.log(error)
@@ -57,6 +57,15 @@ MenuScene.prototype.preload = function () {
 }
 
 MenuScene.prototype.create = function() {
+
+	// reloading the score
+	this.time.addEvent({
+		delay: 10000,
+		loop: true,
+		callback: () => {
+			this.requestScore()
+		}
+	})
 
 	// background
 	this.bgImage = this.add.sprite(0, 0, 'menuBackground')
@@ -121,7 +130,6 @@ MenuScene.prototype.create = function() {
 		
 		// no cookie data => tell the user he shall start a new game
 		if (cookieDataString === '') {
-			console.log('no saved game:', cookieDataString)
 			this.scene.manager.pause('Level0Scene')
 				this.scene.manager.start('InfoTextScene', {text: [
 					'sorry, there is no saved game',
@@ -130,7 +138,6 @@ MenuScene.prototype.create = function() {
 			]})
 		} else {
 			let heroData = JSON.parse(cookieDataString)
-			console.log('cookie hero data:', heroData)
 			this.scene.manager.stop('MenuScene')
 			this.scene.manager.start('LevelControlScene' , {
 				points: heroData.points,
@@ -149,14 +156,7 @@ MenuScene.prototype.create = function() {
 				},
 				currentLevelId: heroData.currentLevelId,
 			})
-		}
-
-			// read the next level data from cookies
-		// let cookiesHeroData = this.getCookie('dn1SaveGameData')
-		// console.log('points from cookie', JSON.parse(cookiesHeroData))
-		
-		// if (heroData)
-		
+		}		
 	})
 	this.resumeButton.gameObj.on('pointerover', () => {
 		this.resumeButton.pointerOver = true

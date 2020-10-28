@@ -17,17 +17,19 @@ function ScoreScene() {
 
 	// request score
 	this.requestScore = function() {
-		axios.get('http://localhost:9999/score.json')
+		// axios.get('http://localhost:9999/score.json')
+		axios.get('http://www.ogv-wendlingen.de/games/dn1Online/score.json')
 		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
 			.then(response => {
-				console.log(response.data.score)
 				this.content = []
 				this.scoreText = []
 				response.data.score.forEach((nameAndPoints, index) => {
 					if (index % 10 === 0) {
 						this.content.push([])
 					}
-					this.content[this.content.length - 1].push(((index + 1 < 10) ? '0' + String(index + 1) : String(index + 1)) + '.\t\t' + nameAndPoints.name + '\t\t\t' + String(nameAndPoints.points) + '\t\t' + ((index + 1 == 1) ? '🥇' : ((index + 1 == 2) ? '🥈' : ((index + 1 == 3) ? '🥉' : ''))))
+					if (nameAndPoints !== null) {
+						this.content[this.content.length - 1].push(((index + 1 < 10) ? '0' + String(index + 1) : String(index + 1)) + '.\t\t' + nameAndPoints.name + '\t\t\t' + String(nameAndPoints.points) + '\t\t' + ((index + 1 == 1) ? '🥇' : ((index + 1 == 2) ? '🥈' : ((index + 1 == 3) ? '🥉' : ''))))
+					}
 				})
 				this.content.forEach((scoreBlock, Index) => {
 					this.scoreText.push(this.add.text(80, 22, scoreBlock, { fontFamily: 'VT323-Regular', fontSize: 22, color: '#ffffff', fontStyle: 'bold' }))

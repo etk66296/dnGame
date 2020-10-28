@@ -624,46 +624,6 @@
     <property name="guardID" type="int" value="700"/>
    </properties>
   </object>
-  <object id="1261" name="Guard" x="1824" y="576" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1269" name="Guard" x="1824" y="560" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1270" name="Guard" x="1824" y="544" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1271" name="Guard" x="1824" y="528" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1273" name="Guard" x="1824" y="512" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1274" name="Guard" x="1824" y="496" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1275" name="Guard" x="1824" y="480" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
-  <object id="1276" name="Guard" x="1824" y="464" width="16" height="16">
-   <properties>
-    <property name="guardID" type="int" value="123"/>
-   </properties>
-  </object>
   <object id="1277" name="Guard" x="1632" y="304" width="16" height="16">
    <properties>
     <property name="guardID" type="int" value="124"/>
@@ -2248,10 +2208,11 @@
   </object>
  </objectgroup>
  <objectgroup name="Giantrobots">
-  <object id="1260" name="GIantrobo" x="1840" y="528" width="32" height="32">
+  <object id="1260" name="GIantrobo" x="1840" y="560" width="32" height="32">
    <properties>
+    <property name="activationDistance" type="int" value="64"/>
     <property name="frame" value="giantRobotL"/>
-    <property name="guardID" type="int" value="123"/>
+    <property name="guardID" type="int" value="-1"/>
     <property name="points" type="int" value="500"/>
    </properties>
   </object>

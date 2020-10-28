@@ -36,16 +36,19 @@ SubmitScoreScene.prototype.create = function() {
 	})
 	this.panel.events.on('submitName', (event) => {
 		// post data
-		axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.php', JSON.stringify({ name: event, points: this.points }))
+		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.php', JSON.stringify({ name: event, points: this.points }))
 		// axios.post('http://localhost:9999/score.php', JSON.stringify({ name: event, points: this.points }))
+		axios.post('http://www.ogv-wendlingen.de/games/dn1Online/score.php', JSON.stringify({ name: event, points: this.points }))
 			.then(response => {
-				console.log(response)
 				this.scene.stop('InputPanel')
 				this.scene.stop('SubmitScoreScene')
 				this.scene.start('MenuScene')
 			})
 		.catch(error => {
 			console.log(error)
+			this.scene.stop('InputPanel')
+			this.scene.stop('SubmitScoreScene')
+			this.scene.start('MenuScene')
 		})
 	})
 }

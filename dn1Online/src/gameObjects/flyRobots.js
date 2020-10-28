@@ -46,10 +46,11 @@ class FlyRobot extends EnemyObj {
 			}
 			if (Math.abs(this.hero.x - this.x) < 150) {
 				this.body.setVelocityX(this.lastDirX * this.constantVelocity.x)
-				this.cutterObj.setPosition(this.x, this.y + 9)
 			}
 			if (Math.abs(this.hero.y - this.y) < 150) {
 				this.body.setVelocityY(this.lastDirY * this.constantVelocity.y)
+			}
+			if (this.x !== this.cutterObj.x || (this.y + 9) !== this.cutterObj.y) {
 				this.cutterObj.setPosition(this.x, this.y + 9)
 			}
 

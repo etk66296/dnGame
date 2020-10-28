@@ -315,7 +315,7 @@ class Hero extends PhysicsObj {
 				this.body.checkCollision.none = true
 				this.setGravityY(-200)
 			}
-			if (this.y < -1000) {
+			if (this.y < -1000 || this.y > 3000) {
 				// this.scene.scene.manager.stop('Level0Scene')
 				this.scene.scene.manager.start('SubmitScoreScene' , { points: this.collectedPoints })
 			}

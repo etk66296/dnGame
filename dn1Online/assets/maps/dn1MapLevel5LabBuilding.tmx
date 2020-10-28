@@ -2885,13 +2885,6 @@
     <property name="points" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2758" name="HighJumpShoe" type="unpacked" x="192" y="112" width="16" height="16">
-   <properties>
-    <property name="anim" value="HighJumpShoe"/>
-    <property name="frame" value="HighJumpShoe_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="FireWheelRobots">
   <object id="1992" name="FireWheelRobot" x="1120" y="292" width="24" height="28">

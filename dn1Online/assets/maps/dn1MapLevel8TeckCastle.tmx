@@ -399,13 +399,6 @@
     <property name="teaserDist" type="int" value="32"/>
    </properties>
   </object>
-  <object id="3737" name="HighJumpShoe" type="unpacked" x="176" y="1168" width="16" height="16">
-   <properties>
-    <property name="anim" value="HighJumpShoe"/>
-    <property name="frame" value="HighJumpShoe_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
   <object id="3744" name="Joystick" type="packed" x="672" y="1008" width="16" height="16">
    <properties>
     <property name="animA" value="Joystick"/>
@@ -1062,27 +1055,6 @@
     <property name="frame" value="Joystick_0000"/>
     <property name="gravity" type="bool" value="true"/>
     <property name="points" type="int" value="2000"/>
-   </properties>
-  </object>
-  <object id="3890" name="GunUpgrade" type="unpacked" x="176" y="1168" width="16" height="16">
-   <properties>
-    <property name="anim" value="GunUpgrade"/>
-    <property name="frame" value="GunUpgrade_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
-  <object id="3891" name="GunUpgrade" type="unpacked" x="176" y="1168" width="16" height="16">
-   <properties>
-    <property name="anim" value="GunUpgrade"/>
-    <property name="frame" value="GunUpgrade_0000"/>
-    <property name="points" type="int" value="1000"/>
-   </properties>
-  </object>
-  <object id="3892" name="GunUpgrade" type="unpacked" x="176" y="1168" width="16" height="16">
-   <properties>
-    <property name="anim" value="GunUpgrade"/>
-    <property name="frame" value="GunUpgrade_0000"/>
-    <property name="points" type="int" value="1000"/>
    </properties>
   </object>
   <object id="3893" name="FloppyDisk" type="packed" x="640" y="832" width="16" height="16">

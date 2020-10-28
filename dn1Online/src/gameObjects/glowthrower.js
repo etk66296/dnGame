@@ -15,6 +15,9 @@ class GlowThrowerHead extends EnemyObj {
 		this.fullPowerDuration = glowThrowerData.properties.fullPowerDuration
 		this.glowerElapsedTime = 0
 
+		this.setSize(16, 16)
+		this.setOffset(0, 0)
+
 		// glower state
 		this.glowerState = 0
 	}
@@ -90,6 +93,9 @@ class GlowThrowerSegment extends EnemyObj {
 		this.glowThrowerData = glowThrowerData
 		this.setActive(true)
 		this.setVisible(true)
+
+		this.setSize(16, 16)
+		this.setOffset(0, 0)
 	}
 
 	preUpdate (time, delta) {
