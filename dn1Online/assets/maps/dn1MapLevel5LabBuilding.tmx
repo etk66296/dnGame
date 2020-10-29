@@ -503,7 +503,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="877" name="Hero" x="208" y="96" width="16" height="32"/>
+  <object id="877" name="Hero" x="240" y="96" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="1630" name="Spike" type="up" x="304" y="144" width="16" height="16">

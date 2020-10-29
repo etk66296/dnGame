@@ -336,12 +336,14 @@ Level0Scene.prototype.create = function() {
 	}
 
 	// master boss
-	if (this.masterBossObjLayerData[0] !== undefined) {
-		// there is just one master boss
-		this.masterBoss = new MasterBoss(this, this.hero, this.masterBossObjLayerData[0], this.solidLayer, this.enemyBullets)
-		this.add.sprite(this.masterBoss)
-		this.masterBoss.registerAsPainful()
-		this.masterBoss.registerAsShootable()
+	if (this.masterBossObjLayerData !== null) {
+		if (this.masterBossObjLayerData[0] !== undefined) {
+			// there is just one master boss
+			this.masterBoss = new MasterBoss(this, this.hero, this.masterBossObjLayerData[0], this.solidLayer, this.enemyBullets)
+			this.add.sprite(this.masterBoss)
+			this.masterBoss.registerAsPainful()
+			this.masterBoss.registerAsShootable()
+		}
 	}
 
 

@@ -32,6 +32,8 @@
 
     <script src="src/controls.js"></script>
     <script src="src/intro.js"></script>
+    <script src="src/startDialog.js"></script>
+    <script src="src/finalDialog.js"></script>
     <script src="src/menu.js"></script>
     <script src="src/notes.js"></script>
     <script src="src/score.js"></script>
@@ -83,10 +85,12 @@
     <script>
       window.onload = function() {
       }
+      function openHelp() {
+        window.open("assets/help.jpg");
+      }
     </script>
     <!-- render div, phaser creates the render element internally -->
     <!-- <header>
-
     </header> -->
     <div class="font_preload" style="opacity: 0"><!--force preloading the font-familiy-->
       <span style="font-family: 'VT323-Regular', Arial, sans-serif;"></span>

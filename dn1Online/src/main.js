@@ -5,7 +5,7 @@ function MemoryGame() {
 	    parent: 'phaser3Canvas',
 	    width: 500, // the odd values avoid bleeding on the render borders
 	    height: 280,
-			backgroundColor: '#000000',
+			backgroundColor: '#000',
 			scale: {
 				mode: Phaser.Scale.FIT,
 				// mode: Phaser.Scale.ENVELOP,
@@ -20,7 +20,7 @@ function MemoryGame() {
 				}
     	},
 			// scene: [IntroScene, MenuScene],
-			scene: [IntroScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene, NotesScene, InputPanel, ScoreScene, SubmitScoreScene],
+			scene: [IntroScene, StartDialogScene, FinalDialogScene, MenuScene, LevelControlScene, Level0Scene, InfoTextScene, NotesScene, InputPanel, ScoreScene, SubmitScoreScene],
 			audio: {
         disableWebAudio: true
     	}

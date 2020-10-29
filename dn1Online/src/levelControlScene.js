@@ -19,6 +19,8 @@ function LevelControlScene() {
 	this.hero = null
 	this.levelGates = null
 
+	this.decoObjLayerData = null
+
 }
 
 LevelControlScene.prototype = Object.create(Phaser.Scene.prototype)
@@ -74,16 +76,46 @@ LevelControlScene.prototype.create = function() {
 	// level gates
 	this.levelGates = new LevelGates(this, this.hero, this.levelGatesObjLayerData)
 	
+	// decoration
+	if (this.decoObjLayerData !== null) {
+		this.decoTiles = new AnimatedDeco(this, this.decoObjLayerData)
+	}
+
 	// camera
 	this.cameras.main.startFollow(this.hero)
 }
 
 LevelControlScene.prototype.update = function() {
+	if (this.hero.x > 450 && this.hero.x < 455) {
+		switch (this.heroData.currentLevelId) {
+			case 1:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Herzlich wilkommen im Kontrollzentrum.',
+						'Hier finden wir uns nach jedem abgeschlossenen',
+						'Level wieder.',
+						'Durch die große Stahltür verlassen wir den',
+						'Kontrollraum zu neuen Herausforderungen.',
+						'',
+						'Lass uns los legen bevor es dunkel wird.',
+						'Auf gehts in die Stadt.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+			break
+		}
+	}
 }
 
 LevelControlScene.prototype.preloadWorldData = function(levelID) {
 	// console.log('level id: ', levelID)
-	levelID = 11
+	// levelID = 10
 	switch (levelID) {
 		case -1: {
 			this.load.tilemapTiledJSON("mapLevelTest", "assets/maps/test.json")
@@ -245,4 +277,9 @@ LevelControlScene.prototype.createWorld = function() {
 
 	// level gates
 	this.levelGatesObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "LevelGates")].objects
+
+	// deco
+	if (this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations") !== -1) {
+		this.decoObjLayerData = this.worldMap.objects[this.worldMap.objects.findIndex(x => x.name === "AnimatedDecorations")].objects
+	}
 }

@@ -10,6 +10,7 @@ function MenuScene() {
 	this.notesButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
 	this.scoreButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
 	this.resumeButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
+	this.helpButton = { pointerOver: false, gameObj: null, currentScale: 1.0, scaleDelta: -0.0025}
 
 	// cookie level management helper functions
 	this.getCookie = function(cname) {
@@ -177,23 +178,7 @@ MenuScene.prototype.create = function() {
 	this.newGameButton.gameObj.setInteractive()
 	this.newGameButton.gameObj.on('pointerdown', () => {
 		this.scene.manager.stop('MenuScene')
-		this.scene.manager.start('LevelControlScene' , {
-			points: 0,
-			hasHighJumpShoe: false,
-			hasDangleClaws: false,
-			hasMultiHand: false,
-			numOfGunUps: 0,
-			numOfHealthBlocks: 10,
-			levelData: {
-				key: '',
-				mapData: '',
-				numOfTiles: 128 * 90,
-				lastScene: 'IntroScene',
-				backgroundImageFilePath: '',
-				backgroundKey: ''
-			},
-			currentLevelId: 0,
-		})
+		this.scene.start('StartDialogScene')
 	})
 	this.newGameButton.gameObj.on('pointerover', () => {
 		this.newGameButton.pointerOver = true
@@ -237,10 +222,24 @@ MenuScene.prototype.create = function() {
 		this.scoreButton.pointerOver = false
 	})
 
+	// help
+	this.helpButton.gameObj = this.add.sprite(440, 240, 'menuBtnHelp')
+	this.helpButton.gameObj.setInteractive()
+	this.helpButton.gameObj.on('pointerdown', () => {
+		window.open("assets/help.jpg");
+	})
+	this.helpButton.gameObj.on('pointerover', () => {
+		this.helpButton.pointerOver = true
+	})
+	this.helpButton.gameObj.on('pointerout', () => {
+		this.helpButton.pointerOver = false
+	})
+
 	this.newGameButton.pointerOver = false
 	this.notesButton.pointerOver = false
 	this.scoreButton.pointerOver = false
 	this.resumeButton.pointerOver = false
+	this.helpButton.pointerOver = false
 
 	this.requestScore()
 }
@@ -317,6 +316,25 @@ MenuScene.prototype.update = function (time, delta) {
 		this.scoreButton.currentScale = 1.0
 		this.scoreButton.gameObj.setScale(this.scoreButton.currentScale)
 	}
+	// help
+	if (this.helpButton.pointerOver) {
+		this.helpButton.gameObj.setScale(this.helpButton.currentScale)
+		this.helpButton.currentScale -= this.helpButton.scaleDelta
+		if (this.helpButton.currentScale < 0.95) {
+			this.helpButton.scaleDelta *= -1
+			this.helpButton.currentScale = 0.95
+		}
+		if (this.helpButton.currentScale > 1.0) {
+			this.helpButton.scaleDelta *= -1
+			this.helpButton.currentScale = 1.0
+		}
+	} else {
+		this.helpButton.scaleDelta *= -1
+		this.helpButton.currentScale = 1.0
+		this.helpButton.gameObj.setScale(this.helpButton.currentScale)
+	}
+
+	
 }
 
 

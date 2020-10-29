@@ -339,7 +339,7 @@ class Hero extends PhysicsObj {
 					'Die Blasterkanone reagiert auf den',
 					'"Y" - Knopf deiner Tastatur',
 					'oder den Tastknopf "B" auf am HUD.'
-				]})
+				], resumeSceneKey: 'Level0Scene'})
 				this.setPosition(this.x + 5, this.y)
 				this.tutorialInfos[0] = false
 			}
@@ -350,7 +350,7 @@ class Hero extends PhysicsObj {
 					'Miniroboter schleichen durch die Gegend.',
 					'',
 					'Es wird Zeit diesen hier weg zu pusten'
-				]})
+				], resumeSceneKey: 'Level0Scene'})
 				this.setPosition(this.x + 5, this.y)
 				this.tutorialInfos[1] = false
 			}

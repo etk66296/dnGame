@@ -25,12 +25,17 @@ IntroScene.prototype.preload = function () {
 	this.load.image('menuBtnBack', 'assets/buttons/back.png')
 	this.load.image('menuBtnUp', 'assets/buttons/up.png')
 	this.load.image('menuBtnDown', 'assets/buttons/down.png')
+	this.load.image('menuBtnHelp', 'assets/buttons/help.png')
 	// bitmap font
 	this.load.bitmapFont('arcade', 'assets/font/arcade.png', 'assets/font/arcade.xml')
 	this.load.bitmapFont('ice', 'assets/font/iceicebaby.png', 'assets/font/iceicebaby.xml')
 	this.load.image('rub', 'assets/font/rub.png')
 	this.load.image('end', 'assets/font/end.png')
 	this.load.image('block', 'assets/font/block.png')
+
+	// dialog sprites
+	this.load.image('heroPortrait', 'assets/sprites/heroPortrait.png')
+	this.load.image('bossPortrait', 'assets/sprites/bossPortrait.png')
 	
 
 	this.load.image('textbox', 'assets/sprites/bgs/textbox.png')
@@ -1300,6 +1305,7 @@ IntroScene.prototype.update = function (time, delta) {
 		
 		
 		this.scene.start('MenuScene')
+		// this.scene.start('StartDialogScene')
 		
 		// this.scene.manager.start('Level0Scene' , {
 		// 	points: 0,
