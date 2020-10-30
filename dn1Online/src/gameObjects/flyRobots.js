@@ -21,6 +21,8 @@ class FlyRobot extends EnemyObj {
 		this.cutterObj.play(roboData.properties.animC)
 		this.constFireDeltaTime = 2000
 		this.fireElapsedTime = 0
+
+		this.activeAfterDead = true
 	}
 	
 	preUpdate (time, delta) {
@@ -66,6 +68,8 @@ class FlyRobot extends EnemyObj {
 		if (!this.isAlive) {
 			this.cutterObj.setActive(false)
 			this.cutterObj.setVisible(false)
+			this.setActive(false)
+			this.setVisible(false)
 		}
 	}
 }

@@ -50,7 +50,7 @@ class MasterBoss extends EnemyObj {
 	
 	preUpdate (time, delta) {
 		super.preUpdate(time, delta)
-		if (!this.startMoving && Phaser.Math.Distance.Between(this.x, this.y, this.hero.x, this.hero.y) < 200) {
+		if (!this.startMoving && Phaser.Math.Distance.Between(this.x, this.y, this.hero.x, this.hero.y) < 180) {
 			this.startMoving = true
 		}
 		if (this.startMoving && this.isAlive) {

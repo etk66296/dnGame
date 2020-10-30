@@ -92,6 +92,9 @@ class Hero extends PhysicsObj {
 			rect.setScrollFactor(0)
 			this.heroHealthGroup.add(rect)
 		}
+		// sound
+		this.jumpSound = scene.sound.add('dukeJump')
+		this.painSound = scene.sound.add('pain')
 		return this
 	}
 
@@ -146,6 +149,7 @@ class Hero extends PhysicsObj {
 				// JUMP -->
 				if (this.gameControls.touch_JUMP.isDown || Phaser.Input.Keyboard.JustDown(this.gameControls.key_JUMP)) {
 					this.setVelocityY(this.jumpPower)
+					this.jumpSound.play()
 				}
 				// <-- JUMP
 				//////////////////////////////////////////////////////////////////////////////
@@ -163,6 +167,7 @@ class Hero extends PhysicsObj {
 					} else {
 						this.setFrame('dangleShootL_0000')
 					}
+					this.scene.sound.play('dukeFire')
 					this.gun.fireBullet(this.x, this.y, this.lastDir)
 				}
 				// dangling LEFT -->
@@ -181,6 +186,7 @@ class Hero extends PhysicsObj {
 					if (this.allowDanglePullUp) {
 						if (this.gameControls.touch_JUMP.isDown || this.gameControls.key_JUMP.isDown) {
 							this.body.checkCollision.up = false
+							this.jumpSound.play()
 							if (this.painState) {
 								this.anims.play('heroPainLeft', true)
 							} else {
@@ -297,6 +303,9 @@ class Hero extends PhysicsObj {
 
 		// reset pain -->
 		if (this.painState) {
+			if (!this.painSound.isPlaying) {
+				this.painSound.play()
+			}
 			this.painStopWatch += delta
 		}
 		if(this.painStopWatch > this.painTime) {

@@ -26,6 +26,7 @@ SubmitScoreScene.prototype.create = function() {
 	// show the typed name
 	this.pointsTextObj = this.add.bitmapText(18, 150, 'ice', String(this.points) + ' points', 42)
 	this.hindTextObj = this.add.bitmapText(18, 200, 'arcade', 'type your name and press "END"', 12)
+	this.add.bitmapText(18, 218, 'arcade', 'use "RUB" to delete a letter', 12)
 	this.typedNameTextObj = this.add.bitmapText(18, 240, 'ice', 'Name: ', 36)
 
 	this.scene.launch('InputPanel')
@@ -37,8 +38,7 @@ SubmitScoreScene.prototype.create = function() {
 	this.panel.events.on('submitName', (event) => {
 		// post data
 		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.php', JSON.stringify({ name: event, points: this.points }))
-		// axios.post('http://localhost:9999/score.php', JSON.stringify({ name: event, points: this.points }))
-		axios.post('http://www.ogv-wendlingen.de/games/dn1Online/score.php', JSON.stringify({ name: event, points: this.points }))
+		axios.post('http://localhost:9999/score.php', JSON.stringify({ name: event, points: this.points }))
 			.then(response => {
 				this.scene.stop('InputPanel')
 				this.scene.stop('SubmitScoreScene')

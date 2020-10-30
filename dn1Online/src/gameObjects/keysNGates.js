@@ -58,6 +58,7 @@ class KeyPlate extends PhysicsObj {
 		this.setVisible(true)
 		this.heroOverlapEvent = this.scene.physics.add.overlap(this, this.hero, (plate, hero) => {
 			if ((this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) && this.hero.hasKey(this.keyID)) {
+				this.openSound.play()
 				this.setFrame(this.doorOpenedFrame)
 				this.gates.children.iterate(gate => {
 					if (gate.keysNGatesType === 'Gate') {
@@ -69,6 +70,8 @@ class KeyPlate extends PhysicsObj {
 				scene.physics.world.removeCollider(this.heroOverlapEvent)
 			}
 		})
+		// sound
+		this.openSound = scene.sound.add('openGate')
 	}
 	
 	preUpdate (time, delta) {

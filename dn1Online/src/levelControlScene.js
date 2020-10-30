@@ -94,7 +94,7 @@ LevelControlScene.prototype.update = function() {
 					text: [
 						'Herzlich wilkommen im Kontrollzentrum.',
 						'Hier finden wir uns nach jedem abgeschlossenen',
-						'Level wieder.',
+						'Mission wieder.',
 						'Durch die große Stahltür verlassen wir den',
 						'Kontrollraum zu neuen Herausforderungen.',
 						'',
@@ -109,6 +109,179 @@ LevelControlScene.prototype.update = function() {
 				this.hero.x += 10
 				this.hero.gameControls.release()
 			break
+			case 2:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Es ist mittlerweile dunkel geworden.',
+						'Unser erster Einsatz in der Stadt war sehr',
+						'erfolgreich. Doktor Zements Roboter konnten',
+						'weit zurück gedrängt werden.',
+						'Doch leider treiben einige von ihnen noch',
+						'immer ihr Unwesen.',
+						'Lass uns noch einmal los ziehen und für',
+						'Elektronikschrott sorgen.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+			break
+			case 3:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Gerüchten zufolge ist Doktor Zement',
+						'auf seine Mondbasis geflüchtet.',
+						'Auf gehts hinterher!',
+						'',
+						'Sein Raumgleiterhangar ist streng gesichert.',
+						'Um dort hinein zu kommen benötigen wir',
+						'die Platine.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+			break
+			case 4:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Mit seinen von künstlicher Intelligenz',
+						'entwickelten Raumgleitern möchte',
+						'Doktor Zement den Amazonas betonieren.',
+						'',
+						'Wir müssen dies unbeding verhindern.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+			break
+			case 5:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Die Entwicklung der Raumgleiter befindet',
+						'sich in einem untermondischen Laborkomplex.',
+						'',
+						'Mach Hackschnitzel daraus.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
+			case 6:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Neben dem Raumgleiterbau lässt',
+						'Doktor Zement einen speziellen Flüssigzement',
+						'🧪 herstellen.',
+						'',
+						'Am besten du betonierst die Raffinerie',
+						'mit ihrem eigenen Erzeugnis.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
+			case 7:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Die Hydraulikflüssigkeit der 4.0 Roboter',
+						'besteht aus synthetischem Traubensaft.',
+						'',
+						'',
+						'Es brächte uns strategische Vorteile',
+						'die Fernleitung zu kappen.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
+			case 8:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Gerade wurde eine Nachricht von Doktor',
+						'Zement abgefangen.',
+						'Er ist offensichtlich zur Erde',
+						'zurückgekehrt.',
+						'Oh nein, seine Helfer haben begonnen die ',
+						'Burg Teck einzuspinnen.',
+						'Wir müssen auf schnellstem Weg dorthin.'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
+			case 9:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Doktor Zement wurde im Wendlinger',
+						'Frachtzentrum gesichtet.',
+						'',
+						'Mit dem Fahrrad entlang der Lauter schaffen',
+						'wirs bis dorthin in einer halben Stunde.',
+						'',
+						'Ferig?',
+						'Dann los!'
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
+			case 10:
+				this.scene.manager.pause('LevelControlScene')
+				this.scene.manager.start('InfoTextScene', {
+					text: [
+						'Wir haben Beweise dafür, dass sich Zements',
+						'Hauptquartier hier in Wendlingen befindet',
+						'',
+						'Es wird Zeit die Sache zu beenden.',
+						''
+					], 
+					resumeSceneKey: 'LevelControlScene',
+					msgBoxPos: { x: 60, y: 50 },
+					fontSize: 18,
+					boxScale: 1.0
+				})	
+				this.hero.x += 10
+				this.hero.gameControls.release()
+				break
 		}
 	}
 }
@@ -256,8 +429,8 @@ LevelControlScene.prototype.preloadWorldData = function(levelID) {
 				mapData: 'LevelControlScene',
 				numOfTiles: 64 * 32,
 				lastScene: '',
-				backgroundImageFilePath: 'assets/sprites/bgs/stuttgart.jpg',
-				backgroundKey: 'backgroundImageStuttgart'
+				backgroundImageFilePath: '',
+				backgroundKey: ''
 			} 
 		}
 	}

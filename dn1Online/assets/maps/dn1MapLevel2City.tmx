@@ -403,7 +403,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Hero">
-  <object id="877" name="Hero" x="736" y="432" width="16" height="32"/>
+  <object id="877" name="Hero" x="720" y="432" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="1056" name="Spike" type="up" x="864" y="448" width="16" height="16">
@@ -1668,7 +1668,7 @@
     <property name="points" type="int" value="125"/>
    </properties>
   </object>
-  <object id="1031" name="FlyRobot" x="1328" y="816" width="16" height="16">
+  <object id="1031" name="FlyRobot" x="1504" y="816" width="16" height="16">
    <properties>
     <property name="animC" value="flyRobotCutter"/>
     <property name="animLR" value="flyRobotLR"/>

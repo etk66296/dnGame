@@ -32,8 +32,7 @@ function MenuScene() {
 	this.bestScoreText = null
 	// request best core
 	this.requestScore = function() {
-		// axios.get('http://localhost:9999/score.json')
-		axios.get('http://www.ogv-wendlingen.de/games/dn1Online/score.php')
+		axios.get('http://localhost:9999/score.json')
 		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
 			.then(response => {
 				this.bestScoreText = this.add.text(200, 220, '🥇  ' + response.data.score[0].name + '\t\t' + String(response.data.score[0].points), { fontFamily: 'VT323-Regular', fontSize: 20, color: '#ffffff', fontStyle: 'bold' })
@@ -95,11 +94,11 @@ MenuScene.prototype.create = function() {
 				let letter = this.add.text(charPos.x, charPos.y, headLineStr.charAt(i),{
 					fontFamily: 'VT323-Regular',
 					fontSize: fontSize,
-					color: '#AAAAAA',
+					color: '#ffffff',
 					fontStyle: 'bold'
 				})
-				letter.setStroke('#a4461d', 5);
-				letter.setShadow(2, -2, '#d05521' /*color*/, 0 /*blur*/, true /*stroke*/, false /*fill*/)
+				letter.setStroke('#1b7bdb', 5);
+				letter.setShadow(2, -2, '#0c5eb0' /*color*/, 0 /*blur*/, true /*stroke*/, false /*fill*/)
 			}
 		})
 	}

@@ -76,6 +76,8 @@ class JustCollectGift extends GiftObj {
 		this.giftData = giftData
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
 			this.hero.addPoints(this.giftData.properties.points)
+			// play sound
+			this.pikUpSound.play()
 			// this.setActive(false)
 			this.play('Points' + String(giftData.properties.points))
 			this.setGravityY(0)
@@ -115,6 +117,9 @@ class JustCollectGift extends GiftObj {
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
+
+		// sound
+		this.pikUpSound = scene.sound.add('pickupGift')
 	}
 }
 
@@ -126,6 +131,8 @@ class SpecialGift extends GiftObj {
 		this.giftData = giftData
 		this.name = giftData.name
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			// play sound
+			this.pikUpSound.play()
 			this.hero.addPoints(giftData.properties.points)
 			this.hero.appendEquipment(this)
 			scene.physics.world.removeCollider(this.overlapHeroEvent)			
@@ -139,6 +146,8 @@ class SpecialGift extends GiftObj {
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
+		// sound
+		this.pikUpSound = scene.sound.add('pickupGift')
 	}
 }
 
@@ -152,6 +161,8 @@ class FragileGift extends GiftObj {
 		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			// play sound
+			this.pikUpSound.play()
 			if (this.giftState === 0) {
 				this.hero.addPoints(giftData.properties.pointsA)
 				this.play('Points' + String(giftData.properties.pointsA))
@@ -192,6 +203,8 @@ class FragileGift extends GiftObj {
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
+		// sound
+		this.pikUpSound = scene.sound.add('pickupGift')
 	}
 }
 
@@ -205,6 +218,8 @@ class HealthUpGift extends GiftObj {
 		this.body.setSize(16, 18, true) // thus, the gun is able to hit it while hero is touching the floor
 		this.giftState = 0  /* Exaple ... 0: tin touches the floor, 1: tin was shoot and flys up*/
 		this.overlapHeroEvent = this.scene.physics.add.overlap(this, this.hero, () => {
+			// play sound
+			this.pikUpSound.play()
 			if (this.giftState === 0) {
 				this.hero.addHealth(giftData.properties.healthA)
 				this.hero.addPoints(giftData.properties.pointsA)
@@ -250,6 +265,9 @@ class HealthUpGift extends GiftObj {
 			this.body.checkCollision.none = true
 			this.box = new GiftBox(scene, hero, giftData.x + 8, giftData.y + 8, this)
 		}
+
+		// sound
+		this.pikUpSound = scene.sound.add('pickupGift')
 	}
 }
 

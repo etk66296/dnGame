@@ -1,5 +1,5 @@
 class TouchButton extends Phaser.GameObjects.Sprite {
-  constructor (scene, x, y, frame, ctrlSwitch, allowJam,buttonScale = 1.0) {
+  constructor (scene, x, y, frame, ctrlSwitch, justDown, allowJam,buttonScale = 1.0) {
 		super(scene, x, y, 'controlButtonsAtlas', frame)
 		scene.add.existing(this)
 		this.ctrlSwitch = ctrlSwitch
@@ -8,6 +8,9 @@ class TouchButton extends Phaser.GameObjects.Sprite {
 		this.downTime = 0
 		this.allowedDownTime = 200
 		this.allowJam = allowJam
+		this.updateCounter
+		this.justDown = justDown
+		this.justDownCounter = 0
 	}
 	setup() {
 		this.setName(this.nonePressedFrame)
@@ -35,6 +38,15 @@ class TouchButton extends Phaser.GameObjects.Sprite {
 				}
 			}
 		}
+
+		// some touch buttons have to trigger just one time after they are down
+		if (this.justDown && this.ctrlSwitch.isDown) {
+			this.justDownCounter += 1 
+			if (this.justDownCounter >= 2) {
+				this.justDownCounter = 0
+				this.ctrlSwitch.isDown = false
+			}
+		}
 	}
 }
 class Controls extends Phaser.GameObjects.Group {
@@ -53,11 +65,11 @@ class Controls extends Phaser.GameObjects.Group {
 		this.touch_FIRE = { isDown: false }
 	
 		scene.input.addPointer(5)
-		this.add(new TouchButton(scene, 418, 145, 'UseButton', this.touch_USE, true, 0.6))
-		this.add(new TouchButton(scene, 70, 240, 'RArrowButton', this.touch_RIGHT, true))
-		this.add(new TouchButton(scene, 35, 180, 'LArrowButton', this.touch_LEFT, true))
-		this.add(new TouchButton(scene, 430, 240, 'AButton', this.touch_JUMP, false))
-		this.add(new TouchButton(scene, 465, 180, 'BButton', this.touch_FIRE, false))
+		this.add(new TouchButton(scene, 418, 145, 'UseButton', this.touch_USE, true, true, 0.6))
+		this.add(new TouchButton(scene, 70, 240, 'RArrowButton', this.touch_RIGHT, false, true))
+		this.add(new TouchButton(scene, 35, 180, 'LArrowButton', this.touch_LEFT, false, true))
+		this.add(new TouchButton(scene, 430, 240, 'AButton', this.touch_JUMP, true, false))
+		this.add(new TouchButton(scene, 465, 180, 'BButton', this.touch_FIRE, true, false))
 
 		this.gunPowerAmount = 1
 		this.gunPowerTxtObj = scene.add.text(

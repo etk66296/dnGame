@@ -65,7 +65,7 @@
  </objectgroup>
  <objectgroup name="Conveyors"/>
  <objectgroup name="Hero">
-  <object id="3069" name="Hero" x="176" y="1184" width="16" height="32"/>
+  <object id="3069" name="Hero" x="160" y="1184" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="Spikes">
   <object id="3723" name="Spike" type="down" x="288" y="1072" width="16" height="16">

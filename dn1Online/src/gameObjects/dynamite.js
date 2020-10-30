@@ -53,6 +53,7 @@ class Floorfire extends EnemyObj {
 				this.body.checkCollision.none = false
 				this.fireTriggered = true
 				this.painEnabled = true
+				this.floorfireSound.play()
 				if (this.bulletHitEvent !== null) {
 					scene.physics.world.removeCollider(this.bulletHitEvent)
 				}
@@ -64,6 +65,8 @@ class Floorfire extends EnemyObj {
 				this.setPosition(-100, -100)
 			}
 		})
+
+		this.floorfireSound = scene.sound.add('floorFire')
 	}
 
 	registerAsShootable() {

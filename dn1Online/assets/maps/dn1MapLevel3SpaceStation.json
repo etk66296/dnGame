@@ -5896,37 +5896,6 @@
                 }, 
                 {
                  "height":20,
-                 "id":1216,
-                 "name":"FlyRobot",
-                 "properties":
-                    {
-                     "animC":"flyRobotCutter",
-                     "animLR":"flyRobotLR",
-                     "animRL":"flyRobotRL",
-                     "frameL":"flyRobotL",
-                     "frameR":"flyRobotR",
-                     "guardID":-1,
-                     "points":125
-                    },
-                 "propertytypes":
-                    {
-                     "animC":"string",
-                     "animLR":"string",
-                     "animRL":"string",
-                     "frameL":"string",
-                     "frameR":"string",
-                     "guardID":"int",
-                     "points":"int"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1248,
-                 "y":1088
-                }, 
-                {
-                 "height":20,
                  "id":1244,
                  "name":"FlyRobot",
                  "properties":
@@ -5955,6 +5924,37 @@
                  "width":16,
                  "x":384,
                  "y":1008
+                }, 
+                {
+                 "height":20,
+                 "id":1291,
+                 "name":"FlyRobot",
+                 "properties":
+                    {
+                     "animC":"flyRobotCutter",
+                     "animLR":"flyRobotLR",
+                     "animRL":"flyRobotRL",
+                     "frameL":"flyRobotL",
+                     "frameR":"flyRobotR",
+                     "guardID":-1,
+                     "points":125
+                    },
+                 "propertytypes":
+                    {
+                     "animC":"string",
+                     "animLR":"string",
+                     "animRL":"string",
+                     "frameL":"string",
+                     "frameR":"string",
+                     "guardID":"int",
+                     "points":"int"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1248,
+                 "y":1088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -9052,7 +9052,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":1291,
+ "nextobjectid":1292,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

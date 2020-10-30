@@ -17,8 +17,7 @@ function ScoreScene() {
 
 	// request score
 	this.requestScore = function() {
-		// axios.get('http://localhost:9999/score.json')
-		axios.get('http://www.ogv-wendlingen.de/games/dn1Online/score.json')
+		axios.get('http://localhost:9999/score.json')
 		// axios.post('http://htmlpreview.github.io/?https://github.com/etk66296/games/blob/master/dn1Online/score.json')
 			.then(response => {
 				this.content = []

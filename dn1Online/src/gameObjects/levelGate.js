@@ -21,7 +21,7 @@ class LevelGate extends PhysicsObj {
 				this.hero.setVisible(false)
 				this.play(this.levelGateData.properties.animB)
 			} else {
-				console.log('levelID: ', this.hero.currentLevelId)
+				// console.log('levelID: ', this.hero.currentLevelId)
 				if (this.hero.currentLevelId !== 12) {
 					let heroData = {
 						points: this.hero.collectedPoints,
@@ -75,6 +75,8 @@ class LevelGates extends Phaser.Physics.Arcade.Group {
 		super(scene.physics.world, scene)
 		this.hero = hero
 		this.levelComplete = false
+		// sound
+		this.openSound = scene.sound.add('openGate')
 		levelGatesData.forEach((levelGateData) => {
 			this.add(new LevelGate(scene, hero, levelGateData))
 		})
@@ -84,6 +86,7 @@ class LevelGates extends Phaser.Physics.Arcade.Group {
 			scene.physics.add.overlap(this.hero, gate, () => {
 				if (!this.levelComplete) {
 					if (this.hero.gameControls.touch_USE.isDown || this.hero.gameControls.key_USE.isDown) {
+						this.openSound.play()
 						this.levelComplete = true
 						gate.openGate()
 					}

@@ -14,6 +14,10 @@ class Bullet extends PhysicsObj {
 				this.setVisible(false)
 			}
 		})
+		// audio
+		this.fireSound = scene.sound.add('dukeFire')
+		this.fireSound.config.volume = 0.5
+		this.explodeSound = scene.sound.add('explosion')
 	}
   fire (x, y, dir) {
 		this.body.checkCollision = {
@@ -29,8 +33,12 @@ class Bullet extends PhysicsObj {
 		this.setVisible(true)
 		this.setVelocityX(300 * dir)
 		this.setFrame('bullet')
+		this.fireSound.play()
+		// if (!this.fireSound.isPlaying) {
+		// }
 	}
 	explode () {
+		this.explodeSound.play()
 		this.setVelocityX(0)
 		this.body.checkCollision.none = true
 		this.play('heroExplode')
