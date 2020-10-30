@@ -1,5 +1,5 @@
 class TouchButton extends Phaser.GameObjects.Sprite {
-  constructor (scene, x, y, frame, ctrlSwitch, justDown, allowJam,buttonScale = 1.0) {
+  constructor (scene, x, y, frame, ctrlSwitch, justDown, allowJam, buttonScale = 1.0) {
 		super(scene, x, y, 'controlButtonsAtlas', frame)
 		scene.add.existing(this)
 		this.ctrlSwitch = ctrlSwitch
@@ -65,7 +65,7 @@ class Controls extends Phaser.GameObjects.Group {
 		this.touch_FIRE = { isDown: false }
 	
 		scene.input.addPointer(5)
-		this.add(new TouchButton(scene, 418, 145, 'UseButton', this.touch_USE, true, true, 0.6))
+		this.add(new TouchButton(scene, 418, 145, 'UseButton', this.touch_USE, false, true, 0.6))
 		this.add(new TouchButton(scene, 70, 240, 'RArrowButton', this.touch_RIGHT, false, true))
 		this.add(new TouchButton(scene, 35, 180, 'LArrowButton', this.touch_LEFT, false, true))
 		this.add(new TouchButton(scene, 430, 240, 'AButton', this.touch_JUMP, true, false))
